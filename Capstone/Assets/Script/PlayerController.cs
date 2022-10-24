@@ -5,26 +5,34 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed;
-    Rigidbody rb;
-    bool facingRight;
+    public float jumpForce;
+    private Rigidbody rb;
+    [SerializeField] bool isfacingRight;
+    [SerializeField] bool isGrounded;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        facingRight = true;
+        isfacingRight = true;
     }
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            //Vector3 jump = new Vector3(0f, 2f, 0f);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
 
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3 (move * runSpeed,rb.velocity.y, 0);
-        if (move > 0 && !facingRight)
+        if (move > 0 && !isfacingRight)
         {
             Flip();
             
         }
 
-        else if (move < 0 && facingRight)
+        else if (move < 0 && isfacingRight)
         {
             Flip();
             
@@ -33,16 +41,27 @@ public class PlayerController : MonoBehaviour
         {
             
         };
+
     }
 
+
+    #region Checker
     void Flip()
     {
-        facingRight = !facingRight;
+        isfacingRight = !isfacingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+    }
 
-  
+    private void OnCollisionExit(Collision collision)
+    {
+        isGrounded = false;
+    }
+    #endregion
 }
