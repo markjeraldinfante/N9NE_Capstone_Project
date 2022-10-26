@@ -13,9 +13,14 @@ public class CameraPivot : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float camRotation = Input.GetAxis("Horizontal") * camRotateValue;
-        cam.rotation = Quaternion.Euler(0f, camRotation, 0f);
+        StartCoroutine(camFix());
     }
 
-
+    IEnumerator camFix()
+    {
+        float camRotation = Input.GetAxis("Horizontal") * camRotateValue;
+        cam.rotation = Quaternion.Euler(0f, camRotation, 0f);
+        yield return new WaitForSeconds(50f);
+        
+    }
 }

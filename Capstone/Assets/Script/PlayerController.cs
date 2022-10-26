@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] bool isfacingRight;
     [SerializeField] bool isGrounded;
+ 
 
     void Awake()
     {
@@ -28,14 +29,16 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3 (move * runSpeed,rb.velocity.y, 0);
         if (move > 0 && !isfacingRight)
         {
-            Flip();
-            
+            StartCoroutine(Delayflip());
+            isfacingRight = !isfacingRight;
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
 
         else if (move < 0 && isfacingRight)
         {
-            Flip();
-            
+            StartCoroutine(Delayflip());
+            isfacingRight = !isfacingRight;
+            transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
         }
         else if (move == 0) 
         {
@@ -64,4 +67,9 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
     }
     #endregion
+
+    IEnumerator Delayflip()
+    {
+        yield return new WaitForSeconds(5f);
+    }
 }
