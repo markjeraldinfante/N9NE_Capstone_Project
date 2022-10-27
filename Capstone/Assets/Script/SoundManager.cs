@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+namespace somnium
+{ 
 public class SoundManager : MonoBehaviour
 {
   
-    [SerializeField] AudioMixerGroup BGM, SFX;
+    [SerializeField] public AudioMixerGroup BGM, SFX;
     [SerializeField] AudioSource SFXSource, BGMSource;
     [SerializeField] Sounds[] BG_music;
     [SerializeField] Sounds[] sounds_FX;
+    [SerializeField] public float musicVolume = 1f;
 
 
-    #region AudioController
-    private void Start()
+        #region AudioController
+        private void Start()
     {
         if (PlayerPrefs.HasKey("_BGM")) BGM.audioMixer.SetFloat("BGM", PlayerPrefs.GetFloat("_BGM"));
         if (PlayerPrefs.HasKey("_SFX")) SFX.audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("_SFX"));
@@ -31,3 +34,5 @@ public class SoundManager : MonoBehaviour
     #endregion
 
 }
+}
+
