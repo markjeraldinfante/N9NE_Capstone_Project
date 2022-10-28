@@ -7,13 +7,25 @@ namespace somnium
 { 
 public class SoundManager : MonoBehaviour
 {
-  
+
+    public static SoundManager instance;
     [SerializeField] public AudioMixerGroup BGM, SFX;
     [SerializeField] AudioSource SFXSource, BGMSource;
     [SerializeField] Sounds[] BG_music;
     [SerializeField] Sounds[] sounds_FX;
     [SerializeField] public float musicVolume = 1f;
 
+
+    private void Awake()
+     {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(this);
+            }
+            else
+                Destroy(gameObject);
+    }
 
         #region AudioController
         private void Start()

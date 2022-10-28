@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
+
 
 namespace somnium
 { 
     public class SoundScript : MonoBehaviour
     {
-        // Start is called before the first frame update
-        public somnium.SoundManager soundManager;
-        
 
-       
         void Start()
         {
             
@@ -23,9 +19,8 @@ namespace somnium
             //AudioSource.volume = musicVolume;
            // soundManager.SetBGM = soundManager.musicVolume;
         }
-        public void updateVolume(float volume)
-        {
-           soundManager.musicVolume  = volume;
-        }
+        public void SetBGM(float volume) => SoundManager.instance.SetBGM(volume);
+        public void SetSFX(float volume) => SoundManager.instance.SetSFX(volume);
+
     }
 }
