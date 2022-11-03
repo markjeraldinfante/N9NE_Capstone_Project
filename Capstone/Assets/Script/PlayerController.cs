@@ -18,13 +18,6 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            //Vector3 jump = new Vector3(0f, 2f, 0f);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
-
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3 (move * runSpeed,rb.velocity.y, 0);
         if (move > 0 && !isfacingRight)
@@ -45,6 +38,15 @@ public class PlayerController : MonoBehaviour
             
         };
 
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            //Vector3 jump = new Vector3(0f, 2f, 0f);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
 
