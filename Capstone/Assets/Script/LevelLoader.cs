@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
         
             slider.value = operation.progress;
 
-            yield return null;
+            yield return new WaitForSeconds(50f);
         }
     }
 }
