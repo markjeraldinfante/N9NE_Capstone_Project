@@ -21,7 +21,14 @@ using TMPro;
                 showPlay();
             }
         }
-        public void OnButtonPressLogin()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
+    public void OnButtonPressLogin()
         {
             if (UsernameInput.text.Length >= 1)
             {
