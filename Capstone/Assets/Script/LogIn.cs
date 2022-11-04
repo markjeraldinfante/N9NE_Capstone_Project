@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LogIn : MonoBehaviour
 {
-    [SerializeField] private InputField usernameInput;
+    [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private Text welcomeText;
     [SerializeField] private Text usernameText;
     [SerializeField] private Button playButton;
