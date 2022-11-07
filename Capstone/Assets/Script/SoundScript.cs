@@ -8,12 +8,6 @@ namespace somnium
     public class SoundScript : MonoBehaviour
     {
 
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
         void Update()
         {
             //AudioSource.volume = musicVolume;
@@ -21,6 +15,6 @@ namespace somnium
         }
         public void SetBGM(float volume) => SoundManager.instance.SetBGM(volume);
         public void SetSFX(float volume) => SoundManager.instance.SetSFX(volume);
-
+        
     }
 }
