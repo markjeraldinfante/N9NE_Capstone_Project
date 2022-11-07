@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System;
 
 namespace somnium
 { 
@@ -9,11 +10,9 @@ public class SoundManager : MonoBehaviour
 {
 
     public static SoundManager instance;
-    [SerializeField] public AudioMixerGroup BGM, SFX;
     [SerializeField] AudioSource SFXSource, BGMSource;
     [SerializeField] Sounds[] BG_music;
     [SerializeField] Sounds[] sounds_FX;
-    [SerializeField] public float musicVolume = 1f;
 
 
     private void Awake()
@@ -26,23 +25,49 @@ public class SoundManager : MonoBehaviour
             else
                 Destroy(gameObject);
     }
+      
 
         #region AudioController
-        private void Start()
-    {
-        if (PlayerPrefs.HasKey("_BGM")) BGM.audioMixer.SetFloat("BGM", PlayerPrefs.GetFloat("_BGM"));
-        if (PlayerPrefs.HasKey("_SFX")) SFX.audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("_SFX"));
-    }
-    public void SetSFX(float value)
-    {
-        SFX.audioMixer.SetFloat("SFX", value);
-        PlayerPrefs.SetFloat("_SFX", value);
-    }
-    public void SetBGM(float value)
-    {
-        SFX.audioMixer.SetFloat("BGM", value);
-        PlayerPrefs.SetFloat("_BGM", value);
-    }
+     
+
+        public void PlayMusic (string name)
+        {
+            Sounds sounds = Array.Find(BG_music, x=> x.name ==name);
+
+            if (sounds == null)
+            {
+                Debug.Log("Music Not Found!");
+            }
+            else
+            {
+                BGMSource.clip = sounds.audioClip;
+                BGMSource.Play();
+            }
+        }
+        public void PlaySFX(string name)
+        {
+            Sounds sounds = Array.Find(sounds_FX, x => x.name == name);
+
+            if (sounds == null)
+            {
+                Debug.Log("SFX Not Found!");
+            }
+            else
+            {
+                SFXSource.PlayOneShot(sounds.audioClip);
+            }
+        }
+
+        public void SetSFX(float value)
+         {
+            SFXSource.volume = value;
+            PlayerPrefs.SetFloat("_SFX", value);
+         }
+        public void SetBGM(float value)
+         {
+            BGMSource.volume = value;
+            PlayerPrefs.SetFloat("_BGM", value);
+         }
     #endregion
 
 }
