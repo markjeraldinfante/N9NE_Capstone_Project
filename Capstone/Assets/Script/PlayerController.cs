@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed;
@@ -9,29 +10,31 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] bool isfacingRight;
     [SerializeField] bool isGrounded;
- 
-
+   
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         isfacingRight = true;
     }
-    void FixedUpdate()
+   public void FixedUpdate()
     {
+        
         float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3 (move * runSpeed,rb.velocity.y, 0);
         if (move > 0 && !isfacingRight)
         {
-            StartCoroutine(Delayflip());
+          
             isfacingRight = !isfacingRight;
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            //transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
 
         else if (move < 0 && isfacingRight)
         {
-            StartCoroutine(Delayflip());
+   
             isfacingRight = !isfacingRight;
-            transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
+            transform.localScale = new Vector3(-1f,1f,1f);
+            //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
         }
         else if (move == 0) 
         {
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
         };
 
     }
+   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -70,8 +74,5 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    IEnumerator Delayflip()
-    {
-        yield return new WaitForSeconds(5f);
-    }
+   
 }
