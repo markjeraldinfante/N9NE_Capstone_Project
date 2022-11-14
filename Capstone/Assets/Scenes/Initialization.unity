@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 350688820}
   - component: {fileID: 350688819}
   - component: {fileID: 350688818}
+  - component: {fileID: 350688821}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -437,6 +438,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350688816}
   m_CullTransparentMesh: 1
+--- !u!114 &350688821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350688816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &361122095
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,13 +1370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0d027dc7852cb478dd623a840443f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM: {fileID: -8928713712532762775, guid: 6b4a81d9170684d46bb191cbda223a98, type: 2}
-  SFX: {fileID: 6240356205190067768, guid: 6b4a81d9170684d46bb191cbda223a98, type: 2}
   SFXSource: {fileID: 1968784850}
   BGMSource: {fileID: 1704757300}
   BG_music: []
   sounds_FX: []
-  musicVolume: 1
 --- !u!1 &1172886335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1861,7 @@ GameObject:
   - component: {fileID: 1668146143}
   - component: {fileID: 1668146142}
   - component: {fileID: 1668146141}
+  - component: {fileID: 1668146144}
   m_Layer: 5
   m_Name: EnterButton
   m_TagString: Untagged
@@ -1973,6 +1984,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668146139}
   m_CullTransparentMesh: 1
+--- !u!114 &1668146144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668146139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704757298
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,22 +8,23 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public float jumpForce;
     private Rigidbody rb;
+    [HideInInspector] public float move;
     [SerializeField] bool isfacingRight;
     [SerializeField] bool isGrounded;
-   
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         isfacingRight = true;
     }
-   public void FixedUpdate()
+    public void FixedUpdate()
     {
-        
-        float move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector3 (move * runSpeed,rb.velocity.y, 0);
+
+        move = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector3(move * runSpeed, rb.velocity.y, 0);
         if (move > 0 && !isfacingRight)
         {
-          
+
             isfacingRight = !isfacingRight;
             transform.localScale = new Vector3(1f, 1f, 1f);
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -31,18 +32,18 @@ public class PlayerController : MonoBehaviour
 
         else if (move < 0 && isfacingRight)
         {
-   
+
             isfacingRight = !isfacingRight;
-            transform.localScale = new Vector3(-1f,1f,1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
             //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
         }
-        else if (move == 0) 
+        else if (move == 0)
         {
-            
+
         };
 
     }
-   
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -74,5 +75,5 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-   
+
 }

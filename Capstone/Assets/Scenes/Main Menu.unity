@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 143363696}
   - component: {fileID: 143363695}
   - component: {fileID: 143363694}
+  - component: {fileID: 143363697}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -897,7 +898,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -926,18 +927,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1218372074}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -980,6 +969,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143363692}
   m_CullTransparentMesh: 1
+--- !u!114 &143363697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143363692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &150453904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,6 +2014,7 @@ GameObject:
   - component: {fileID: 615132604}
   - component: {fileID: 615132603}
   - component: {fileID: 615132602}
+  - component: {fileID: 615132605}
   m_Layer: 5
   m_Name: GoBack(TEMP) (1)
   m_TagString: Untagged
@@ -2135,6 +2137,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615132600}
   m_CullTransparentMesh: 1
+--- !u!114 &615132605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615132600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628138268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,6 +2703,7 @@ GameObject:
   - component: {fileID: 844513044}
   - component: {fileID: 844513043}
   - component: {fileID: 844513042}
+  - component: {fileID: 844513045}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2740,7 +2755,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2811,6 +2826,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844513040}
   m_CullTransparentMesh: 1
+--- !u!114 &844513045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844513040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &883730067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,6 +3461,7 @@ GameObject:
   - component: {fileID: 1181029056}
   - component: {fileID: 1181029055}
   - component: {fileID: 1181029054}
+  - component: {fileID: 1181029057}
   m_Layer: 5
   m_Name: GoBack(TEMP)
   m_TagString: Untagged
@@ -3556,6 +3584,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181029052}
   m_CullTransparentMesh: 1
+--- !u!114 &1181029057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181029052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1183715758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,6 +4697,7 @@ GameObject:
   - component: {fileID: 1550972034}
   - component: {fileID: 1550972033}
   - component: {fileID: 1550972032}
+  - component: {fileID: 1550972035}
   m_Layer: 5
   m_Name: AboutButton
   m_TagString: Untagged
@@ -4708,7 +4749,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4779,6 +4820,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550972030}
   m_CullTransparentMesh: 1
+--- !u!114 &1550972035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550972030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1564593368
 GameObject:
   m_ObjectHideFlags: 0
@@ -5448,6 +5501,7 @@ GameObject:
   - component: {fileID: 1703974216}
   - component: {fileID: 1703974215}
   - component: {fileID: 1703974214}
+  - component: {fileID: 1703974217}
   m_Layer: 5
   m_Name: OptionButton
   m_TagString: Untagged
@@ -5499,7 +5553,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5570,6 +5624,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703974212}
   m_CullTransparentMesh: 1
+--- !u!114 &1703974217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703974212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b8ac8f07a1a3c4db7ffd9cf70cab6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1708216732
 GameObject:
   m_ObjectHideFlags: 0
