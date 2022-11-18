@@ -14,7 +14,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
     public void Start()
     {
-        //LeanTween.reset();
+        LeanTween.reset();
     }
 
     void PopOutAnimate()
@@ -30,7 +30,6 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         PopOutAnimate();
-        somnium.SoundManager.instance.PlaySFX("ButtonClick");
         // LeanTween.cancel(gameObject);
 
     }
