@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraPivot : MonoBehaviour
 {
-     public Transform cam;
-     [SerializeField] public float camRotateValue = 5f;
+    public Transform cam;
+    [SerializeField] public float camRotateValue = 5f;
 
     private void Start()
     {
@@ -14,11 +14,11 @@ public class CameraPivot : MonoBehaviour
     void FixedUpdate()
     {
 
-        float camRotation = Input.GetAxis("Horizontal")*camRotateValue;
+        float camRotation = Input.GetAxis("Horizontal") * camRotateValue;
         //LeanTween.init(900);
         //.125f
         LeanTween.rotateY(cam.transform.gameObject, camRotation, .125f);
 
     }
-   
+
 }
