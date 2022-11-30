@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public somnium.SoundManager soundManager;
+   
     Vector3 defaultScale;
     private void Awake()
     {
@@ -30,6 +30,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         PopOutAnimate();
+        somnium.SoundManager.instance.PlaySFX("ButtonClick");
         // LeanTween.cancel(gameObject);
 
     }
