@@ -5,22 +5,22 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-public class LogIn : MonoBehaviour
-{
-
-    public TMP_InputField UsernameInput;
-    public TextMeshProUGUI UsernameView;
-    public GameObject loginView;
-    public GameObject playView;
-
-    void Start()
+    public class LogIn : MonoBehaviour
     {
-        if (PlayerPrefs.HasKey(PlayerPrefKeys.PLAYER_NICKNAME))
+
+        public TMP_InputField UsernameInput;
+        public TextMeshProUGUI UsernameView;
+        public GameObject loginView;
+        public GameObject playView;
+
+        void Start()
         {
-            UsernameView.text = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
-            showPlay();
+            if (PlayerPrefs.HasKey(PlayerPrefKeys.PLAYER_NICKNAME))
+            {
+                UsernameView.text = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
+                showPlay();
+            }
         }
-    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -29,36 +29,36 @@ public class LogIn : MonoBehaviour
         }
     }
     public void OnButtonPressLogin()
-    {
-        if (UsernameInput.text.Length >= 1)
         {
-            PlayerPrefs.SetString(PlayerPrefKeys.PLAYER_NICKNAME, UsernameInput.text);
-            UsernameView.text = UsernameInput.text;
+            if (UsernameInput.text.Length >= 1)
+            {
+                PlayerPrefs.SetString(PlayerPrefKeys.PLAYER_NICKNAME, UsernameInput.text);
+                UsernameView.text =  UsernameInput.text;
+            }
+            showPlay();
         }
-        showPlay();
-    }
 
-    public void OnButtonPressPlay()
-    {
-        SceneManager.LoadScene(1);
-    }
+        public void OnButtonPressPlay()
+        {
+            SceneManager.LoadScene(1);
+        }
 
-    public void OnButtonPressChange()
-    {
-        UsernameInput.text = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
-        showLogin();
-    }
+        public void OnButtonPressChange()
+        {
+            UsernameInput.text = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
+            showLogin();
+        }
 
-    private void showPlay()
-    {
-        loginView.SetActive(false);
-        playView.SetActive(true);
+        private void showPlay()
+        {
+            loginView.SetActive(false);
+            playView.SetActive(true);
+        }
+        private void showLogin()
+        {
+            loginView.SetActive(true);
+            playView.SetActive(false);
+        }
     }
-    private void showLogin()
-    {
-        loginView.SetActive(true);
-        playView.SetActive(false);
-    }
-}
 
 
