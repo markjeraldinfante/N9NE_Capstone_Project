@@ -30,7 +30,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         PopOutAnimate();
-        somnium.SoundManager.instance.PlaySFX("ButtonClick");
+        // somnium.SoundManager.instance.PlaySFX("ButtonClick");
         // LeanTween.cancel(gameObject);
 
     }
