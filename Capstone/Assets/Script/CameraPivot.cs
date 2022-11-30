@@ -11,11 +11,12 @@ public class CameraPivot : MonoBehaviour
     {
         LeanTween.reset();
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
 
         float camRotation = Input.GetAxis("Horizontal")*camRotateValue;
         //LeanTween.init(900);
+        //.125f
         LeanTween.rotateY(cam.transform.gameObject, camRotation, .125f);
 
     }
