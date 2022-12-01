@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-   
+
     Vector3 defaultScale;
     private void Awake()
     {
