@@ -8,25 +8,36 @@ public class OptionScreen : MonoBehaviour
     // Start is called before the first frame update
     public Toggle fullScreenTog;
     public List<ResItems> resolution = new List<ResItems>();
-    private int selectedResolution;
+    public int selectedResolution;
     public TMP_Text resolutionLabel;
 
-    void Start()
+    private void Update()
     {
-        fullScreenTog.isOn = Screen.fullScreen;
+        if (Input.GetKeyDown("backspace"))
+        {
 
+            PlayerPrefs.DeleteKey("HorizontalRes");
+            PlayerPrefs.DeleteKey("VerticalRes");
+            PlayerPrefs.DeleteKey("Toggle");
+        }
+    }
+
+    private void OnEnable()
+    {
+        LoadResolution();
+
+
+
+
+        resolutionLabel.text = PlayerPrefs.GetInt("HorizontalRes").ToString() + "x" + PlayerPrefs.GetInt("VerticalRes").ToString().ToString();
+        Debug.Log(resolutionLabel.text);
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void ResLeft()
     {
         selectedResolution--;
-        if(selectedResolution < 0)
+        if (selectedResolution < 0)
         {
             selectedResolution = 0;
         }
@@ -36,9 +47,9 @@ public class OptionScreen : MonoBehaviour
     public void ResRight()
     {
         selectedResolution++;
-        if(selectedResolution > resolution.Count -1)
+        if (selectedResolution > resolution.Count - 1)
         {
-            selectedResolution = resolution.Count -1;
+            selectedResolution = resolution.Count - 1;
         }
         UpdatedResLabel();
 
@@ -46,17 +57,63 @@ public class OptionScreen : MonoBehaviour
     public void UpdatedResLabel()
     {
         resolutionLabel.text = resolution[selectedResolution].horizontal.ToString() + "x" + resolution[selectedResolution].vertical.ToString();
+
     }
 
     public void ApplyGraphics()
     {
         //Screen.fullScreen = fullScreenTog.isOn;
-        Screen.SetResolution(resolution[selectedResolution].horizontal,resolution[selectedResolution].vertical, fullScreenTog.isOn);
+        Screen.SetResolution(resolution[selectedResolution].horizontal, resolution[selectedResolution].vertical, fullScreenTog.isOn);
+        SaveResolution();
+
+
+    }
+
+
+    public void SaveResolution()
+    {
+        PlayerPrefs.SetInt("HorizontalRes", resolution[selectedResolution].horizontal);
+        PlayerPrefs.SetInt("VerticalRes", resolution[selectedResolution].vertical);
+
+        if (fullScreenTog.isOn == true)
+        {
+            PlayerPrefs.SetInt("Toggle", 1);
+        }
+        else
+            PlayerPrefs.SetInt("Toggle", 0);
+    }
+
+    public void LoadResolution()
+    {
+        //fullScreenTog.isOn = Screen.fullScreen;
+        if (!PlayerPrefs.HasKey("HorizontalRes") && !PlayerPrefs.HasKey("VerticalRes") && !PlayerPrefs.HasKey("Toggle"))
+        {
+            PlayerPrefs.SetInt("HorizontalRes", 1920);
+            PlayerPrefs.SetInt("VerticalRes", 1080);
+            PlayerPrefs.SetInt("Toggle", 1);
+
+            Screen.SetResolution(resolution[PlayerPrefs.GetInt("HorizontalRes")].horizontal, resolution[PlayerPrefs.GetInt("VerticalRes")].vertical, fullScreenTog.isOn = true, 120);
+
+
+        }
+        else if (PlayerPrefs.HasKey("HorizontalRes") && PlayerPrefs.HasKey("VerticalRes") && PlayerPrefs.HasKey("Toggle"))
+        {
+            if (PlayerPrefs.GetInt("Toggle") == 1)
+                //int HorizontalVal = Convert.ToInt32(PlayerPrefs.GetString("HorizontalRes"));
+                Screen.SetResolution(PlayerPrefs.GetInt("HorizontalRes"), PlayerPrefs.GetInt("VerticalRes"), fullScreenTog.isOn = true);
+
+            else
+                Screen.SetResolution(PlayerPrefs.GetInt("HorizontalRes"), PlayerPrefs.GetInt("VerticalRes"), fullScreenTog.isOn = false);
+
+
+        }
+
+
     }
 }
 [System.Serializable]
 public class ResItems
-{  
+{
     public int horizontal, vertical;
 }
 
