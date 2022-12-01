@@ -13,7 +13,7 @@ public class CameraPivot : MonoBehaviour
     }
     void FixedUpdate()
     {
-
+    
         float camRotation = Input.GetAxis("Horizontal") * camRotateValue;
         //LeanTween.init(900);
         //.125f
