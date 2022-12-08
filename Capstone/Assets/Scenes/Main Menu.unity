@@ -784,7 +784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639771691}
+      - m_Target: {fileID: 1639771692}
         m_TargetAssemblyTypeName: OptionScreen, Assembly-CSharp
         m_MethodName: ApplyGraphics
         m_Mode: 1
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639771692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: somnium.SoundScript, Assembly-CSharp
         m_MethodName: SetSFX
         m_Mode: 1
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639771692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: somnium.SoundScript, Assembly-CSharp
         m_MethodName: SetBGM
         m_Mode: 1
@@ -4122,7 +4122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639771691}
+      - m_Target: {fileID: 1639771692}
         m_TargetAssemblyTypeName: OptionScreen, Assembly-CSharp
         m_MethodName: ResLeft
         m_Mode: 1
@@ -5161,8 +5161,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1639771690}
-  - component: {fileID: 1639771691}
   - component: {fileID: 1639771692}
+  - component: {fileID: 1639771691}
   m_Layer: 5
   m_Name: '[1] Option'
   m_TagString: Untagged
@@ -5206,6 +5206,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639771689}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3928751f24a25884f8d19f206bd7b36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 788666889}
+  SFXSlider: {fileID: 748263060}
+--- !u!114 &1639771692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639771689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23d4964103f6d17438bcee70bbc63f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5219,20 +5233,6 @@ MonoBehaviour:
     vertical: 480
   selectedResolution: 0
   resolutionLabel: {fileID: 65345957}
---- !u!114 &1639771692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639771689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3928751f24a25884f8d19f206bd7b36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSlider: {fileID: 788666889}
-  SFXSlider: {fileID: 748263060}
 --- !u!1 &1655715758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5800,7 +5800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639771691}
+      - m_Target: {fileID: 1639771692}
         m_TargetAssemblyTypeName: OptionScreen, Assembly-CSharp
         m_MethodName: ResRight
         m_Mode: 1
@@ -6672,6 +6672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1559936197526583338, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1559936197526583339, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6755,6 +6759,10 @@ PrefabInstance:
     - target: {fileID: 1559936197526583339, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1559936197791262189, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 126.79999
       objectReference: {fileID: 0}
     - target: {fileID: 6451336068024575760, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
       propertyPath: m_text

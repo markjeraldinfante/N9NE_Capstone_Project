@@ -5,19 +5,47 @@ using UnityEngine.UI;
 
 
 namespace somnium
-{ 
+{
     public class SoundScript : MonoBehaviour
     {
         public Slider musicSlider, SFXSlider;
-        void Update()
+        private void Awake()
+        {
+
+            if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
+            {
+                musicSlider.value = 0.8f;
+                SFXSlider.value = 0.8f;
+
+                SetBGM();
+                SetSFX();
+            }
+            else
+            {
+                musicSlider.value = PlayerPrefs.GetFloat("SetBGM");
+                SFXSlider.value = PlayerPrefs.GetFloat("SetSFX");
+                SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
+                SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
+            }
+
+
+        }
+        public void SetBGM()
         {
             //AudioSource.volume = musicVolume;
-           // soundManager.SetBGM = soundManager.musicVolume;
-        }
-        public void SetBGM() => SoundManager.instance.SetBGM(musicSlider.value);
-        public void SetSFX() => SoundManager.instance.SetSFX(SFXSlider.value);
+            // soundManager.SetBGM = soundManager.musicVolume;
+            SoundManager.instance.SetBGM(musicSlider.value);
+            PlayerPrefs.SetFloat("SetBGM", musicSlider.value);
 
-    
+
+        }
+
+        public void SetSFX()
+        {
+            SoundManager.instance.SetSFX(SFXSlider.value);
+            PlayerPrefs.SetFloat("SetSFX", SFXSlider.value);
+        }
+
 
     }
 }

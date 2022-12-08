@@ -25,7 +25,26 @@ namespace somnium
             else
                 Destroy(gameObject);
         }
+        private void Start()
+        {
+            if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
+            {
+                SFXSource.volume = 0.8f;
+                BGMSource.volume = 0.8f;
 
+
+            }
+            else
+            {
+                SFXSource.volume = PlayerPrefs.GetFloat("SetSFX");
+                BGMSource.volume = PlayerPrefs.GetFloat("SetBGM");
+            }
+
+
+            Debug.Log("SFX VALUE = " + SFXSource.volume);
+            Debug.Log("BGM VALUE = " + BGMSource.volume);
+
+        }
 
         #region AudioController
 
@@ -62,12 +81,12 @@ namespace somnium
         public void SetSFX(float value)
         {
             SFXSource.volume = value;
-            PlayerPrefs.SetFloat("_SFX", value);
+            //PlayerPrefs.SetFloat("_SFX", value);
         }
         public void SetBGM(float value)
         {
             BGMSource.volume = value;
-            PlayerPrefs.SetFloat("_BGM", value);
+            //PlayerPrefs.SetFloat("_BGM", value);
         }
         #endregion
 
