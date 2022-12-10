@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -36,11 +35,6 @@ public class LogIn : MonoBehaviour
             UsernameView.text = UsernameInput.text;
         }
         showPlay();
-    }
-
-    public void OnButtonPressPlay()
-    {
-        SceneManager.LoadScene(1);
     }
 
     public void OnButtonPressChange()

@@ -12,17 +12,17 @@ public class CharacterManager : MonoBehaviour
     public Transform characterselectionContent;
     public GameObject characterItem;
     public CharSlot charSlot;
-    
+
     private void Start()
     {
-        
+
         ListCharacters();
-       
+
     }
     public void ListCharacters()
     {
-         foreach (var item in charList)
-         {
+        foreach (var item in charList)
+        {
             charSlot._id = item.id;
             GameObject gameObject = Instantiate(characterItem, characterselectionContent);
 
@@ -30,14 +30,21 @@ public class CharacterManager : MonoBehaviour
             var characterName = gameObject.transform.Find("charName").GetComponent<TextMeshProUGUI>();
             var characterID = gameObject.transform.Find("charID").GetComponent<TextMeshProUGUI>();
             var characterIcon = gameObject.transform.Find("charIco").GetComponent<Image>();
+            var characterUnlock = gameObject.GetComponent<Button>();
 
             characterName.text = item.CharacterName;
             characterIcon.sprite = item.CharacterIcon;
             characterID.text = item.id;
-        
+
+            if (item.isUnlocked == true) { characterUnlock.interactable = true; }
+            else { characterUnlock.interactable = false; }
+
+
+
+
         }
 
-        
-       
+
+
     }
 }

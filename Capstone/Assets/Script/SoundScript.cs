@@ -11,11 +11,15 @@ namespace somnium
         public Slider musicSlider, SFXSlider;
         private void Awake()
         {
+            SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
+            SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
+            musicSlider.value = PlayerPrefs.GetFloat("SetBGM");
+            SFXSlider.value = PlayerPrefs.GetFloat("SetSFX");
 
-            if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
+            /*if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
             {
-                musicSlider.value = 0.8f;
-                SFXSlider.value = 0.8f;
+                musicSlider.value = 1f;
+                SFXSlider.value = 1f;
 
                 SetBGM();
                 SetSFX();
@@ -27,7 +31,7 @@ namespace somnium
                 SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
                 SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
             }
-
+*/
 
         }
         public void SetBGM()
