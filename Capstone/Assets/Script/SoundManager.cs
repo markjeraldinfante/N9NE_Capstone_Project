@@ -29,8 +29,8 @@ namespace somnium
         {
             if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
             {
-                SFXSource.volume = 0.8f;
-                BGMSource.volume = 0.8f;
+                SFXSource.volume = 1f;
+                BGMSource.volume = 1f;
 
 
             }

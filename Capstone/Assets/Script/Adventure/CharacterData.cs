@@ -9,5 +9,6 @@ public class CharacterData : ScriptableObject
     public string id;
     public string CharacterName;
     public Sprite CharacterIcon;
-    
+    public bool isUnlocked;
+
 }
