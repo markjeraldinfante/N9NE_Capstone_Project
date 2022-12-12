@@ -24,6 +24,7 @@ public class CharacterManager : MonoBehaviour
         foreach (var item in charList)
         {
             charSlot._id = item.id;
+            charSlot.CharacterPickingSFX = item.VoicePicking;
             GameObject gameObject = Instantiate(characterItem, characterselectionContent);
 
 
@@ -35,6 +36,7 @@ public class CharacterManager : MonoBehaviour
             characterName.text = item.CharacterName;
             characterIcon.sprite = item.CharacterIcon;
             characterID.text = item.id;
+
 
             if (item.isUnlocked == true) { characterUnlock.interactable = true; }
             else { characterUnlock.interactable = false; }

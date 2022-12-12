@@ -20,7 +20,7 @@ public class GameTester : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.J))
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
         }
     }
 }
