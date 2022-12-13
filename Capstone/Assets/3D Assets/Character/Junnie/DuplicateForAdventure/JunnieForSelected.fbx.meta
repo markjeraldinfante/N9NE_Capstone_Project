@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f9541679461b18f489b7210c8beb54c2
+guid: c725aafe629c7fa44895087903b7998e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: junnie_attack
+    second: JunnieForSelected
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,7 +36,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: junnie_attack
+      name: JunnieForSelected
       takeName: Take 001
       internalID: 0
       firstFrame: 0
@@ -56,7 +56,7 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
       heightFromFeet: 0
-      mirror: 1
+      mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
@@ -529,13 +529,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: junnie(Clone)
+    - name: junnie 1(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Character
-      parentName: junnie(Clone)
+      parentName: junnie 1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -590,7 +590,7 @@ ModelImporter:
       rotation: {x: 0.68771863, y: 0, z: -0, w: 0.7259773}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
-      parentName: junnie(Clone)
+      parentName: junnie 1(Clone)
       position: {x: -0, y: 0.29369652, z: 0.0033417018}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -926,7 +926,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 0401c968d340fb4459c4ea604ca01af9, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 220086b4120b6aa429f0373b06f83e18, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
