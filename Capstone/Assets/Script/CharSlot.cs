@@ -10,6 +10,7 @@ public class CharSlot : MonoBehaviour
     public Button btn;
     public string _id;
     public CharacterPreview characterPreview;
+    public string CharacterPickingSFX;
 
     private void Start()
     {
@@ -25,5 +26,7 @@ public class CharSlot : MonoBehaviour
     void ButtonOnClick()
     {
         characterPreview.DisplayAvatar(_id);
+        somnium.SoundManager.instance.PlaySFX(CharacterPickingSFX);
+        //CharacterPickingSFX
     }
 }

@@ -6,12 +6,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed;
+    [SerializeField]private Animator characterAnimation;
     public float jumpForce;
     private Rigidbody rb;
     [HideInInspector] public float move;
     [SerializeField] bool isfacingRight;
     [SerializeField] bool isGrounded;
 
+
+
+void Start(){
+    characterAnimation = GetComponent<Animator>();
+}
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,12 +27,16 @@ public class PlayerController : MonoBehaviour
     {
 
         move = Input.GetAxis("Horizontal");
+        
         rb.velocity = new Vector3(move * runSpeed, rb.velocity.y, 0);
+        characterAnimation.SetBool("Walk", true);
         if (move > 0 && !isfacingRight)
         {
 
             isfacingRight = !isfacingRight;
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(20f, 20f, 20f);
+            
+            
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
 
@@ -34,12 +44,12 @@ public class PlayerController : MonoBehaviour
         {
 
             isfacingRight = !isfacingRight;
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(20f, 20f, -20f);
             //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
         }
         else if (move == 0)
         {
-
+            characterAnimation.SetBool("Walk", false);
         };
 
     }

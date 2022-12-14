@@ -9,6 +9,7 @@ public class CharacterData : ScriptableObject
     public string id;
     public string CharacterName;
     public Sprite CharacterIcon;
+    public string VoicePicking;
     public bool isUnlocked;
 
 }
