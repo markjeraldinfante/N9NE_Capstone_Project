@@ -5,6 +5,7 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
+  
     public Transform enemyPrefab;
     public Transform spawnPoints;
 
@@ -25,24 +26,27 @@ public class WaveSpawner : MonoBehaviour
         }
         countdown -= Time.deltaTime;
         waveCountdownText.text = string.Format("{0:00.00}", countdown);
+
     }
 
     IEnumerator Spawnwave()
     {
 
-        waveNumber++;
+      waveNumber++;
         for (int i = 0; i < waveNumber; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
         }
+     
 
 
 
     }
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoints.position, spawnPoints.rotation);
+       
     }
 
 }
