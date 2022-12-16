@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ENEMY1 : MonoBehaviour
 {
     private string currentState = "ChaseState";
-    private Transform target;
-
+    public Transform target;
+    
     public float attackRange = 5;
     public float speed = 3;
 
@@ -14,7 +15,8 @@ public class ENEMY1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Base").transform;
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = target.position;
     }
 
     // Update is called once per frame
@@ -26,6 +28,8 @@ public class ENEMY1 : MonoBehaviour
 
             animator.SetBool("isAttacking", false);
 
+        
+
         if (currentState == "ChaseState")
         {
             if (distance < attackRange)
@@ -34,6 +38,10 @@ public class ENEMY1 : MonoBehaviour
         else if (currentState == "AttackState")
         {
             animator.SetBool("isAttacking", true);
+        }
+        if(distance > attackRange)
+        {
+            currentState = "ChaseState";
         }
     }
 }

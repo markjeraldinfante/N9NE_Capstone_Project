@@ -6,18 +6,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed;
-    [SerializeField]private Animator characterAnimation;
+    [SerializeField] private Animator characterAnimation;
     public float jumpForce;
     private Rigidbody rb;
     [HideInInspector] public float move;
-    [SerializeField] bool isfacingRight;
+    public bool isfacingRight;
     [SerializeField] bool isGrounded;
 
 
 
-void Start(){
-    characterAnimation = GetComponent<Animator>();
-}
+    void Start()
+    {
+        characterAnimation = GetComponent<Animator>();
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,16 +28,16 @@ void Start(){
     {
 
         move = Input.GetAxis("Horizontal");
-        
+
         rb.velocity = new Vector3(move * runSpeed, rb.velocity.y, 0);
         characterAnimation.SetBool("Walk", true);
         if (move > 0 && !isfacingRight)
         {
 
             isfacingRight = !isfacingRight;
-            transform.localScale = new Vector3(20f, 20f, 20f);
-            
-            
+            transform.eulerAngles = new Vector3(0f, 90f, 0f);
+
+
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
 
@@ -44,7 +45,7 @@ void Start(){
         {
 
             isfacingRight = !isfacingRight;
-            transform.localScale = new Vector3(20f, 20f, -20f);
+            transform.eulerAngles = new Vector3(0f, -90f, 0f);
             //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
         }
         else if (move == 0)
@@ -59,6 +60,7 @@ void Start(){
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             //Vector3 jump = new Vector3(0f, 2f, 0f);
+            characterAnimation.SetBool("Jump", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
@@ -77,6 +79,7 @@ void Start(){
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+        characterAnimation.SetBool("Jump", false);
     }
 
     private void OnCollisionExit(Collision collision)
