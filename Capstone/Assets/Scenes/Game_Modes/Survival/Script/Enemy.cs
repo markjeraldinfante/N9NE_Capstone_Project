@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float MainSpeed;
-   // public float turnSpeed;
+  
     
     private string currentState = "ChaseState";
     private Transform target;
@@ -15,9 +15,8 @@ public class Enemy : MonoBehaviour
 
     public Animator animator;
 
-
-
     public Transform[] CheckPoints;
+
     int ArrayElementNumber;
     Transform movePoint;
 
@@ -38,7 +37,7 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, MainSpeed * Time.deltaTime);
        
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 180, 0);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= 0)
         {
@@ -60,11 +59,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-     /*   IEnumerable<Collider> home = null;
-        foreach (Collider homebasee in home)
-        {
-            Destroy(this.gameObject);
-        }*/
+   
 
         
 
