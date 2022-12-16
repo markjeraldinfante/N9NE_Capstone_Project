@@ -9,7 +9,7 @@ public class LeafAnimation : MonoBehaviour
 
     void Start()
     {
-
+        LeanTween.cancel(leaf);
         LeanTween.moveX(leaf, 40, animSpeed).setEaseInOutQuart().setLoopPingPong();
 
     }

@@ -10,9 +10,20 @@ public class Charge_Ability : Ability
     {
         PlayerController movement = parent.GetComponent<PlayerController>();
         Rigidbody rigidbody = parent.GetComponent<Rigidbody>();
+        PlayerController playerController = parent.GetComponent<PlayerController>();
 
-        if (parent.transform.localScale.x == -1) { rigidbody.AddRelativeForce(Vector3.left * dashVelocity, ForceMode.Impulse); }
-        else if (parent.transform.localScale.x == 1) { rigidbody.AddRelativeForce(Vector3.right * dashVelocity, ForceMode.Impulse); }
+        if (playerController.isfacingRight == false)
+        {
+            rigidbody.AddForce(Vector3.left * dashVelocity, ForceMode.Impulse);
+            Debug.Log("negative");
+            return;
+        }
+        else if (playerController.isfacingRight == true)
+        {
+            rigidbody.AddForce(Vector3.right * dashVelocity, ForceMode.Impulse);
+            Debug.Log("positive");
+            return;
+        }
 
     }
 }
