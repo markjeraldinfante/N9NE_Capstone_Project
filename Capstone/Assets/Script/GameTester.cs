@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameTester : MonoBehaviour
 {
+    public KeyCode key1;
+    public KeyCode key2;
+    public int build1;
+    public int build2;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +18,13 @@ public class GameTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(key1))
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(build1);
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(key2))
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(build2);
         }
     }
 }
