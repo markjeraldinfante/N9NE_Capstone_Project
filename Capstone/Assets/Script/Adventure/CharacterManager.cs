@@ -25,6 +25,8 @@ public class CharacterManager : MonoBehaviour
         {
             charSlot._id = item.id;
             charSlot.CharacterPickingSFX = item.VoicePicking;
+            charSlot.characterName = item.CharacterName;
+            charSlot.characterDetails = item.CharacterDetails;
             GameObject gameObject = Instantiate(characterItem, characterselectionContent);
 
 
