@@ -21,5 +21,6 @@ public class MapDetailHolder : MonoBehaviour
     void ButtonOnClick()
     {
         mapName.text = map.MapName;
+
     }
 }
