@@ -10,6 +10,7 @@ public class CharacterData : ScriptableObject
     public string CharacterName;
     public Sprite CharacterIcon;
     public string VoicePicking;
+    public string CharacterDetails;
     public bool isUnlocked;
 
 }
