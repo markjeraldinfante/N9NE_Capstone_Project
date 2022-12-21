@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float move;
     public bool isfacingRight;
     [SerializeField] bool isGrounded;
+    [SerializeField] bool isProne;
 
 
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isfacingRight = true;
+        isProne = false;
     }
     public void FixedUpdate()
     {
@@ -33,9 +35,10 @@ public class PlayerController : MonoBehaviour
         characterAnimation.SetBool("Walk", true);
         if (move > 0 && !isfacingRight)
         {
-
+            Proning();
             isfacingRight = !isfacingRight;
             transform.eulerAngles = new Vector3(0f, 90f, 0f);
+
 
 
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         else if (move < 0 && isfacingRight)
         {
-
+            Proning();
             isfacingRight = !isfacingRight;
             transform.eulerAngles = new Vector3(0f, -90f, 0f);
             //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
@@ -51,10 +54,25 @@ public class PlayerController : MonoBehaviour
         else if (move == 0)
         {
             characterAnimation.SetBool("Walk", false);
-        };
+
+        }
+        else
+
+            // isProne = false;
+            characterAnimation.SetBool("Prone", false);
+
+
+
 
     }
+    public void Proning()
+    {
+        StartCoroutine(Prone());
+        isProne = true;
 
+
+
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -64,8 +82,17 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-    }
 
+    }
+    IEnumerator Prone()
+    {
+        isProne = true;
+        characterAnimation.SetTrigger("Prone");
+        characterAnimation.Play("Prone");
+
+        yield return new WaitForSeconds(.5f);
+        isProne = false;
+    }
 
     #region Checker
     void Flip()
@@ -78,13 +105,31 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isGrounded = true;
+        if (collision.gameObject.tag == "wall")
+        {
+            isGrounded = false;
+
+        }
+        else
+            isGrounded = true;
         characterAnimation.SetBool("Jump", false);
+        // else isGrounded = false;
+
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        isGrounded = false;
+
+        if (collision.gameObject.tag == "wall")
+        {
+            isGrounded = true;
+
+        }
+        // isGrounded = false;
+
+
+
     }
     #endregion
 

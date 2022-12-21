@@ -25,17 +25,17 @@ public class PlayerSurvivalAttack : MonoBehaviour
         }
 
 
-        animator.SetBool("Attack", false);
+        //animator.SetBool("Attack", false);
     }
 
     IEnumerator Fire()
     {
         allowFire = false;
-        animator.SetTrigger("attack");
-        animator.Play("attack");
+        // animator.SetTrigger("attack");
+        yield return new WaitForSeconds(.5f);
         GameObject bato = Instantiate(batoObject, point.position, transform.rotation);
         bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-        yield return new WaitForSeconds(.5f);
+
         allowFire = true;
         Destroy(bato, 2f);
     }
