@@ -31,7 +31,7 @@ public class ShootingGun : MonoBehaviour
         allowFire = false;
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, bulletSpeed, 0));
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         allowFire = true;
         Destroy(bullet, 1f); ;
 
