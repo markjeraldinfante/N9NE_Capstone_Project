@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform targetEnemy;
     public TextMeshProUGUI waveNumbertext;
     public TextMeshProUGUI waveCountdownText;
-
+    public int currentEnemy;
     private int waveNumber = 0;
 
 
@@ -24,14 +24,17 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         // Start();
-        if (countdown <= 0f)
+        if (currentEnemy == 0)
         {
-            StartCoroutine(Spawnwave());
-            waveNumbertext.text = "Wave: " + waveNumber.ToString();
-            countdown = timeBetweenWaves;
+            if (countdown <= 0f)
+            {
+                StartCoroutine(Spawnwave());
+                waveNumbertext.text = "Wave: " + waveNumber.ToString();
+                countdown = timeBetweenWaves;
+            }
+            countdown -= Time.deltaTime;
+            waveCountdownText.text = string.Format("{0:00.00}", countdown);
         }
-        countdown -= Time.deltaTime;
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
 
     }
 
@@ -44,12 +47,15 @@ public class WaveSpawner : MonoBehaviour
 
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
+
+
         }
 
 
 
 
     }
+
     public void SpawnEnemy()
     {
         enemyTrans = enemyPrefab;
@@ -61,6 +67,7 @@ public class WaveSpawner : MonoBehaviour
         Random.Range(spawnPoints1.position.z, spawnPoints2.position.z)
         );
         enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
+        currentEnemy++;
 
     }
 

@@ -37,6 +37,7 @@ public class PlayerSurvivalAttack : MonoBehaviour
         bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
 
         allowFire = true;
-        Destroy(bato, 2f);
+        Destroy(bato, 1f);
     }
+
 }

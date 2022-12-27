@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 2311452229746173538}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,9 +714,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45b00db54d45ed439e1beeb67a02a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2311452229746173545}
   attackRange: 5
-  speed: 2
+  speed: 0.05
   animator: {fileID: 8176698709696952990}
 --- !u!114 &2311452229746173538
 MonoBehaviour:
@@ -735,6 +735,7 @@ MonoBehaviour:
   healthBar: {fileID: 384022611134264267}
   wave: {fileID: 0}
   enemyGameboject: {fileID: 0}
+  enemyMovement: {fileID: 2311452229746173541}
 --- !u!1 &2415287422227760113
 GameObject:
   m_ObjectHideFlags: 0
