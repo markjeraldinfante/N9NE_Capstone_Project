@@ -7,6 +7,9 @@ public class AmarraManager : MonoBehaviour
 {
     public static bool gameIsPause = false;
     public GameObject pauseMenuUI;
+    public GameObject gameOverUI;
+    public GameObject gameawardUI;
+
 
     void Update()
     {
@@ -41,7 +44,12 @@ public class AmarraManager : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void PlayAgain()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Quit()
     {

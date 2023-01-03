@@ -55,7 +55,7 @@ public class AbilityHolder : MonoBehaviour
                     ability.BeginCooldown(gameObject);
                     state = AbilityState.cooldown;
                     cooldownTime = ability.cooldownTime;
-                    cd.fillAmount = Time.time + 1 + cooldownTime;
+
                 }
                 break;
             case AbilityState.cooldown:
