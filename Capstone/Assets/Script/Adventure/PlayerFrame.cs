@@ -9,9 +9,7 @@ public class PlayerFrame : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerName.text = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
-
-
+        playerName.text = DBHandler.instance.MainPlayerDB.PlayerName;
     }
 
     // Update is called once per frame

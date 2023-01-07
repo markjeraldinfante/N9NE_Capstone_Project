@@ -41,12 +41,15 @@ public class AmarraMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        amarraManagerTanso.TotalAward += amarraManagerTanso.tansoAward;
-        int temp = amarraManagerTanso.tansoAward;
+        int totalTanso = amarraManagerTanso.TotalAward;
+        int tansoReward = amarraManagerTanso.tansoAward;
+        scoreSystem.SaveTanso(totalTanso);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 0f;
         amarra.gameawardUI.GetComponent<popUp>().awardImage.sprite = scoreSystem.SOAmarra.awardImage;
-        amarra.gameawardUI.GetComponent<popUp>().awardName.text = ("You got " + temp + " tanso");
+        amarra.gameawardUI.GetComponent<popUp>().awardName.text = ("You got " + tansoReward + " tanso");
         scoreSystem.awardSystem(amarra.gameawardUI, amarra.gameOverUI);
     }
+
+
 }

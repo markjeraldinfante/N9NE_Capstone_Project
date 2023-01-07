@@ -18,7 +18,7 @@ public class ScoreSystem : MonoBehaviour
 
     void Start()
     {
-        SOAmarra.tansoAward = 0;
+
         scoreAmount = 0f;
         scoreP = 1f;
         PlayerPrefs.GetFloat("AmarraHighscore").ToString("Highscore: " + "0");
@@ -105,5 +105,22 @@ public class ScoreSystem : MonoBehaviour
             SOAmarra.tansoAward = 9;
         }
     }
+
+    //lilipat sa manager
+    public void SaveTanso(int totalTanso)
+    {
+        totalTanso += SOAmarra.tansoAward;
+
+        if (PlayerPrefs.HasKey("AMARRA_TOTAL_TANSO"))
+        {
+            SOAmarra.TotalAward = totalTanso;
+            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
+            return;
+        }
+        else
+
+            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
+    }
+
 
 }
