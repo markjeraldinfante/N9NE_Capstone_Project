@@ -9,4 +9,5 @@ public class AmarraManager1 : ScriptableObject
     public int tansoAward;
     public int score;
     public Sprite awardImage;
+    public int TotalAward;
 }
