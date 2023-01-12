@@ -12732,13 +12732,14 @@ GameObject:
   - component: {fileID: 956256211}
   - component: {fileID: 956256212}
   - component: {fileID: 956256213}
+  - component: {fileID: 5866666020961251906}
   m_Layer: 0
   m_Name: omar  1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &920028119223456677
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30325,6 +30326,7 @@ GameObject:
   - component: {fileID: 5817995272033943081}
   - component: {fileID: 230154924}
   - component: {fileID: 5817995272033943082}
+  - component: {fileID: 5817995272033943083}
   m_Layer: 0
   m_Name: BASE
   m_TagString: Base
@@ -37318,6 +37320,24 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 524439719}
+--- !u!114 &5817995272033943083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4358084070268773347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.15716398, g: 1, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5820097123516412964
 GameObject:
   m_ObjectHideFlags: 0
@@ -37633,6 +37653,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666020961251906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149036249729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 1, g: 0.6272205, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5869994320577495926
 Transform:
   m_ObjectHideFlags: 0
@@ -41750,13 +41788,14 @@ GameObject:
   - component: {fileID: 6543357988334121842}
   - component: {fileID: 6543357988334121843}
   - component: {fileID: 6543357988334121844}
+  - component: {fileID: 6543357988334121845}
   m_Layer: 0
   m_Name: omar  2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &6543357988334121841
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41822,6 +41861,24 @@ MonoBehaviour:
   batoObject: {fileID: 5359424070069057568, guid: 4f3dae4510a22084ab4ad6e63ab12fae, type: 3}
   point: {fileID: 1102380298}
   allowFire: 0
+--- !u!114 &6543357988334121845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543357988334121840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0.26017427, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!33 &6545067140848346203
 MeshFilter:
   m_ObjectHideFlags: 0
