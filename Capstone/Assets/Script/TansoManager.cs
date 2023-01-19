@@ -5,14 +5,14 @@ using TMPro;
 public class TansoManager : MonoBehaviour
 {
     public TextMeshProUGUI tansoHolder;
-    void Start()
+
+    void Awake()
     {
-        //tansoHolder.text = PlayerPrefs.Get
+        tansoHolder.text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+    }
+    private void FixedUpdate()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

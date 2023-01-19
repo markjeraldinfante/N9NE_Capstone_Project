@@ -15,7 +15,7 @@ public class Enemyhealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        wave = GameObject.Find("WaveManager (2)").GetComponent<WaveSpawner>();
+        wave = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveSpawner>();
         enemyGameboject = wave.enemyTrans;
         // enemyMovement = this.GetComponent<ENEMY1>();
 
