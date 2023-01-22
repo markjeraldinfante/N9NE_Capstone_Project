@@ -54,6 +54,7 @@ public class ENEMY1 : MonoBehaviour
         if (other.gameObject.tag == "Base")
         {
             animator.SetBool("isAttacking", true);
+            Debug.Log("nagcollide");
         }
     }
 }
