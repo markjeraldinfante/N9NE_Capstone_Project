@@ -14,7 +14,7 @@ public class EndScoreDisplay : MonoBehaviour
     }
     IEnumerator EndScreens()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0);
         disDisplay.SetActive(false);
         endScreen.SetActive(true);
         //yield return new WaitForSeconds(3);
