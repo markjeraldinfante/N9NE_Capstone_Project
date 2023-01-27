@@ -47,13 +47,15 @@ public class ENEMY1 : MonoBehaviour
                     currentState = "ChaseState";
                 }
          */
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        if (other.gameObject.tag == "Base")
+        if (col.gameObject.tag == "Base")
         {
             animator.SetBool("isAttacking", true);
+            Debug.Log("nagcollide");
         }
     }
 }

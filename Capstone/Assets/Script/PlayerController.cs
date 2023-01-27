@@ -75,12 +75,20 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+
+        characterAnimation.SetBool("slingAttack", false);
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             //Vector3 jump = new Vector3(0f, 2f, 0f);
             characterAnimation.SetBool("Jump", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            characterAnimation.SetTrigger("slingAttack");
         }
 
     }
