@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LoadedAnimation : MonoBehaviour
 {
     public GameObject
     devLogo, gameLogo, backGround, foreGround, panel, versionUI, gameInputs;
+    private void Awake()
+    {
+        LeanTween.reset();
+    }
 
     private void Start()
     {
@@ -52,6 +57,21 @@ public class LoadedAnimation : MonoBehaviour
     }
     public void MoveGameLogo()
     {
-        gameLogo.transform.LeanMoveLocal(new Vector3(0, 161, 0), 0.8f);
+        gameLogo.transform.LeanMoveLocal(new Vector3(0, 161, 0), 0.8f).setDelay(0.4f).setOnComplete(InputPop);
+    }
+
+    public void InputPop()
+    {
+        gameInputs.transform.LeanScale(Vector3.one, 0.8f).setEaseOutBack().setDelay(0.6f).setOnComplete(gameVersion);
+    }
+    public void gameVersion()
+    {
+        TextMeshProUGUI r = versionUI.GetComponent<TextMeshProUGUI>();
+        LeanTween.value(versionUI, 0, 1, 3).setOnUpdate((float val) =>
+        {
+            Color c = r.color;
+            c.a = val;
+            r.color = c;
+        });
     }
 }

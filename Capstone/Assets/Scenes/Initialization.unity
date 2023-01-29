@@ -223,8 +223,8 @@ MonoBehaviour:
   backGround: {fileID: 1578509228}
   foreGround: {fileID: 1273399400}
   panel: {fileID: 1877210388}
-  versionUI: {fileID: 0}
-  gameInputs: {fileID: 0}
+  versionUI: {fileID: 191051494}
+  gameInputs: {fileID: 152656557}
 --- !u!1 &140307754
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ RectTransform:
   m_GameObject: {fileID: 152656557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 803280542}
@@ -561,6 +561,11 @@ CanvasRenderer:
 --- !u!224 &179773611 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1932992284571807004, guid: 6e4dbcb64e1306e49957ccbb3f9d840e, type: 3}
+  m_PrefabInstance: {fileID: 1932992284409597367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &191051494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1932992284571807005, guid: 6e4dbcb64e1306e49957ccbb3f9d840e, type: 3}
   m_PrefabInstance: {fileID: 1932992284409597367}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &350688816
@@ -3614,6 +3619,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2067073785}
     m_Modifications:
+    - target: {fileID: 1932992284571807003, guid: 6e4dbcb64e1306e49957ccbb3f9d840e, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932992284571807003, guid: 6e4dbcb64e1306e49957ccbb3f9d840e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 1932992284571807004, guid: 6e4dbcb64e1306e49957ccbb3f9d840e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
