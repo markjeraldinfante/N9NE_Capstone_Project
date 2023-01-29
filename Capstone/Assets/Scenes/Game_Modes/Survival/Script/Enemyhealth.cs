@@ -17,8 +17,6 @@ public class Enemyhealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         wave = GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveSpawner>();
         enemyGameboject = wave.enemyTrans;
-        // enemyMovement = this.GetComponent<ENEMY1>();
-
     }
 
     void Update()
@@ -34,8 +32,8 @@ public class Enemyhealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bato") { TakeDamage(10); }
-        else StartCoroutine(NormalSpeed());
+        if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato"); }
+        // else StartCoroutine(NormalSpeed());
     }
 
     IEnumerator NormalSpeed()
@@ -43,6 +41,13 @@ public class Enemyhealth : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         enemyMovement.speed = 0.05f;
+    }
 
+    void DestroyWithTag(string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy(oneObject);
     }
 }

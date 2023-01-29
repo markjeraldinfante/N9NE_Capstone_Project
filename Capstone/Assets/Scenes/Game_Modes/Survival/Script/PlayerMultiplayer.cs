@@ -4,51 +4,62 @@ using UnityEngine;
 
 public class PlayerMultiplayer : MonoBehaviour
 {
-    [SerializeField] private string inputNameHorizontal;
-    [SerializeField] private string inputNameVertical;
-    [SerializeField] private Animator animator;
+    Animator animator;
     [SerializeField] private float speed = 5f;
 
-    [SerializeField] private Rigidbody _rb;
+    Rigidbody _rb;
     [SerializeField] private float turnSpeed = 360;
     private Vector3 _input;
 
     private Rigidbody rb;
     private new Renderer renderer;
 
-    private float inputHorizontal;
-    private float inputVertical;
-    // Start is called before the first frame update
-    private void Start()
+    public basePlayer basePlayer;
+
+    private void Awake()
     {
-        // rb = GetComponent<Rigidbody>();
-        // rb = GetComponentInParent<Rigidbody>();
-        // renderer = GetComponentInChildren<Renderer>();
+        animator = gameObject.GetComponent<Animator>();
+        _rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        //  inputHorizontal = Input.GetAxisRaw(inputNameHorizontal);
-        //inputVertical = Input.GetAxisRaw(inputNameVertical);
         GatherInput();
         Look();
     }
     private void FixedUpdate()
     {
         Move();
-        // rb.velocity = new Vector3(inputHorizontal * speed * Time.fixedDeltaTime, rb.velocity.y, inputVertical * speed * Time.fixedDeltaTime);
     }
 
     private void GatherInput()
     {
-        _input = new Vector3(Input.GetAxisRaw(inputNameHorizontal), 0, Input.GetAxisRaw(inputNameVertical));
-        if (Input.GetAxisRaw(inputNameHorizontal) == 0 && Input.GetAxisRaw(inputNameVertical) == 0)
+        switch (basePlayer)
         {
-            animator.SetBool("Walk", false);
+            case basePlayer.Player1:
+                _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
+                if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
+                {
+                    animator.SetBool("Walk", false);
+                }
+                else
+                    animator.SetBool("Walk", true);
+                break;
+
+            case basePlayer.Player2:
+
+                _input = new Vector3(Input.GetAxisRaw("Horizontal 2"), 0, Input.GetAxisRaw("Vertical 2"));
+                if (Input.GetAxisRaw("Horizontal 2") == 0 && Input.GetAxisRaw("Vertical 2") == 0)
+                {
+                    animator.SetBool("Walk", false);
+                }
+                else
+                    animator.SetBool("Walk", true);
+                break;
+
         }
-        else
-            animator.SetBool("Walk", true);
+
+
 
     }
 
