@@ -36,7 +36,7 @@ public class PlayerSurvivalAttack : MonoBehaviour
     {
         allowFire = false;
         // animator.SetTrigger("attack");
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
         GameObject bato = Instantiate(batoObject, point.position, transform.rotation);
         bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
 

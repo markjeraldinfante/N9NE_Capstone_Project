@@ -5,10 +5,12 @@ using UnityEngine;
 [CreateAssetMenu (fileName ="New Weapon", menuName = "Weapons/Weapon")]
 public class WeaponData : ScriptableObject
 {
-   [SerializeField] private string WeaponName;
-   [SerializeField] private string WeaponDescription;
-   [SerializeField] private Sprite WeaponSprite;
-   [SerializeField] private int WeaponDamage;
-   [SerializeField] private int WeaponLevel;
+  public string ItemName;
+  public Sprite ItemSprite;
+  public string ItemDescription;
+  public int ItemLevel;
+  public int[] ItemDamage;
+  public int[] ItemUpgradeCost;
+  public float[] ItemAttackSpeed;
 
 }
