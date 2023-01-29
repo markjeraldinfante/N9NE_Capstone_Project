@@ -6,7 +6,8 @@ using TMPro;
 
 public class LoadedAnimation : MonoBehaviour
 {
-    public GameObject
+    [SerializeField]
+    GameObject
     devLogo, gameLogo, backGround, foreGround, panel, versionUI, gameInputs;
     private void Awake()
     {
