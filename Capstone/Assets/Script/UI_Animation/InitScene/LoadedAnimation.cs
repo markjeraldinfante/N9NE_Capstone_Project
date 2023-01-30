@@ -12,10 +12,14 @@ public class LoadedAnimation : MonoBehaviour
     private void Awake()
     {
         LeanTween.reset();
+        devLogo.SetActive(false);
+        gameLogo.SetActive(false);
     }
 
     private void Start()
     {
+        devLogo.SetActive(true);
+        gameLogo.SetActive(true);
         AnimationEventListener.onstartAnim += LeanFadeBackGround;
     }
     public void LeanFadeBackGround()
