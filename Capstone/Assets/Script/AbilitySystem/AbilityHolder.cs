@@ -63,14 +63,11 @@ public class AbilityHolder : MonoBehaviour
                 {
                     animator.SetBool("Dash", false);
                     cooldownTime -= Time.deltaTime;
-
-
+                    cd.fillAmount = 1f - cooldownTime / ability.cooldownTime;
                 }
                 else
                 {
-
                     state = AbilityState.ready;
-
                 }
                 break;
 
