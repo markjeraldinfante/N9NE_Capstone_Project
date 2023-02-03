@@ -22,6 +22,10 @@ public class LoadedAnimation : MonoBehaviour
         gameLogo.SetActive(true);
         AnimationEventListener.onstartAnim += LeanFadeBackGround;
     }
+    public void OnDisable()
+    {
+        AnimationEventListener.onstartAnim -= LeanFadeBackGround;
+    }
     public void LeanFadeBackGround()
     {
         Image r = backGround.GetComponent<Image>();
@@ -62,12 +66,12 @@ public class LoadedAnimation : MonoBehaviour
     }
     public void MoveGameLogo()
     {
-        gameLogo.transform.LeanMoveLocal(new Vector3(0, 161, 0), 0.8f).setDelay(0.4f).setOnComplete(InputPop);
+        gameLogo.transform.LeanMoveLocal(new Vector3(0, 161, 0), 0.8f).setDelay(0.4f).setOnComplete(gameVersion);
     }
 
     public void InputPop()
     {
-        gameInputs.transform.LeanScale(Vector3.one, 0.8f).setEaseOutBack().setDelay(0.6f).setOnComplete(gameVersion);
+        gameInputs.transform.LeanScale(Vector3.one, 0.8f).setEaseOutBack().setDelay(0.6f);
     }
     public void gameVersion()
     {
@@ -77,6 +81,6 @@ public class LoadedAnimation : MonoBehaviour
             Color c = r.color;
             c.a = val;
             r.color = c;
-        });
+        }).setOnComplete(InputPop);
     }
 }

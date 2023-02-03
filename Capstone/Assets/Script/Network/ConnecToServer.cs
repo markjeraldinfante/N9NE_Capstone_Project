@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class ConnecToServer : MonoBehaviourPunCallbacks
 {
-
+    public float Delay = 2f;
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        StartCoroutine(ConnectionDelay(Delay));
     }
 
     public override void OnConnectedToMaster()
@@ -18,6 +18,14 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
     }
     public override void OnJoinedLobby()
     {
-         SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Lobby");
     }
+
+    IEnumerator ConnectionDelay(float delay)
+    {
+
+        PhotonNetwork.ConnectUsingSettings();
+        yield return new WaitForSeconds(delay);
+    }
+
 }

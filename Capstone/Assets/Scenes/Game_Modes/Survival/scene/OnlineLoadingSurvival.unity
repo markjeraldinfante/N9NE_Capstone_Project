@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 109.04999}
-  m_SizeDelta: {x: 177, y: 100}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81935320
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14a1c6daa0ffbc04fa5dbe9e885ead6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58b1911ed856ed84982ead6f8bd3b801, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -551,8 +551,7 @@ MonoBehaviour:
   stringArray:
   - Charles walang jowa
   - Jerome at Rapsing palautog
-  - Gena baliw
-  - Neyra wala utak
+  - '" Mahal pa kita " - Charles'
   displayTime: 2
 --- !u!114 &616959321
 MonoBehaviour:
@@ -939,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1900255165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,11 +946,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900255164}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 358e9d8bb15ceaa4d971451cd8ac4209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Delay: 2
 --- !u!4 &1900255166
 Transform:
   m_ObjectHideFlags: 0
