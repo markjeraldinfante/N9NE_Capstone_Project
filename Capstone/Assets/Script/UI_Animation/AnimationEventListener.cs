@@ -6,10 +6,11 @@ public class AnimationEventListener : MonoBehaviour
 {
     public delegate void OnStartAnimation();
     public static event OnStartAnimation onstartAnim;
+    public float Delay = 1.5f;
 
     void Start()
     {
-        StartCoroutine(startAnim(1.5f));
+        StartCoroutine(startAnim(Delay));
     }
     IEnumerator startAnim(float delay)
     {
