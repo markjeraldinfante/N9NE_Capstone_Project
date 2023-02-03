@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     public float runSpeed;
     [SerializeField] private Animator characterAnimation;
     public float jumpForce;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector3(move * runSpeed, rb.velocity.y, 0);
         characterAnimation.SetBool("Walk", true);
+
+        characterAnimation.SetBool("isProning", false);
         if (move > 0 && !isfacingRight)
         {
             Proning();
@@ -54,15 +57,17 @@ public class PlayerController : MonoBehaviour
         else if (move == 0)
         {
             characterAnimation.SetBool("Walk", false);
+            characterAnimation.SetBool("isProning", true);
 
         }
         else
 
             // isProne = false;
-            characterAnimation.SetBool("Prone", false);
+            characterAnimation.SetBool("Prone", true);
 
 
 
+       
 
     }
     public void Proning()
@@ -78,6 +83,8 @@ public class PlayerController : MonoBehaviour
 
         characterAnimation.SetBool("slingAttack", false);
 
+        characterAnimation.SetBool("standProne", false);
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             //Vector3 jump = new Vector3(0f, 2f, 0f);
@@ -90,13 +97,46 @@ public class PlayerController : MonoBehaviour
         {
             characterAnimation.SetTrigger("slingAttack");
         }
+        
+        characterAnimation.SetBool("Prone", false);
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            characterAnimation.SetTrigger("Prone");
+
+            if(isProne == true)
+            {
+                
+
+                characterAnimation.SetBool("Jump", false);
+                characterAnimation.SetBool("slingAttack", false);
+                
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            characterAnimation.SetTrigger("standProne");
+        }
+        else
+        {
+            characterAnimation.SetBool("standProne", false);
+        }
 
     }
     IEnumerator Prone()
     {
         isProne = true;
         characterAnimation.SetTrigger("Prone");
-        characterAnimation.Play("Prone");
+          characterAnimation.Play("Prone");
+
+        /*if (Input.GetKeyDown(KeyCode.S))
+        {
+            characterAnimation.SetTrigger("Prone");
+        */
+
+
 
         yield return new WaitForSeconds(.5f);
         isProne = false;
