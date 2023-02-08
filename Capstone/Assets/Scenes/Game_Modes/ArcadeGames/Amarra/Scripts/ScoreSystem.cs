@@ -15,11 +15,8 @@ public class ScoreSystem : MonoBehaviour
     public int AwardCount;
 
 
-
-
     void Start()
     {
-
         totalScore = 0f;
         scorePoints = 1f;
         SOAmarra.HighScore.ToString("Highscore: " + "0");

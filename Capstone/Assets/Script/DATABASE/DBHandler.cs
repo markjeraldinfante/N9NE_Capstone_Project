@@ -8,6 +8,7 @@ public class DBHandler : MonoBehaviour
 
     public PlayerDB MainPlayerDB;
     public AmarraManager1 Amarra;
+    private PlayerPrefListener listener;
 
 
     // to be fix pa
@@ -28,12 +29,37 @@ public class DBHandler : MonoBehaviour
 
     void LoadSave()
     {
-        Amarra.TotalAward = PlayerPrefs.GetInt(PlayerPrefKeys.TANSO);
-        MainPlayerDB.TansoCount = PlayerPrefs.GetInt(PlayerPrefKeys.TANSO);
+        var gameSystem = new GameSystem();
+        // Somnium
+        MainPlayerDB.TansoCount = gameSystem.Load(PlayerPrefKeys.TANSO);
         MainPlayerDB.PlayerName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
+
+        //Amarra_Minigame
+        Amarra.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
 
         //temp
         Debug.Log(MainPlayerDB.TansoCount);
         Debug.Log("DATA BASE LOADED");
+    }
+
+
+
+    private void Start()
+    {
+        PlayerPrefListener.Instance.StartListening(PlayerPrefKeys.TANSO);
+        PlayerPrefListener.Instance.OnValueChanged += HandleValueChanged;
+    }
+
+    private void HandleValueChanged(int newValue)
+    {
+        UpdateTanso(newValue);
+        Debug.Log("Tanso Updated to: " + newValue);
+    }
+    public void UpdateTanso(int newValue)
+    {
+        var gameSystem = new GameSystem();
+        gameSystem.Save(newValue, PlayerPrefKeys.TANSO);
+        MainPlayerDB.TansoCount = newValue;
+        Amarra.TotalAward = newValue;
     }
 }
