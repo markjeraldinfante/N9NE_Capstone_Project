@@ -26,26 +26,13 @@ public class DBHandler : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     void LoadSave()
     {
-        Amarra.TotalAward = PlayerPrefs.GetInt("AMARRA_TOTAL_TANSO");
+        Amarra.TotalAward = PlayerPrefs.GetInt(PlayerPrefKeys.TANSO);
+        MainPlayerDB.TansoCount = PlayerPrefs.GetInt(PlayerPrefKeys.TANSO);
         MainPlayerDB.PlayerName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
 
         //temp
-
-        MainPlayerDB.TansoCount = Amarra.TotalAward;
         Debug.Log(MainPlayerDB.TansoCount);
         Debug.Log("DATA BASE LOADED");
     }

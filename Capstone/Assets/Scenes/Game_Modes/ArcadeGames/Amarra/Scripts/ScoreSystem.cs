@@ -21,7 +21,7 @@ public class ScoreSystem : MonoBehaviour
 
         scoreAmount = 0f;
         scoreP = 1f;
-        PlayerPrefs.GetFloat("AmarraHighscore").ToString("Highscore: " + "0");
+        PlayerPrefs.GetFloat(PlayerPrefKeys.AMARRA_HSCORE).ToString("Highscore: " + "0");
     }
     public void Update()
     {
@@ -29,9 +29,9 @@ public class ScoreSystem : MonoBehaviour
         SOAmarra.score = (int)scoreAmount;
         scoreText.text = "Score: " + SOAmarra.score.ToString("0");
         AwardUpdater();
-        if (SOAmarra.score > PlayerPrefs.GetInt("AmarraHighscore"))
+        if (SOAmarra.score > PlayerPrefs.GetInt(PlayerPrefKeys.AMARRA_HSCORE))
         {
-            PlayerPrefs.SetInt("AmarraHighscore", SOAmarra.score);
+            PlayerPrefs.SetInt(PlayerPrefKeys.AMARRA_HSCORE, SOAmarra.score);
             scoreAmount.ToString("AmarraHighscore: " + "0");
         }
 
@@ -111,15 +111,15 @@ public class ScoreSystem : MonoBehaviour
     {
         totalTanso += SOAmarra.tansoAward;
 
-        if (PlayerPrefs.HasKey("AMARRA_TOTAL_TANSO"))
+        if (PlayerPrefs.HasKey(PlayerPrefKeys.TANSO))
         {
             SOAmarra.TotalAward = totalTanso;
-            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
+            PlayerPrefs.SetInt(PlayerPrefKeys.TANSO, SOAmarra.TotalAward);
             return;
         }
         else
 
-            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
+            PlayerPrefs.SetInt(PlayerPrefKeys.TANSO, SOAmarra.TotalAward);
     }
 
 
