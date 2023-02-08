@@ -9,6 +9,5 @@ public static class PlayerPrefKeys
     public const string AMARRA_HSCORE = "AMARRA_HSCORE";
     public const string TANSO = "TANSO";
 
-
 }
 

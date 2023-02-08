@@ -6,19 +6,11 @@ using TMPro;
 public class AmarraHighScore : MonoBehaviour
 {
     public TextMeshProUGUI highscoreText;
-    void Start()
+    public AmarraManager1 SOAmarra;
+    void Awake()
     {
-        if (!PlayerPrefs.HasKey(PlayerPrefKeys.AMARRA_HSCORE))
-        {
-            highscoreText.text = ("Highscore: " + 0);
-        }
-        else
-        {
-
-            highscoreText.text = ("Highscore: " + PlayerPrefs.GetInt(PlayerPrefKeys.AMARRA_HSCORE));
-
-        }
-        Debug.Log(PlayerPrefs.GetInt(PlayerPrefKeys.AMARRA_HSCORE));
+        var gameSystem = new GameSystem();
+        highscoreText.text = ("Highscore: " + gameSystem.Load(PlayerPrefKeys.AMARRA_HSCORE));
     }
 
 }
