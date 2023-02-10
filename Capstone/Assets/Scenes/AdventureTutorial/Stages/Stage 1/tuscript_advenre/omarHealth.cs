@@ -26,10 +26,12 @@ public class omarHealth : MonoBehaviour
         if(other.gameObject.tag == "pamalo")
         {
             TakeDamage(10);
+            
         }
         if(other.gameObject.tag == "fallobj")
         {
             TakeDamage(50);
         }
+
     }
 }
