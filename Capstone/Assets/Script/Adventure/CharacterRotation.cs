@@ -11,7 +11,7 @@ public class CharacterRotation : MonoBehaviour
         float RotationChar = Input.GetAxis("Mouse X") * rotationSpeed;
         trans.Rotate(Vector3.down, RotationChar, Space.World);
 
-        Debug.Log(RotationChar);
+        //   Debug.Log(RotationChar);
 
     }
 }

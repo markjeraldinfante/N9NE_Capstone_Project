@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public float scoreAmount;
-    public float scoreP;
+    public float totalScore;
+    public float scorePoints;
     [SerializeField] int intScore;
     public TextMeshProUGUI scoreText;
     [SerializeField] private AmarraMovement amarraMovement;
@@ -15,24 +15,30 @@ public class ScoreSystem : MonoBehaviour
     public int AwardCount;
 
 
-
     void Start()
     {
-
-        scoreAmount = 0f;
-        scoreP = 1f;
-        PlayerPrefs.GetFloat("AmarraHighscore").ToString("Highscore: " + "0");
+        totalScore = 0f;
+        scorePoints = 1f;
+        SOAmarra.HighScore.ToString("Highscore: " + "0");
     }
     public void Update()
     {
-        scoreAmount += scoreP * Time.deltaTime;
-        SOAmarra.score = (int)scoreAmount;
+        totalScore += scorePoints * Time.deltaTime;
+        SOAmarra.score = (int)totalScore;
         scoreText.text = "Score: " + SOAmarra.score.ToString("0");
         AwardUpdater();
-        if (SOAmarra.score > PlayerPrefs.GetInt("AmarraHighscore"))
+        HighScoreUpdate();
+    }
+    public void HighScoreUpdate()
+    {
+        var gameSystem = new GameSystem();
+        int highScore = gameSystem.Load(PlayerPrefKeys.AMARRA_HSCORE);
+        int currentScore = SOAmarra.score;
+
+        if (currentScore > highScore)
         {
-            PlayerPrefs.SetInt("AmarraHighscore", SOAmarra.score);
-            scoreAmount.ToString("AmarraHighscore: " + "0");
+            gameSystem.Save(currentScore, PlayerPrefKeys.AMARRA_HSCORE);
+            SOAmarra.HighScore = currentScore;
         }
 
     }
@@ -109,17 +115,9 @@ public class ScoreSystem : MonoBehaviour
     //lilipat sa manager
     public void SaveTanso(int totalTanso)
     {
-        totalTanso += SOAmarra.tansoAward;
-
-        if (PlayerPrefs.HasKey("AMARRA_TOTAL_TANSO"))
-        {
-            SOAmarra.TotalAward = totalTanso;
-            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
-            return;
-        }
-        else
-
-            PlayerPrefs.SetInt("AMARRA_TOTAL_TANSO", SOAmarra.TotalAward);
+        var gameSystem = new GameSystem();
+        SOAmarra.TotalAward += totalTanso;
+        gameSystem.Save(SOAmarra.TotalAward, PlayerPrefKeys.TANSO);
     }
 
 

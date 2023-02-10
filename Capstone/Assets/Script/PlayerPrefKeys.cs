@@ -6,8 +6,11 @@ using UnityEngine;
 public static class PlayerPrefKeys
 {
     public const string PLAYER_NICKNAME = "PLAYER_NICKNAME";
-    public const string PLAYER_CHARACTER = "PLAYER_CHARACTER";
-
+    public const string AMARRA_HSCORE = "AMARRA_HSCORE";
+    public const string TANSO = "TANSO";
+    public const string SELECTED_CHARACTER = "SELECTED_CHARACTER";
+    public const string SELECTED_CHARACTER_NAME = "SELECTED_CHARACTER_NAME";
+    public const string SELECTED_CHARACTER_DETAILS = "SELECTED_CHARACTER_DETAILS";
 
 }
 
