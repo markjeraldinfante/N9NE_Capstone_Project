@@ -20,13 +20,7 @@ public class LogIn : MonoBehaviour
             showPlay();
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            PlayerPrefs.DeleteAll();
-        }
-    }
+
     public void OnButtonPressLogin()
     {
         if (UsernameInput.text.Length >= 1)

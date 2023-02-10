@@ -11,16 +11,6 @@ public class OptionScreen : MonoBehaviour
     public int selectedResolution;
     public TMP_Text resolutionLabel;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("backspace"))
-        {
-
-            PlayerPrefs.DeleteKey("HorizontalRes");
-            PlayerPrefs.DeleteKey("VerticalRes");
-            PlayerPrefs.DeleteKey("Toggle");
-        }
-    }
 
     private void OnEnable()
     {

@@ -25,14 +25,14 @@ public class CharSlot : MonoBehaviour
     {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(ButtonOnClick);
+
     }
 
     void ButtonOnClick()
     {
-        characterPreview.DisplayAvatar(_id);
-        characterPreview.charName.text = characterName;
-        characterPreview.charDetails.text = characterDetails;
+        characterPreview.DisplayAvatar(_id, characterName, characterDetails);
         somnium.SoundManager.instance.PlaySFX(CharacterPickingSFX);
         //CharacterPickingSFX
     }
+
 }

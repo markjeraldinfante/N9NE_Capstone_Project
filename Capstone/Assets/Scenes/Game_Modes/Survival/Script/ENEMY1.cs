@@ -13,49 +13,35 @@ public class ENEMY1 : MonoBehaviour
     Rigidbody rb;
     public Animator animator;
     Vector3 TransformEnemy;
+    public bool isAttacking;
     // Start is called before the first frame update
     void Start()
     {
+        isAttacking = false;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        TransformEnemy = Vector3.Lerp(transform.position, target.position, Time.deltaTime * speed);
-        //float distance = transform.position;
-        //float distance = Vector3.Normalize(transform.position, target.position, speed);
 
-        /*
-                animator.SetBool("isAttacking", false);
-
-
-
-                if (currentState == "ChaseState")
-                {
-                    if (distance < attackRange)
-                        currentState = "AttackState";
-                }
-                else if (currentState == "AttackState")
-                {
-                    animator.SetBool("isAttacking", true);
-                }
-                if (distance > attackRange)
-                {
-                    currentState = "ChaseState";
-                }
-         */
-
+        if (!isAttacking)
+        {
+            TransformEnemy = Vector3.Lerp(transform.position, target.position, Time.fixedDeltaTime * speed);
+            return;
+        }
+        // else animator.SetBool();
     }
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Base")
         {
+            isAttacking = true;
             animator.SetBool("isAttacking", true);
             Debug.Log("nagcollide");
+            return;
         }
     }
 }

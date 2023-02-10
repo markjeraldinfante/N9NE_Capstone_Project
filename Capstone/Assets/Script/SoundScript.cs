@@ -9,7 +9,7 @@ namespace somnium
     public class SoundScript : MonoBehaviour
     {
         public Slider musicSlider, SFXSlider;
-        private void Awake()
+        private void Start()
         {
             SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
             SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
