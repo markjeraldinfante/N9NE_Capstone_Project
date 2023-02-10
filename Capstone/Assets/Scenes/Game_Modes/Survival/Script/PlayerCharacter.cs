@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCharacter : ScriptableObject
 {
     public string PlayerName;
-    public List<CharacterAsset> CharacterAsset;
+    public int CharacterID;
+
 
 }
