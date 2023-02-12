@@ -11,6 +11,7 @@ public class CharacterData : ScriptableObject
     public Sprite CharacterIcon;
     public string VoicePicking;
     public string CharacterDetails;
+    public Sprite survivalSplashArt;
     public bool isUnlocked;
 
 }
