@@ -38,7 +38,9 @@ private string currentState;
     }
      private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato"); }
+        if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato");
+        //somnium.SoundManager.instance.PlaySFX("AguyMobs"); 
+        }
         // else StartCoroutine(NormalSpeed());
     }
      IEnumerator NormalSpeed()
