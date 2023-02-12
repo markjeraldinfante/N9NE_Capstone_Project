@@ -16,12 +16,6 @@ public class VariantHolder : MonoBehaviour
         variantData.mode = baseSurvivalVariant.GameMode.Offline;
         variantData.players = baseSurvivalVariant.PlayerCount.Multiplayer;
     }
-    public void PlaySinglePlayerOnline()
-    {
-        variantData.mode = baseSurvivalVariant.GameMode.Online;
-        variantData.players = baseSurvivalVariant.PlayerCount.Single;
-    }
-
     public void PlayMultiplayerOnline()
     {
         variantData.mode = baseSurvivalVariant.GameMode.Online;
