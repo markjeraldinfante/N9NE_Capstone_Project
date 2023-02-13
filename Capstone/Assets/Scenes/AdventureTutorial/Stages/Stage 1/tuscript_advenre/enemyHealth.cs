@@ -9,7 +9,7 @@ private string currentState;
       public int maxHealth;
     public int currentHealth;
     public Animator animator;
-   // public HealthBar healthBar;
+    public HealthBar healthBar;
   //  public Enemy_Carp enemyMovement;
     // Start is called before the first frame update
     void Start()
@@ -27,13 +27,14 @@ private string currentState;
     {
         currentHealth -= damage;
       //  enemyMovement.speed = 0.01f;
-       // healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
         currentHealth -= damage;
         currentState = "ChaseState";
 
         if(currentHealth < 0)
         {
             Die();
+            
         }
     }
      private void OnTriggerEnter(Collider other)

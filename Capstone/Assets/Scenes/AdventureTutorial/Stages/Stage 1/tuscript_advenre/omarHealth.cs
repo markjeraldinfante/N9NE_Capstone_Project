@@ -31,7 +31,15 @@ public class omarHealth : MonoBehaviour
         if(other.gameObject.tag == "fallobj")
         {
             TakeDamage(50);
+            DestroyWithTag("fallobj");
         }
 
+    }
+    void DestroyWithTag(string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy(oneObject);
     }
 }
