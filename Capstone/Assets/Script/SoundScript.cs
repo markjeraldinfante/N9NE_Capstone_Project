@@ -9,47 +9,36 @@ namespace somnium
     public class SoundScript : MonoBehaviour
     {
         public Slider musicSlider, SFXSlider;
-        private void Start()
+        private void Awake()
         {
-            SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
-            SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
-            musicSlider.value = PlayerPrefs.GetFloat("SetBGM");
-            SFXSlider.value = PlayerPrefs.GetFloat("SetSFX");
-
-            /*if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
-            {
-                musicSlider.value = 1f;
-                SFXSlider.value = 1f;
-
-                SetBGM();
-                SetSFX();
-            }
-            else
-            {
-                musicSlider.value = PlayerPrefs.GetFloat("SetBGM");
-                SFXSlider.value = PlayerPrefs.GetFloat("SetSFX");
-                SoundManager.instance.SetBGM(PlayerPrefs.GetFloat("SetBGM"));
-                SoundManager.instance.SetSFX(PlayerPrefs.GetFloat("SetSFX"));
-            }
-*/
-
+            LoadSettings();
         }
+
         public void SetBGM()
         {
-            //AudioSource.volume = musicVolume;
-            // soundManager.SetBGM = soundManager.musicVolume;
             SoundManager.instance.SetBGM(musicSlider.value);
-            PlayerPrefs.SetFloat("SetBGM", musicSlider.value);
-
-
+            SaveSetting(PlayerPrefKeys.SET_BGM, musicSlider.value);
         }
 
         public void SetSFX()
         {
             SoundManager.instance.SetSFX(SFXSlider.value);
-            PlayerPrefs.SetFloat("SetSFX", SFXSlider.value);
+            SaveSetting(PlayerPrefKeys.SET_SFX, SFXSlider.value);
         }
 
+        private void LoadSettings()
+        {
+            SoundManager.instance.SetBGM(PlayerPrefs.GetFloat(PlayerPrefKeys.SET_BGM, 0.5f));
+            SoundManager.instance.SetSFX(PlayerPrefs.GetFloat(PlayerPrefKeys.SET_SFX, 0.5f));
+            musicSlider.value = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_BGM, 0.5f);
+            SFXSlider.value = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_SFX, 0.5f);
+        }
 
+        private void SaveSetting(string key, float value)
+        {
+            PlayerPrefs.SetFloat(key, value);
+        }
     }
+
 }
+
