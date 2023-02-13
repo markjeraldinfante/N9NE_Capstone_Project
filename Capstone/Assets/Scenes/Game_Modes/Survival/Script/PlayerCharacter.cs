@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerCharacter : ScriptableObject
 {
     public string PlayerName;
-    public int CharacterID;
+    public string CharacterID;
 
 
 }

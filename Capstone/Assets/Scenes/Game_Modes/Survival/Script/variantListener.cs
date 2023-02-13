@@ -18,10 +18,12 @@ public class variantListener : MonoBehaviour
                 case baseSurvivalVariant.PlayerCount.Single:
                     is2Player.is2P = false;
                     _1playerselection.SetActive(true);
+                    _2playerselection.SetActive(false);
                     break;
 
                 case baseSurvivalVariant.PlayerCount.Multiplayer:
                     is2Player.is2P = true;
+                    _1playerselection.SetActive(true);
                     _2playerselection.SetActive(true);
                     break;
             }
