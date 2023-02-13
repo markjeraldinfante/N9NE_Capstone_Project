@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniBoss : MonoBehaviour
+public class ninjaRandomAttack : MonoBehaviour
 {
     private string currentState = "IdleState";
     private Transform target;
     public float chaseRange = 5;
-    public float speed = 3;
-    public float attackRange = 2;
+    public float speed = 2;
+    public float attackRange = 1;
 
     public Animator animator;
 
-   
+
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         //animator = GetComponent<Animator>();
-       
+
 
     }
     void Update()
@@ -33,17 +33,17 @@ public class MiniBoss : MonoBehaviour
         else if (currentState == "ChaseState")
         {
             animator.SetTrigger("chase");
-           
-                
-                animator.SetBool("Attack", false);
-            
-               
 
 
-                if (distance < attackRange)
-                    currentState = "AttackState";
+            animator.SetBool("Attack", false);
 
-            
+
+
+
+            if (distance < attackRange)
+                currentState = "AttackState";
+
+
 
             if (target.position.x > transform.position.x)
             {
@@ -68,16 +68,13 @@ public class MiniBoss : MonoBehaviour
             if (distance > attackRange)
                 currentState = "ChaseState";
         }
-        
+
 
     }
-    IEnumerator AttackBoss()
+    IEnumerator Ninja()
     {
         yield return new WaitForSeconds(1);
         animator.SetTrigger("Attack");
         animator.SetInteger("AttackIndex", Random.Range(0, 4));
     }
-
-    
-
 }
