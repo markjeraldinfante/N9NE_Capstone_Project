@@ -52,25 +52,21 @@ public class PlayerSpawner : MonoBehaviour
     }
     private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform, Transform player2Transform)
     {
-        if (PhotonNetwork.IsConnectedAndReady)
+        foreach (var characterModel in characterModels)
         {
-            foreach (var characterModel in characterModels)
+            if (characterModel.CharacterID == playerData.CharacterID)
             {
-                if (characterModel.CharacterID == playerData.CharacterID)
+
+                if (PhotonNetwork.IsMasterClient)
                 {
-
-                    if (PhotonNetwork.IsMasterClient)
-                    {
-                        PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, player1Transform.rotation);
-                    }
-                    else
-                    {
-                        PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, player2Transform.rotation);
-                    }
+                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity);
+                    Debug.Log("Instantiate");
                 }
-            }
+                else
 
+                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, Quaternion.identity);
+
+            }
         }
-        else Debug.Log("Not connected");
     }
 }

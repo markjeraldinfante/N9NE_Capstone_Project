@@ -14,22 +14,25 @@ public class SpawnStartInstantiate : MonoBehaviour
 
     public void Awake()
     {
-        if (variant.mode == baseSurvivalVariant.GameMode.Online)
+        switch (variant.mode)
         {
+            case baseSurvivalVariant.GameMode.Offline:
+                switch (variant.players)
+                {
+                    case baseSurvivalVariant.PlayerCount.Single:
+                        spawn1Player?.Invoke();
+                        break;
+                    case baseSurvivalVariant.PlayerCount.Multiplayer:
+                        spawn2Player?.Invoke();
+                        break;
+                }
+                break;
 
-            spawn2PlayerOnline?.Invoke();
-            return;
+            case baseSurvivalVariant.GameMode.Online:
+                spawn2PlayerOnline?.Invoke();
+                break;
+
         }
-        else
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Single:
-                    spawn1Player?.Invoke();
-                    break;
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    spawn2Player?.Invoke();
-                    break;
-            }
     }
 
 

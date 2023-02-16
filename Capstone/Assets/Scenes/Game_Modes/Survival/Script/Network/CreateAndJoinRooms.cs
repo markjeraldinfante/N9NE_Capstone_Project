@@ -10,6 +10,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
     public GameObject waitingForOtherPlayer;
+    public bool DevMode;
 
     private bool isConnecting;
     private void Awake()
@@ -36,6 +37,11 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        if (DevMode)
+        {
+            PhotonNetwork.LoadLevel(8);
+            return;
+        }
         if (isConnecting)
         {
             Debug.Log("Room joined.");
