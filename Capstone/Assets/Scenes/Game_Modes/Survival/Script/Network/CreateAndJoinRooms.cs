@@ -9,8 +9,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
+    public GameObject waitingForOtherPlayer;
 
     private bool isConnecting;
+    private void Awake()
+    {
+        waitingForOtherPlayer.SetActive(false);
+    }
 
     public void CreateRoom()
     {
@@ -40,7 +45,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     private IEnumerator WaitForPlayers()
     {
-        Debug.Log("Waiting for players...");
+        waitingForOtherPlayer.SetActive(true);
 
         // Wait for both the host and client to connect to the room
         while (PhotonNetwork.CurrentRoom.PlayerCount < 2)

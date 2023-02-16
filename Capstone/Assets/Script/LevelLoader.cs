@@ -5,16 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen = null;
-    [SerializeField] private baseSurvivalVariant variant = null;
     [SerializeField] private GameObject[] objectsToHide = null;
-
-    public void SurvivalLoad()
-    {
-        int indexOffline = 8;
-        int indexOnline = 6;
-        HideObjects();
-        StartCoroutine(LoadAsynchronously(variant.mode == baseSurvivalVariant.GameMode.Online ? indexOnline : indexOffline));
-    }
 
     public void LoadLevel(int sceneIndex)
     {
