@@ -35,7 +35,7 @@ public class PlayerSpawner : MonoBehaviour
     }
     public void Spawn1PlayerOnline()
     {
-        OnlineAssignAndInstantiateCharacter(onlinePlayerData, player1Transform);
+        OnlineAssignAndInstantiateCharacter(onlinePlayerData, player1Transform, player2Transform);
         Debug.Log("check test online");
     }
 
@@ -56,15 +56,20 @@ public class PlayerSpawner : MonoBehaviour
             }
         }
     }
-    private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform)
+    private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform, Transform player2Transform)
     {
         foreach (var characterModel in characterModels)
         {
             if (characterModel.CharacterID == playerData.CharacterID)
             {
-                myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity, 0);
+                if (photonView.IsMine)
+                {
+                    Vector3 spawnPos = Vector3.Lerp(player1Transform.position, player2Transform.position, Random.Range(0f, 1f));
+                    myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, spawnPos, Quaternion.identity, 0);
+                }
 
             }
         }
     }
+
 }
