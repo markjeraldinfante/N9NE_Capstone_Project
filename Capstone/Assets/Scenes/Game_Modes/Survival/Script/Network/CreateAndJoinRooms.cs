@@ -3,24 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     public TMP_InputField createInput;
     public TMP_InputField joinInput;
 
+    private bool isConnecting;
+
     public void CreateRoom()
     {
+        isConnecting = true;
         PhotonNetwork.CreateRoom(createInput.text);
     }
 
     public void JoinRoom()
     {
+        isConnecting = true;
         PhotonNetwork.JoinRoom(joinInput.text);
     }
+
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("Room created.");
+    }
+
     public override void OnJoinedRoom()
     {
-        // Load Scene
+        if (isConnecting)
+        {
+            Debug.Log("Room joined.");
+            StartCoroutine(WaitForPlayers());
+        }
+    }
+
+    private IEnumerator WaitForPlayers()
+    {
+        Debug.Log("Waiting for players...");
+
+        // Wait for both the host and client to connect to the room
+        while (PhotonNetwork.CurrentRoom.PlayerCount < 2)
+        {
+            yield return null;
+        }
+
+        Debug.Log("Players connected. Loading scene...");
         PhotonNetwork.LoadLevel(8);
     }
 }

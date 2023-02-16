@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public PlayerCharacter player1Data, player2Data, onlinePlayerData;
+    public PlayerCharacter offlineplayer1Data, offlineplayer2Data, onlinePlayerData;
     public CharacterAsset[] characterModels;
     public Transform player1Transform, player2Transform;
 
@@ -25,7 +25,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn1Player()
     {
-        AssignAndInstantiateCharacter(player1Data, player1Transform);
+        AssignAndInstantiateCharacter(offlineplayer1Data, player1Transform);
     }
     public void Spawn1PlayerOnline()
     {
@@ -35,8 +35,8 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn2Players()
     {
-        AssignAndInstantiateCharacter(player1Data, player1Transform);
-        AssignAndInstantiateCharacter(player2Data, player2Transform);
+        AssignAndInstantiateCharacter(offlineplayer1Data, player1Transform);
+        AssignAndInstantiateCharacter(offlineplayer2Data, player2Transform);
     }
 
     private void AssignAndInstantiateCharacter(PlayerCharacter playerData, Transform playerTransform)
@@ -52,22 +52,27 @@ public class PlayerSpawner : MonoBehaviour
     }
     private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform, Transform player2Transform)
     {
-        foreach (var characterModel in characterModels)
+        if (PhotonNetwork.IsConnectedAndReady)
         {
-            if (characterModel.CharacterID == playerData.CharacterID)
+            foreach (var characterModel in characterModels)
             {
-                if (PhotonNetwork.IsMasterClient)
+                if (characterModel.CharacterID == playerData.CharacterID)
                 {
-                    // Instantiate the character for the host player at player1Transform
-                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, player1Transform.rotation);
+
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        // Instantiate the character for the host player at player1Transform
+                        PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, player1Transform.rotation);
+                    }
+                    else
+                    {
+                        // Instantiate the character for the non-host player at player2Transform
+                        PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, player2Transform.rotation);
+                    }
                 }
-                else
-                {
-                    // Instantiate the character for the non-host player at player2Transform
-                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, player2Transform.rotation);
-                }
-                break;
             }
+
         }
+        else Debug.Log("Not connected");
     }
 }
