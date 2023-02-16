@@ -8,7 +8,13 @@ public class PlayerSpawner : MonoBehaviour
     public PlayerCharacter offlineplayer1Data, offlineplayer2Data, onlinePlayerData;
     public CharacterAsset[] characterModels;
     public Transform player1Transform, player2Transform;
+    public GameObject myPlayer;
+    public PhotonView photonView;
 
+    private void Start()
+    {
+        photonView = GetComponent<PhotonView>();
+    }
     private void Awake()
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
@@ -59,12 +65,12 @@ public class PlayerSpawner : MonoBehaviour
 
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity);
+                    myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity);
                     Debug.Log("Instantiate");
                 }
                 else
 
-                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, Quaternion.identity);
+                    myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, Quaternion.identity);
 
             }
         }

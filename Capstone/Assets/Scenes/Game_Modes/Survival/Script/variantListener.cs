@@ -9,34 +9,31 @@ public class variantListener : MonoBehaviour
 
     private void Awake()
     {
-        if (variant.mode == baseSurvivalVariant.GameMode.Offline)
+        switch (variant.mode)
         {
-            _1playerselection.SetActive(true);
-            offlineStart.SetActive(true);
-            onlineStart.SetActive(false);
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Single:
-                    _2playerselection.SetActive(false);
-                    break;
+            case baseSurvivalVariant.GameMode.Offline:
+                _1playerselection.SetActive(true);
+                offlineStart.SetActive(true);
+                onlineStart.SetActive(false);
+                switch (variant.players)
+                {
+                    case baseSurvivalVariant.PlayerCount.Single:
+                        _2playerselection.SetActive(false);
+                        break;
 
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    _2playerselection.SetActive(true);
-                    break;
-            }
+                    case baseSurvivalVariant.PlayerCount.Multiplayer:
+                        _2playerselection.SetActive(true);
+                        break;
+                }
+                break;
+            case baseSurvivalVariant.GameMode.Online:
+                offlineStart.SetActive(false);
+                onlineStart.SetActive(true);
+                _1playerselection.SetActive(true);
+                _2playerselection.SetActive(false);
+                break;
         }
-        if (variant.mode == baseSurvivalVariant.GameMode.Online)
-        {
-            offlineStart.SetActive(false);
-            onlineStart.SetActive(true);
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    _1playerselection.SetActive(true);
-                    _2playerselection.SetActive(false);
-                    break;
-            }
-        }
+
     }
 
 }

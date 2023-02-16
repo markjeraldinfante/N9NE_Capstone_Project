@@ -75,15 +75,11 @@ public class SelectionCharacter : MonoBehaviour
                 break;
 
             case baseSurvivalVariant.GameMode.Online:
-                switch (variant.players)
-                {
-                    case baseSurvivalVariant.PlayerCount.Multiplayer:
-                        player1CharacterSplashHolder.gameObject.SetActive(true);
-                        player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                        onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
-                        break;
-                }
+                player1CharacterSplashHolder.gameObject.SetActive(true);
+                player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
                 break;
+
         }
     }
 }
