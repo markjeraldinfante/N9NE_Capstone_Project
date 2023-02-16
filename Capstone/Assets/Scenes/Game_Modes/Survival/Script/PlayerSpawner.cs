@@ -12,15 +12,21 @@ public class PlayerSpawner : MonoBehaviour
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
+        SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
     }
 
     private void OnDisable()
     {
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
+        SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
     }
 
     public void Spawn1Player()
+    {
+        AssignAndInstantiateCharacter(player1Data, player1Transform);
+    }
+    public void Spawn1PlayerOnline()
     {
         AssignAndInstantiateCharacter(player1Data, player1Transform);
     }
