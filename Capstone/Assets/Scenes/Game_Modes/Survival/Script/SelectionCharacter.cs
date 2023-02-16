@@ -53,23 +53,23 @@ public class SelectionCharacter : MonoBehaviour
 
     private void UpdateCharacterSplash()
     {
-        switch (variant.mode)
+        switch (variant.Mode)
         {
             case baseSurvivalVariant.GameMode.Offline:
-                switch (variant.players)
+                switch (variant.Players)
                 {
                     case baseSurvivalVariant.PlayerCount.Single:
                         player1CharacterSplashHolder.gameObject.SetActive(true);
                         player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                        player1.CharacterID = unlockedCharacters[player1Index].id;
+                        player1.charID = unlockedCharacters[player1Index].id;
                         break;
                     case baseSurvivalVariant.PlayerCount.Multiplayer:
                         player1CharacterSplashHolder.gameObject.SetActive(true);
                         player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                        player1.CharacterID = unlockedCharacters[player1Index].id;
+                        player1.charID = unlockedCharacters[player1Index].id;
                         player2CharacterSplashHolder.gameObject.SetActive(true);
                         player2CharacterSplashHolder.sprite = unlockedCharacters[player2Index].survivalSplashArt;
-                        player2.CharacterID = unlockedCharacters[player2Index].id;
+                        player2.charID = unlockedCharacters[player2Index].id;
                         break;
                 }
                 break;
@@ -77,7 +77,7 @@ public class SelectionCharacter : MonoBehaviour
             case baseSurvivalVariant.GameMode.Online:
                 player1CharacterSplashHolder.gameObject.SetActive(true);
                 player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
+                onlinePlayer.charID = unlockedCharacters[player1Index].id;
                 break;
 
         }

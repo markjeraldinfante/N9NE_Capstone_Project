@@ -9,13 +9,13 @@ public class variantListener : MonoBehaviour
 
     private void Awake()
     {
-        switch (variant.mode)
+        switch (variant.Mode)
         {
             case baseSurvivalVariant.GameMode.Offline:
                 _1playerselection.SetActive(true);
                 offlineStart.SetActive(true);
                 onlineStart.SetActive(false);
-                switch (variant.players)
+                switch (variant.Players)
                 {
                     case baseSurvivalVariant.PlayerCount.Single:
                         _2playerselection.SetActive(false);

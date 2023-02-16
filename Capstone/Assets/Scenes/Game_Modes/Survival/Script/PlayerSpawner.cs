@@ -49,7 +49,7 @@ public class PlayerSpawner : MonoBehaviour
     {
         foreach (var characterModel in characterModels)
         {
-            if (characterModel.CharacterID == playerData.CharacterID)
+            if (characterModel.CharacterID == playerData.charID)
             {
                 Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
                 break;
@@ -60,7 +60,7 @@ public class PlayerSpawner : MonoBehaviour
     {
         foreach (var characterModel in characterModels)
         {
-            if (characterModel.CharacterID == playerData.CharacterID)
+            if (characterModel.CharacterID == playerData.charID)
             {
                 if (photonView.IsMine)
                 {

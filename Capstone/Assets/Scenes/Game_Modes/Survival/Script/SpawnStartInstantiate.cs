@@ -14,11 +14,11 @@ public class SpawnStartInstantiate : MonoBehaviour
 
     public void Awake()
     {
-        switch (variant.mode)
+        switch (variant.Mode)
         {
             case baseSurvivalVariant.GameMode.Offline:
                 Debug.Log("Offline Mode");
-                switch (variant.players)
+                switch (variant.Players)
                 {
                     case baseSurvivalVariant.PlayerCount.Single:
                         spawn1Player?.Invoke();
