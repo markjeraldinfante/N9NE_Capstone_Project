@@ -5,7 +5,6 @@ using UnityEngine;
 public class variantListener : MonoBehaviour
 {
     public baseSurvivalVariant variant;
-    public PlayerCharacter player1, player2;
     public GameObject _1playerselection, _2playerselection;
 
     private void Awake()

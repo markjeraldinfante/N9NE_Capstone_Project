@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public PlayerCharacter player1Data, player2Data;
+    public PlayerCharacter player1Data, player2Data, onlinePlayerData;
     public CharacterAsset[] characterModels;
     public Transform player1Transform, player2Transform;
 
@@ -28,7 +29,8 @@ public class PlayerSpawner : MonoBehaviour
     }
     public void Spawn1PlayerOnline()
     {
-        AssignAndInstantiateCharacter(player1Data, player1Transform);
+        OnlineAssignAndInstantiateCharacter(onlinePlayerData, player1Transform, player2Transform);
+        Debug.Log("check test online");
     }
 
     public void Spawn2Players()
@@ -44,6 +46,26 @@ public class PlayerSpawner : MonoBehaviour
             if (characterModel.CharacterID == playerData.CharacterID)
             {
                 Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
+                break;
+            }
+        }
+    }
+    private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform, Transform player2Transform)
+    {
+        foreach (var characterModel in characterModels)
+        {
+            if (characterModel.CharacterID == playerData.CharacterID)
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    // Instantiate the character for the host player at player1Transform
+                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, player1Transform.rotation);
+                }
+                else
+                {
+                    // Instantiate the character for the non-host player at player2Transform
+                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, player2Transform.rotation);
+                }
                 break;
             }
         }

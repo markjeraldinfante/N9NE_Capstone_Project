@@ -8,6 +8,7 @@ public class SelectionCharacter : MonoBehaviour
     [SerializeField] private CharacterData[] characters = null;
     [SerializeField] private Image player1CharacterSplashHolder = null;
     [SerializeField] private Image player2CharacterSplashHolder = null;
+    [SerializeField] private PlayerCharacter onlinePlayer = null;
     [SerializeField] private PlayerCharacter player1 = null;
     [SerializeField] private PlayerCharacter player2 = null;
     [SerializeField] private baseSurvivalVariant variant;
@@ -80,7 +81,7 @@ public class SelectionCharacter : MonoBehaviour
                 case baseSurvivalVariant.PlayerCount.Multiplayer:
                     player1CharacterSplashHolder.gameObject.SetActive(true);
                     player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                    player1.CharacterID = unlockedCharacters[player1Index].id;
+                    onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
                     break;
             }
         }

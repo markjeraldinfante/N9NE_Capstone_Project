@@ -26,16 +26,15 @@ public class SpawnStartInstantiate : MonoBehaviour
                     spawn2Player?.Invoke();
                     break;
             }
+            return;
         }
 
         if (variant.mode == baseSurvivalVariant.GameMode.Online)
         {
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    spawn2PlayerOnline?.Invoke();
-                    break;
-            }
+
+            spawn2PlayerOnline?.Invoke();
+
+
         }
 
     }
