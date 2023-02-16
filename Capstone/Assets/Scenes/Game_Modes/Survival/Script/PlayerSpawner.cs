@@ -61,12 +61,10 @@ public class PlayerSpawner : MonoBehaviour
 
                     if (PhotonNetwork.IsMasterClient)
                     {
-                        // Instantiate the character for the host player at player1Transform
                         PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, player1Transform.rotation);
                     }
                     else
                     {
-                        // Instantiate the character for the non-host player at player2Transform
                         PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player2Transform.position, player2Transform.rotation);
                     }
                 }

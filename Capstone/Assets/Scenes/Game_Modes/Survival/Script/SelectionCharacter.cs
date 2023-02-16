@@ -53,38 +53,37 @@ public class SelectionCharacter : MonoBehaviour
 
     private void UpdateCharacterSplash()
     {
-        if (variant.mode == baseSurvivalVariant.GameMode.Offline)
+        switch (variant.mode)
         {
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Single:
-                    player1CharacterSplashHolder.gameObject.SetActive(true);
-                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                    player1.CharacterID = unlockedCharacters[player1Index].id;
-                    break;
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    player1CharacterSplashHolder.gameObject.SetActive(true);
-                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                    player1.CharacterID = unlockedCharacters[player1Index].id;
-                    player2CharacterSplashHolder.gameObject.SetActive(true);
-                    player2CharacterSplashHolder.sprite = unlockedCharacters[player2Index].survivalSplashArt;
-                    player2.CharacterID = unlockedCharacters[player2Index].id;
-                    break;
-            }
-            return;
-        }
-        if (variant.mode == baseSurvivalVariant.GameMode.Online)
-        {
-            switch (variant.players)
-            {
+            case baseSurvivalVariant.GameMode.Offline:
+                switch (variant.players)
+                {
+                    case baseSurvivalVariant.PlayerCount.Single:
+                        player1CharacterSplashHolder.gameObject.SetActive(true);
+                        player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                        player1.CharacterID = unlockedCharacters[player1Index].id;
+                        break;
+                    case baseSurvivalVariant.PlayerCount.Multiplayer:
+                        player1CharacterSplashHolder.gameObject.SetActive(true);
+                        player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                        player1.CharacterID = unlockedCharacters[player1Index].id;
+                        player2CharacterSplashHolder.gameObject.SetActive(true);
+                        player2CharacterSplashHolder.sprite = unlockedCharacters[player2Index].survivalSplashArt;
+                        player2.CharacterID = unlockedCharacters[player2Index].id;
+                        break;
+                }
+                break;
 
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    player1CharacterSplashHolder.gameObject.SetActive(true);
-                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-                    onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
-                    break;
-            }
+            case baseSurvivalVariant.GameMode.Online:
+                switch (variant.players)
+                {
+                    case baseSurvivalVariant.PlayerCount.Multiplayer:
+                        player1CharacterSplashHolder.gameObject.SetActive(true);
+                        player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                        onlinePlayer.CharacterID = unlockedCharacters[player1Index].id;
+                        break;
+                }
+                break;
         }
-
     }
 }
