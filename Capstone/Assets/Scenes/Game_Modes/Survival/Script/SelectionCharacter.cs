@@ -1,36 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SelectionCharacter : MonoBehaviour
 {
     [SerializeField] private CharacterData[] characters = null;
     [SerializeField] private Image player1CharacterSplashHolder = null;
     [SerializeField] private Image player2CharacterSplashHolder = null;
-    public PlayerCharacter player1;
-    public PlayerCharacter player2;
-    private int player1Index;
-    private int player2Index;
-    private List<CharacterData> unlockedCharacters;
-    public is2Player is2Player;
+    [SerializeField] private PlayerCharacter player1 = null;
+    [SerializeField] private PlayerCharacter player2 = null;
+    [SerializeField] private baseSurvivalVariant variant;
+
+    private int player1Index = 0;
+    private int player2Index = 0;
+    private List<CharacterData> unlockedCharacters = new List<CharacterData>();
 
     private void Start()
     {
-        unlockedCharacters = new List<CharacterData>();
-        for (int i = 0; i < characters.Length; i++)
-        {
-            if (characters[i].isUnlocked)
-            {
-                unlockedCharacters.Add(characters[i]);
-            }
-        }
-
-        player1Index = 0;
-        player2Index = 0;
+        unlockedCharacters.AddRange(Array.FindAll(characters, c => c.isUnlocked));
         UpdateCharacterSplash();
     }
-
-
 
     public void NextCharacter(int player)
     {
@@ -50,19 +40,11 @@ public class SelectionCharacter : MonoBehaviour
     {
         if (player == 1)
         {
-            player1Index--;
-            if (player1Index < 0)
-            {
-                player1Index = unlockedCharacters.Count - 1;
-            }
+            player1Index = (player1Index + unlockedCharacters.Count - 1) % unlockedCharacters.Count;
         }
         else if (player == 2)
         {
-            player2Index--;
-            if (player2Index < 0)
-            {
-                player2Index = unlockedCharacters.Count - 1;
-            }
+            player2Index = (player2Index + unlockedCharacters.Count - 1) % unlockedCharacters.Count;
         }
 
         UpdateCharacterSplash();
@@ -70,23 +52,38 @@ public class SelectionCharacter : MonoBehaviour
 
     private void UpdateCharacterSplash()
     {
-        if (is2Player.is2P)
+        if (variant.mode == baseSurvivalVariant.GameMode.Offline)
         {
-            player1CharacterSplashHolder.gameObject.SetActive(true);
-            player2CharacterSplashHolder.gameObject.SetActive(true);
-
-            player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-            player2CharacterSplashHolder.sprite = unlockedCharacters[player2Index].survivalSplashArt;
-            player1.CharacterID = unlockedCharacters[player1Index].id;
-            player2.CharacterID = unlockedCharacters[player2Index].id;
+            switch (variant.players)
+            {
+                case baseSurvivalVariant.PlayerCount.Single:
+                    player1CharacterSplashHolder.gameObject.SetActive(true);
+                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                    player1.CharacterID = unlockedCharacters[player1Index].id;
+                    break;
+                case baseSurvivalVariant.PlayerCount.Multiplayer:
+                    player1CharacterSplashHolder.gameObject.SetActive(true);
+                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                    player1.CharacterID = unlockedCharacters[player1Index].id;
+                    player2CharacterSplashHolder.gameObject.SetActive(true);
+                    player2CharacterSplashHolder.sprite = unlockedCharacters[player2Index].survivalSplashArt;
+                    player2.CharacterID = unlockedCharacters[player2Index].id;
+                    break;
+            }
+            return;
         }
-        else
+        if (variant.mode == baseSurvivalVariant.GameMode.Online)
         {
-            player1CharacterSplashHolder.gameObject.SetActive(true);
-            player2CharacterSplashHolder.gameObject.SetActive(false);
+            switch (variant.players)
+            {
 
-            player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
-            player1.CharacterID = unlockedCharacters[player1Index].id;
+                case baseSurvivalVariant.PlayerCount.Multiplayer:
+                    player1CharacterSplashHolder.gameObject.SetActive(true);
+                    player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
+                    player1.CharacterID = unlockedCharacters[player1Index].id;
+                    break;
+            }
         }
+
     }
 }

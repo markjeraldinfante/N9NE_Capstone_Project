@@ -8,12 +8,12 @@ public class SpawnStartInstantiate : MonoBehaviour
     public delegate void Instantiate2Player();
     public static event Instantiate1Player spawn1Player;
     public static event Instantiate2Player spawn2Player;
-    public is2Player is2Player;
+    public baseSurvivalVariant variant;
 
     private void Awake()
     {
 
-        if (is2Player.is2P)
+        if (variant.players == baseSurvivalVariant.PlayerCount.Multiplayer)
         {
             spawn2Player?.Invoke();
             return;

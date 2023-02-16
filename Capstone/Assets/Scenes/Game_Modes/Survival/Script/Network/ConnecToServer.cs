@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ConnecToServer : MonoBehaviourPunCallbacks
 {
-    public float Delay = 2f;
+    public float Delay = 5f;
     private void Start()
     {
         StartCoroutine(ConnectionDelay(Delay));

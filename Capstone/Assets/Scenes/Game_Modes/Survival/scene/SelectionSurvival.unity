@@ -233,7 +233,7 @@ MonoBehaviour:
   player2CharacterSplashHolder: {fileID: 1279354895}
   player1: {fileID: 11400000, guid: ad8500e0cc7691c4b8225aa2d221eede, type: 2}
   player2: {fileID: 11400000, guid: 148be157e88347845b00fc453755472a, type: 2}
-  is2Player: {fileID: 11400000, guid: 59d7e6f4fe884394a821e50e88b4712c, type: 2}
+  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
 --- !u!1 &352457677
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,12 +597,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1936305796}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
+        m_MethodName: SurvivalLoad
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2177,7 +2177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
-  is2Player: {fileID: 11400000, guid: 59d7e6f4fe884394a821e50e88b4712c, type: 2}
   player1: {fileID: 11400000, guid: ad8500e0cc7691c4b8225aa2d221eede, type: 2}
   player2: {fileID: 11400000, guid: 148be157e88347845b00fc453755472a, type: 2}
   _1playerselection: {fileID: 368990195}
@@ -2227,6 +2226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 2090349434}
+  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   objectsToHide: []
 --- !u!1 &2090349434 stripped
 GameObject:
