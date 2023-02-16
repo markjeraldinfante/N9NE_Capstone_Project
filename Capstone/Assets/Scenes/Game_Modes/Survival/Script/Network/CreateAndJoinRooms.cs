@@ -17,6 +17,10 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     {
         waitingForOtherPlayer.SetActive(false);
     }
+    private void Start()
+    {
+        PhotonNetwork.JoinLobby();
+    }
 
     public void CreateRoom()
     {
