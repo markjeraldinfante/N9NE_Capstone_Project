@@ -62,7 +62,7 @@ public class PlayerSpawner : MonoBehaviour
         {
             if (characterModel.CharacterID == playerData.CharacterID)
             {
-                myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity);
+                myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, player1Transform.position, Quaternion.identity, 0);
 
             }
         }
