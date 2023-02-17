@@ -9,6 +9,7 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
     public float Delay = 5f;
     private void Start()
     {
+        PhotonNetwork.NickName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
         StartCoroutine(ConnectionDelay(Delay));
     }
 

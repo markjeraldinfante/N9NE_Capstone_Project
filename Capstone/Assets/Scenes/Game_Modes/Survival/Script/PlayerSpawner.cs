@@ -5,16 +5,17 @@ using Photon.Pun;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public PlayerCharacter offlineplayer1Data, offlineplayer2Data, onlinePlayerData;
+    public PlayerCharacter offlineplayer1Data, offlineplayer2Data;
+    public PlayerCharacter onlinePlayerData;
     public CharacterAsset[] characterModels;
     public Transform player1Transform, player2Transform;
-    public GameObject myPlayer;
     public PhotonView photonView;
 
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
     }
+
     private void Awake()
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
@@ -33,10 +34,10 @@ public class PlayerSpawner : MonoBehaviour
     {
         AssignAndInstantiateCharacter(offlineplayer1Data, player1Transform);
     }
+
     public void Spawn1PlayerOnline()
     {
         OnlineAssignAndInstantiateCharacter(onlinePlayerData, player1Transform, player2Transform);
-        Debug.Log("check test online");
     }
 
     public void Spawn2Players()
@@ -49,27 +50,27 @@ public class PlayerSpawner : MonoBehaviour
     {
         foreach (var characterModel in characterModels)
         {
-            if (characterModel.CharacterID == playerData.charID)
+            if (characterModel.CharacterID == playerData.CharacterID)
             {
                 Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
                 break;
             }
         }
     }
+
     private void OnlineAssignAndInstantiateCharacter(PlayerCharacter playerData, Transform player1Transform, Transform player2Transform)
     {
         foreach (var characterModel in characterModels)
         {
-            if (characterModel.CharacterID == playerData.charID)
+            if (characterModel.CharacterID == playerData.CharacterID)
             {
                 if (photonView.IsMine)
                 {
                     Vector3 spawnPos = Vector3.Lerp(player1Transform.position, player2Transform.position, Random.Range(0f, 1f));
-                    myPlayer = PhotonNetwork.Instantiate(characterModel.CharacterModel.name, spawnPos, Quaternion.identity, 0);
+                    PhotonNetwork.Instantiate(characterModel.CharacterModel.name, spawnPos, Quaternion.identity, 0);
                 }
 
             }
         }
     }
-
 }
