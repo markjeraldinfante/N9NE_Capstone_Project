@@ -9,9 +9,9 @@ public class PlayerSurvivalAttack : MonoBehaviour
     Animator animator;
     public GameObject batoObject;
     public Transform point;
-  //  public bool allowFire;
+    public bool allowFire;
 
-     List<GameObject> batoList;
+     //List<GameObject> batoList;
 
 
 
@@ -22,55 +22,55 @@ public class PlayerSurvivalAttack : MonoBehaviour
     }
     private void Start()
     {
-     //   allowFire = true;
-        batoList = new List<GameObject>();
-        for (int i = 0; i < 10; i++)
+        allowFire = true;
+        //batoList = new List<GameObject>();
+        //for (int i = 0; i < 10; i++)
         {
-           GameObject objBato = (GameObject)Instantiate(batoObject);
-           objBato.SetActive(false);
-           batoList.Add(objBato);
+           //GameObject objBato = (GameObject)Instantiate(batoObject);
+          // objBato.SetActive(false);
+           //batoList.Add(objBato);
         }
     }
 
     void Update()
     {
-        // if (Input.GetKeyDown(key) && allowFire)
-        if (Input.GetKeyDown(key))
+         if (Input.GetKeyDown(key) && allowFire)
+        //if (Input.GetKeyDown(key))
         {
 
-         //   StartCoroutine(Fire());
-         Fire();
+            StartCoroutine(Fire());
+         //Fire();
         }
 
     }
 
-   // IEnumerator Fire()
-   private void Fire()
+    IEnumerator Fire()
+   //private void Fire()
     {
-       // allowFire = false;
+        allowFire = false;
 
-        for (int i = 0; i < batoList.Count; i++)
+        //for (int i = 0; i < batoList.Count; i++)
         {
-            if(batoList[i].activeInHierarchy)
+            //if(batoList[i].activeInHierarchy)
             {
-                batoList[i].transform.position = transform.position;
-                 batoList[i].transform.rotation = transform.rotation;
-                 batoList[i].SetActive(true);
-                 Rigidbody tempRigidBodyBato = batoList[i].GetComponent<Rigidbody>();
-                 tempRigidBodyBato.AddForce(tempRigidBodyBato.transform.forward, ForceMode.Impulse);
+                //batoList[i].transform.position = transform.position;
+                // batoList[i].transform.rotation = transform.rotation;
+                // batoList[i].SetActive(true);
+                 //Rigidbody tempRigidBodyBato = batoList[i].GetComponent<Rigidbody>();
+                 //tempRigidBodyBato.AddForce(tempRigidBodyBato.transform.forward, ForceMode.Impulse);
 
             }
         }
-        // animator.SetTrigger("attack");
-       /* yield return new WaitForSeconds(0.5f);
+        animator.SetTrigger("attack");
+        yield return new WaitForSeconds(0.5f);
         GameObject bato = Instantiate(batoObject, point.position, transform.rotation);
         bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
 
         allowFire = true;
-        Destroy(bato, 1f);*/
+        Destroy(bato, 1f);
      
      
-     /*   GameObject batoObject = ObjectPooled.instance.GetPooledObject();
+        //GameObject batoObject = ObjectPooled.instance.GetPooledObject();
 
         if(batoObject != null)
         {
@@ -81,7 +81,7 @@ public class PlayerSurvivalAttack : MonoBehaviour
             batoObject.SetActive(true);
            
 
-        }*/
+        }
        
         
     }

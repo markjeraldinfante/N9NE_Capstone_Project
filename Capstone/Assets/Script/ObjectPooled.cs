@@ -12,7 +12,8 @@ public class ObjectPooled : MonoBehaviour
 
     private void Awake()
     {
-       if (instance ==null){
+       if (instance ==null)
+       {
         instance = this;
        }
     }

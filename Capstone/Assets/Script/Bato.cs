@@ -10,7 +10,7 @@ public class Bato : MonoBehaviour
 
    private void FixedUpdate()
    {
-    rb.velocity = Vector3.right * speed;
+   
 
    }
 

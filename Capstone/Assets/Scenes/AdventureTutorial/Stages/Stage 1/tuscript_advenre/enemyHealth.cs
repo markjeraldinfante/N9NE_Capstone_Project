@@ -10,6 +10,7 @@ private string currentState;
     public int currentHealth;
     public Animator animator;
     public HealthBar healthBar;
+    private enemy_adventure enemyAdventure;
   //  public Enemy_Carp enemyMovement;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ private string currentState;
         if(currentHealth < 0)
         {
             Die();
+            
+            
             
         }
     }
@@ -65,6 +68,9 @@ private string currentState;
         //disable the script and the collider
         GetComponent<CapsuleCollider>().enabled = false;
         Destroy(gameObject, 3);
-        this.enabled = false;
+        this.enabled = false;       
+        GetComponent<enemy_adventure>().enabled = false;
+        
+
     }
 }
