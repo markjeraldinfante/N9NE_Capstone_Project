@@ -15,16 +15,18 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public GameObject leftArrowButton, rightArrowButton;
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
     public Image playerAvatar;
-    public CharacterData[] avatars;
-    private List<CharacterData> unlockedCharacters = new List<CharacterData>();
+    public Sprite[] avatars;
+
     Photon.Realtime.Player player;
     private void Start()
     {
         playerProperties["playerAvatar"] = 0;
+
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
     private void Awake()
     {
-        unlockedCharacters.AddRange(Array.FindAll(avatars, c => c.isUnlocked));
+
         backgroundImage = GetComponent<Image>();
     }
     public void SetPlayerInfo(Photon.Realtime.Player _player)

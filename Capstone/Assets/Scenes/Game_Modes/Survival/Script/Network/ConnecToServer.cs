@@ -15,6 +15,7 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
         SceneManager.LoadScene("Lobby");
     }
