@@ -6,6 +6,7 @@ public class ObstacleCollision : MonoBehaviour
 {
     public GameObject thePlayer;
     public GameObject levelControls;
+    public Animation animator;
 
 
     void OnTriggerEnter(Collider other)
@@ -14,6 +15,6 @@ public class ObstacleCollision : MonoBehaviour
         thePlayer.GetComponent<EndelessMovement>().enabled=false;
         levelControls.GetComponent<DistanceDisplay>().enabled=false;
         levelControls.GetComponent<EndScoreDisplay>().enabled=true;
-        
+
     }
 }
