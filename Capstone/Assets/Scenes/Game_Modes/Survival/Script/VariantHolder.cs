@@ -7,18 +7,18 @@ public class VariantHolder : MonoBehaviour
     [SerializeField] private baseSurvivalVariant variantData;
     public void PlaySinglePlayerOffline()
     {
-        variantData.Mode = baseSurvivalVariant.GameMode.Offline;
-        variantData.Players = baseSurvivalVariant.PlayerCount.Single;
+        variantData.mode = baseSurvivalVariant.GameMode.Offline;
+        variantData.players = baseSurvivalVariant.PlayerCount.Single;
     }
 
     public void PlayMultiplayerOffline()
     {
-        variantData.Mode = baseSurvivalVariant.GameMode.Offline;
-        variantData.Players = baseSurvivalVariant.PlayerCount.Multiplayer;
+        variantData.mode = baseSurvivalVariant.GameMode.Offline;
+        variantData.players = baseSurvivalVariant.PlayerCount.Multiplayer;
     }
     public void PlayMultiplayerOnline()
     {
-        variantData.Mode = baseSurvivalVariant.GameMode.Online;
+        variantData.mode = baseSurvivalVariant.GameMode.Online;
     }
 
 }

@@ -17,9 +17,7 @@ public class baseSurvivalVariant : ScriptableObject
         Multiplayer
     }
 
-    [SerializeField] private GameMode mode;
-    [SerializeField] private PlayerCount players;
+    [SerializeField] public GameMode mode;
+    [SerializeField] public PlayerCount players;
 
-    public GameMode Mode { get => mode; set => mode = value; }
-    public PlayerCount Players { get => players; set => players = value; }
 }

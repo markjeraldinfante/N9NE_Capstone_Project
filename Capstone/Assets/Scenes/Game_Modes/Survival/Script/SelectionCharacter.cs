@@ -5,12 +5,12 @@ using System;
 
 public class SelectionCharacter : MonoBehaviour
 {
-    [SerializeField] private CharacterData[] characters = null;
-    [SerializeField] private Image player1CharacterSplashHolder = null;
-    [SerializeField] private Image player2CharacterSplashHolder = null;
-    [SerializeField] private PlayerCharacter onlinePlayer = null;
-    [SerializeField] private PlayerCharacter player1 = null;
-    [SerializeField] private PlayerCharacter player2 = null;
+    [SerializeField] private CharacterData[] characters;
+    [SerializeField] private Image player1CharacterSplashHolder;
+    [SerializeField] private Image player2CharacterSplashHolder;
+    [SerializeField] private PlayerCharacter onlinePlayer;
+    [SerializeField] private PlayerCharacter player1;
+    [SerializeField] private PlayerCharacter player2;
     [SerializeField] private baseSurvivalVariant variant;
 
     private int player1Index = 0;
@@ -53,10 +53,10 @@ public class SelectionCharacter : MonoBehaviour
 
     private void UpdateCharacterSplash()
     {
-        switch (variant.Mode)
+        switch (variant.mode)
         {
             case baseSurvivalVariant.GameMode.Offline:
-                switch (variant.Players)
+                switch (variant.players)
                 {
                     case baseSurvivalVariant.PlayerCount.Single:
                         player1CharacterSplashHolder.gameObject.SetActive(true);
