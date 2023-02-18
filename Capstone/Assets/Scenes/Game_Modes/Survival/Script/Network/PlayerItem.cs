@@ -15,13 +15,13 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     public GameObject leftArrowButton, rightArrowButton;
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
     public Image playerAvatar;
-    public Sprite[] avatars;
-
+    public CharacterData[] avatars;
+    private List<CharacterData> unlockedCharacters = new List<CharacterData>();
     Photon.Realtime.Player player;
     private void Start()
     {
+        unlockedCharacters.AddRange(Array.FindAll(avatars, c => c.isUnlocked));
         playerProperties["playerAvatar"] = 0;
-
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
     private void Awake()
@@ -45,7 +45,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         if ((int)playerProperties["playerAvatar"] == 0)
         {
-            playerProperties["playerAvatar"] = avatars.Length - 1;
+            playerProperties["playerAvatar"] = unlockedCharacters.Count - 1;
         }
         else
         {
@@ -55,7 +55,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     }
     public void OnClickNextArrow()
     {
-        if ((int)playerProperties["playerAvatar"] == avatars.Length - 1)
+        if ((int)playerProperties["playerAvatar"] == unlockedCharacters.Count - 1)
         {
             playerProperties["playerAvatar"] = 0;
         }
@@ -77,7 +77,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         if (player.CustomProperties.ContainsKey("playerAvatar"))
         {
-            playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];
+            playerAvatar.sprite = unlockedCharacters[(int)player.CustomProperties["playerAvatar"]].survivalSplashArt;
             playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];
         }
         else
