@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-
 public class VariantHolder : MonoBehaviour
 {
     [SerializeField] private baseSurvivalVariant variantData;
@@ -26,7 +24,5 @@ public class VariantHolder : MonoBehaviour
     {
         variantData.isOnline = isOnline;
         variantData.is2player = is2player;
-        EditorUtility.SetDirty(variantData);
-        AssetDatabase.SaveAssets();
     }
 }
