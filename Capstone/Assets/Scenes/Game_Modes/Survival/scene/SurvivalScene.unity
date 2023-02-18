@@ -1686,15 +1686,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a92bed8c45b97d4fb3257484ca6b80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Data: {fileID: 11400000, guid: ad8500e0cc7691c4b8225aa2d221eede, type: 2}
-  player2Data: {fileID: 11400000, guid: 148be157e88347845b00fc453755472a, type: 2}
+  offlineplayer1Data: {fileID: 11400000, guid: ad8500e0cc7691c4b8225aa2d221eede, type: 2}
+  offlineplayer2Data: {fileID: 11400000, guid: 148be157e88347845b00fc453755472a, type: 2}
+  onlinePlayerData: {fileID: 11400000, guid: 13cd39d7f1b58184a876d8019be340a3, type: 2}
   characterModels:
   - {fileID: 11400000, guid: ffe17fa327e9e694d95c1e51ae7a27c8, type: 2}
   - {fileID: 11400000, guid: 3845fe1aff302a148b06df20e3c943b3, type: 2}
   - {fileID: 11400000, guid: 2e210d9a78e3d784da53a04c0d39d488, type: 2}
   - {fileID: 11400000, guid: 7ae361cbdf1ba404f93fb8027e83d585, type: 2}
-  player1Transform: {fileID: 441237271}
-  player2Transform: {fileID: 1903700335}
+  playerSpawnPoints:
+  - {fileID: 441237271}
+  - {fileID: 1903700335}
 --- !u!208 &426469396
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1990,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &553844696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3551,7 +3553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5777c45fed3498846abd431da19f0700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is2Player: {fileID: 11400000, guid: 59d7e6f4fe884394a821e50e88b4712c, type: 2}
+  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
 --- !u!208 &1095704152
 NavMeshObstacle:
   m_ObjectHideFlags: 0

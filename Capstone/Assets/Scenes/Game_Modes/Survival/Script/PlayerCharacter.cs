@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerCharacter : ScriptableObject
 {
-    public string PlayerName;
-    public string CharacterID;
-
-
+    [SerializeField] public string PlayerName;
+    [SerializeField] public string CharacterID;
 }

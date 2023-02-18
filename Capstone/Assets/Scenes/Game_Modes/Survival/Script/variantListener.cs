@@ -5,29 +5,24 @@ using UnityEngine;
 public class variantListener : MonoBehaviour
 {
     public baseSurvivalVariant variant;
-    public is2Player is2Player;
-    public PlayerCharacter player1, player2;
-    public GameObject _1playerselection, _2playerselection;
+    public GameObject _1playerselection, _2playerselection, offlineStart, onlineStart;
 
     private void Awake()
     {
-        if (variant.mode == baseSurvivalVariant.GameMode.Offline)
-        {
-            switch (variant.players)
-            {
-                case baseSurvivalVariant.PlayerCount.Single:
-                    is2Player.is2P = false;
-                    _1playerselection.SetActive(true);
-                    _2playerselection.SetActive(false);
-                    break;
+        _1playerselection.SetActive(true);
+        offlineStart.SetActive(true);
+        onlineStart.SetActive(false);
 
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
-                    is2Player.is2P = true;
-                    _1playerselection.SetActive(true);
-                    _2playerselection.SetActive(true);
-                    break;
+        if (!variant.isOnline)
+        {
+            if (!variant.is2player)
+            {
+                _2playerselection.SetActive(false);
             }
+            else
+                _2playerselection.SetActive(true);
         }
     }
-
 }
+
+

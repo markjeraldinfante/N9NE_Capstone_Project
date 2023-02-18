@@ -1,34 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public PlayerCharacter player1Data, player2Data;
+    public PlayerCharacter offlineplayer1Data, offlineplayer2Data;
+    public PlayerCharacter onlinePlayerData;
     public CharacterAsset[] characterModels;
-    public Transform player1Transform, player2Transform;
+    public Transform[] playerSpawnPoints;
+
+    private void Start()
+    {
+
+    }
 
     private void Awake()
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
+        SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
     }
 
     private void OnDisable()
     {
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
+        SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
     }
 
     public void Spawn1Player()
     {
-        AssignAndInstantiateCharacter(player1Data, player1Transform);
+        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0]);
+    }
+
+    public void Spawn1PlayerOnline()
+    {
+        OnlineAssignAndInstantiateCharacter();
     }
 
     public void Spawn2Players()
     {
-        AssignAndInstantiateCharacter(player1Data, player1Transform);
-        AssignAndInstantiateCharacter(player2Data, player2Transform);
+        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0]);
+        AssignAndInstantiateCharacter(offlineplayer2Data, playerSpawnPoints[1]);
     }
 
     private void AssignAndInstantiateCharacter(PlayerCharacter playerData, Transform playerTransform)
@@ -42,4 +56,13 @@ public class PlayerSpawner : MonoBehaviour
             }
         }
     }
+
+    private void OnlineAssignAndInstantiateCharacter()
+    {
+        int spawnPointIndex = PhotonNetwork.IsMasterClient ? 0 : 1;
+        Transform spawnPoint = playerSpawnPoints[spawnPointIndex];
+        GameObject playerToSpawn = characterModels[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]].CharacterModel;
+        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+    }
+
 }

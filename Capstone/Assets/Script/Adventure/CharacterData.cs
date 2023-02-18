@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,4 +15,8 @@ public class CharacterData : ScriptableObject
     public Sprite survivalSplashArt;
     public bool isUnlocked;
 
+    public static implicit operator Sprite(CharacterData v)
+    {
+        throw new NotImplementedException();
+    }
 }
