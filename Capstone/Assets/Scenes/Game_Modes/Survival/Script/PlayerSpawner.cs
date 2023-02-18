@@ -59,9 +59,10 @@ public class PlayerSpawner : MonoBehaviour
 
     private void OnlineAssignAndInstantiateCharacter()
     {
-        int randomNumber = Random.Range(0, playerSpawnPoints.Length);
-        Transform spawnPoint = playerSpawnPoints[randomNumber];
+        int spawnPointIndex = PhotonNetwork.IsMasterClient ? 0 : 1;
+        Transform spawnPoint = playerSpawnPoints[spawnPointIndex];
         GameObject playerToSpawn = characterModels[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]].CharacterModel;
         PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
     }
+
 }
