@@ -35,6 +35,20 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
 
     }
+    public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
+    {
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 0)
+        {
+            CloseCurrentRoom();
+        }
+    }
+
+    private void CloseCurrentRoom()
+    {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
+        PhotonNetwork.LeaveRoom();
+    }
     public override void OnJoinedRoom()
     {
         lobbyPanel.SetActive(false);

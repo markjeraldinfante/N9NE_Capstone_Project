@@ -21,7 +21,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     private void Start()
     {
         unlockedCharacters.AddRange(Array.FindAll(avatars, c => c.isUnlocked));
-        playerProperties["playerAvatar"] = PlayerPrefs.GetInt(PlayerPrefKeys.SET_PLAYER, 0);
+        int selectedAvatar = PlayerPrefs.GetInt(player.NickName, 0);
+        playerProperties["playerAvatar"] = selectedAvatar;
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
     private void Awake()
@@ -83,12 +84,13 @@ public class PlayerItem : MonoBehaviourPunCallbacks
             {
                 playerAvatar.sprite = unlockedCharacters[avatarIndex].survivalSplashArt;
                 playerProperties["playerAvatar"] = avatarIndex;
-                PlayerPrefs.SetInt(PlayerPrefKeys.SET_PLAYER, (int)player.CustomProperties["playerAvatar"]);
+                PlayerPrefs.SetInt(player.NickName, avatarIndex); // Store selection in PlayerPrefs using player's NickName as key
             }
         }
         else
         {
             playerProperties["playerAvatar"] = 0;
+            PlayerPrefs.SetInt(player.NickName, 0); // Store default selection in PlayerPrefs using player's NickName as key
         }
     }
 
