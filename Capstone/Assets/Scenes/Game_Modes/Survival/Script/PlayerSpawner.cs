@@ -36,7 +36,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn1PlayerOnline()
     {
-        //OnlineAssignAndInstantiateCharacter(onlinePlayerData, player1Transform, player2Transform);
+        OnlineAssignAndInstantiateCharacter();
     }
 
     public void Spawn2Players()
@@ -57,7 +57,7 @@ public class PlayerSpawner : MonoBehaviour
         }
     }
 
-    private void OnlineAssignAndInstantiateCharacter(Transform player1Transform, Transform player2Transform)
+    private void OnlineAssignAndInstantiateCharacter()
     {
         int randomNumber = Random.Range(0, playerSpawnPoints.Length);
         Transform spawnPoint = playerSpawnPoints[randomNumber];
