@@ -21,7 +21,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     private void Start()
     {
         unlockedCharacters.AddRange(Array.FindAll(avatars, c => c.isUnlocked));
-        playerProperties["playerAvatar"] = 0;
+        playerProperties["playerAvatar"] = PlayerPrefs.GetInt(PlayerPrefKeys.SET_PLAYER, 0);
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
     private void Awake()
@@ -73,17 +73,24 @@ public class PlayerItem : MonoBehaviourPunCallbacks
             UpdatePlayerItem(targetPlayer);
         }
     }
+
     void UpdatePlayerItem(Photon.Realtime.Player player)
     {
         if (player.CustomProperties.ContainsKey("playerAvatar"))
         {
-            playerAvatar.sprite = unlockedCharacters[(int)player.CustomProperties["playerAvatar"]].survivalSplashArt;
-            playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];
+            int avatarIndex = (int)player.CustomProperties["playerAvatar"];
+            if (avatarIndex < unlockedCharacters.Count)
+            {
+                playerAvatar.sprite = unlockedCharacters[avatarIndex].survivalSplashArt;
+                playerProperties["playerAvatar"] = avatarIndex;
+                PlayerPrefs.SetInt(PlayerPrefKeys.SET_PLAYER, (int)player.CustomProperties["playerAvatar"]);
+            }
         }
         else
         {
             playerProperties["playerAvatar"] = 0;
         }
     }
+
 
 }
