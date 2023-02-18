@@ -9,31 +9,20 @@ public class variantListener : MonoBehaviour
 
     private void Awake()
     {
-        switch (variant.isOnline)
+        _1playerselection.SetActive(true);
+        offlineStart.SetActive(true);
+        onlineStart.SetActive(false);
+
+        if (!variant.isOnline)
         {
-            case false:
-                _1playerselection.SetActive(true);
-                offlineStart.SetActive(true);
-                onlineStart.SetActive(false);
-                switch (variant.players)
-                {
-                    case baseSurvivalVariant.PlayerCount.Single:
-                        _2playerselection.SetActive(false);
-                        break;
-
-                    case baseSurvivalVariant.PlayerCount.Multiplayer:
-                        _2playerselection.SetActive(true);
-                        break;
-                }
-                break;
-            case true:
-                offlineStart.SetActive(false);
-                onlineStart.SetActive(true);
-                _1playerselection.SetActive(true);
+            if (!variant.is2player)
+            {
                 _2playerselection.SetActive(false);
-                break;
+            }
+            else
+                _2playerselection.SetActive(true);
         }
-
     }
-
 }
+
+

@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class VariantHolder : MonoBehaviour
 {
     [SerializeField] private baseSurvivalVariant variantData;
+
     public void PlaySinglePlayerOffline()
     {
-        variantData.isOnline = false;
-        variantData.players = baseSurvivalVariant.PlayerCount.Single;
+        SetVariantData(false, false);
     }
 
     public void PlayMultiplayerOffline()
     {
-        variantData.isOnline = false;
-        variantData.players = baseSurvivalVariant.PlayerCount.Multiplayer;
-    }
-    public void PlayMultiplayerOnline()
-    {
-        variantData.isOnline = true;
+        SetVariantData(false, true);
     }
 
+    public void PlayMultiplayerOnline()
+    {
+        SetVariantData(true, false);
+    }
+
+    private void SetVariantData(bool isOnline, bool is2player)
+    {
+        variantData.isOnline = isOnline;
+        variantData.is2player = is2player;
+        EditorUtility.SetDirty(variantData);
+        AssetDatabase.SaveAssets();
+    }
 }

@@ -16,7 +16,6 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.ConnectUsingSettings();
         SceneManager.LoadScene("Lobby");
     }
 
@@ -24,7 +23,10 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
     IEnumerator ConnectionDelay(float delay)
     {
 
-        PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
         yield return new WaitForSeconds(delay);
     }
 

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 using System;
 
 public class SelectionCharacter : MonoBehaviour
@@ -9,14 +8,13 @@ public class SelectionCharacter : MonoBehaviour
     [SerializeField] private CharacterData[] characters;
     [SerializeField] private Image player1CharacterSplashHolder;
     [SerializeField] private Image player2CharacterSplashHolder;
-    [SerializeField] private PlayerCharacter onlinePlayer;
     [SerializeField] private PlayerCharacter player1;
     [SerializeField] private PlayerCharacter player2;
     [SerializeField] private baseSurvivalVariant variant;
 
+    private List<CharacterData> unlockedCharacters = new List<CharacterData>();
     private int player1Index = 0;
     private int player2Index = 0;
-    private List<CharacterData> unlockedCharacters = new List<CharacterData>();
 
     private void Start()
     {
@@ -56,15 +54,14 @@ public class SelectionCharacter : MonoBehaviour
     {
         if (!variant.isOnline)
         {
-
-            switch (variant.players)
+            switch (variant.is2player)
             {
-                case baseSurvivalVariant.PlayerCount.Single:
+                case false:
                     player1CharacterSplashHolder.gameObject.SetActive(true);
                     player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
                     player1.CharacterID = unlockedCharacters[player1Index].id;
                     break;
-                case baseSurvivalVariant.PlayerCount.Multiplayer:
+                case true:
                     player1CharacterSplashHolder.gameObject.SetActive(true);
                     player1CharacterSplashHolder.sprite = unlockedCharacters[player1Index].survivalSplashArt;
                     player1.CharacterID = unlockedCharacters[player1Index].id;
@@ -73,7 +70,6 @@ public class SelectionCharacter : MonoBehaviour
                     player2.CharacterID = unlockedCharacters[player2Index].id;
                     break;
             }
-
         }
     }
 }

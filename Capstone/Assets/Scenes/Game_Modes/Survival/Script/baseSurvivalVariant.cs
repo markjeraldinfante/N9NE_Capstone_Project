@@ -5,15 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class baseSurvivalVariant : ScriptableObject
 {
-
-    public enum PlayerCount
-    {
-        Single,
-        Multiplayer
-    }
-
-
-    public PlayerCount players;
     public bool isOnline;
+    public bool is2player;
 
 }
