@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
@@ -19,7 +20,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public List<PlayerItem> playerItemsList = new List<PlayerItem>();
     public PlayerItem playerItemPrefab;
     public Transform playerItemParent;
-    public GameObject playButton;
+    public Button playButton;
 
     private void Start()
     {
@@ -120,11 +121,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            playButton.SetActive(true);
+            playButton.interactable = true;
         }
         else
         {
-            playButton.SetActive(false);
+            playButton.interactable = false;
         }
     }
     public void OnClickPlayButton()

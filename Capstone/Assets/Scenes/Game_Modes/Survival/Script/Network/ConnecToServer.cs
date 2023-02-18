@@ -22,7 +22,6 @@ public class ConnecToServer : MonoBehaviourPunCallbacks
 
     IEnumerator ConnectionDelay(float delay)
     {
-
         if (!PhotonNetwork.IsConnected)
         {
             PhotonNetwork.ConnectUsingSettings();
