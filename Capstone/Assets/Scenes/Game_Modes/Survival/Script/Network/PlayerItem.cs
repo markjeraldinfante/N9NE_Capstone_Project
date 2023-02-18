@@ -21,10 +21,26 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     private void Start()
     {
         unlockedCharacters.AddRange(Array.FindAll(avatars, c => c.isUnlocked));
-        int selectedAvatar = PlayerPrefs.GetInt(player.NickName, 0);
-        playerProperties["playerAvatar"] = selectedAvatar;
-        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+
+        // Only set the player's initial avatar selection if they are the local player and it has not been set already
+        if (PhotonNetwork.IsConnected && PhotonNetwork.LocalPlayer.Equals(player))
+        {
+            // Load selected avatar for the player from PlayerPrefs, if available
+            if (PlayerPrefs.HasKey(player.NickName))
+            {
+                int avatarIndex = PlayerPrefs.GetInt(player.NickName, 0);
+                playerProperties["playerAvatar"] = avatarIndex;
+            }
+            else
+            {
+                // Use default avatar if no selection found in PlayerPrefs
+                playerProperties["playerAvatar"] = 0;
+            }
+
+            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        }
     }
+
     private void Awake()
     {
 
@@ -52,8 +68,9 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         {
             playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] - 1;
         }
-        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties); // Update custom properties for the current player only
     }
+
     public void OnClickNextArrow()
     {
         if ((int)playerProperties["playerAvatar"] == unlockedCharacters.Count - 1)
@@ -64,8 +81,9 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         {
             playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] + 1;
         }
-        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties); // Update custom properties for the current player only
     }
+
 
     public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
@@ -84,13 +102,15 @@ public class PlayerItem : MonoBehaviourPunCallbacks
             {
                 playerAvatar.sprite = unlockedCharacters[avatarIndex].survivalSplashArt;
                 playerProperties["playerAvatar"] = avatarIndex;
-                PlayerPrefs.SetInt(player.NickName, avatarIndex); // Store selection in PlayerPrefs using player's NickName as key
+                // Store selected avatar for the player in PlayerPrefs
+                PlayerPrefs.SetInt(player.NickName, avatarIndex);
             }
         }
         else
         {
             playerProperties["playerAvatar"] = 0;
-            PlayerPrefs.SetInt(player.NickName, 0); // Store default selection in PlayerPrefs using player's NickName as key
+            // Use default avatar and store it in PlayerPrefs if no selection found
+            PlayerPrefs.SetInt(player.NickName, 0);
         }
     }
 

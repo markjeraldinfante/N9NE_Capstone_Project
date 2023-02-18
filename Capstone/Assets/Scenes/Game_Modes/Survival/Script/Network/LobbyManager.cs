@@ -47,6 +47,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
+        PhotonNetwork.CurrentRoom.RemovedFromList = true;
         PhotonNetwork.LeaveRoom();
     }
     public override void OnJoinedRoom()
