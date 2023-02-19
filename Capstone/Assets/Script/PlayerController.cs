@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
+
     public float runSpeed;
     [SerializeField] private Animator characterAnimation;
     public float jumpForce;
