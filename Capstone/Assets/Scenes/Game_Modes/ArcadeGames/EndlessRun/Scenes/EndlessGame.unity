@@ -1027,6 +1027,11 @@ MonoBehaviour:
   thePlayer: {fileID: 1219659749}
   levelControls: {fileID: 1003182225}
   animator: {fileID: 0}
+--- !u!1 &184540915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6109428c84cd9134e84326c484627214, type: 3}
+  m_PrefabInstance: {fileID: 747710924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &193917157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3175,6 +3180,8 @@ MonoBehaviour:
   disDisplay: {fileID: 73925024}
   endScreen: {fileID: 1853641743}
   fadeOut: {fileID: 1003182225}
+  player: {fileID: 184540915}
+  levelControls: {fileID: 1003182225}
 --- !u!114 &1003182232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3184,12 +3191,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003182225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64971a8c7359b141bab2d04cfe1faa3, type: 3}
+  m_Script: {fileID: 11500000, guid: f7aefd6876c91ce4ab387c6cca4ea8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 799690875}
-  coinacc: 0
-  distance: {fileID: 0}
+  dist: 0
+  distance: {fileID: 1003182228}
+  coinCount: {fileID: 1201058727}
 --- !u!1 &1035960720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5511774174995466309, guid: 5ecc0f251cd4f784d8858857abe7705d, type: 3}
@@ -4068,7 +4075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 482e4151cc270554b876b3db88e7c94a, type: 2}
   m_sharedMaterial: {fileID: -6307505232647787344, guid: 482e4151cc270554b876b3db88e7c94a, type: 2}
@@ -8017,7 +8024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1853641744
 Transform:
   m_ObjectHideFlags: 0

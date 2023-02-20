@@ -2,173 +2,122 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerController : MonoBehaviour
 {
-
-
-    public float runSpeed;
+    [SerializeField] private float runSpeed = 10f;
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Animator characterAnimation;
-    public float jumpForce;
-    private Rigidbody rb;
-    [HideInInspector] public float move;
-    public bool isfacingRight;
-    [SerializeField] bool isGrounded;
-    [SerializeField] bool isProne;
+    [SerializeField] private Rigidbody rb;
 
+    [SerializeField] private bool isGrounded;
+    [SerializeField] public bool isProne;
+    public bool isFacingRight = true;
 
-
-    void Start()
+    private void Awake()
     {
         characterAnimation = GetComponent<Animator>();
-    }
-    void Awake()
-    {
         rb = GetComponent<Rigidbody>();
-        isfacingRight = true;
         isProne = false;
+        isGrounded = true;
     }
-    public void FixedUpdate()
+
+    private void FixedUpdate()
     {
-
-        move = Input.GetAxis("Horizontal");
-
+        float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector3(move * runSpeed, rb.velocity.y, 0);
-        characterAnimation.SetBool("Walk", true);
 
-        characterAnimation.SetBool("isProning", false);
-        if (move > 0 && !isfacingRight)
+        if (move > 0 && !isFacingRight)
         {
-            Proning();
-            isfacingRight = !isfacingRight;
-            transform.eulerAngles = new Vector3(0f, 90f, 0f);
-
-
-
-            //transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            FlipCharacter();
         }
-
-        else if (move < 0 && isfacingRight)
+        else if (move < 0 && isFacingRight)
         {
-            Proning();
-            isfacingRight = !isfacingRight;
-            transform.eulerAngles = new Vector3(0f, -90f, 0f);
-            //transform.eulerAngles = new Vector3(0f, -180f, 0f); //flip the character on its x axis
+            FlipCharacter();
         }
-        else if (move == 0)
+        ProneWalkingCheck(isProne, move);
+    }
+    void ProneWalkingCheck(bool isProne, float moveValue)
+    {
+        if (moveValue != 0)
         {
-            characterAnimation.SetBool("Walk", false);
-            characterAnimation.SetBool("isProning", true);
-
+            if (isProne)
+            {
+                characterAnimation.SetTrigger("isProning");
+            }
+            else
+            {
+                characterAnimation.SetBool("Walk", true);
+                // characterAnimation.SetBool("isProning", false);
+            }
         }
         else
-
-            // isProne = false;
-            characterAnimation.SetBool("Prone", true);
-
-
-
-
-
-    }
-    public void Proning()
-    {
-        StartCoroutine(Prone());
-        isProne = true;
-
-
-
+        {
+            if (isProne)
+            {
+                characterAnimation.ResetTrigger("isProning");
+            }
+            else
+            {
+                characterAnimation.SetBool("Walk", false);
+                //characterAnimation.SetBool("isProning", false);
+            }
+        }
     }
     private void Update()
     {
-
-        characterAnimation.SetBool("slingAttack", false);
-
-        characterAnimation.SetBool("standProne", false);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isProne)
         {
-            //Vector3 jump = new Vector3(0f, 2f, 0f);
             characterAnimation.SetBool("Jump", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-
-        characterAnimation.SetBool("Prone", false);
+        else
+        {
+            characterAnimation.SetBool("Jump", false);
+        }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            characterAnimation.SetTrigger("Prone");
-
-            if (isProne == true)
-            {
-
-
-                characterAnimation.SetBool("Jump", false);
-                characterAnimation.SetBool("slingAttack", false);
-
-
-            }
+            isProne = true;
+            ProneCheck(isProne);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
+            isProne = false;
+            ProneCheck(isProne);
+        }
+
+    }
+    void ProneCheck(bool checkProne)
+    {
+        if (!isProne)
+        {
             characterAnimation.SetTrigger("standProne");
+            characterAnimation.SetBool("Prone", isProne);
         }
         else
-        {
-            characterAnimation.SetBool("standProne", false);
-        }
-
+            characterAnimation.SetBool("Prone", isProne);
     }
-    IEnumerator Prone()
-    {
-        isProne = true;
-        characterAnimation.SetTrigger("Prone");
-        characterAnimation.Play("Prone");
-
-        yield return new WaitForSeconds(.5f);
-        isProne = false;
-    }
-
-    #region Checker
-    void Flip()
-    {
-        isfacingRight = !isfacingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "wall")
+        if (collision.gameObject.CompareTag("ground"))
         {
-            isGrounded = false;
-
-        }
-        else
             isGrounded = true;
-        characterAnimation.SetBool("Jump", false);
-        // else isGrounded = false;
-
-
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-
-        if (collision.gameObject.tag == "wall")
+        if (collision.gameObject.CompareTag("ground"))
         {
-            isGrounded = true;
-
+            isGrounded = false;
         }
-        // isGrounded = false;
-
-
-
     }
-    #endregion
 
-
+    private void FlipCharacter()
+    {
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
 }
