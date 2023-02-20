@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6719,7 +6719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944432658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -2.11, z: -31.62548}
+  m_LocalPosition: {x: -1.73, y: -1, z: -0.9}
   m_LocalScale: {x: 1.2547356, y: 1.7513012, z: 2.0678782}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7905,7 +7905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541515814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.94, y: 1.7, z: 0}
+  m_LocalPosition: {x: -4.9, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7976,8 +7976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DustParticle: {fileID: 944432659}
-  occurAfterVelocity: 2
-  dustFormationPeriod: 0.019
+  occurAfterVelocity: 5
+  dustFormationPeriod: 0.066
   playerRb: {fileID: 1541515821}
 --- !u!1 &1586201526
 GameObject:
@@ -13934,7 +13934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051870540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.53, y: -0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13955,10 +13955,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8ea2e88c9d07d40829906a46b84fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DustParticle: {fileID: 0}
-  occurAfterVelocity: 0
-  dustFormationPeriod: 0
-  playerRb: {fileID: 0}
+  DustParticle: {fileID: 944432659}
+  occurAfterVelocity: 3
+  dustFormationPeriod: 0.035
+  playerRb: {fileID: 1541515821}
 --- !u!4 &2063236092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1824824446595371411, guid: 2ea5f40543003b64a8123f4cf58a3cc4, type: 3}
