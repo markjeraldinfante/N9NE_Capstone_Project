@@ -19,30 +19,23 @@ namespace somnium
         {
             SoundManager.instance.SetBGM(musicSlider.value);
             setting.BGM = musicSlider.value;
-            SaveSetting(PlayerPrefKeys.SET_BGM, musicSlider.value);
+
         }
 
         public void SetSFX()
         {
             SoundManager.instance.SetSFX(SFXSlider.value);
             setting.SFX = SFXSlider.value;
-            SaveSetting(PlayerPrefKeys.SET_SFX, SFXSlider.value);
+
         }
 
         private void LoadSettings()
         {
-            setting.BGM = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_BGM, 0.5f);
-            setting.SFX = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_SFX, 0.5f);
+            setting.BGM = SoundManager.instance.BGMSource.volume;
+            setting.SFX = SoundManager.instance.SFXSource.volume;
 
-            SoundManager.instance.SetBGM(setting.BGM);
-            SoundManager.instance.SetSFX(setting.BGM);
             musicSlider.value = setting.BGM;
-            SFXSlider.value = setting.BGM;
-        }
-
-        private void SaveSetting(string key, float value)
-        {
-            PlayerPrefs.SetFloat(key, value);
+            SFXSlider.value = setting.SFX;
         }
     }
 

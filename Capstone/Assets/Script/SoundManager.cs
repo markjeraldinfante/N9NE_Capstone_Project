@@ -27,10 +27,7 @@ namespace somnium
             {
                 Destroy(gameObject);
             }
-        }
 
-        private void Start()
-        {
             float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_SFX, 0.5f);
             float bgmVolume = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_BGM, 0.5f);
 
@@ -40,6 +37,7 @@ namespace somnium
             Debug.Log("SFX volume: " + sfxVolume);
             Debug.Log("BGM volume: " + bgmVolume);
         }
+
 
         public void PlayMusic(string name)
         {
