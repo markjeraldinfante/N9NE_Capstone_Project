@@ -1,89 +1,49 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSurvivalAttack : MonoBehaviour
 {
-    float speed = 25f;
-    public KeyCode key;
-    Animator animator;
-    public GameObject batoObject;
-    public Transform point;
-    public bool allowFire;
+    [SerializeField] private KeyCode attackKey = KeyCode.J;
+    [SerializeField] private float attackSpeed = 25f;
+    [SerializeField] private ObjectPooler batoPooler;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Animator characterAnimation;
 
-     //List<GameObject> batoList;
-
-
-
-
-    void Awake()
-    {
-        animator = gameObject.GetComponent<Animator>();
-    }
+    [SerializeField] private bool canAttack = true;
+    [SerializeField] private bool isAttacking = false;
     private void Start()
     {
-        allowFire = true;
-        //batoList = new List<GameObject>();
-        //for (int i = 0; i < 10; i++)
+        characterAnimation = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(attackKey) && canAttack && !isAttacking)
         {
-           //GameObject objBato = (GameObject)Instantiate(batoObject);
-          // objBato.SetActive(false);
-           //batoList.Add(objBato);
+            isAttacking = true;
+            canAttack = false;
+            StartCoroutine(Attack());
         }
     }
 
-    void Update()
+    private IEnumerator Attack()
     {
-         if (Input.GetKeyDown(key) && allowFire)
-        //if (Input.GetKeyDown(key))
-        {
+        characterAnimation.SetTrigger("slingAttack");
+        yield return new WaitForSeconds(0.1f);
 
-            StartCoroutine(Fire());
-         //Fire();
+        GameObject bato = batoPooler.GetPooledObject(1f);
+        if (bato != null)
+        {
+            bato.transform.position = spawnPoint.position;
+            bato.transform.rotation = transform.rotation;
+            bato.SetActive(true);
+            Rigidbody batoRigidbody = bato.GetComponent<Rigidbody>();
+            batoRigidbody.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
         }
 
-    }
-
-    IEnumerator Fire()
-   //private void Fire()
-    {
-        allowFire = false;
-
-        //for (int i = 0; i < batoList.Count; i++)
-        {
-            //if(batoList[i].activeInHierarchy)
-            {
-                //batoList[i].transform.position = transform.position;
-                // batoList[i].transform.rotation = transform.rotation;
-                // batoList[i].SetActive(true);
-                 //Rigidbody tempRigidBodyBato = batoList[i].GetComponent<Rigidbody>();
-                 //tempRigidBodyBato.AddForce(tempRigidBodyBato.transform.forward, ForceMode.Impulse);
-
-            }
-        }
-        animator.SetTrigger("attack");
         yield return new WaitForSeconds(0.5f);
-        GameObject bato = Instantiate(batoObject, point.position, transform.rotation);
-        bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-
-        allowFire = true;
-        Destroy(bato, 1f);
-     
-     
-        //GameObject batoObject = ObjectPooled.instance.GetPooledObject();
-
-        if(batoObject != null)
-        {
-           
-           
-            batoObject.transform.position = point.position;
-             batoObject.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-            batoObject.SetActive(true);
-           
-
-        }
-       
-        
+        isAttacking = false;
+        canAttack = true;
     }
-
 }
+

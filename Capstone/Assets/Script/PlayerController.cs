@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-       
+
 
     }
     public void Proning()
@@ -94,24 +94,19 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            characterAnimation.SetTrigger("slingAttack");
-        }
-        
         characterAnimation.SetBool("Prone", false);
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             characterAnimation.SetTrigger("Prone");
 
-            if(isProne == true)
+            if (isProne == true)
             {
-                
+
 
                 characterAnimation.SetBool("Jump", false);
                 characterAnimation.SetBool("slingAttack", false);
-                
+
 
             }
         }
@@ -130,14 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         isProne = true;
         characterAnimation.SetTrigger("Prone");
-          characterAnimation.Play("Prone");
-
-        /*if (Input.GetKeyDown(KeyCode.S))
-        {
-            characterAnimation.SetTrigger("Prone");
-        */
-
-
+        characterAnimation.Play("Prone");
 
         yield return new WaitForSeconds(.5f);
         isProne = false;

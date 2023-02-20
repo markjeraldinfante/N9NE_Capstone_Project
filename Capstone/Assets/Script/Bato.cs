@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class Bato : MonoBehaviour
 {
-   private float speed = 25f;
-
-   [SerializeField] Rigidbody rb;
-
-   private void FixedUpdate()
-   {
-   
-
-   }
-
-   private void OnCollisionEnter(Collision collision)
-   {
-    if (collision.gameObject.CompareTag("Enemy"))
+    private void OnCollisionEnter(Collision collision)
     {
-        gameObject.SetActive(false);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
 
+        }
     }
-
-
-   }
 }
