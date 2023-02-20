@@ -73,7 +73,7 @@ public class ninjaRandomAttack : MonoBehaviour
     }
     IEnumerator Ninja()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         animator.SetTrigger("Attack");
         animator.SetInteger("AttackIndex", Random.Range(0, 4));
     }
