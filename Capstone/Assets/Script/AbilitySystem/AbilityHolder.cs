@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class AbilityHolder : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
     public Ability ability;
     float cooldownTime;
     float activeTime;
     private Animator animator;
     private IEnumerator coroutine;
     public Image cd;
+    public Button skillButton;
+    bool triggered = false;
+
+
     enum AbilityState
     {
         ready,
@@ -20,18 +25,23 @@ public class AbilityHolder : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
+
     }
     AbilityState state = AbilityState.ready;
     public KeyCode key;
-
-    void Update()
+    public void onSkillTrigger()
+    {
+        triggered = true;
+    }
+    public void Update()
     {
 
         switch (state)
         {
 
             case AbilityState.ready:
-                if (Input.GetKeyDown(key))
+                if (Input.GetKeyDown(key) && !playerController.isProne || triggered)
                 {
                     cd.fillAmount = 1f;
                     animator.SetBool("Walk", false);
@@ -67,6 +77,7 @@ public class AbilityHolder : MonoBehaviour
                 }
                 else
                 {
+                    triggered = false;
                     state = AbilityState.ready;
                 }
                 break;

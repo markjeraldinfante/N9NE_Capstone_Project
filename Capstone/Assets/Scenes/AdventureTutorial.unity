@@ -2418,12 +2418,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 3
-  characterAnimation: {fileID: 5866666020913277019}
   jumpForce: 4
-  move: 0
-  isfacingRight: 0
+  characterAnimation: {fileID: 5866666020913277019}
+  rb: {fileID: 0}
   isGrounded: 0
   isProne: 0
+  isFacingRight: 1
 --- !u!114 &1000560076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,8 +2436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74062b431a5d62e40ada8f60df9f6ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   ability: {fileID: 11400000, guid: 535fa58df342c1d49a557cd38bbf077c, type: 2}
   cd: {fileID: 2050238482}
+  skillButton: {fileID: 0}
   key: 9
 --- !u!1 &1012288697
 GameObject:
@@ -6176,7 +6178,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2041650190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1000560076}
+        m_TargetAssemblyTypeName: AbilityHolder, Assembly-CSharp
+        m_MethodName: onSkillTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2041650190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12032,6 +12046,8 @@ MonoBehaviour:
   batoPooler: {fileID: 1547734047}
   spawnPoint: {fileID: 1756330745}
   characterAnimation: {fileID: 5866666020913277019}
+  canAttack: 1
+  isAttacking: 0
 --- !u!114 &5866666020913277021
 MonoBehaviour:
   m_ObjectHideFlags: 0
