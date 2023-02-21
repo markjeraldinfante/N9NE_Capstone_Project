@@ -38,31 +38,23 @@ public class PlayerController : MonoBehaviour
     }
     void ProneWalkingCheck(bool isProne, float moveValue)
     {
-        if (moveValue != 0)
+        if (moveValue != 0 && !isProne)
         {
-            if (isProne)
-            {
-                characterAnimation.SetTrigger("isProning");
-            }
-            else
-            {
-                characterAnimation.SetBool("Walk", true);
-                // characterAnimation.SetBool("isProning", false);
-            }
+            characterAnimation.SetBool("Walk", true);
+            characterAnimation.ResetTrigger("isProning");
+        }
+        else if (isProne)
+        {
+            characterAnimation.SetTrigger("isProning");
+            characterAnimation.SetBool("Walk", false);
         }
         else
         {
-            if (isProne)
-            {
-                characterAnimation.ResetTrigger("isProning");
-            }
-            else
-            {
-                characterAnimation.SetBool("Walk", false);
-                //characterAnimation.SetBool("isProning", false);
-            }
+            characterAnimation.SetBool("Walk", false);
+            characterAnimation.ResetTrigger("isProning");
         }
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isProne)
@@ -94,11 +86,10 @@ public class PlayerController : MonoBehaviour
         if (!isProne)
         {
             characterAnimation.SetTrigger("standProne");
-            characterAnimation.SetBool("Prone", isProne);
         }
-        else
-            characterAnimation.SetBool("Prone", isProne);
+        characterAnimation.SetBool("Prone", isProne);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
