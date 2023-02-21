@@ -41,12 +41,15 @@ public class PlayerController : MonoBehaviour
         if (moveValue != 0 && !isProne)
         {
             characterAnimation.SetBool("Walk", true);
+            characterAnimation.SetBool("Prone", isProne);
             characterAnimation.ResetTrigger("isProning");
         }
-        else if (isProne)
+        else if (moveValue != 0 && isProne)
         {
-            characterAnimation.SetTrigger("isProning");
+
+            characterAnimation.SetBool("Prone", isProne);
             characterAnimation.SetBool("Walk", false);
+            characterAnimation.SetTrigger("isProning");
         }
         else
         {
