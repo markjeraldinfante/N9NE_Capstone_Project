@@ -68,7 +68,7 @@ public class OptionScreen : MonoBehaviour
             setting.verticalScreen = PlayerPrefs.GetInt("VerticalRes");
             int toggle = PlayerPrefs.GetInt("Toggle");
             setting.isFullScreen = toggle == 1;
-            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 120);
+            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 60);
         }
         else
         {
@@ -77,7 +77,7 @@ public class OptionScreen : MonoBehaviour
             int toggle = PlayerPrefs.GetInt("Toggle");
             setting.isFullScreen = toggle == 1;
 
-            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 120);
+            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 60);
         }
     }
 }
