@@ -7,4 +7,5 @@ public class PlayerCharacter : ScriptableObject
 {
     [SerializeField] public string PlayerName;
     [SerializeField] public string CharacterID;
+
 }

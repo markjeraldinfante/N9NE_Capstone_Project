@@ -7,11 +7,13 @@ public class ObjectPooler : MonoBehaviour
     [SerializeField] private GameObject pooledObject;
     [SerializeField] private int poolSize;
     [SerializeField] private Transform parentTransform;
+    TrailRenderer trail;
 
     private List<GameObject> pool = new List<GameObject>();
 
     private void Awake()
     {
+        trail = pooledObject.GetComponent<TrailRenderer>();
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(pooledObject);
@@ -53,6 +55,8 @@ public class ObjectPooler : MonoBehaviour
     private IEnumerator DestroyAfterTime(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
+        trail.Clear();
+        obj.transform.parent = parentTransform;
         obj.SetActive(false);
     }
 }
