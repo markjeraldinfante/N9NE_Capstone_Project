@@ -10,6 +10,7 @@ public class PlayerSpawner : MonoBehaviour
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
 
+
     private void Start()
     {
 
@@ -31,7 +32,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn1Player()
     {
-        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0]);
+        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
     }
 
     public void Spawn1PlayerOnline()
@@ -41,21 +42,27 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn2Players()
     {
-        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0]);
-        AssignAndInstantiateCharacter(offlineplayer2Data, playerSpawnPoints[1]);
+        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
+        AssignAndInstantiateCharacter(offlineplayer2Data, playerSpawnPoints[1], basePlayer.Player2);
     }
 
-    private void AssignAndInstantiateCharacter(PlayerCharacter playerData, Transform playerTransform)
+    private void AssignAndInstantiateCharacter(PlayerCharacter playerData, Transform playerTransform, basePlayer basePlayer)
     {
         foreach (var characterModel in characterModels)
         {
             if (characterModel.CharacterID == playerData.CharacterID)
             {
-                Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
+                var player = Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
+                var playerMovement = player.GetComponent<PlayerMultiplayer>();
+                if (playerMovement != null)
+                {
+                    playerMovement.basePlayer = basePlayer;
+                }
                 break;
             }
         }
     }
+
 
     private void OnlineAssignAndInstantiateCharacter()
     {
