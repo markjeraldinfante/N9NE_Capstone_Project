@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.9056604, g: 0.80301625, b: 0.2597365, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.2560519, g: 0.7111189, b: 0.990566, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.11
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cc421da483ed06c49933077a621bff25, type: 2}
   m_HaloStrength: 0.858
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 278081802}
-  m_IndirectSpecularColor: {r: 0.18230146, g: 0.22486939, b: 0.2891154, a: 1}
+  m_IndirectSpecularColor: {r: 0.056058343, g: 0.12507954, b: 0.30536008, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1752,7 +1752,7 @@ Camera:
   m_GameObject: {fileID: 2050082524}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.11320752, g: 0.112566724, b: 0.112566724, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -5221,6 +5221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652109598427}
   - component: {fileID: 5866666020278613153}
+  - component: {fileID: 5866666020278613154}
   m_Layer: 0
   m_Name: Carp
   m_TagString: Untagged
@@ -5258,6 +5259,7 @@ GameObject:
   - component: {fileID: 5866666019923142241}
   - component: {fileID: 5866666019923142242}
   - component: {fileID: 5866666019923142243}
+  - component: {fileID: 5866666019923142244}
   m_Layer: 0
   m_Name: Quibs
   m_TagString: Untagged
@@ -5276,13 +5278,14 @@ GameObject:
   - component: {fileID: 543450652321954770}
   - component: {fileID: 5866666020536017320}
   - component: {fileID: 5866666020536017321}
+  - component: {fileID: 5866666020536017322}
   m_Layer: 0
   m_Name: Aloong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132148491835779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,6 +5297,7 @@ GameObject:
   - component: {fileID: 543450652224717625}
   - component: {fileID: 5866666020431911235}
   - component: {fileID: 5866666020431911236}
+  - component: {fileID: 5866666020431911237}
   m_Layer: 0
   m_Name: Ninjaicepick
   m_TagString: Untagged
@@ -5311,6 +5315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652660363317}
   - component: {fileID: 919132148994550416}
+  - component: {fileID: 919132148994550417}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -5334,6 +5339,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &919132148994550417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148994550415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &919132149119613697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,6 +5368,7 @@ GameObject:
   - component: {fileID: 543450653643121083}
   - component: {fileID: 5866666021949537217}
   - component: {fileID: 5866666021949537218}
+  - component: {fileID: 5866666021949537219}
   m_Layer: 0
   m_Name: Ninjamolotov
   m_TagString: Untagged
@@ -5362,6 +5386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653541038044}
   - component: {fileID: 5866666021715815846}
+  - component: {fileID: 5866666021715815847}
   m_Layer: 0
   m_Name: MINIBOSS1
   m_TagString: Untagged
@@ -5379,6 +5404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653407066103}
   - component: {fileID: 5866666021581352333}
+  - component: {fileID: 5866666021581352334}
   m_Layer: 0
   m_Name: Karding
   m_TagString: Untagged
@@ -16572,6 +16598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5409667082971003026}
   - component: {fileID: 2158019548066996968}
+  - component: {fileID: 5409667082971003027}
   m_Layer: 0
   m_Name: Ninjabolo
   m_TagString: Untagged
@@ -16764,6 +16791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5364322488203702987}
   - component: {fileID: 2058648834597759153}
+  - component: {fileID: 5364322488203702988}
   m_Layer: 0
   m_Name: Ninjastone
   m_TagString: Untagged
@@ -18862,6 +18890,24 @@ Transform:
   m_Father: {fileID: 1793150720}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5364322488203702988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700128866137876593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5383390724899123756
 GameObject:
   m_ObjectHideFlags: 0
@@ -18927,6 +18973,24 @@ Transform:
   m_Father: {fileID: 1793150720}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5409667082971003027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636789107906601512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5410937976585027402
 GameObject:
   m_ObjectHideFlags: 0
@@ -20030,6 +20094,24 @@ CapsuleCollider:
   m_Height: 0.020282816
   m_Direction: 1
   m_Center: {x: -0.00004620194, y: 0.009914703, z: 0}
+--- !u!114 &5866666019923142244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147922642593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666020278613153
 Animator:
   serializedVersion: 4
@@ -20050,6 +20132,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666020278613154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147565081697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666020431911235
 Animator:
   serializedVersion: 4
@@ -20086,6 +20186,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5866666020431911237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148491835779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666020536017320
 Animator:
   serializedVersion: 4
@@ -20122,6 +20240,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5866666020536017322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148385636712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666021581352333
 Animator:
   serializedVersion: 4
@@ -20142,6 +20278,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021581352334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149489626445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666021715815846
 Animator:
   serializedVersion: 4
@@ -20162,6 +20316,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021715815847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149355130214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!95 &5866666021949537217
 Animator:
   serializedVersion: 4
@@ -20198,6 +20370,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &5866666021949537219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149119613697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5905445355218719072
 Transform:
   m_ObjectHideFlags: 0
@@ -26587,6 +26777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6982184274705776083}
   - component: {fileID: 3892692611619235753}
+  - component: {fileID: 7759248292937443178}
   m_Layer: 0
   m_Name: Ninjacrowbar
   m_TagString: Untagged
@@ -26594,6 +26785,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &7759248292937443178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759248292937443177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!137 &7762137266024247241
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
