@@ -21,10 +21,11 @@ public class BossScript : MonoBehaviour
     private float currentChaseTime = 0f; // The current amount of time the boss enemy has been chasing the player
     private bool canChase = true; // Whether the boss enemy can start chasing the player
     private bool isAttacking = false;
-
+    public bool isAttacked = false;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
     }
 
     private void Start()
@@ -38,6 +39,13 @@ public class BossScript : MonoBehaviour
     {
         // Calculate the distance between the boss enemy and the player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // Check if the player is attacking and switch to the chasing state if not already attacking
+        if (isAttacked && currentState != BossState.Attacking)
+        {
+            Debug.Log("isAttacked");
+            currentState = BossState.Chasing;
+        }
 
         // Switch between states
         switch (currentState)
