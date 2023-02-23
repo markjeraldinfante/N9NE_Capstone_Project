@@ -6,6 +6,8 @@ public class EndelessMovement : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public float horizontalMovement = 4f;
+
+   // public DistanceDisplay distanceDisplay;
     // Start is called before the first frame update
     void Start()
     {
