@@ -213,12 +213,12 @@ GameObject:
   - component: {fileID: 115407174}
   - component: {fileID: 115407175}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &115407174
 Transform:
   m_ObjectHideFlags: 0
@@ -6046,8 +6046,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.992946, y: 0.11593425, z: 1}
-  m_Center: {x: -6.996197, y: -0.44203287, z: 0}
+  m_Size: {x: 13.992946, y: 0.11593425, z: 8.338913}
+  m_Center: {x: -6.996197, y: -0.44203287, z: 0.20210294}
 --- !u!1 &2008350506
 GameObject:
   m_ObjectHideFlags: 0
@@ -12906,6 +12906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToPlayer: 3
   movementSpeed: 2
   attackRange: 3
   attackCooldown: 2
@@ -13799,8 +13800,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5483542475328018513}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.068001, y: 1.5824, z: -0.094797365}
-  m_LocalScale: {x: 20.800005, y: 20.800001, z: 20.800005}
+  m_LocalPosition: {x: 8.425, y: 1.35, z: -0.094797365}
+  m_LocalScale: {x: 13, y: 13, z: 13}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5127987909754439138}
@@ -14017,6 +14018,7 @@ GameObject:
   - component: {fileID: 5483542475328018515}
   - component: {fileID: 5483542475328018516}
   - component: {fileID: 5483542475328018517}
+  - component: {fileID: 5483542475328018518}
   m_Layer: 0
   m_Name: MINIBOSS1
   m_TagString: enemy
@@ -14066,13 +14068,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToPlayer: 0.02
   movementSpeed: 2
-  attackRange: 2
-  attackCooldown: 2
-  chaseRange: 5
-  maxChaseTime: 10
+  attackRange: 0.85
+  attackCooldown: 3
+  chaseRange: 6
+  maxChaseTime: 100
   attackDamage: 10
-  delayBeforeChase: 3
+  delayBeforeChase: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -14091,6 +14094,21 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 4672516523069870694}
+--- !u!114 &5483542475328018518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5483542475328018513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0534e301147ebf441bcf623674fc569a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  hitPoint:
+  - {fileID: 325737477}
 --- !u!4 &5487342585275846255
 Transform:
   m_ObjectHideFlags: 0
@@ -14664,6 +14682,7 @@ MonoBehaviour:
   characterAnimation: {fileID: 5866666020913277019}
   canAttack: 1
   isAttacking: 0
+  hitpoint: {fileID: 0}
 --- !u!114 &5866666020913277021
 MonoBehaviour:
   m_ObjectHideFlags: 0
