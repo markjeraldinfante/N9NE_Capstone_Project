@@ -87,13 +87,13 @@ public class DroneController : MonoBehaviour
             return null;
         }
 
-        GameObject nearestEnemy = enemies[0];
-        float shortestDistance = Vector3.Distance(transform.position, nearestEnemy.transform.position);
+        GameObject nearestEnemy = null;
+        float shortestDistance = float.MaxValue;
 
         foreach (GameObject enemy in enemies)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance < shortestDistance)
+            if (distance < shortestDistance && distance <= enemyDetectionDistance)
             {
                 shortestDistance = distance;
                 nearestEnemy = enemy;
