@@ -19,9 +19,14 @@ public class DroneController : MonoBehaviour
     private Transform playerTransform;
     private Vector3 startingPosition;
     private Transform droneModel;
+    [SerializeField] private float droneInitialRotationY = 90f;
+
+    private Quaternion droneInitialRotation;
+    private bool isFollowingPlayer = false;
 
     private void Start()
     {
+        droneInitialRotation = Quaternion.Euler(0f, droneInitialRotationY, 0f);
         playerTransform = GameObject.FindGameObjectWithTag(playerTag).transform;
         startingPosition = transform.position;
         droneModel = GameObject.FindGameObjectWithTag(droneTag).transform;
@@ -29,54 +34,72 @@ public class DroneController : MonoBehaviour
 
     private void Update()
     {
-        // Find the nearest enemy
+
         GameObject nearestEnemy = FindNearestEnemy();
 
         if (nearestEnemy != null)
         {
-            // Check if the nearest enemy is within shooting range
+
             float distanceToEnemy = Vector3.Distance(transform.position, nearestEnemy.transform.position);
             if (distanceToEnemy <= shootingRange)
             {
-                // Rotate the drone to face the enemy
+
                 Vector3 direction = nearestEnemy.transform.position - transform.position;
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
                 targetRotation.x = 0f;
                 targetRotation.z = 0f;
                 droneModel.rotation = targetRotation;
 
-                // Shoot at the enemy
                 Shoot();
+
+
+                isFollowingPlayer = false;
             }
             else
             {
-                // Move towards the nearest enemy
+
                 Vector3 direction = nearestEnemy.transform.position - transform.position;
                 transform.Translate(direction.normalized * followSpeed * Time.deltaTime);
+
+
+                isFollowingPlayer = false;
             }
         }
         else
         {
-            // Calculate direction to player
             Vector3 direction = playerTransform.position - transform.position;
+            float directionMagnitude = direction.magnitude;
 
-            // Rotate the drone to face the player, but only if the player is moving
-            if (direction.magnitude > 0f)
+            if (directionMagnitude > 0f && isFollowingPlayer)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
                 targetRotation.x = 0f;
                 targetRotation.z = 0f;
-                droneModel.rotation = targetRotation;
+                if (direction.x < 0f)
+                {
+                    droneModel.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+                }
+                else if (direction.x > 0f)
+                {
+                    droneModel.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                }
+
+            }
+            else
+            {
+                droneModel.transform.rotation = Quaternion.Euler(0f, droneModel.transform.rotation.eulerAngles.y, 0f);
             }
 
-            // Move towards player
             transform.Translate(direction.normalized * followSpeed * Time.deltaTime);
 
-            // Add sine wave motion
+
             float y = startingPosition.y + amplitude * Mathf.Sin(frequency * Time.time);
             transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
+            isFollowingPlayer = true;
         }
     }
+
 
     private GameObject FindNearestEnemy()
     {
@@ -111,13 +134,14 @@ public class DroneController : MonoBehaviour
 
             if (nearestEnemy != null)
             {
-                // calculate direction from drone to nearest enemy
                 Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
 
-                // instantiate bullet and set its velocity to the direction towards the enemy
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
                 bulletRb.velocity = direction * 20f;
+
+                // Destroy the bullet after 2 seconds
+                Destroy(bullet, 2f);
             }
         }
     }

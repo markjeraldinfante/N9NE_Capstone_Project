@@ -9,7 +9,13 @@ public class bulletAI : MonoBehaviour
         Debug.Log("Bullet collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("enemy"))
         {
+            Debug.Log("Enemy hit!");
             Destroy(gameObject);
         }
+        else
+        {
+            Debug.Log("No enemy hit.");
+        }
     }
+
 }
