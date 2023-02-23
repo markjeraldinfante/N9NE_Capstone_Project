@@ -7,9 +7,11 @@ public class EnemyEntity : MonoBehaviour
     [SerializeField] Animator animator;
     EntityHealth health;
     public GameObject[] hitPoint;
+    BossScript bossScript;
 
     void Awake()
     {
+        bossScript = GetComponent<BossScript>();
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
     }
@@ -22,8 +24,13 @@ public class EnemyEntity : MonoBehaviour
     }
     void Dead()
     {
-        animator.SetTrigger("isDead");
+        bossScript.enabled = false;
+        animator.SetBool("isDead", true);
         Destroy(hitPoint[0]);
 
+    }
+    public void idDeath()
+    {
+        Destroy(this.gameObject);
     }
 }
