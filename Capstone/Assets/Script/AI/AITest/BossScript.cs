@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour
 {
+    public Collider weaponCollider;
+    private BossState currentState;
     public float minDistanceToPlayer = 3f; // The minimum distance between the boss and player
     public float movementSpeed = 5f; // The movement speed of the boss enemy
     public float attackRange = 2f; // The range at which the boss enemy can attack the player
@@ -24,8 +26,11 @@ public class BossScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
     private void Start()
     {
+        weaponCollider.enabled = false;
+        currentState = BossState.Idle;
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
     }
 
@@ -34,86 +39,72 @@ public class BossScript : MonoBehaviour
         // Calculate the distance between the boss enemy and the player
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // If the player is within the chase range and the boss enemy has not exceeded the maximum chase time
-        if (distanceToPlayer <= chaseRange && currentChaseTime <= maxChaseTime && canChase)
+        // Switch between states
+        switch (currentState)
         {
-            // Calculate the direction towards the player
-            Vector2 directionToPlayer = (player.position - transform.position).normalized;
-
-            // Check if the boss is farther away from the player than the minimum distance
-            if (distanceToPlayer > minDistanceToPlayer)
-            {
-                if (distanceToPlayer > minDistanceToPlayer && distanceToPlayer >= attackRange)
+            case BossState.Idle:
+                // Do nothing until player enters chase range
+                if (distanceToPlayer <= chaseRange)
                 {
-                    if (!isAttacking)
+                    currentState = BossState.Chasing;
+                }
+                break;
+            case BossState.Chasing:
+                // Move towards player and switch to attack state when within attack range
+                if (distanceToPlayer > minDistanceToPlayer && distanceToPlayer <= attackRange)
+                {
+                    currentState = BossState.Attacking;
+                }
+                else if (distanceToPlayer > minDistanceToPlayer)
+                {
+                    // Move the boss towards the player
+                    animator.SetTrigger("chase");
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, movementSpeed * Time.deltaTime);
+                    if (player.position.x < transform.position.x)
                     {
-                        // Move the boss towards the player
-                        animator.SetTrigger("chase");
-                        transform.position = Vector2.MoveTowards(transform.position, player.position, movementSpeed * Time.deltaTime);
-                        if (player.position.x < transform.position.x)
-                        {
-                            transform.rotation = Quaternion.Euler(0f, -90f, 0f);
-                        }
-                        else
-                        {
-                            transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                        }
+                        transform.rotation = Quaternion.Euler(0f, -90f, 0f);
                     }
                     else
                     {
-                        // Boss is attacking, stop its movement and only update its rotation
-                        GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        if (player.position.x < transform.position.x)
-                        {
-                            transform.rotation = Quaternion.Euler(0f, -90f, 0f);
-                        }
-                        else
-                        {
-                            transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-                        }
+                        transform.rotation = Quaternion.Euler(0f, 90f, 0f);
                     }
                 }
-
-            }
-            // Increase the current chase time
-            currentChaseTime += Time.deltaTime;
-        }
-
-        // If the player is within attack range and the attack cooldown has passed
-        if (distanceToPlayer <= attackRange && Time.time >= lastAttackTime + attackCooldown)
-        {
-            // Attack the player
-            Attack();
-
-            // Reset the attack cooldown
-            lastAttackTime = Time.time;
-        }
-
-        // Check if the player has moved away from the boss enemy's chase range
-        if (distanceToPlayer > chaseRange)
-        {
-            isAttacking = false;
-            // Reset the current chase time
-            currentChaseTime = 0f;
-
-            // Delay before the boss enemy can start chasing the player again
-            StartCoroutine(DelayBeforeChase());
+                else
+                {
+                    // Boss is too close to player, stop its movement
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    animator.SetTrigger("idle");
+                }
+                break;
+            case BossState.Attacking:
+                // Attack player and switch back to chase state after a delay
+                Attack();
+                currentState = BossState.DelayBeforeChase;
+                break;
+            case BossState.DelayBeforeChase:
+                // Wait for a delay before switching back to chase state
+                StartCoroutine(DelayBeforeChase());
+                break;
         }
     }
 
     private void Attack()
     {
+        canChase = false;
         isAttacking = true;
         Debug.Log("Attacking player!");
+        weaponCollider.enabled = true;
         animator.SetBool("Attack", true);
         animator.SetInteger("AttackIndex", Random.Range(0, 4));
+        canChase = false;
+        // Stop the boss's movement during the attack
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         // Check if the player is in the boss enemy's line of sight
         Vector2 directionToPlayer = player.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, Mathf.Infinity, playerLayer);
         if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
             // Damage the player
-
             EntityHealth playerHealth = hit.collider.GetComponent<EntityHealth>();
             if (playerHealth != null)
             {
@@ -127,14 +118,21 @@ public class BossScript : MonoBehaviour
     private void EndAttack()
     {
         isAttacking = false;
-        Debug.Log("Ending attack!");
+        weaponCollider.enabled = false;
         animator.SetBool("Attack", false);
     }
 
     private IEnumerator DelayBeforeChase()
     {
-        canChase = false;
+        // Wait for a delay before switching back to chase state
         yield return new WaitForSeconds(delayBeforeChase);
-        canChase = true;
+        currentState = BossState.Chasing;
     }
+}
+public enum BossState
+{
+    Idle,
+    Chasing,
+    Attacking,
+    DelayBeforeChase
 }

@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: df8c8e00db23b49458a4df964f2a3b7a, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: c42cf6d2faebcc7439d55df7f880a4da, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 21ed76cb4972e7949aefe9eb1b5649c0, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -4094,6 +4094,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1551252534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551252535}
+  - component: {fileID: 1551252536}
+  - component: {fileID: 1551252537}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: EnemyAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1551252535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551252534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0001, y: 0.0397, z: 0.0014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 657391958}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1551252536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551252534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007817137, y: 0.027483402, z: 0.050510187}
+  m_Center: {x: -0.0007613174, y: 0.0035108847, z: 0.0075171706}
+--- !u!114 &1551252537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551252534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1554495712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8128,6 +8186,7 @@ GameObject:
   - component: {fileID: 5866666020913277021}
   - component: {fileID: 5866666020913277022}
   - component: {fileID: 5866666020913277023}
+  - component: {fileID: 5866666020913277024}
   m_Layer: 0
   m_Name: Omar
   m_TagString: Player
@@ -12906,6 +12965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 0}
   minDistanceToPlayer: 3
   movementSpeed: 2
   attackRange: 3
@@ -14054,7 +14114,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &5483542475328018516
 MonoBehaviour:
@@ -14068,14 +14128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 1551252536}
   minDistanceToPlayer: 0.02
-  movementSpeed: 2
+  movementSpeed: 1.5
   attackRange: 0.85
-  attackCooldown: 3
-  chaseRange: 6
+  attackCooldown: 1
+  chaseRange: 3
   maxChaseTime: 100
   attackDamage: 10
-  delayBeforeChase: 1
+  delayBeforeChase: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -14091,7 +14152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 500
   currentHealth: 0
   healthBar: {fileID: 4672516523069870694}
 --- !u!114 &5483542475328018518
@@ -14735,6 +14796,19 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 6090147152975689808}
+--- !u!114 &5866666020913277024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149082122395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbec015d374ad5e44aec5859afad95d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &5908896641130633115
 GameObject:
   m_ObjectHideFlags: 0
