@@ -6,7 +6,7 @@ public class DroneController : MonoBehaviour
 {
     [SerializeField] private const string playerTag = "Player";
     [SerializeField] private const string droneTag = "Drone";
-    [SerializeField] private const string enemyTag = "enemy";
+    // [SerializeField] private const string enemyTag = "enemy";
     [SerializeField] private float enemyDetectionDistance = 5f;
     [SerializeField] private float followSpeed = 3f;
     [SerializeField] private float amplitude = 0.5f;
@@ -14,6 +14,7 @@ public class DroneController : MonoBehaviour
     [SerializeField] private float shootingRange = 5f;
     [SerializeField] private float shootingCooldown = 1f;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
 
     private float lastShotTime;
     private Transform playerTransform;
@@ -103,8 +104,9 @@ public class DroneController : MonoBehaviour
 
     private GameObject FindNearestEnemy()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemyHitpoint");
+        // GameObject[] EnemyHead = GameObject.FindGameObjectsWithTag("enemyHitpoint");
         if (enemies.Length == 0)
         {
             return null;
@@ -136,7 +138,7 @@ public class DroneController : MonoBehaviour
             {
                 Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
 
-                GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
                 Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
                 bulletRb.velocity = direction * 20f;
 
