@@ -16,7 +16,8 @@ using UnityEngine;
 public class Outline : MonoBehaviour
 {
     private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
-
+    [SerializeField]
+    private LayerMask excludeLayers;
     public enum Mode
     {
         OutlineAll,
@@ -113,6 +114,11 @@ public class Outline : MonoBehaviour
     {
         foreach (var renderer in renderers)
         {
+            // Skip renderers whose layers are in the exclusion list
+            if (((1 << renderer.gameObject.layer) & excludeLayers) != 0)
+            {
+                continue;
+            }
 
             // Append outline shaders
             var materials = renderer.sharedMaterials.ToList();

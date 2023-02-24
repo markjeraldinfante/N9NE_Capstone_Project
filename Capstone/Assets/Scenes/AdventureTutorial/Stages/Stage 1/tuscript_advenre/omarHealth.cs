@@ -17,9 +17,9 @@ public class omarHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
@@ -33,17 +33,17 @@ public class omarHealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "pamalo")
+        if (other.gameObject.tag == "pamalo")
         {
             TakeDamage(10);
-            
+
         }
-        if(other.gameObject.tag == "fallobj")
+        if (other.gameObject.tag == "fallobj")
         {
             TakeDamage(50);
             DestroyWithTag("fallobj");
         }
-        if(other.gameObject.tag == "wire")
+        if (other.gameObject.tag == "wire")
         {
             TakeDamage(3);
         }

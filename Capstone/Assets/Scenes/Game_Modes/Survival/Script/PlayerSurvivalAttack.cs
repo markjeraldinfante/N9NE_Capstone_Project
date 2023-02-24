@@ -12,6 +12,7 @@ public class PlayerSurvivalAttack : MonoBehaviour
 
     [SerializeField] private bool canAttack = true;
     [SerializeField] private bool isAttacking = false;
+    [SerializeField] Transform hitpoint;
     private void Start()
     {
         characterAnimation = GetComponent<Animator>();
