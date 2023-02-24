@@ -10,6 +10,7 @@ public class score : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
 
     public gameoverscreen gameoverscreen;
+    public AudioSource audioBcoin;
 
     private int Score = 0;
 
@@ -39,6 +40,7 @@ public class score : MonoBehaviour
     {
         if (target.tag == "bcoin")
         {
+            audioBcoin.Play();
             Destroy(target.gameObject);
             Score++;
         }
