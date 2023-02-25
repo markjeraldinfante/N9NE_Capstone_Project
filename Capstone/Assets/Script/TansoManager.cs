@@ -4,15 +4,14 @@ using UnityEngine;
 using TMPro;
 public class TansoManager : MonoBehaviour
 {
-    public TextMeshProUGUI tansoHolder;
+    public TextMeshProUGUI[] tansoHolder;
 
     void Awake()
     {
-        tansoHolder.text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
-    }
-    private void FixedUpdate()
-    {
-
+        for (int i = 0; i < tansoHolder.Length; i++)
+        {
+            tansoHolder[i].text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+        }
     }
 
 }
