@@ -8,7 +8,10 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] public float camRotateValue = 5f;
     [SerializeField] private float rotateDuration = 0.125f;
     private float currentRotation = 0f;
-
+    private void Awake()
+    {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
     private void Start()
     {
         LeanTween.reset();

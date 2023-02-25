@@ -136,11 +136,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            playButton.interactable = true;
+            playButton.enabled = true;
         }
         else
         {
-            playButton.interactable = false;
+            playButton.enabled = false;
         }
     }
     public void OnClickPlayButton()
