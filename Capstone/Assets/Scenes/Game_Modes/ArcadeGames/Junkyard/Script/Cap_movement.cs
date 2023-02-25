@@ -5,6 +5,10 @@ using UnityEngine;
 public class Cap_movement : MonoBehaviour
 {
     private float speed = 30f;
+
+    public AudioSource audioScrap;
+
+
     private Rigidbody2D rb;
     // Start is called before the first frame update
 
@@ -25,4 +29,14 @@ public class Cap_movement : MonoBehaviour
         rb.velocity = vel;
 
     }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == "scrap")
+        {
+            audioScrap.Play();
+        }
+
+    }
+   
 }
