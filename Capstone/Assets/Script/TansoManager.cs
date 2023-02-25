@@ -8,10 +8,10 @@ public class TansoManager : MonoBehaviour
 
     void Awake()
     {
-        for (int i = 0; i < tansoHolder.Length; i++)
-        {
-            tansoHolder[i].text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
-        }
+
+        tansoHolder[0].text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+        tansoHolder[1].text = "Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+
     }
 
 }
