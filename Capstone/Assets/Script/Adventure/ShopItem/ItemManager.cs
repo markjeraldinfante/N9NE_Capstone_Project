@@ -24,9 +24,10 @@ public class ItemManager : MonoBehaviour
             weaponSlot.itemSprite = item.ItemSprite;
             weaponSlot.itemDetails = item.ItemDescription;
             weaponSlot.itemLevel = item.ItemLevel;
-            // weaponSlot.itemDamage = item.GetItemDamage(weaponSlot.itemLevel);
-            // weaponSlot.itemAttackSpeed = item.GetItemAttackSpeed(weaponSlot.itemLevel);
-            //weaponSlot.itemUpgradeCost = item.GetItemUpgradeCost(weaponSlot.itemLevel);
+            weaponSlot.itemDamage = item.GetItemDamage(weaponSlot.itemLevel);
+            weaponSlot.itemAttackSpeed = item.GetItemAttackSpeed(weaponSlot.itemLevel);
+            weaponSlot.itemUpgradeCost = item.GetItemCost(weaponSlot.itemLevel);
+            weaponSlot.isMaxLevel = item.IsMaxLevel(weaponSlot.isMaxLevel);
 
             GameObject gameObject = Instantiate(weaponItem, weaponSelectionContent);
 

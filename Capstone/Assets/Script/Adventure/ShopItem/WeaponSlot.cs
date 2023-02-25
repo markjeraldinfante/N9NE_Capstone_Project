@@ -16,6 +16,7 @@ public class WeaponSlot : MonoBehaviour
     public int itemUpgradeCost;
     public int itemDamage;
     public float itemAttackSpeed;
+    public bool isMaxLevel;
     [SerializeField] private ItemPreview itemPreview;
 
     void Awake()
@@ -27,6 +28,6 @@ public class WeaponSlot : MonoBehaviour
 
     void ButtonOnClick()
     {
-        itemPreview.DisplayItem(itemName, itemSprite, itemDetails, itemLevel.ToString(), itemDamage.ToString(), itemAttackSpeed.ToString());
+        itemPreview.DisplayItem(itemName, itemSprite, itemDetails, itemLevel.ToString(), itemDamage.ToString(), itemAttackSpeed.ToString(), itemUpgradeCost.ToString(), isMaxLevel);
     }
 }
