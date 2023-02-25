@@ -1777,6 +1777,7 @@ GameObject:
   - component: {fileID: 6252979283498478996}
   - component: {fileID: 6252979283498478987}
   - component: {fileID: -1430102810742490887}
+  - component: {fileID: 1576882172}
   m_Layer: 0
   m_Name: SurvivalOmar
   m_TagString: Untagged
@@ -1812,7 +1813,7 @@ Animator:
   m_GameObject: {fileID: 6252979283498478999}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6109428c84cd9134e84326c484627214, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f1c2964a17dfee498726dcf0e000c02, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1889,7 +1890,21 @@ MonoBehaviour:
   speed: 5
   variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   turnSpeed: 360
-  data: {fileID: 11400000, guid: 13cd39d7f1b58184a876d8019be340a3, type: 2}
+  basePlayer: 0
+--- !u!114 &1576882172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252979283498478999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackKey: 106
+  characterAnimation: {fileID: 6252979283498479018}
 --- !u!1 &6252979283506022577
 GameObject:
   m_ObjectHideFlags: 0
