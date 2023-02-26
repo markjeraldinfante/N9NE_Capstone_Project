@@ -20,7 +20,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public List<PlayerItem> playerItemsList = new List<PlayerItem>();
     public PlayerItem playerItemPrefab;
     public Transform playerItemParent;
-    public Button playButton;
+    public GameObject playButton;
 
     private void Start()
     {
@@ -136,11 +136,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            playButton.interactable = true;
+            playButton.SetActive(true);
         }
         else
         {
-            playButton.interactable = false;
+            playButton.SetActive(false);
         }
     }
     public void OnClickPlayButton()

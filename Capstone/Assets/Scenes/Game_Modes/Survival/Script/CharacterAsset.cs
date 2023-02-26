@@ -8,4 +8,5 @@ public class CharacterAsset : ScriptableObject
     public string CharacterID;
 
     public GameObject CharacterModel;
+    public GameObject modelForMap;
 }
