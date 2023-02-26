@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 49eb64acb76737d4dbf6574d5ac713c8
+guid: 40ed1761e6d8a3c4fbcf7ce8d7bc78da
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: quibs_idle
+      74: -203655887218126122
+    second: quibs_attack3
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: quibs_idle
-      takeName: Take 001
+      name: quibs_attack3
+      takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 95
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -529,18 +529,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: quibs(Clone)
+    - name: Quibs(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Quibs
-      parentName: quibs(Clone)
+      parentName: Quibs(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
-      parentName: quibs(Clone)
+      parentName: Quibs(Clone)
       position: {x: -0, y: 0.009930864, z: 0.00011837286}
       rotation: {x: -0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
