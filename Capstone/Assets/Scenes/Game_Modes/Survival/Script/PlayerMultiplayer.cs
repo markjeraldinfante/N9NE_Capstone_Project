@@ -6,6 +6,7 @@ public class PlayerMultiplayer : MonoBehaviour
 {
     Animator animator;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private baseSurvivalVariant variant;
 
     Rigidbody _rb;
     [SerializeField] private float turnSpeed = 360;
@@ -14,7 +15,7 @@ public class PlayerMultiplayer : MonoBehaviour
     private Rigidbody rb;
     private new Renderer renderer;
 
-    public basePlayer basePlayer;
+    [SerializeField] public basePlayer basePlayer;
 
     private void Awake()
     {
@@ -34,33 +35,44 @@ public class PlayerMultiplayer : MonoBehaviour
 
     private void GatherInput()
     {
-        switch (basePlayer)
+        if (!variant.isOnline)
         {
-            case basePlayer.Player1:
-                _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
-                if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
-                {
-                    animator.SetBool("Walk", false);
-                }
-                else
-                    animator.SetBool("Walk", true);
-                break;
 
-            case basePlayer.Player2:
+            switch (basePlayer)
+            {
+                case basePlayer.Player1:
+                    _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
+                    if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
+                    {
+                        animator.SetBool("Walk", false);
+                    }
+                    else
+                        animator.SetBool("Walk", true);
+                    break;
 
-                _input = new Vector3(Input.GetAxisRaw("Horizontal 2"), 0, Input.GetAxisRaw("Vertical 2"));
-                if (Input.GetAxisRaw("Horizontal 2") == 0 && Input.GetAxisRaw("Vertical 2") == 0)
-                {
-                    animator.SetBool("Walk", false);
-                }
-                else
-                    animator.SetBool("Walk", true);
-                break;
+                case basePlayer.Player2:
 
+                    _input = new Vector3(Input.GetAxisRaw("Horizontal 2"), 0, Input.GetAxisRaw("Vertical 2"));
+                    if (Input.GetAxisRaw("Horizontal 2") == 0 && Input.GetAxisRaw("Vertical 2") == 0)
+                    {
+                        animator.SetBool("Walk", false);
+                    }
+                    else
+                        animator.SetBool("Walk", true);
+                    break;
+
+            }
         }
-
-
-
+        else
+        {
+            _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
+            if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
+            {
+                animator.SetBool("Walk", false);
+            }
+            else
+                animator.SetBool("Walk", true);
+        }
     }
 
     private void Look()

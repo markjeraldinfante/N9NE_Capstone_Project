@@ -4,44 +4,47 @@ using UnityEngine;
 
 public class PlayerSurvivalAttack : MonoBehaviour
 {
-    public KeyCode key;
-    Animator animator;
-    public GameObject batoObject;
-    public Transform point;
-    public bool allowFire;
+    [SerializeField] private KeyCode attackKey = KeyCode.J;
+    [SerializeField] private float attackSpeed = 25f;
+    [SerializeField] private ObjectPooler batoPooler;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private Animator characterAnimation;
 
-
-
-    void Awake()
-    {
-        animator = gameObject.GetComponent<Animator>();
-    }
+    [SerializeField] private bool canAttack = true;
+    [SerializeField] private bool isAttacking = false;
+    [SerializeField] Transform hitpoint;
     private void Start()
     {
-        allowFire = true;
+        characterAnimation = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(attackKey) && canAttack && !isAttacking)
+        {
+            isAttacking = true;
+            canAttack = false;
+            StartCoroutine(Attack());
+        }
     }
 
-    void Update()
+    private IEnumerator Attack()
     {
-        if (Input.GetKeyDown(key) && allowFire)
+        characterAnimation.SetTrigger("slingAttack");
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject bato = batoPooler.GetPooledObject(1f);
+        if (bato != null)
         {
-
-            StartCoroutine(Fire());
-
+            bato.transform.position = spawnPoint.position;
+            bato.transform.rotation = transform.rotation;
+            bato.SetActive(true);
+            Rigidbody batoRigidbody = bato.GetComponent<Rigidbody>();
+            batoRigidbody.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
         }
 
-    }
-
-    IEnumerator Fire()
-    {
-        allowFire = false;
-        // animator.SetTrigger("attack");
         yield return new WaitForSeconds(0.5f);
-        GameObject bato = Instantiate(batoObject, point.position, transform.rotation);
-        bato.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-
-        allowFire = true;
-        Destroy(bato, 1f);
+        isAttacking = false;
+        canAttack = true;
     }
-
 }
+

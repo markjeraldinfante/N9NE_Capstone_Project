@@ -3,93 +3,82 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
+using System.Linq;
 
 namespace somnium
 {
     public class SoundManager : MonoBehaviour
     {
 
-        public static SoundManager instance;
-        [SerializeField] AudioSource SFXSource, BGMSource;
-        [SerializeField] Sounds[] BG_music;
-        [SerializeField] Sounds[] sounds_FX;
 
+        public static SoundManager instance;
+        public AudioSource SFXSource, BGMSource;
+        public Sounds[] BG_music;
+        public Sounds[] sounds_FX;
 
         private void Awake()
         {
             if (instance == null)
             {
                 instance = this;
-                DontDestroyOnLoad(this);
+                DontDestroyOnLoad(gameObject);
             }
             else
+            {
                 Destroy(gameObject);
-        }
-        private void Start()
-        {
-            if (!PlayerPrefs.HasKey("SetBGM") && !PlayerPrefs.HasKey("SetSFX"))
-            {
-                SFXSource.volume = 1f;
-                BGMSource.volume = 1f;
-
-
-            }
-            else
-            {
-                SFXSource.volume = PlayerPrefs.GetFloat("SetSFX");
-                BGMSource.volume = PlayerPrefs.GetFloat("SetBGM");
             }
 
+            float sfxVolume = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_SFX, 0.5f);
+            float bgmVolume = PlayerPrefs.GetFloat(PlayerPrefKeys.SET_BGM, 0.5f);
 
-            Debug.Log("SFX VALUE = " + SFXSource.volume);
-            Debug.Log("BGM VALUE = " + BGMSource.volume);
+            SFXSource.volume = sfxVolume;
+            BGMSource.volume = bgmVolume;
 
+            Debug.Log("SFX volume: " + sfxVolume);
+            Debug.Log("BGM volume: " + bgmVolume);
         }
-
-        #region AudioController
 
 
         public void PlayMusic(string name)
         {
-            Sounds sounds = Array.Find(BG_music, x => x.name == name);
+            Sounds sound = BG_music.FirstOrDefault(x => x.name == name);
 
-            if (sounds == null)
+            if (sound == null)
             {
-                Debug.Log("Music Not Found!");
+                Debug.Log("Music not found: " + name);
             }
             else
             {
-                BGMSource.clip = sounds.audioClip;
+                BGMSource.clip = sound.audioClip;
                 BGMSource.Play();
             }
         }
+
         public void PlaySFX(string name)
         {
-            Sounds sounds = Array.Find(sounds_FX, x => x.name == name);
+            Sounds sound = sounds_FX.FirstOrDefault(x => x.name == name);
 
-            if (sounds == null)
+            if (sound == null)
             {
-                Debug.Log("SFX Not Found!");
+                Debug.Log("SFX not found: " + name);
             }
             else
             {
-                SFXSource.PlayOneShot(sounds.audioClip);
-
+                SFXSource.PlayOneShot(sound.audioClip);
             }
         }
 
         public void SetSFX(float value)
         {
             SFXSource.volume = value;
-            //PlayerPrefs.SetFloat("_SFX", value);
+            PlayerPrefs.SetFloat(PlayerPrefKeys.SET_SFX, value);
         }
+
         public void SetBGM(float value)
         {
             BGMSource.volume = value;
-            //PlayerPrefs.SetFloat("_BGM", value);
+            PlayerPrefs.SetFloat(PlayerPrefKeys.SET_BGM, value);
         }
-        #endregion
-
     }
 }
 

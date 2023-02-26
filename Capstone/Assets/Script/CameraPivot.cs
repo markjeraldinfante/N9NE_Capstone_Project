@@ -6,23 +6,26 @@ public class CameraPivot : MonoBehaviour
 {
     public Transform cam;
     [SerializeField] public float camRotateValue = 5f;
-    private Vector3 vector3 = Vector3.zero;
-
+    [SerializeField] private float rotateDuration = 0.125f;
+    private float currentRotation = 0f;
+    private void Awake()
+    {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
     private void Start()
     {
         LeanTween.reset();
-
     }
+
     private void FixedUpdate()
     {
-
-        float camRotation = Input.GetAxis("Horizontal") * camRotateValue;
-        //LeanTween.init(900);
-        //.125f
-        LeanTween.rotateY(cam.transform.gameObject, camRotation, .125f);
-        // cam.eulerAngles = new Vector3(0f, camRotation, 0f);
-
-
+        float targetRotation = Input.GetAxis("Horizontal") * camRotateValue;
+        if (targetRotation != currentRotation)
+        {
+            LeanTween.cancel(cam.gameObject);
+            LeanTween.rotateY(cam.gameObject, targetRotation, rotateDuration);
+            currentRotation = targetRotation;
+        }
     }
-
 }
+

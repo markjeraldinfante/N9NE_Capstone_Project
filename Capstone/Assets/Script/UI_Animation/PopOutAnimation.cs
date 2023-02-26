@@ -7,13 +7,14 @@ using TMPro;
 public class PopOutAnimation : MonoBehaviour
 {
     [SerializeField] GameObject optionGO, optionBG, optionPanel, OptionOBJ, optionBackBtn;
-    [SerializeField] GameObject MainMenuItem1, MainMenuItem2, MainMenuItem3;
+    [SerializeField] GameObject MainMenuItem1, MainMenuItem2, MainMenuItem3, MainMenuItem4;
     private void Awake()
     {
         LeanTween.reset();
         MainMenuItem1.SetActive(true);
         MainMenuItem2.SetActive(true);
         MainMenuItem3.SetActive(true);
+        MainMenuItem4.SetActive(true);
         optionGO.SetActive(false);
 
     }
@@ -35,6 +36,7 @@ public class PopOutAnimation : MonoBehaviour
         MainMenuItem1.SetActive(true);
         MainMenuItem2.SetActive(true);
         MainMenuItem3.SetActive(true);
+        MainMenuItem4.SetActive(true);
         optionGO.SetActive(false);
 
     }

@@ -6,20 +6,28 @@ public class SpawnStartInstantiate : MonoBehaviour
 {
     public delegate void Instantiate1Player();
     public delegate void Instantiate2Player();
+    public delegate void OnlineInstantiate2Player();
     public static event Instantiate1Player spawn1Player;
     public static event Instantiate2Player spawn2Player;
-    public bool is2Player;
+    public static event OnlineInstantiate2Player spawn2PlayerOnline;
+    public baseSurvivalVariant variant;
 
-    private void Awake()
+    public void Awake()
     {
+        if (variant.isOnline)
+        {
+            spawn2PlayerOnline?.Invoke();
+            Debug.Log("Online Mode");
+            return;
+        }
 
-        if (is2Player)
+        if (variant.is2player)
         {
             spawn2Player?.Invoke();
             return;
         }
-        else
-            spawn1Player?.Invoke();
+
+        spawn1Player?.Invoke();
     }
 
 }

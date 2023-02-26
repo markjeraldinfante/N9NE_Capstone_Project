@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] public string inputNameVertical;
 
     private Rigidbody rb;
-    private  new Renderer renderer;
+    private new Renderer renderer;
 
     private float inputHorizontal;
     private float inputVertical;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         renderer = GetComponentInChildren<Renderer>();
-        
+
     }
 
     private void Update()
@@ -30,5 +31,10 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(inputHorizontal * speed * Time.fixedDeltaTime, rb.velocity.y, inputVertical * speed * Time.fixedDeltaTime);
+    }
+
+    public static implicit operator Player(Photon.Realtime.Player v)
+    {
+        throw new NotImplementedException();
     }
 }

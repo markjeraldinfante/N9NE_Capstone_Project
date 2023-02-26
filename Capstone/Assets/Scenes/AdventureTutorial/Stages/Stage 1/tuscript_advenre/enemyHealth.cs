@@ -9,7 +9,8 @@ private string currentState;
       public int maxHealth;
     public int currentHealth;
     public Animator animator;
-   // public HealthBar healthBar;
+    public HealthBar healthBar;
+    private enemy_adventure enemyAdventure;
   //  public Enemy_Carp enemyMovement;
     // Start is called before the first frame update
     void Start()
@@ -27,18 +28,23 @@ private string currentState;
     {
         currentHealth -= damage;
       //  enemyMovement.speed = 0.01f;
-       // healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
         currentHealth -= damage;
         currentState = "ChaseState";
 
         if(currentHealth < 0)
         {
             Die();
+            
+            
+            
         }
     }
      private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato"); }
+        if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato");
+        //somnium.SoundManager.instance.PlaySFX("AguyMobs"); 
+        }
         // else StartCoroutine(NormalSpeed());
     }
      IEnumerator NormalSpeed()
@@ -62,6 +68,9 @@ private string currentState;
         //disable the script and the collider
         GetComponent<CapsuleCollider>().enabled = false;
         Destroy(gameObject, 3);
-        this.enabled = false;
+        this.enabled = false;       
+        GetComponent<enemy_adventure>().enabled = false;
+        
+
     }
 }

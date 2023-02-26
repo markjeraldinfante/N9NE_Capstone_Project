@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterAsset : ScriptableObject
 {
     public string CharacterID;
-    public string CharacterName;
-    public Sprite CharacterImage;
+
     public GameObject CharacterModel;
+    public GameObject modelForMap;
 }
