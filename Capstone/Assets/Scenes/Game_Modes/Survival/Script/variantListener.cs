@@ -5,13 +5,11 @@ using UnityEngine;
 public class variantListener : MonoBehaviour
 {
     public baseSurvivalVariant variant;
-    public GameObject _1playerselection, _2playerselection, offlineStart, onlineStart;
+    public GameObject _1playerselection, _2playerselection;
 
     private void Awake()
     {
         _1playerselection.SetActive(true);
-        offlineStart.SetActive(true);
-        onlineStart.SetActive(false);
 
         if (!variant.isOnline)
         {
