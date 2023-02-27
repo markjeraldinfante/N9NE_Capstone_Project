@@ -15,7 +15,7 @@ public class MapDetailHolder : MonoBehaviour
     public MapContext context;
     [SerializeField] private GameObject loadingScreen = null;
     public int SceneIndex;
-    public float doubleClickTimeThreshold = 0.3f; // Maximum time between clicks to count as a double-click
+    public float doubleClickTimeThreshold = 0.2f; // Maximum time between clicks to count as a double-click
     private float lastClickTime = 0f; // Time of the last click
 
     void Awake()
@@ -45,7 +45,7 @@ public class MapDetailHolder : MonoBehaviour
     void OnSingleClick()
     {
         mapName.text = map.MapName;
-        handler.SetMap(context);
+
     }
 
     private IEnumerator LoadAsynchronously(int sceneIndex)
