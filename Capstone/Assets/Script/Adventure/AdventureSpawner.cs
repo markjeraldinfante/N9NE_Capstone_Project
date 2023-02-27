@@ -9,11 +9,12 @@ public class AdventureSpawner : MonoBehaviour
     public MapContextHandler context;
     public Transform playerSpawnPoints;
     public bool isForMap;
+    public Transform mapParent;
 
     private void Awake()
     {
         if (playerSpawnPoints == null) { playerSpawnPoints = context.map.mapSpawn.transform; }
-        Instantiate(context.map.mapEnv);
+        Instantiate(context.map.mapEnv, mapParent);
         Initialized();
     }
 
