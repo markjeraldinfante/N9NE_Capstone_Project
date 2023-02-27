@@ -1994,6 +1994,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 8757328432942124b9df91814e876e84, type: 2}
   mapName: {fileID: 332131357}
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
+  context: {fileID: 11400000, guid: dd710694a55941f49a1c93b718b7e148, type: 2}
+  loadingScreen: {fileID: 406913711}
+  SceneIndex: 0
+  doubleClickTimeThreshold: 0.3
 --- !u!1 &267243801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1559936197526583338, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1559936197526583339, guid: e7865d4ad2134ce4bab6a5ee209aaa34, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2957,6 +2966,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: b7c948458dfa31e4a992c740d72529d1, type: 2}
   mapName: {fileID: 332131357}
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
+  context: {fileID: 11400000, guid: 02943bbc21afa8d4e99414c96b65843e, type: 2}
+  loadingScreen: {fileID: 406913711}
+  SceneIndex: 0
+  doubleClickTimeThreshold: 0.3
 --- !u!1 &542024479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4960,6 +4974,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 126c9c12bf06b4c408cec57ab33d8f52, type: 2}
   mapName: {fileID: 332131357}
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
+  context: {fileID: 11400000, guid: 88d291aaebe0efe42b9aaf9b410042a5, type: 2}
+  loadingScreen: {fileID: 406913711}
+  SceneIndex: 0
+  doubleClickTimeThreshold: 0.3
 --- !u!1 &1120697917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7501,13 +7520,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520377456}
+  - component: {fileID: 1520377457}
   m_Layer: 5
   m_Name: '[2] Play'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1520377456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7534,6 +7554,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1520377457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520377455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b37cfba7ba5e943a94ef18e8386f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
 --- !u!1 &1549891682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9021,6 +9054,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 4a3a66e5f7dac314e9f7aa93e645ca33, type: 2}
   mapName: {fileID: 332131357}
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
+  context: {fileID: 11400000, guid: fab9d36b9dcb6c444b94888c6ef15293, type: 2}
+  loadingScreen: {fileID: 406913711}
+  SceneIndex: 0
+  doubleClickTimeThreshold: 0.3
 --- !u!1001 &1787050150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10663,6 +10701,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 11400000, guid: 0d83cbde3a6f52c438f27bf365e71750, type: 2}
   mapName: {fileID: 332131357}
+  handler: {fileID: 11400000, guid: 800905c90fa21dd448f8943e9f724e86, type: 2}
+  context: {fileID: 11400000, guid: 411a3dd24639fe44f91329ae071295d3, type: 2}
+  loadingScreen: {fileID: 406913711}
+  SceneIndex: 0
+  doubleClickTimeThreshold: 0.3
 --- !u!4 &543450653614003197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9b2e2a0b7f8657f4699746b2d8110a6f, type: 3}
