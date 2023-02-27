@@ -7781,7 +7781,7 @@ GameObject:
   - component: {fileID: 5866666020913277021}
   m_Layer: 0
   m_Name: 'omar '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12279,6 +12279,7 @@ MonoBehaviour:
   characterAnimation: {fileID: 5866666020913277019}
   canAttack: 1
   isAttacking: 0
+  hitpoint: {fileID: 0}
 --- !u!114 &5866666020913277021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12291,6 +12292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   outlineMode: 3
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
   outlineWidth: 2
