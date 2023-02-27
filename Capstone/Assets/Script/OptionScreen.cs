@@ -11,7 +11,7 @@ public class OptionScreen : MonoBehaviour
     public int selectedResolution;
     public TMP_Text resolutionLabel;
 
-    private void OnEnable()
+    private void Awake()
     {
         LoadResolution();
         UpdateResolutionLabel();
@@ -39,11 +39,10 @@ public class OptionScreen : MonoBehaviour
 
     public void ApplyGraphics()
     {
-
-        Screen.SetResolution(resolution[selectedResolution].horizontal, resolution[selectedResolution].vertical, fullScreenTog.isOn);
         setting.isFullScreen = fullScreenTog.isOn;
         setting.horizontalScreen = resolution[selectedResolution].horizontal;
         setting.verticalScreen = resolution[selectedResolution].vertical;
+        Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen);
         SaveResolution();
     }
 
@@ -68,7 +67,7 @@ public class OptionScreen : MonoBehaviour
             setting.verticalScreen = PlayerPrefs.GetInt("VerticalRes");
             int toggle = PlayerPrefs.GetInt("Toggle");
             setting.isFullScreen = toggle == 1;
-            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 60);
+            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen);
         }
         else
         {
@@ -76,8 +75,7 @@ public class OptionScreen : MonoBehaviour
             setting.verticalScreen = PlayerPrefs.GetInt("VerticalRes");
             int toggle = PlayerPrefs.GetInt("Toggle");
             setting.isFullScreen = toggle == 1;
-
-            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen, 60);
+            Screen.SetResolution(setting.horizontalScreen, setting.verticalScreen, setting.isFullScreen);
         }
     }
 }

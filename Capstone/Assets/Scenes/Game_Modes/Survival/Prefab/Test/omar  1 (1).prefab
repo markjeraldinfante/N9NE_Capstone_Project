@@ -1936,6 +1936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  variant: {fileID: 0}
   turnSpeed: 360
   basePlayer: 1
 --- !u!114 &4777179231970144962
@@ -1950,10 +1951,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00fcb4e487d74045956647f43e436f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 256
-  batoObject: {fileID: 5359424070069057568, guid: 4f3dae4510a22084ab4ad6e63ab12fae, type: 3}
-  point: {fileID: 4777179230544365379}
-  allowFire: 0
+  attackKey: 106
+  attackSpeed: 25
+  batoPooler: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  characterAnimation: {fileID: 0}
+  canAttack: 1
+  isAttacking: 0
+  hitpoint: {fileID: 0}
 --- !u!1 &5688619270180634008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,6 +2946,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   outlineMode: 3
   outlineColor: {r: 1, g: 0.6272205, b: 0, a: 1}
   outlineWidth: 4
