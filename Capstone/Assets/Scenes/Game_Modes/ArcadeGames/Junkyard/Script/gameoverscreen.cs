@@ -15,6 +15,10 @@ public class gameoverscreen : MonoBehaviour
     }
     public void RestartButton()
     {
-      //  SceneManager.LoadScene("Junkshop");
+        SceneManager.LoadScene("junkshop");
+    }
+    public void QuitButton()
+    {
+        SceneManager.LoadScene("mainmenu");
     }
 }
