@@ -13,17 +13,24 @@ public class AdventureSpawner : MonoBehaviour
 
     private void Awake()
     {
-        if (playerSpawnPoints == null) { playerSpawnPoints = context.map.mapSpawn.transform; }
+        if (playerSpawnPoints == null)
+        {
+            playerSpawnPoints = context.map.mapSpawn.transform;
+        }
+
         if (mapParent != null)
         {
             Instantiate(context.map.mapEnv, mapParent);
         }
-        else
-        {
-            Debug.LogError("mapParent is null!");
-        }
 
+        // Call the Initialized method outside of the if statement
         Initialized();
+    }
+
+
+    public void MapInstantiate()
+    {
+
     }
 
     public void Initialized()
