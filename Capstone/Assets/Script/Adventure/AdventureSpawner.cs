@@ -14,7 +14,15 @@ public class AdventureSpawner : MonoBehaviour
     private void Awake()
     {
         if (playerSpawnPoints == null) { playerSpawnPoints = context.map.mapSpawn.transform; }
-        Instantiate(context.map.mapEnv, mapParent);
+        if (mapParent != null)
+        {
+            Instantiate(context.map.mapEnv, mapParent);
+        }
+        else
+        {
+            Debug.LogError("mapParent is null!");
+        }
+
         Initialized();
     }
 

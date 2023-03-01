@@ -7,7 +7,6 @@ public class LevelBase : ScriptableObject
 {
     public bool isCleared;
     public string[] dialogueLines;
-    public GameObject lightCleared;
 
 }
 
