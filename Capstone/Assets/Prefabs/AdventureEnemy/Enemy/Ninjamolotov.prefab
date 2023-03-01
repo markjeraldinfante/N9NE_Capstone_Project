@@ -435,13 +435,14 @@ GameObject:
   - component: {fileID: 6312262120081046348}
   - component: {fileID: 6312262120081046351}
   - component: {fileID: 6312262120081046350}
+  - component: {fileID: 7484024735322216068}
   m_Layer: 0
   m_Name: Ninjamolotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &106261342715404598
 Transform:
   m_ObjectHideFlags: 0
@@ -517,6 +518,22 @@ MonoBehaviour:
   precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7484024735322216068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734742650751040396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34965daa4c7497b4b9cbd0d86d34e881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 5
+  speed: 3
+  attackRange: 2.5
+  animator: {fileID: 6312262120081046348}
 --- !u!1 &741624410878757250
 GameObject:
   m_ObjectHideFlags: 0
