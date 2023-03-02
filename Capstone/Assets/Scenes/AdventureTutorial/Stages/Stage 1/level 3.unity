@@ -1779,6 +1779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880713076}
+  - component: {fileID: 880713077}
   m_Layer: 0
   m_Name: Coins
   m_TagString: Untagged
@@ -1821,6 +1822,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880713077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880713075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf7c2c18c684eb4fa31e0be27aa9d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 1484652877189621652, guid: 1c3fc494add7e0043b6ddf8f0553abc0, type: 3}
+  spawnPoints:
+  - {fileID: 1357801936}
+  - {fileID: 1983138586}
+  - {fileID: 1011180811}
+  - {fileID: 1321136051}
+  - {fileID: 1350484049}
+  - {fileID: 342612490}
+  - {fileID: 597303910}
+  - {fileID: 746998551}
+  - {fileID: 156872974}
+  - {fileID: 198672950}
+  - {fileID: 1466638109}
+  - {fileID: 968067378}
+  - {fileID: 2021609069}
+  - {fileID: 924680100}
+  - {fileID: 336549677}
+  - {fileID: 1256291736}
+  - {fileID: 175684263}
+  - {fileID: 1244476310}
+  - {fileID: 657400805}
+  - {fileID: 1961269218}
+  coinsPerSpawn: 15
+  isCleared: 0
 --- !u!1 &903253629
 GameObject:
   m_ObjectHideFlags: 0
