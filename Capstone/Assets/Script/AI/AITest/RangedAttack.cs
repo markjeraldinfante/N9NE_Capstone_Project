@@ -2,25 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ninjaRandomAttack : MonoBehaviour
+public class RangedAttack : MonoBehaviour
 {
     private string currentState = "IdleState";
     private Transform target;
+
+    public GameObject Bullet;
+    public Transform projectileSpawnPoint;
     public float chaseRange = 5;
-    public float speed = 2;
+    public float speed = 3;
     public float attackRange = 1;
 
+    private float shotcooldown;
+    public float startshotcooldown;
+
     public Animator animator;
-
-
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        //animator = GetComponent<Animator>();
 
+        shotcooldown = startshotcooldown;
 
     }
+
     void Update()
     {
         float distance = Vector3.Distance(transform.position, target.position);
@@ -33,12 +38,7 @@ public class ninjaRandomAttack : MonoBehaviour
         else if (currentState == "ChaseState")
         {
             animator.SetTrigger("chase");
-
-
-            animator.SetBool("Attack", false);
-
-
-
+            animator.SetBool("isAttacking", false);
 
             if (distance < attackRange)
                 currentState = "AttackState";
@@ -59,19 +59,20 @@ public class ninjaRandomAttack : MonoBehaviour
         }
         else if (currentState == "AttackState")
         {
-            animator.SetBool("Attack", true);
-            animator.SetInteger("AttackIndex", Random.Range(0, 4));
-
+            animator.SetBool("isAttacking", true);
+            if (shotcooldown <= 0 )
+            {
+                Instantiate(Bullet, projectileSpawnPoint.position, transform.rotation);
+                shotcooldown = startshotcooldown;
+            }
+            else
+            {
+                shotcooldown -= Time.deltaTime;
+            }
+            
             if (distance > attackRange)
                 currentState = "ChaseState";
         }
 
-
-    }
-    IEnumerator Ninja()
-    {
-        yield return new WaitForSeconds(1.5f);
-        animator.SetTrigger("Attack");
-        animator.SetInteger("AttackIndex", Random.Range(0, 4));
     }
 }

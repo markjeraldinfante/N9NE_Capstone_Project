@@ -800,6 +800,37 @@ Transform:
   m_Father: {fileID: 6402692299565968207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1937559008995980403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9012574990736561564}
+  m_Layer: 0
+  m_Name: firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9012574990736561564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937559008995980403}
+  m_LocalRotation: {x: -0.5182078, y: -0.51820815, z: 0.48110276, w: 0.48110405}
+  m_LocalPosition: {x: -0.007573027, y: 0.0022677043, z: 0.008635239}
+  m_LocalScale: {x: 0.04291845, y: 0.050761417, z: 0.05747126}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8325284103520795186}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023973263799556525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1695,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5072030668871472486}
+  - {fileID: 9012574990736561564}
   m_Father: {fileID: 3005082014660660113}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2541,7 +2573,7 @@ GameObject:
   - component: {fileID: 8724844735772089622}
   - component: {fileID: 3455612055495378796}
   - component: {fileID: 8724844735772089617}
-  - component: {fileID: 976514050852125166}
+  - component: {fileID: 5716071150590155545}
   m_Layer: 0
   m_Name: Ninjastone
   m_TagString: Untagged
@@ -2608,7 +2640,7 @@ MonoBehaviour:
   precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
---- !u!114 &976514050852125166
+--- !u!114 &5716071150590155545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2617,13 +2649,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8241359319859300268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34965daa4c7497b4b9cbd0d86d34e881, type: 3}
+  m_Script: {fileID: 11500000, guid: f7a6a7df5a11a604cb503aa89e48f5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
-  speed: 3
-  attackRange: 2.5
-  animator: {fileID: 3455612055495378796}
+  Bullet: {fileID: 6873249563007856424, guid: b653e4797229ab04e9c39067d74474cf, type: 3}
+  projectileSpawnPoint: {fileID: 9012574990736561564}
+  chaseRange: 4
+  speed: 2
+  attackRange: 1.5
+  startshotcooldown: 1
+  animator: {fileID: 0}
 --- !u!1 &8311445782460357885
 GameObject:
   m_ObjectHideFlags: 0

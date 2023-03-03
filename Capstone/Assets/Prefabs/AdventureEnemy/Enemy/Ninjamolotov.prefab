@@ -435,14 +435,14 @@ GameObject:
   - component: {fileID: 6312262120081046348}
   - component: {fileID: 6312262120081046351}
   - component: {fileID: 6312262120081046350}
-  - component: {fileID: 7484024735322216068}
+  - component: {fileID: 7722375918169332800}
   m_Layer: 0
   m_Name: Ninjamolotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &106261342715404598
 Transform:
   m_ObjectHideFlags: 0
@@ -518,7 +518,7 @@ MonoBehaviour:
   precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
---- !u!114 &7484024735322216068
+--- !u!114 &7722375918169332800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -527,12 +527,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 734742650751040396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34965daa4c7497b4b9cbd0d86d34e881, type: 3}
+  m_Script: {fileID: 11500000, guid: f7a6a7df5a11a604cb503aa89e48f5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
-  speed: 3
-  attackRange: 2.5
+  Bullet: {fileID: 1614483588426401207, guid: 419d044c6d0c2de48b774c2fb4fc14a8, type: 3}
+  projectileSpawnPoint: {fileID: 6656879622850616047}
+  chaseRange: 4
+  speed: 2
+  attackRange: 1.5
+  startshotcooldown: 1
   animator: {fileID: 6312262120081046348}
 --- !u!1 &741624410878757250
 GameObject:
@@ -1016,6 +1019,37 @@ Transform:
   m_Father: {fileID: 8635363769222097706}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2296182074813808227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6656879622850616047}
+  m_Layer: 0
+  m_Name: firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6656879622850616047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296182074813808227}
+  m_LocalRotation: {x: -0.5182078, y: -0.5182082, z: 0.48110276, w: 0.4811041}
+  m_LocalPosition: {x: -0.0054320074, y: 0.0027562452, z: -0.0013251011}
+  m_LocalScale: {x: 0.05, y: 0.049999997, z: 0.04999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856877892013491730}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2435811964662136217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4471543546489416006}
+  - {fileID: 6656879622850616047}
   m_Father: {fileID: 5897839766376429489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
