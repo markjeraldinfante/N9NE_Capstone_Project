@@ -35,6 +35,7 @@ public class meleeAttack_adventure : MonoBehaviour
             else
             {
                 characterAnimation.SetTrigger("melee");
+
             }
         }
     }
