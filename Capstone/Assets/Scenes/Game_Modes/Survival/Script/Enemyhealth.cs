@@ -33,7 +33,7 @@ public class Enemyhealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato"); }
-        if (other.gameObject.tag == "Pamalo") { TakeDamage(10); }
+        if (other.gameObject.tag == "Pamalo") { TakeDamage(20); Debug.Log("Nahampas"); }
         // else StartCoroutine(NormalSpeed());
     }
 
