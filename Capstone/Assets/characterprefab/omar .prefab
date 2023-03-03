@@ -1557,10 +1557,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.010002103
-  m_Height: 0.050715577
+  m_Radius: 0.007187821
+  m_Height: 0.051077407
   m_Direction: 1
-  m_Center: {x: 0.00015100838, y: 0.025178129, z: 0.0010014176}
+  m_Center: {x: 0.00015100987, y: 0.025359044, z: 0.0010014176}
 --- !u!114 &5266759687890662417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,12 +1574,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 3
-  characterAnimation: {fileID: 1764812515358001685}
   jumpForce: 4
-  move: 0
-  isfacingRight: 0
+  characterAnimation: {fileID: 1764812515358001685}
+  rb: {fileID: 0}
   isGrounded: 0
   isProne: 0
+  isFacingRight: 1
 --- !u!114 &5266759687903344514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,8 +1592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74062b431a5d62e40ada8f60df9f6ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   ability: {fileID: 11400000, guid: 535fa58df342c1d49a557cd38bbf077c, type: 2}
   cd: {fileID: 0}
+  skillButton: {fileID: 0}
   key: 9
 --- !u!114 &1764812515358001682
 MonoBehaviour:
@@ -1607,10 +1609,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00fcb4e487d74045956647f43e436f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 106
-  batoObject: {fileID: 5359424070069057568, guid: 58940292fe10bc64e8c3659a2de1a1fa, type: 3}
-  point: {fileID: 5266759688692652215}
-  allowFire: 0
+  attackKey: 106
+  attackSpeed: 25
+  batoPooler: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  characterAnimation: {fileID: 0}
+  canAttack: 1
+  isAttacking: 0
+  hitpoint: {fileID: 0}
 --- !u!114 &1764812515358001683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,6 +1629,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   outlineMode: 3
   outlineColor: {r: 0, g: 0, b: 0, a: 1}
   outlineWidth: 2
