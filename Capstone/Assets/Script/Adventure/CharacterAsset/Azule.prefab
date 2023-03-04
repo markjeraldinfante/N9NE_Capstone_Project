@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 6419499108292226896}
   - component: {fileID: 4290527584640588198}
   - component: {fileID: 4102232786072564216}
+  - component: {fileID: 8501329116733876928}
   m_Layer: 0
   m_Name: Azule
   m_TagString: Player
@@ -135,7 +136,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &4290527584640588198
 CapsuleCollider:
@@ -163,9 +164,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd31e9f89282a4aa1ba610c121e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variant: {fileID: 0}
   attackKey: 106
   characterAnimation: {fileID: 6419499108292226897}
+--- !u!114 &8501329116733876928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341525995284361105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184bbda514de97b4db6ff4fa7aa91970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 5
+  jumpForce: 4
+  characterAnimation: {fileID: 0}
+  rb: {fileID: 0}
+  isGrounded: 0
+  isProne: 0
+  isFacingRight: 1
 --- !u!1 &343905117718420895
 GameObject:
   m_ObjectHideFlags: 0
