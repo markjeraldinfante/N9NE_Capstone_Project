@@ -2574,6 +2574,7 @@ GameObject:
   - component: {fileID: 3455612055495378796}
   - component: {fileID: 8724844735772089617}
   - component: {fileID: 5716071150590155545}
+  - component: {fileID: 1798742111112075813}
   m_Layer: 0
   m_Name: Ninjastone
   m_TagString: Untagged
@@ -2659,6 +2660,21 @@ MonoBehaviour:
   attackRange: 1.5
   startshotcooldown: 1
   animator: {fileID: 0}
+--- !u!114 &1798742111112075813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241359319859300268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &8311445782460357885
 GameObject:
   m_ObjectHideFlags: 0

@@ -3519,6 +3519,7 @@ GameObject:
   - component: {fileID: 4098643163421470649}
   - component: {fileID: 7926725573587252674}
   - component: {fileID: 6498762424320220087}
+  - component: {fileID: 7491578734457064652}
   m_Layer: 0
   m_Name: Ninjabolo
   m_TagString: Untagged
@@ -4313,6 +4314,21 @@ MonoBehaviour:
   speed: 2
   attackRange: 1
   animator: {fileID: 4098643163421470649}
+--- !u!114 &7491578734457064652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298842158870327161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &7391267536756900746
 GameObject:
   m_ObjectHideFlags: 0

@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 6296112429639189489}
   - component: {fileID: 6296112429639189490}
   - component: {fileID: 5483126008004533471}
+  - component: {fileID: 919132147565081698}
   m_Layer: 0
   m_Name: Carp
   m_TagString: Untagged
@@ -921,6 +922,21 @@ MonoBehaviour:
   speed: 3
   attackRange: 1
   animator: {fileID: 6296112429639189489}
+--- !u!114 &919132147565081698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777913949694542641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &850243380892604512
 GameObject:
   m_ObjectHideFlags: 0

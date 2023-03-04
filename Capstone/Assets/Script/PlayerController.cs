@@ -29,10 +29,12 @@ public class PlayerController : MonoBehaviour
         if (move > 0 && !isFacingRight)
         {
             FlipCharacter();
+            isGrounded = true;
         }
         else if (move < 0 && isFacingRight)
         {
             FlipCharacter();
+            isGrounded = true;
         }
         ProneWalkingCheck(isProne, move);
     }

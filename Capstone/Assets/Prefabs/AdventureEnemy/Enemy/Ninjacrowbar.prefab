@@ -1911,6 +1911,7 @@ GameObject:
   - component: {fileID: 2198590181485016739}
   - component: {fileID: 4839410712249824864}
   - component: {fileID: 7759248292937443178}
+  - component: {fileID: 8125460620685104728}
   m_Layer: 0
   m_Name: Ninjacrowbar
   m_TagString: Untagged
@@ -2284,6 +2285,21 @@ MonoBehaviour:
   speed: 3
   attackRange: 1
   animator: {fileID: 2198590181485016739}
+--- !u!114 &8125460620685104728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839410712249824867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &4850827133207512173
 GameObject:
   m_ObjectHideFlags: 0
