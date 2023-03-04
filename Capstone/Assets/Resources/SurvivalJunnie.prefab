@@ -2281,7 +2281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd31e9f89282a4aa1ba610c121e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   attackKey: 106
   characterAnimation: {fileID: 1001499674590663562}
 --- !u!114 &-5265189455289864741
@@ -2338,6 +2337,24 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: melee
+  - Type: 4
+    SynchronizeType: 0
+    Name: Jump
+  - Type: 9
+    SynchronizeType: 0
+    Name: standProne
+  - Type: 9
+    SynchronizeType: 0
+    Name: isProning
+  - Type: 4
+    SynchronizeType: 0
+    Name: Prone
+  - Type: 4
+    SynchronizeType: 0
+    Name: Dash
+  - Type: 9
+    SynchronizeType: 0
+    Name: isDead
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -3289,11 +3306,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9817e79c05406cd4bb1e72b3c308be79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 0.031
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9817e79c05406cd4bb1e72b3c308be79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.038
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9817e79c05406cd4bb1e72b3c308be79, type: 3}
       propertyPath: m_LocalRotation.w
