@@ -436,13 +436,14 @@ GameObject:
   - component: {fileID: 6312262120081046351}
   - component: {fileID: 6312262120081046350}
   - component: {fileID: 7722375918169332800}
+  - component: {fileID: 573771499784093997}
   m_Layer: 0
   m_Name: Ninjamolotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &106261342715404598
 Transform:
   m_ObjectHideFlags: 0
@@ -537,6 +538,21 @@ MonoBehaviour:
   attackRange: 1.5
   startshotcooldown: 1
   animator: {fileID: 6312262120081046348}
+--- !u!114 &573771499784093997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734742650751040396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &741624410878757250
 GameObject:
   m_ObjectHideFlags: 0
