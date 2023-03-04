@@ -6,7 +6,7 @@ using Photon.Pun;
 public class PlayerSpawner : MonoBehaviour
 {
     public PlayerCharacter offlineplayer1Data, offlineplayer2Data;
-    public PlayerCharacter onlinePlayerData;
+
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
 
