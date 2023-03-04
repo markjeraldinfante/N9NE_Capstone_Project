@@ -145,6 +145,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     public void OnClickPlayButton()
     {
-        PhotonNetwork.LoadLevel(8);
+        PhotonNetwork.LoadLevel(9);
     }
 }
