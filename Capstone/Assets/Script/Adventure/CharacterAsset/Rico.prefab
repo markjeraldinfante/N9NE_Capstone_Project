@@ -694,8 +694,8 @@ GameObject:
   - component: {fileID: 8786782481350185339}
   - component: {fileID: 8786782481350185338}
   - component: {fileID: 5465441572897312607}
-  - component: {fileID: 8213043915318109128}
   - component: {fileID: 7326377563105484017}
+  - component: {fileID: -7876267577388337958}
   m_Layer: 0
   m_Name: Rico
   m_TagString: Player
@@ -770,20 +770,6 @@ CapsuleCollider:
   m_Height: 0.10308386
   m_Direction: 1
   m_Center: {x: 0.00013391377, y: 0.05215905, z: 0.0009367228}
---- !u!114 &8213043915318109128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2619705633557795259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackKey: 106
-  characterAnimation: {fileID: 8786782481350185339}
 --- !u!114 &7326377563105484017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,11 +784,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 5
   jumpForce: 4
-  characterAnimation: {fileID: 0}
+  characterAnimation: {fileID: 8786782481350185339}
   rb: {fileID: 0}
   isGrounded: 0
   isProne: 0
   isFacingRight: 1
+--- !u!114 &-7876267577388337958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2619705633557795259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackKey: 106
+  characterAnimation: {fileID: 8786782481350185339}
 --- !u!1 &2692043311260830442
 GameObject:
   m_ObjectHideFlags: 0

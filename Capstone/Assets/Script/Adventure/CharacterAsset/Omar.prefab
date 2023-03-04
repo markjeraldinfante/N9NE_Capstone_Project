@@ -2729,8 +2729,8 @@ GameObject:
   - component: {fileID: 5204590121628885313}
   - component: {fileID: 5204590121628885374}
   - component: {fileID: 5204590121628885375}
-  - component: {fileID: 2233047251763233559}
   - component: {fileID: 7182536772447046227}
+  - component: {fileID: 5266141372574952853}
   m_Layer: 0
   m_Name: Omar
   m_TagString: Player
@@ -2806,20 +2806,6 @@ CapsuleCollider:
   m_Height: 0.050837107
   m_Direction: 1
   m_Center: {x: 0.00015378653, y: 0.025446914, z: 0}
---- !u!114 &2233047251763233559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5204590121628885372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackKey: 106
-  characterAnimation: {fileID: 5204590121628885313}
 --- !u!114 &7182536772447046227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2834,11 +2820,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 5
   jumpForce: 4
-  characterAnimation: {fileID: 0}
+  characterAnimation: {fileID: 5204590121628885313}
   rb: {fileID: 0}
   isGrounded: 0
   isProne: 0
   isFacingRight: 1
+--- !u!114 &5266141372574952853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204590121628885372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackKey: 106
+  characterAnimation: {fileID: 5204590121628885313}
 --- !u!1 &5204590121681961386
 GameObject:
   m_ObjectHideFlags: 0
