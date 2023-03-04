@@ -1061,7 +1061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedd31e9f89282a4aa1ba610c121e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   attackKey: 106
   characterAnimation: {fileID: 8822005849326024714}
 --- !u!114 &-8626024215362382503
@@ -1088,7 +1087,7 @@ MonoBehaviour:
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
-    SynchronizeEnabled: 1
+    SynchronizeEnabled: 0
     InterpolateOption: 1
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
@@ -1118,6 +1117,24 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: melee
+  - Type: 4
+    SynchronizeType: 0
+    Name: Jump
+  - Type: 4
+    SynchronizeType: 0
+    Name: Prone
+  - Type: 9
+    SynchronizeType: 0
+    Name: isProning
+  - Type: 9
+    SynchronizeType: 0
+    Name: standProne
+  - Type: 4
+    SynchronizeType: 0
+    Name: Dash
+  - Type: 9
+    SynchronizeType: 0
+    Name: isDead
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
