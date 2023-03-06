@@ -145,6 +145,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
     public void OnClickPlayButton()
     {
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            StartCoroutine(WaitForSceneLoad());
+        }
+    }
+
+    private IEnumerator WaitForSceneLoad()
+    {
+        yield return new WaitForSeconds(0.5f); // wait for a short time to ensure that the scene has loaded
+
+        while (!PhotonNetwork.IsMasterClient || PhotonNetwork.CurrentRoom.PlayerCount != PhotonNetwork.CurrentRoom.MaxPlayers)
+        {
+            yield return null; // wait until both the host and all clients have connected
+        }
+
+        // start the game
         PhotonNetwork.LoadLevel(9);
     }
 }
