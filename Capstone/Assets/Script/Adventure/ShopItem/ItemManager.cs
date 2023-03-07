@@ -10,16 +10,17 @@ public class ItemManager : MonoBehaviour
     public Transform weaponSelectionContent;
     public GameObject weaponItem;
     public WeaponSlot weaponSlot;
-
+    public float checkInterval;
     private void Start()
     {
-        ListCharacters();
+        WeaponLists();
     }
 
-    public void ListCharacters()
+    public void WeaponLists()
     {
         foreach (var item in weapon)
         {
+            weaponSlot.weaponData = item;
             weaponSlot.itemName = item.ItemName;
             weaponSlot.itemSprite = item.ItemSprite;
             weaponSlot.itemDetails = item.ItemDescription;
@@ -37,6 +38,7 @@ public class ItemManager : MonoBehaviour
             _Name.text = weaponSlot.itemName;
             _Sprite.sprite = weaponSlot.itemSprite;
         }
+
     }
 
 }

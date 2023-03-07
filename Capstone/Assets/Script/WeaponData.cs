@@ -5,12 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapons/Weapon")]
 public class WeaponData : ScriptableObject
 {
+    public string saveKey;
     public string ItemName;
     public Sprite ItemSprite;
     public string ItemDescription;
     public int itemLevel;
     public int[] ItemDamage;
     public int[] ItemUpgradeCost;
+    public int[] ItemUpgradeAmount; // new field
     public float[] ItemAttackSpeed;
     [SerializeField] private int maxLevel;
     public int ItemLevel
@@ -18,6 +20,15 @@ public class WeaponData : ScriptableObject
         get { return itemLevel; }
         set { itemLevel = Mathf.Clamp(value, 1, maxLevel); }
     }
+    public void Upgrade(System.Action onUpgradeComplete = null)
+    {
+        ItemLevel++;
+        int level = ItemLevel - 1;
+
+        // Call the callback, if it exists
+        onUpgradeComplete?.Invoke();
+    }
+
 
     public int GetItemDamage(int level)
     {
@@ -65,5 +76,4 @@ public class WeaponData : ScriptableObject
         float attackSpeed = ItemAttackSpeed[level - 1];
         return attackSpeed;
     }
-
 }

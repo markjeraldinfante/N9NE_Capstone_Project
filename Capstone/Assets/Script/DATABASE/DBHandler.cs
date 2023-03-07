@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DBHandler : MonoBehaviour
 {
+    public delegate void OnValueChanged(int newValue);
+    public event OnValueChanged newValueTanso;
     public static DBHandler instance;
 
     public PlayerDB MainPlayerDB;
@@ -61,5 +63,11 @@ public class DBHandler : MonoBehaviour
         gameSystem.Save(newValue, PlayerPrefKeys.TANSO);
         MainPlayerDB.TansoCount = newValue;
         Amarra.TotalAward = newValue;
+
+        // Raise event for tanso value change
+        if (newValueTanso != null)
+        {
+            newValueTanso(newValue);
+        }
     }
 }
