@@ -33,8 +33,7 @@ public class DBHandler : MonoBehaviour
     {
         var gameSystem = new GameSystem();
         // Somnium
-        MainPlayerDB.TansoCount = 500;
-        //gameSystem.Load(PlayerPrefKeys.TANSO);
+        MainPlayerDB.TansoCount = gameSystem.Load(PlayerPrefKeys.TANSO);
         MainPlayerDB.PlayerName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
 
         //Amarra_Minigame
