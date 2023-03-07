@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DBHandler : MonoBehaviour
 {
+    public delegate void OnValueChanged(int newValue);
+    public event OnValueChanged newValueTanso;
     public static DBHandler instance;
 
     public PlayerDB MainPlayerDB;
@@ -31,7 +33,8 @@ public class DBHandler : MonoBehaviour
     {
         var gameSystem = new GameSystem();
         // Somnium
-        MainPlayerDB.TansoCount = gameSystem.Load(PlayerPrefKeys.TANSO);
+        MainPlayerDB.TansoCount = 500;
+        //gameSystem.Load(PlayerPrefKeys.TANSO);
         MainPlayerDB.PlayerName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
 
         //Amarra_Minigame
@@ -61,5 +64,11 @@ public class DBHandler : MonoBehaviour
         gameSystem.Save(newValue, PlayerPrefKeys.TANSO);
         MainPlayerDB.TansoCount = newValue;
         Amarra.TotalAward = newValue;
+
+        // Raise event for tanso value change
+        if (newValueTanso != null)
+        {
+            newValueTanso(newValue);
+        }
     }
 }

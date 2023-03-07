@@ -6,7 +6,6 @@ using TMPro;
 
 public class ItemPreview : MonoBehaviour
 {
-    public PlayerDB playerDB;
     public WeaponData selectedWeaponData;
     public TextMeshProUGUI itemName;
     public Image itemImage;
@@ -47,9 +46,11 @@ public class ItemPreview : MonoBehaviour
     }
     public void UpgradeItem(WeaponData weaponData)
     {
-        if (playerDB.TansoCount >= weaponData.GetItemCost(weaponData.ItemLevel))
+        var gameSystem = new GameSystem();
+        if (DBHandler.instance.MainPlayerDB.TansoCount >= weaponData.GetItemCost(weaponData.ItemLevel))
         {
-            playerDB.TansoCount -= weaponData.GetItemCost(weaponData.ItemLevel);
+            DBHandler.instance.MainPlayerDB.TansoCount -= weaponData.GetItemCost(weaponData.ItemLevel);
+            gameSystem.Save(DBHandler.instance.MainPlayerDB.TansoCount, PlayerPrefKeys.TANSO);
             weaponData.Upgrade(() => DisplayItem(selectedWeaponData.ItemName, selectedWeaponData.ItemSprite, selectedWeaponData.ItemDescription, selectedWeaponData.ItemLevel.ToString(), selectedWeaponData.GetItemDamage(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.GetItemAttackSpeed(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.GetItemCost(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.IsMaxLevel(selectedWeaponData.IsMaxLevel(true)), selectedWeaponData));
         }
         else
