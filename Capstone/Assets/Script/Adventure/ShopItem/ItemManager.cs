@@ -13,10 +13,10 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        ListCharacters();
+        WeaponLists();
     }
 
-    public void ListCharacters()
+    public void WeaponLists()
     {
         foreach (var item in weapon)
         {

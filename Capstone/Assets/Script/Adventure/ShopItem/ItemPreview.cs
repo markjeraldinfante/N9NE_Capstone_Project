@@ -6,6 +6,7 @@ using TMPro;
 
 public class ItemPreview : MonoBehaviour
 {
+    public PlayerDB playerDB;
     public WeaponData selectedWeaponData;
     public TextMeshProUGUI itemName;
     public Image itemImage;
@@ -16,11 +17,15 @@ public class ItemPreview : MonoBehaviour
     public Button upgradeButton;
     public TextMeshProUGUI upgradeButtonText;
 
+    private void Awake()
+    {
+        upgradeButton.onClick.AddListener(() => UpgradeItem(selectedWeaponData));
 
+    }
     public void DisplayItem(string itemName, Sprite itemImage, string itemDetails, string itemLevel,
     string itemDamage, string itemAttackSpeed, string itemUpgradeCost, bool isMaxLevel, WeaponData weaponData)
     {
-        this.selectedWeaponData = weaponData;
+        selectedWeaponData = weaponData;
         this.itemName.text = itemName;
         this.itemImage.sprite = itemImage;
         this.itemDetails.text = itemDetails;
@@ -31,6 +36,7 @@ public class ItemPreview : MonoBehaviour
         if (!isMaxLevel)
         {
             upgradeButton.enabled = true;
+
         }
         else
         {
@@ -39,6 +45,19 @@ public class ItemPreview : MonoBehaviour
         }
 
     }
+    public void UpgradeItem(WeaponData weaponData)
+    {
+
+        if (playerDB.TansoCount >= weaponData.GetItemCost(weaponData.ItemLevel))
+        {
+            weaponData.Upgrade();
+        }
+        else
+            Debug.Log("Not enougn tanso");
+    }
+
+
+
 
 
 }

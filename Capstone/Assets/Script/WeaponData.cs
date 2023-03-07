@@ -11,6 +11,7 @@ public class WeaponData : ScriptableObject
     public int itemLevel;
     public int[] ItemDamage;
     public int[] ItemUpgradeCost;
+    public int[] ItemUpgradeAmount; // new field
     public float[] ItemAttackSpeed;
     [SerializeField] private int maxLevel;
     public int ItemLevel
@@ -21,6 +22,8 @@ public class WeaponData : ScriptableObject
     public void Upgrade()
     {
         ItemLevel++;
+        int level = ItemLevel - 1;
+
     }
 
     public int GetItemDamage(int level)
@@ -69,5 +72,4 @@ public class WeaponData : ScriptableObject
         float attackSpeed = ItemAttackSpeed[level - 1];
         return attackSpeed;
     }
-
 }
