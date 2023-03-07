@@ -8,6 +8,7 @@ using TMPro;
 
 public class WeaponSlot : MonoBehaviour
 {
+    public WeaponData weaponData;
     public Button btn;
     public string itemName;
     public Sprite itemSprite;
@@ -28,6 +29,6 @@ public class WeaponSlot : MonoBehaviour
 
     void ButtonOnClick()
     {
-        itemPreview.DisplayItem(itemName, itemSprite, itemDetails, itemLevel.ToString(), itemDamage.ToString(), itemAttackSpeed.ToString(), itemUpgradeCost.ToString(), isMaxLevel);
+        itemPreview.DisplayItem(itemName, itemSprite, itemDetails, itemLevel.ToString(), itemDamage.ToString(), itemAttackSpeed.ToString(), itemUpgradeCost.ToString(), isMaxLevel, weaponData);
     }
 }

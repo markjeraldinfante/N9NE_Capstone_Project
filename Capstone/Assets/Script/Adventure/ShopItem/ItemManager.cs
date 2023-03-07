@@ -20,6 +20,7 @@ public class ItemManager : MonoBehaviour
     {
         foreach (var item in weapon)
         {
+            weaponSlot.weaponData = item;
             weaponSlot.itemName = item.ItemName;
             weaponSlot.itemSprite = item.ItemSprite;
             weaponSlot.itemDetails = item.ItemDescription;

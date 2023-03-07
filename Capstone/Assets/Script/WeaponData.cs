@@ -18,6 +18,10 @@ public class WeaponData : ScriptableObject
         get { return itemLevel; }
         set { itemLevel = Mathf.Clamp(value, 1, maxLevel); }
     }
+    public void Upgrade()
+    {
+        ItemLevel++;
+    }
 
     public int GetItemDamage(int level)
     {
