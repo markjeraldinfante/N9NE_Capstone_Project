@@ -29,6 +29,7 @@ public class WeaponSlot : MonoBehaviour
 
     void ButtonOnClick()
     {
+        weaponData.ItemLevel = PlayerPrefs.GetInt(weaponData.saveKey, 1);
         itemPreview.DisplayItem(itemName, itemSprite, itemDetails, itemLevel.ToString(), itemDamage.ToString(), itemAttackSpeed.ToString(), itemUpgradeCost.ToString(), isMaxLevel, weaponData);
     }
 

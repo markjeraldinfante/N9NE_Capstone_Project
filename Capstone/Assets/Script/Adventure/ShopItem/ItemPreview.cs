@@ -49,9 +49,11 @@ public class ItemPreview : MonoBehaviour
         var gameSystem = new GameSystem();
         if (DBHandler.instance.MainPlayerDB.TansoCount >= weaponData.GetItemCost(weaponData.ItemLevel))
         {
+            weaponData.ItemLevel = PlayerPrefs.GetInt(weaponData.saveKey, 1);
             DBHandler.instance.MainPlayerDB.TansoCount -= weaponData.GetItemCost(weaponData.ItemLevel);
             gameSystem.Save(DBHandler.instance.MainPlayerDB.TansoCount, PlayerPrefKeys.TANSO);
-            weaponData.Upgrade(() => DisplayItem(selectedWeaponData.ItemName, selectedWeaponData.ItemSprite, selectedWeaponData.ItemDescription, selectedWeaponData.ItemLevel.ToString(), selectedWeaponData.GetItemDamage(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.GetItemAttackSpeed(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.GetItemCost(selectedWeaponData.ItemLevel).ToString(), selectedWeaponData.IsMaxLevel(selectedWeaponData.IsMaxLevel(true)), selectedWeaponData));
+            weaponData.Upgrade(() => DisplayItem(weaponData.ItemName, weaponData.ItemSprite, weaponData.ItemDescription, weaponData.ItemLevel.ToString(), weaponData.GetItemDamage(weaponData.ItemLevel).ToString(), weaponData.GetItemAttackSpeed(weaponData.ItemLevel).ToString(), weaponData.GetItemCost(weaponData.ItemLevel).ToString(), weaponData.IsMaxLevel(weaponData.IsMaxLevel(true)), weaponData));
+            PlayerPrefs.SetInt(weaponData.saveKey, weaponData.ItemLevel);
         }
         else
             Debug.Log("Not enough tanso");

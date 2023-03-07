@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     public Transform weaponSelectionContent;
     public GameObject weaponItem;
     public WeaponSlot weaponSlot;
-
+    public float checkInterval;
     private void Start()
     {
         WeaponLists();
@@ -38,6 +38,7 @@ public class ItemManager : MonoBehaviour
             _Name.text = weaponSlot.itemName;
             _Sprite.sprite = weaponSlot.itemSprite;
         }
+
     }
 
 }
