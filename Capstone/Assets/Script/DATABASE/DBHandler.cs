@@ -9,7 +9,9 @@ public class DBHandler : MonoBehaviour
     public static DBHandler instance;
 
     public PlayerDB MainPlayerDB;
-    public AmarraManager1 Amarra;
+    public MiniGameManager Amarra;
+    public MiniGameManager Litex;
+
     private PlayerPrefListener listener;
 
 
@@ -38,7 +40,7 @@ public class DBHandler : MonoBehaviour
 
         //Amarra_Minigame
         Amarra.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
-
+        Litex.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
         //temp
         Debug.Log(MainPlayerDB.TansoCount);
         Debug.Log("DATA BASE LOADED");
@@ -63,6 +65,7 @@ public class DBHandler : MonoBehaviour
         gameSystem.Save(newValue, PlayerPrefKeys.TANSO);
         MainPlayerDB.TansoCount = newValue;
         Amarra.TotalAward = newValue;
+        Litex.TotalAward = newValue;
 
         // Raise event for tanso value change
         if (newValueTanso != null)

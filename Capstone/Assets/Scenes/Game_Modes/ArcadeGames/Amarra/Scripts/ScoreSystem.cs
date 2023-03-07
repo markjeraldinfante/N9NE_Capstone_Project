@@ -11,7 +11,7 @@ public class ScoreSystem : MonoBehaviour
     public TextMeshProUGUI scoreText;
     [SerializeField] private AmarraMovement amarraMovement;
     public GameObject amarraManager;
-    public AmarraManager1 SOAmarra;
+    public MiniGameManager SOAmarra;
     public int AwardCount;
 
 

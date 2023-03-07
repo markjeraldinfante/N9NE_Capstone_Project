@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu]
-public class AmarraManager1 : ScriptableObject
+public class MiniGameManager : ScriptableObject
 {
     public int tansoAward;
     public int score;

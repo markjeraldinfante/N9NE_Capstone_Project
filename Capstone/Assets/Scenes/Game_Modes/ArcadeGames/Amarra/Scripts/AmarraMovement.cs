@@ -11,7 +11,7 @@ public class AmarraMovement : MonoBehaviour
     [SerializeField] bool isfacingRight;
     [SerializeField] private ScoreSystem scoreSystem;
     public AmarraManager amarra;
-    public AmarraManager1 amarraManagerTanso;
+    public MiniGameManager amarraManagerTanso;
 
     // Update is called once per frame
     void Update()
