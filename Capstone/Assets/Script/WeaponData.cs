@@ -19,12 +19,15 @@ public class WeaponData : ScriptableObject
         get { return itemLevel; }
         set { itemLevel = Mathf.Clamp(value, 1, maxLevel); }
     }
-    public void Upgrade()
+    public void Upgrade(System.Action onUpgradeComplete = null)
     {
         ItemLevel++;
         int level = ItemLevel - 1;
 
+        // Call the callback, if it exists
+        onUpgradeComplete?.Invoke();
     }
+
 
     public int GetItemDamage(int level)
     {
