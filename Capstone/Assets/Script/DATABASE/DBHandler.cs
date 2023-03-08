@@ -61,6 +61,7 @@ public class DBHandler : MonoBehaviour
     }
     public void UpdateTanso(int newValue)
     {
+
         var gameSystem = new GameSystem();
         gameSystem.Save(newValue, PlayerPrefKeys.TANSO);
         MainPlayerDB.TansoCount = newValue;
@@ -72,5 +73,16 @@ public class DBHandler : MonoBehaviour
         {
             newValueTanso(newValue);
         }
+
+        // Debug statement
+        Debug.Log("New tanso value: " + newValue);
+
+    }
+
+
+    public void AddTansoOnCollision()
+    {
+        MainPlayerDB.TansoCount += 1;
+        UpdateTanso(MainPlayerDB.TansoCount);
     }
 }
