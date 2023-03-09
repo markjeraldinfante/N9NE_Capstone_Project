@@ -7,10 +7,7 @@ public class ObstacleCollision : MonoBehaviour
     public delegate void OnEndGame();
     public static event OnEndGame endGame;
 
-    private void Start()
-    {
-        Time.timeScale = 1f;
-    }
+
 
     void OnTriggerEnter(Collider other)
     {

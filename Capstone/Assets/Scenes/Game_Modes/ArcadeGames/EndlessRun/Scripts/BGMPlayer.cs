@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainMenuBGM : MonoBehaviour
 {
     [SerializeField] private string BGM_Name;
+
     void OnEnable()
     {
         somnium.SoundManager.instance.PlayMusic(BGM_Name);
@@ -13,6 +14,5 @@ public class MainMenuBGM : MonoBehaviour
     {
         somnium.SoundManager.instance.StopMusic();
     }
-
 
 }
