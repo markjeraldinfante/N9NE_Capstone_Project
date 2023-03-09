@@ -9,7 +9,8 @@ public class CoinCollet : MonoBehaviour
 
         if (other.gameObject.CompareTag("Tanso"))
         {
-
+            somnium.SoundManager.instance.PlaySFX("Coins");
+            DBHandler.instance.AddTansoOnCollision();
             Destroy(other.gameObject);
         }
     }
