@@ -15,6 +15,10 @@ public class score : MonoBehaviour
     private int Score = 0;
 
     // Start is called before the first frame update
+    public void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void GameOver()
     {
         Time.timeScale = 0;
