@@ -11,6 +11,7 @@ public class DBHandler : MonoBehaviour
     public PlayerDB MainPlayerDB;
     public MiniGameManager Amarra;
     public MiniGameManager Litex;
+    public MiniGameManager JunkYard;
 
     private PlayerPrefListener listener;
 
@@ -38,9 +39,12 @@ public class DBHandler : MonoBehaviour
         MainPlayerDB.TansoCount = gameSystem.Load(PlayerPrefKeys.TANSO);
         MainPlayerDB.PlayerName = PlayerPrefs.GetString(PlayerPrefKeys.PLAYER_NICKNAME);
 
-        //Amarra_Minigame
+        //Minigames
         Amarra.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
         Litex.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
+        JunkYard.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
+        JunkYard.TotalAward = gameSystem.Load(PlayerPrefKeys.BROKEN_TANSO);
+
         //temp
         Debug.Log(MainPlayerDB.TansoCount);
         Debug.Log("DATA BASE LOADED");
@@ -67,7 +71,7 @@ public class DBHandler : MonoBehaviour
         MainPlayerDB.TansoCount = newValue;
         Amarra.TotalAward = newValue;
         Litex.TotalAward = newValue;
-
+        JunkYard.TotalAward = newValue;
         // Raise event for tanso value change
         if (newValueTanso != null)
         {

@@ -6,6 +6,7 @@ public class EndScoreDisplay : MonoBehaviour
 {
     public GameObject disDisplay;
     public GameObject endScreen;
+    public GameObject endPanel;
     public GameObject soundHolder;
 
     void Start()
@@ -21,7 +22,7 @@ public class EndScoreDisplay : MonoBehaviour
         soundHolder.SetActive(false);
         disDisplay.SetActive(false);
         endScreen.SetActive(true);
-
+        endPanel.SetActive(true);
     }
 
 
