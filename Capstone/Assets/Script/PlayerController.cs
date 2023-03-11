@@ -102,7 +102,13 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-
+private void OnCollisionStay(Collision collision)
+{
+    if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
+        }
+}
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
