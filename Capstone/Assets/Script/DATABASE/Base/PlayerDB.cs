@@ -7,6 +7,4 @@ public class PlayerDB : ScriptableObject
 {
     public string PlayerName;
     public int TansoCount;
-    public int BrokenTanso;
-
 }

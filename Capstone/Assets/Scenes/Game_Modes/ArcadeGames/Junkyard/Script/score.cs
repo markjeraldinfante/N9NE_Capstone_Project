@@ -58,7 +58,7 @@ public class score : MonoBehaviour
     {
         var gameSystem = new GameSystem();
         junkYard.tansoAward += scores;
-        gameSystem.Save(junkYard.TotalAward, PlayerPrefKeys.BROKEN_TANSO);
+        gameSystem.Save(junkYard.tansoAward, PlayerPrefKeys.BROKEN_TANSO);
     }
 
 }

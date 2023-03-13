@@ -43,7 +43,7 @@ public class DBHandler : MonoBehaviour
         Amarra.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
         Litex.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
         JunkYard.TotalAward = gameSystem.Load(PlayerPrefKeys.TANSO);
-        JunkYard.TotalAward = gameSystem.Load(PlayerPrefKeys.BROKEN_TANSO);
+        JunkYard.tansoAward = gameSystem.Load(PlayerPrefKeys.BROKEN_TANSO);
 
         //temp
         Debug.Log(MainPlayerDB.TansoCount);
