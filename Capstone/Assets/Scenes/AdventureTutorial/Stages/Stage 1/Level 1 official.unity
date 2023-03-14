@@ -12303,6 +12303,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &951131507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3427544037958784049, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+  m_PrefabInstance: {fileID: 1152011641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9ab39880705f6478c0b0e0ee34af2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &954837373
 GameObject:
   m_ObjectHideFlags: 0
@@ -14815,8 +14826,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 777913949694542641, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132147565081698, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 951131507}
+    - target: {fileID: 2299659562509728390, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1628041578}
+    - target: {fileID: 2299659562509728390, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452285222764817323, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1628041578}
     - target: {fileID: 6296112429639189490, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
       propertyPath: outlineWidth
       value: 2
@@ -14841,7 +14868,16 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9025575831478884769, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025575831478884769, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
 --- !u!1 &1156412348
 GameObject:
