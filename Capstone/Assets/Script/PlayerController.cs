@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float runSpeed = 10f;
+    [SerializeField] public float runSpeed = 2.5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Animator characterAnimation;
     [SerializeField] private Rigidbody rb;
@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] public bool isProne;
     public bool isFacingRight = true;
+
+
 
     private void Awake()
     {
@@ -102,13 +104,13 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-private void OnCollisionStay(Collision collision)
-{
-    if (collision.gameObject.CompareTag("ground"))
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
         {
             isGrounded = true;
         }
-}
+    }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
