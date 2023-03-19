@@ -9,6 +9,7 @@ public class EntityHealth : MonoBehaviour
     public HealthBar healthBar;
     DamageOverlay damageOverlay;
     bool forPlayer;
+    public bool isInvulnerable;
     private void Awake()
     {
         damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
@@ -25,13 +26,18 @@ public class EntityHealth : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        currentHealth -= damageAmount;
-        healthBar.SetHealth(currentHealth);
         if (forPlayer)
         {
+            if (isInvulnerable) { return; }
+            currentHealth -= damageAmount;
+            healthBar.SetHealth(currentHealth);
             damageOverlay.ShowDamage(damageAmount);
         }
-
+        else
+        {
+            currentHealth -= damageAmount;
+            healthBar.SetHealth(currentHealth);
+        }
     }
 
     private void Die(Animator animator)
