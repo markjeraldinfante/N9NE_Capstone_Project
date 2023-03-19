@@ -7,7 +7,11 @@ public class EntityHealth : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     public HealthBar healthBar;
-
+    DamageOverlay damageOverlay;
+    private void Awake()
+    {
+        damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
+    }
     private void Start()
     {
         currentHealth = maxHealth;
@@ -18,6 +22,7 @@ public class EntityHealth : MonoBehaviour
     {
         currentHealth -= damageAmount;
         healthBar.SetHealth(currentHealth);
+        damageOverlay.ShowDamage(damageAmount);
     }
 
     private void Die(Animator animator)
