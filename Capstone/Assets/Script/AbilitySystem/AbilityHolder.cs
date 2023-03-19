@@ -89,6 +89,10 @@ public class AbilityHolder : MonoBehaviour
                         {
                             playerController.runSpeed = 2.5f; // set back to original speed
                         }
+                        if (abilities[i] is Shield_Ability)
+                        {
+                            entityHealth.isInvulnerable = false;
+                        }
                     }
                     break;
 
