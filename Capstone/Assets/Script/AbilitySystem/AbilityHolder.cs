@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AbilityHolder : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
+    [SerializeField] EntityHealth entityHealth;
     public Ability[] abilities;
     float[] cooldownTimes;
     float[] activeTimes;
@@ -14,6 +15,7 @@ public class AbilityHolder : MonoBehaviour
     public Image[] cds;
     public Button skillButton;
     bool triggered = false;
+    DamageOverlay damageOverlay;
 
     enum AbilityState
     {
@@ -27,8 +29,10 @@ public class AbilityHolder : MonoBehaviour
 
     private void Awake()
     {
+        damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        entityHealth = GetComponent<EntityHealth>();
         states = new AbilityState[abilities.Length];
         cooldownTimes = new float[abilities.Length];
         activeTimes = new float[abilities.Length];
@@ -69,6 +73,11 @@ public class AbilityHolder : MonoBehaviour
                         if (abilities[i] is MoveSpeed_Ability)
                         {
                             playerController.runSpeed = 2.5f + ((MoveSpeed_Ability)abilities[i]).movementSpeed;
+                        }
+                        if (abilities[i] is Heal_Ability)
+                        {
+                            damageOverlay.Healing(((Heal_Ability)abilities[i]).healDuration);
+                            //entityHealth.currentHealth += ((Heal_Ability)abilities[i]).healAmount;
                         }
                     }
                     else

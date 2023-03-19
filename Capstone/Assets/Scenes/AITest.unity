@@ -2746,8 +2746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  entityHealth: {fileID: 0}
   abilities:
-  - {fileID: 11400000, guid: 0ae43c29c8f3dde4a8b8e51f22a1e9a5, type: 2}
+  - {fileID: 11400000, guid: bb3552dae64c3fb4f80ed5c03cb87f4f, type: 2}
   cds:
   - {fileID: 2050238482}
   skillButton: {fileID: 2041650189}
@@ -8896,11 +8897,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1208188046147222683, guid: b89455a812ca7c1459ef7c0630bbb1fb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1208188046147222683, guid: b89455a812ca7c1459ef7c0630bbb1fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3856180421534584429, guid: b89455a812ca7c1459ef7c0630bbb1fb, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -8956,7 +8957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6790900320687816075, guid: b89455a812ca7c1459ef7c0630bbb1fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6790900320687816078, guid: b89455a812ca7c1459ef7c0630bbb1fb, type: 3}
       propertyPath: attackDamage

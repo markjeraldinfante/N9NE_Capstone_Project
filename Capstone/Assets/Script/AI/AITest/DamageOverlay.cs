@@ -24,7 +24,20 @@ public class DamageOverlay : MonoBehaviour
             StartCoroutine(ShowDamageOverlay());
         }
     }
+    public void Healing(float skillDuration)
+    {
+        StartCoroutine(ShowHealingOverlay(skillDuration));
+    }
+    IEnumerator ShowHealingOverlay(float duration)
+    {
+        damageImage.enabled = true;
+        damageImage.color = new Color(24f, 255f, 0f, 0.1f);
 
+        yield return new WaitForSeconds(duration);
+
+        damageImage.enabled = false;
+        damaged = false;
+    }
     IEnumerator ShowDamageOverlay()
     {
         damageImage.enabled = true;
