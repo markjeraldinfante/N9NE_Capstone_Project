@@ -8,9 +8,14 @@ public class EntityHealth : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
     DamageOverlay damageOverlay;
+    bool forPlayer;
     private void Awake()
     {
         damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
+        if (gameObject.CompareTag("Player"))
+        {
+            forPlayer = true;
+        }
     }
     private void Start()
     {
@@ -22,7 +27,11 @@ public class EntityHealth : MonoBehaviour
     {
         currentHealth -= damageAmount;
         healthBar.SetHealth(currentHealth);
-        damageOverlay.ShowDamage(damageAmount);
+        if (forPlayer)
+        {
+            damageOverlay.ShowDamage(damageAmount);
+        }
+
     }
 
     private void Die(Animator animator)
