@@ -15,8 +15,4 @@ public class CharacterData : ScriptableObject
     public Sprite survivalSplashArt;
     public bool isUnlocked;
 
-    public static implicit operator Sprite(CharacterData v)
-    {
-        throw new NotImplementedException();
-    }
 }

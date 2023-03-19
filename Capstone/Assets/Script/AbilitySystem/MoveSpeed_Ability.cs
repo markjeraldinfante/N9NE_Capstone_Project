@@ -11,8 +11,5 @@ public class MoveSpeed_Ability : Ability
     {
         Rigidbody rigidbody = parent.GetComponent<Rigidbody>();
         PlayerController playerController = parent.GetComponent<PlayerController>();
-
-        // playerController.RunSpeed += movementSpeed;
-
     }
 }
