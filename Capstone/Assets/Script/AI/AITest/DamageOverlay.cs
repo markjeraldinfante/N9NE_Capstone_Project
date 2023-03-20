@@ -31,7 +31,7 @@ public class DamageOverlay : MonoBehaviour
     IEnumerator ShowHealingOverlay(float duration)
     {
         damageImage.enabled = true;
-        damageImage.color = new Color(24f, 255f, 0f, 0.1f);
+        damageImage.color = new Color(0f, 255f, 0f, 0.1f);
 
         yield return new WaitForSeconds(duration);
 
