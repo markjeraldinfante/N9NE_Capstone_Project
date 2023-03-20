@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AbilityHolder : MonoBehaviour
 {
+    public GameObject shieldParticle;
     [SerializeField] PlayerController playerController;
     [SerializeField] EntityHealth entityHealth;
     public Ability[] abilities;
@@ -79,6 +80,14 @@ public class AbilityHolder : MonoBehaviour
                             damageOverlay.Healing(((Heal_Ability)abilities[i]).healDuration);
                             //entityHealth.currentHealth += ((Heal_Ability)abilities[i]).healAmount;
                         }
+                        if (abilities[i] is Shield_Ability)
+                        {
+                            if (entityHealth.isInvulnerable)
+                            {
+                                shieldParticle.SetActive(true);
+                            }
+
+                        }
                     }
                     else
                     {
@@ -92,6 +101,7 @@ public class AbilityHolder : MonoBehaviour
                         if (abilities[i] is Shield_Ability)
                         {
                             entityHealth.isInvulnerable = false;
+                            shieldParticle.SetActive(false);
                         }
                     }
                     break;
