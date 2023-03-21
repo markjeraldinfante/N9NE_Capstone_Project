@@ -413,6 +413,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.005413579, z: 0.0025505}
     m_Extent: {x: 0.0013410759, y: 0.0011473335, z: 0.00038308976}
   m_DirtyAABB: 0
+--- !u!1 &1152262859946921731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4658248016662093940}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4658248016662093940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152262859946921731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0056, y: -0.0014, z: -0.0002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5527615826099728032}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200722572155423286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184bbda514de97b4db6ff4fa7aa91970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3
+  runSpeed: 2.5
   jumpForce: 4
   characterAnimation: {fileID: 7852404330225680070}
   rb: {fileID: 0}
@@ -1252,7 +1283,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3554083764283555334}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c00fcb4e487d74045956647f43e436f8, type: 3}
   m_Name: 
@@ -1260,7 +1291,7 @@ MonoBehaviour:
   attackKey: 106
   attackSpeed: 25
   batoPooler: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 4658248016662093940}
   characterAnimation: {fileID: 7852404330225680070}
   canAttack: 1
   isAttacking: 0
@@ -1272,7 +1303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3554083764283555334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
   m_Name: 
@@ -1319,6 +1350,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
+  isInvulnerable: 0
 --- !u!114 &4244663281309008729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,11 +1363,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74062b431a5d62e40ada8f60df9f6ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldParticle: {fileID: 0}
   playerController: {fileID: 7852404330225680065}
-  ability: {fileID: 11400000, guid: 535fa58df342c1d49a557cd38bbf077c, type: 2}
-  cd: {fileID: 0}
+  entityHealth: {fileID: 0}
+  abilities: []
+  cds: []
   skillButton: {fileID: 0}
-  key: 9
+  keys: 
 --- !u!1 &3642031892401967861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1577,7 @@ Transform:
   - {fileID: 3165361440588653735}
   - {fileID: 6896550830745163985}
   - {fileID: 4186505931203742116}
+  - {fileID: 4658248016662093940}
   m_Father: {fileID: 4774338328208958247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
