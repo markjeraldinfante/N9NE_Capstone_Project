@@ -79,6 +79,10 @@ public class AbilityHolder : MonoBehaviour
                     {
                         activeTimes[i] -= Time.deltaTime;
                         cds[i].fillAmount = 0f;
+                        if (abilities[i] is Charge_Ability)
+                        {
+                            animator.SetBool("Dash", true);
+                        }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
                             playerController.runSpeed = 2.5f + ((MoveSpeed_Ability)abilities[i]).movementSpeed;
@@ -103,6 +107,10 @@ public class AbilityHolder : MonoBehaviour
                         abilities[i].BeginCooldown(character);
                         states[i] = AbilityState.cooldown;
                         cooldownTimes[i] = abilities[i].cooldownTime;
+                        if (abilities[i] is Charge_Ability)
+                        {
+                            animator.SetBool("Dash", false);
+                        }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
                             playerController.runSpeed = 2.5f; // set back to original speed
