@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour
 {
+    public GameObject healthBar;
     public Collider weaponCollider;
     private BossState currentState;
     public float minDistanceToPlayer = 3f; // The minimum distance between the boss and player
@@ -22,9 +23,11 @@ public class BossScript : MonoBehaviour
     private bool canChase = true; // Whether the boss enemy can start chasing the player
     private bool isAttacking = false;
     public bool isAttacked = false;
+    public bool isBoss;
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        if (!isBoss) { if (healthBar == null) return; }
 
     }
 
@@ -59,6 +62,7 @@ public class BossScript : MonoBehaviour
                 break;
             case BossState.Chasing:
                 // Move towards player and switch to attack state when within attack range
+                if (isBoss) { healthBar.SetActive(true); }
                 if (distanceToPlayer > minDistanceToPlayer && distanceToPlayer <= attackRange)
                 {
                     currentState = BossState.Attacking;

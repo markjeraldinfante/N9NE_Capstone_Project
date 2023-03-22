@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MinimapController : MonoBehaviour
 {
+    [SerializeField] private basePlayerSelect playerSelect;
+    [SerializeField] private Image handle, avatar;
+    public Sprite[] playerUI;
     public Slider miniMapSlider;
     public GameObject startPoint;
     public GameObject endPoint;
@@ -12,6 +15,7 @@ public class MinimapController : MonoBehaviour
     private Transform playerTransform;
     private void Awake()
     {
+        CharacterMinimapHandle();
         levelWidth = endPoint.transform.position.x - startPoint.transform.position.x;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         float playerXPos = Mathf.Clamp01((playerTransform.position.x - startPoint.transform.position.x) / levelWidth);
@@ -47,5 +51,27 @@ public class MinimapController : MonoBehaviour
         newPosition.y = yPos;
 
         Camera.main.transform.position = newPosition;
+    }
+    private void CharacterMinimapHandle()
+    {
+        switch (playerSelect.CharacterID)
+        {
+            case "1":
+                handle.sprite = playerUI[0];
+                avatar.sprite = playerUI[0];
+                break;
+            case "2":
+                handle.sprite = playerUI[1];
+                avatar.sprite = playerUI[1];
+                break;
+            case "3":
+                handle.sprite = playerUI[2];
+                avatar.sprite = playerUI[2];
+                break;
+            case "4":
+                handle.sprite = playerUI[3];
+                avatar.sprite = playerUI[3];
+                break;
+        }
     }
 }

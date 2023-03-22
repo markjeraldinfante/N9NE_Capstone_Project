@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AbilityHolder : MonoBehaviour
 {
     public GameObject shieldParticle, healParticle;
+    private GameObject character;
     [SerializeField] PlayerController playerController;
     [SerializeField] EntityHealth entityHealth;
     public Ability[] abilities;
@@ -30,10 +31,13 @@ public class AbilityHolder : MonoBehaviour
 
     private void Awake()
     {
-        damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
-        animator = GetComponent<Animator>();
-        playerController = GetComponent<PlayerController>();
-        entityHealth = GetComponent<EntityHealth>();
+        //Player Component
+        character = GameObject.FindGameObjectWithTag("Player");
+        animator = character.GetComponent<Animator>();
+        playerController = character.GetComponent<PlayerController>();
+        entityHealth = character.GetComponent<EntityHealth>();
+
+        damageOverlay = GetComponent<DamageOverlay>();
         states = new AbilityState[abilities.Length];
         cooldownTimes = new float[abilities.Length];
         activeTimes = new float[abilities.Length];
@@ -92,7 +96,7 @@ public class AbilityHolder : MonoBehaviour
                     }
                     else
                     {
-                        abilities[i].BeginCooldown(gameObject);
+                        abilities[i].BeginCooldown(character);
                         states[i] = AbilityState.cooldown;
                         cooldownTimes[i] = abilities[i].cooldownTime;
                         if (abilities[i] is MoveSpeed_Ability)
@@ -132,7 +136,7 @@ public class AbilityHolder : MonoBehaviour
     private IEnumerator WaitAndPrint(int abilityIndex, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        abilities[abilityIndex].Activate(gameObject);
+        abilities[abilityIndex].Activate(character);
 
     }
 }
