@@ -4431,6 +4431,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: cam
       objectReference: {fileID: 0}
+    - target: {fileID: 4715247854169763757, guid: c5f877264875962438088ecc99a181ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9933718
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715247854169763757, guid: c5f877264875962438088ecc99a181ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.114945784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715247854169763757, guid: c5f877264875962438088ecc99a181ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715247854169763757, guid: c5f877264875962438088ecc99a181ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5f877264875962438088ecc99a181ca, type: 3}
 --- !u!1001 &1581314286
@@ -4444,9 +4460,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'omar '
       objectReference: {fileID: 0}
+    - target: {fileID: 3554083764283555334, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4186505932465431740, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4186505932465431740, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4487,6 +4507,10 @@ PrefabInstance:
     - target: {fileID: 4186505932465431740, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852404330225680067, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7852404330225680067, guid: e5e064354fa843b4aba6d9dec3e5e084, type: 3}
       propertyPath: batoPooler
@@ -4601,7 +4625,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 32
+  field of view: 35
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -6106,7 +6130,7 @@ RectTransform:
   - {fileID: 275503856}
   - {fileID: 2063390223}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8474,7 +8498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &927309345643129565
 Transform:
   m_ObjectHideFlags: 0
@@ -14491,6 +14515,7 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   healthBar: {fileID: 208066807339525487}
+  damageOverlay: {fileID: 0}
   forPlayer: 0
   isInvulnerable: 0
 --- !u!114 &5483542475328018518
@@ -15191,7 +15216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackKey: 106
   attackSpeed: 25
-  batoPooler: {fileID: 1547734047}
+  batoPooler: {fileID: 5237824}
   spawnPoint: {fileID: 1756330745}
   characterAnimation: {fileID: 5866666020913277019}
   canAttack: 1
@@ -15232,8 +15257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 6090147152975689808}
-  forPlayer: 0
+  healthBar: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  forPlayer: 1
   isInvulnerable: 0
 --- !u!114 &5866666020913277024
 MonoBehaviour:
@@ -15527,17 +15553,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480320450806627565}
   m_Mesh: {fileID: 1405081761167051231, guid: 5ecc0f251cd4f784d8858857abe7705d, type: 3}
---- !u!114 &6090147152975689808 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7552326864967004511, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
-  m_PrefabInstance: {fileID: 4344792578613807375}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9ab39880705f6478c0b0e0ee34af2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &6096517735263533487
 MeshFilter:
   m_ObjectHideFlags: 0

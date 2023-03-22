@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BatoBullet : MonoBehaviour
 {
+    [SerializeField] private WeaponData slingShot;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("enemyHitpoint"))
@@ -14,7 +15,7 @@ public class BatoBullet : MonoBehaviour
 
             if (entityHealth != null)
             {
-                entityHealth.TakeDamage(10);
+                entityHealth.TakeDamage(slingShot.GetItemDamage(slingShot.ItemLevel));
             }
         }
     }

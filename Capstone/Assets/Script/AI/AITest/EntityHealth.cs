@@ -9,27 +9,31 @@ public class EntityHealth : MonoBehaviour
     public float maxHealth = 100;
     public float currentHealth;
     public HealthBar healthBar;
-    DamageOverlay damageOverlay;
+    public DamageOverlay damageOverlay;
     [SerializeField] private bool forPlayer;
     public bool isInvulnerable;
     private void Awake()
     {
         if (forPlayer)
         {
-            cacheGameHUD = GameObject.FindGameObjectWithTag("GameHUD").transform;
-            healthBar = GameObject.FindGameObjectWithTag("PlayerHealthbar").GetComponent<HealthBar>();
-            gameHUD = cacheGameHUD.gameObject;
-            damageOverlay = gameHUD.GetComponent<DamageOverlay>();
-
-            if (healthBar == null)
+            Debug.Log("Searching for GameHUD object...");
+            GameObject gameHUDObject = GameObject.FindGameObjectWithTag("GameHUD");
+            if (gameHUDObject != null && gameHUDObject.activeSelf)
             {
-                Debug.LogError("No HealthBar component found on the GameObject with the tag 'PlayerHealthbar'");
+
+                cacheGameHUD = gameHUDObject.transform;
+                gameHUD = cacheGameHUD.gameObject;
+                healthBar = gameHUD.GetComponentInChildren<HealthBar>();
+                damageOverlay = gameHUD.GetComponent<DamageOverlay>();
+                Debug.Log("damageOverlay assigned: " + damageOverlay);
+                Debug.Log("healthBar assigned: " + healthBar);
+            }
+            else
+            {
+                Debug.LogError("GameHUD object not found or is inactive!");
             }
         }
-        else
-        {
-            damageOverlay = null;
-        }
+
     }
 
 

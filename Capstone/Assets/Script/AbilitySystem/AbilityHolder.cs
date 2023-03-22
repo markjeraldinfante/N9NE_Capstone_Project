@@ -41,7 +41,7 @@ public class AbilityHolder : MonoBehaviour
         playerController = character.GetComponent<PlayerController>();
         entityHealth = character.GetComponent<EntityHealth>();
 
-        damageOverlay = GetComponent<DamageOverlay>();
+        damageOverlay = gameObject.GetComponent<DamageOverlay>();
         states = new AbilityState[abilities.Length];
         cooldownTimes = new float[abilities.Length];
         activeTimes = new float[abilities.Length];
