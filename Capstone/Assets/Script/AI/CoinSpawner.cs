@@ -31,7 +31,7 @@ public class CoinSpawner : MonoBehaviour
                 spawnPosition = spawnPoints[randomIndex].position;
             }
 
-            Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(coinPrefab, spawnPosition, Quaternion.identity, this.gameObject.transform);
             usedPositions.Add(spawnPosition);
         }
     }

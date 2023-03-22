@@ -451,7 +451,7 @@ Transform:
   - {fileID: 1333735176}
   - {fileID: 1202727147}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40260653
 GameObject:
@@ -631,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45674755}
   m_Layer: 0
-  m_Name: GameObject (11)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,7 +1502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131413572}
   m_Layer: 0
-  m_Name: GameObject (18)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3880,11 +3880,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1306771336}
     m_Modifications:
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3904,15 +3904,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4130,7 +4130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274538919}
   m_Layer: 0
-  m_Name: GameObject (7)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4923,7 +4923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326458060}
   m_Layer: 0
-  m_Name: GameObject (13)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5088,13 +5088,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357566975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1306771336}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362901491
 GameObject:
@@ -5610,7 +5610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 389541450}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6061,7 +6061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457827065}
   m_Layer: 0
-  m_Name: GameObject (14)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6509,8 +6509,55 @@ Transform:
   - {fileID: 534512281}
   - {fileID: 225129961}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &488790815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488790816}
+  - component: {fileID: 488790817}
+  m_Layer: 0
+  m_Name: ObjectPooling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488790816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488790815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1306771336}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &488790817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488790815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eb1fd1624e5e54b8e4e676a1740712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 5359424070069057568, guid: 58940292fe10bc64e8c3659a2de1a1fa, type: 3}
+  poolSize: 20
+  parentTransform: {fileID: 488790816}
 --- !u!1 &492256963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7894,7 +7941,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566238894}
   m_Layer: 0
-  m_Name: GameObject (16)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9198,13 +9245,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678217829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 55.8, y: 2.572488, z: -0.13476825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1306771336}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692317492
 GameObject:
@@ -9299,7 +9346,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6106944417919633806, guid: d38f712db010cc64ebfbb974eabf3701, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6106944417919633806, guid: d38f712db010cc64ebfbb974eabf3701, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9565,7 +9612,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1306771336}
     m_Modifications:
     - target: {fileID: 4344792578281496897, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
       propertyPath: m_Name
@@ -9581,7 +9628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4344792578281496925, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4344792578281496925, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10227,7 +10274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 741933101}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11420,7 +11467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853613439}
   m_Layer: 0
-  m_Name: GameObject (12)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11703,7 +11750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889240886}
   m_Layer: 0
-  m_Name: GameObject (15)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14320,7 +14367,7 @@ Transform:
   - {fileID: 1931015643}
   - {fileID: 1225533861}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105712446
 GameObject:
@@ -15799,7 +15846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191869380}
   m_Layer: 0
-  m_Name: GameObject (19)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16583,7 +16630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232001865}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17772,6 +17819,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1306771335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1306771336}
+  m_Layer: 0
+  m_Name: Misc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1306771336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306771335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2106079968}
+  - {fileID: 1467830977}
+  - {fileID: 1805249343}
+  - {fileID: 357566978}
+  - {fileID: 678217831}
+  - {fileID: 488790816}
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308228948
 GameObject:
   m_ObjectHideFlags: 0
@@ -18766,7 +18850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1380026584}
   m_Layer: 0
-  m_Name: GameObject (6)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19421,7 +19505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437133553}
   m_Layer: 0
-  m_Name: GameObject (8)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19536,7 +19620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1446153616}
   m_Layer: 0
-  m_Name: GameObject (10)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19976,6 +20060,11 @@ Transform:
   m_Father: {fileID: 1728899348}
   m_RootOrder: 137
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!224 &1467830977 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4344792578281496925, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
+  m_PrefabInstance: {fileID: 697754851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467885132
 GameObject:
   m_ObjectHideFlags: 0
@@ -21129,7 +21218,7 @@ Transform:
   - {fileID: 1406652220}
   - {fileID: 1590025958}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525652145
 GameObject:
@@ -21181,7 +21270,7 @@ Transform:
   - {fileID: 131413572}
   - {fileID: 1191869380}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1525652147
 MonoBehaviour:
@@ -21697,7 +21786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3527613720298912557, guid: 9060f96656c5c2343969cd9b53551bed, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3527613720298912557, guid: 9060f96656c5c2343969cd9b53551bed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23711,7 +23800,7 @@ Transform:
   - {fileID: 2125086691}
   - {fileID: 269049068}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1726403991
 PrefabInstance:
@@ -23980,7 +24069,7 @@ Transform:
   - {fileID: 1682213743}
   - {fileID: 187148707}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731451040
 GameObject:
@@ -24796,13 +24885,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805249341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 873.9088, y: 578.48645, z: 4.0642953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1306771336}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810716995
 GameObject:
@@ -25234,7 +25323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855894062}
   m_Layer: 0
-  m_Name: GameObject (4)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25349,7 +25438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864906369}
   m_Layer: 0
-  m_Name: GameObject (9)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26105,7 +26194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948693464}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27281,7 +27370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2030974790}
   m_Layer: 0
-  m_Name: GameObject (17)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27640,6 +27729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7952014322396668180, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
+      propertyPath: outlineColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9025575831478884769, guid: 9fb1e4e166faf114a9b2077d02504510, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -27682,7 +27775,7 @@ Transform:
   - {fileID: 1050229814}
   - {fileID: 986994583}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2079287387
 PrefabInstance:
@@ -27693,7 +27786,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4715247853204710460, guid: c5f877264875962438088ecc99a181ca, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4715247853204710460, guid: c5f877264875962438088ecc99a181ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27931,7 +28024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2096310314}
   m_Layer: 0
-  m_Name: GameObject (5)
+  m_Name: TansoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27983,6 +28076,11 @@ Transform:
   m_Father: {fileID: 492256964}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!4 &2106079968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2140345748208589676, guid: 14b15cd5548be40459babdb3c607c537, type: 3}
+  m_PrefabInstance: {fileID: 268769693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2109996372
 GameObject:
   m_ObjectHideFlags: 0
@@ -28164,7 +28262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 103018821726440627, guid: 45cedab180370c840b32e1b18396f88c, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 103018821726440627, guid: 45cedab180370c840b32e1b18396f88c, type: 3}
       propertyPath: m_LocalPosition.x

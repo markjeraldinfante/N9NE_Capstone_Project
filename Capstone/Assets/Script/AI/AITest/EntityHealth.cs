@@ -20,12 +20,18 @@ public class EntityHealth : MonoBehaviour
             healthBar = GameObject.FindGameObjectWithTag("PlayerHealthbar").GetComponent<HealthBar>();
             gameHUD = cacheGameHUD.gameObject;
             damageOverlay = gameHUD.GetComponent<DamageOverlay>();
+
+            if (healthBar == null)
+            {
+                Debug.LogError("No HealthBar component found on the GameObject with the tag 'PlayerHealthbar'");
+            }
         }
         else
         {
             damageOverlay = null;
         }
     }
+
 
     private void Start()
     {

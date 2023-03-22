@@ -2215,6 +2215,7 @@ GameObject:
   - component: {fileID: -6193070696580856566}
   - component: {fileID: -6356437508229337168}
   - component: {fileID: -5183855179212213044}
+  - component: {fileID: 2497443001184671081}
   m_Layer: 0
   m_Name: Azule
   m_TagString: Player
@@ -2350,6 +2351,53 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   forPlayer: 1
   isInvulnerable: 0
+--- !u!114 &2497443001184671081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490110204469719227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  outlineMode: 3
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys:
+  - {fileID: 4068373912626513877, guid: b8611e867678d5840ae4c1f8a0d6b3e6, type: 3}
+  bakeValues:
+  - data:
+    - {x: 0.5506653, y: -0.62355834, z: 0.55492586}
+    - {x: 0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: -0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: -0.5506653, y: -0.62355834, z: 0.55492586}
+    - {x: 0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: 0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: -0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: -0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: 0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: 0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: -0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: -0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: 0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: 0.5506653, y: -0.62355834, z: 0.55492586}
+    - {x: -0.5506653, y: -0.62355834, z: 0.55492586}
+    - {x: -0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: -0.5506653, y: -0.62355834, z: 0.55492586}
+    - {x: -0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: -0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: -0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: 0.5506653, y: -0.62355834, z: -0.55492586}
+    - {x: 0.5981056, y: 0.5281879, z: -0.60273314}
+    - {x: 0.5981056, y: 0.5281879, z: 0.60273314}
+    - {x: 0.5506653, y: -0.62355834, z: 0.55492586}
 --- !u!1 &6514759419676967605
 GameObject:
   m_ObjectHideFlags: 0
