@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public GameObject shieldParticle;
+    public GameObject shieldParticle, healParticle;
     [SerializeField] PlayerController playerController;
     [SerializeField] EntityHealth entityHealth;
     public Ability[] abilities;
@@ -77,6 +77,7 @@ public class AbilityHolder : MonoBehaviour
                         }
                         if (abilities[i] is Heal_Ability)
                         {
+                            healParticle.SetActive(true);
                             damageOverlay.Healing(((Heal_Ability)abilities[i]).healDuration);
                             //entityHealth.currentHealth += ((Heal_Ability)abilities[i]).healAmount;
                         }
@@ -97,6 +98,10 @@ public class AbilityHolder : MonoBehaviour
                         if (abilities[i] is MoveSpeed_Ability)
                         {
                             playerController.runSpeed = 2.5f; // set back to original speed
+                        }
+                        if (abilities[i] is Heal_Ability)
+                        {
+                            healParticle.SetActive(false);
                         }
                         if (abilities[i] is Shield_Ability)
                         {
