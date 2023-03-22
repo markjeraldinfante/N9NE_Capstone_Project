@@ -7,6 +7,7 @@ public class AbilityHolder : MonoBehaviour
 {
     public GameObject shieldParticle, healParticle;
     private GameObject character;
+    Transform characterCache;
     [SerializeField] PlayerController playerController;
     [SerializeField] EntityHealth entityHealth;
     public Ability[] abilities;
@@ -29,10 +30,13 @@ public class AbilityHolder : MonoBehaviour
     AbilityState[] states;
     public KeyCode[] keys;
 
-    private void Awake()
+    private void Start()
     {
         //Player Component
-        character = GameObject.FindGameObjectWithTag("Player");
+        characterCache = GameObject.FindGameObjectWithTag("Player").transform;
+        character = characterCache.gameObject;
+        shieldParticle = characterCache.Find("ShieldSpawn").gameObject;
+        healParticle = characterCache.Find("HealSpawn").gameObject;
         animator = character.GetComponent<Animator>();
         playerController = character.GetComponent<PlayerController>();
         entityHealth = character.GetComponent<EntityHealth>();

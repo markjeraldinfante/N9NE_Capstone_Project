@@ -13,19 +13,16 @@ public class MinimapController : MonoBehaviour
     public GameObject endPoint;
     private float levelWidth;
     private Transform playerTransform;
-    private void Awake()
+    private void Start()
     {
         CharacterMinimapHandle();
         levelWidth = endPoint.transform.position.x - startPoint.transform.position.x;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         float playerXPos = Mathf.Clamp01((playerTransform.position.x - startPoint.transform.position.x) / levelWidth);
         miniMapSlider.value = playerXPos;
-    }
-    private void Start()
-    {
-
         miniMapSlider.onValueChanged.AddListener(OnSliderValueChanged);
     }
+
 
     private void OnDestroy()
     {

@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+    GameObject gameHUD;
+    Transform cacheGameHUD;
     public float maxHealth = 100;
     public float currentHealth;
     public HealthBar healthBar;
     DamageOverlay damageOverlay;
-    bool forPlayer;
+    [SerializeField] private bool forPlayer;
     public bool isInvulnerable;
     private void Awake()
     {
-        damageOverlay = GameObject.FindGameObjectWithTag("GameHUD").GetComponent<DamageOverlay>();
-        if (gameObject.CompareTag("Player"))
+        if (forPlayer)
         {
-            forPlayer = true;
+            cacheGameHUD = GameObject.FindGameObjectWithTag("GameHUD").transform;
+            healthBar = GameObject.FindGameObjectWithTag("PlayerHealthbar").GetComponent<HealthBar>();
+            gameHUD = cacheGameHUD.gameObject;
+            damageOverlay = gameHUD.GetComponent<DamageOverlay>();
+        }
+        else
+        {
+            damageOverlay = null;
         }
     }
+
     private void Start()
     {
         currentHealth = maxHealth;

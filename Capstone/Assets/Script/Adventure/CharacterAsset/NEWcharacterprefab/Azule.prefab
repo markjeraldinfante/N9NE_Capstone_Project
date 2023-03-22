@@ -2214,9 +2214,9 @@ GameObject:
   - component: {fileID: 556894532000788598}
   - component: {fileID: -6193070696580856566}
   - component: {fileID: -6356437508229337168}
-  - component: {fileID: 7174668901278853947}
+  - component: {fileID: -5183855179212213044}
   m_Layer: 0
-  m_Name: AZULE (1)
+  m_Name: Azule
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
---- !u!114 &7174668901278853947
+--- !u!114 &-5183855179212213044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2342,13 +2342,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6490110204469719227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b03f76336eb474985fe07dae606044, type: 3}
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
-  animator: {fileID: 0}
   healthBar: {fileID: 0}
+  forPlayer: 1
+  isInvulnerable: 0
 --- !u!1 &6514759419676967605
 GameObject:
   m_ObjectHideFlags: 0
