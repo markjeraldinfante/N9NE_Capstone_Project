@@ -8,8 +8,9 @@ using TMPro;
 public class RockPaperScissor : MonoBehaviour
 {
     [SerializeField] private MiniGameManager batoPick;
+    public GameObject showResultobj;
     public TMP_InputField betField;
-    public TextMeshProUGUI matchResult, tansoCount;
+    public TextMeshProUGUI matchResult, tansoCount, notice, wonTanso, countDownText;
     public Image displayPlayerChoice, displayEnemyChoiceImage;
     public Sprite[] choicesImage;
     public enum Choice
@@ -23,7 +24,7 @@ public class RockPaperScissor : MonoBehaviour
 
     private void Start()
     {
-        tansoCount.text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+        tansoCount.text = "Total Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
         rockButton.onClick.AddListener(() => CheckBet(Choice.Rock));
         paperButton.onClick.AddListener(() => CheckBet(Choice.Paper));
         scissorButton.onClick.AddListener(() => CheckBet(Choice.Scissors));
@@ -40,22 +41,38 @@ public class RockPaperScissor : MonoBehaviour
             }
             else
             {
-                matchResult.text = "Not enough tanso";
+                notice.text = "Not enough tanso";
             }
         }
         else
         {
-            matchResult.text = "You need to bet";
+            notice.text = "You need to bet";
         }
     }
 
     private void PlayGame(Choice choice)
     {
+        notice.text = "";
         playerChoice = choice;
         computerChoice = (Choice)Random.Range(0, 3);
+        StartCoroutine(DelayResult());
+    }
+    IEnumerator DelayResult()
+    {
+        int count = 5;
+        while (count > 0)
+        {
+            countDownText.text = count.ToString();
+            yield return new WaitForSeconds(1f);
+            count--;
+        }
+        countDownText.text = ".....";
+        yield return new WaitForSeconds(1f);
+        showResultobj.SetActive(true);
         ShowImage(playerChoice, computerChoice);
         DetermineWinner();
     }
+
     private void ShowImage(Choice playerChoice, Choice enemyChoice)
     {
         switch (playerChoice)
@@ -90,6 +107,7 @@ public class RockPaperScissor : MonoBehaviour
         if (playerChoice == computerChoice)
         {
             Debug.Log("Tie!");
+            wonTanso.text = "";
             Clear();
             matchResult.text = "Tie!";
         }
@@ -98,6 +116,7 @@ public class RockPaperScissor : MonoBehaviour
             playerChoice == Choice.Scissors && computerChoice == Choice.Paper)
         {
             Debug.Log("You win!");
+            wonTanso.text = "You won: " + betAmount * 2;
             int winTanso = betAmount * 2 + DBHandler.instance.MainPlayerDB.TansoCount;
             DBHandler.instance.UpdateTanso(winTanso);
             Clear();
@@ -107,6 +126,7 @@ public class RockPaperScissor : MonoBehaviour
         {
             Debug.Log("Computer wins!");
             int tanso = DBHandler.instance.MainPlayerDB.TansoCount - betAmount;
+            wonTanso.text = "You lose: " + betAmount;
             DBHandler.instance.UpdateTanso(tanso);
             Clear();
             matchResult.text = "HAHAHAHA TANGA!";
@@ -115,7 +135,8 @@ public class RockPaperScissor : MonoBehaviour
 
     private void Clear()
     {
+        countDownText.text = "";
         betField.text = "";
-        tansoCount.text = DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+        tansoCount.text = "Total Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
     }
 }
