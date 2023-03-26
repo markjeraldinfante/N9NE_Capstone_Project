@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AdventurePlayer : MonoBehaviour
 {
+    [SerializeField] PlayerController playerController;
     [SerializeField] private KeyCode attackKey = KeyCode.J;
     [SerializeField] private float attackSpeed = 25f;
     [SerializeField] private ObjectPooler batoPooler;
@@ -17,14 +18,19 @@ public class AdventurePlayer : MonoBehaviour
     {
         characterAnimation = GetComponent<Animator>();
         batoPooler = GameObject.FindGameObjectWithTag("ObjPool").GetComponent<ObjectPooler>();
+        playerController = GetComponent<PlayerController>();
     }
     private void Update()
     {
         if (Input.GetKeyDown(attackKey) && canAttack && !isAttacking)
         {
-            isAttacking = true;
-            canAttack = false;
-            StartCoroutine(Attack());
+            if (!playerController.isProne)
+            {
+                isAttacking = true;
+                canAttack = false;
+                StartCoroutine(Attack());
+            }
+
         }
     }
 
