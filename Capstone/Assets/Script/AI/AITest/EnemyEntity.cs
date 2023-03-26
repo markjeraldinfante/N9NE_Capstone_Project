@@ -23,15 +23,6 @@ public class EnemyEntity : MonoBehaviour
             health.Die(animator);
         }
     }
-    void Dead()
-    {
-        bossScript.enabled = false;
-        animator.SetBool("isDead", true);
-        Destroy(hitPoint[0]);
 
-    }
-    public void idDeath()
-    {
-        Destroy(this.gameObject);
-    }
+
 }
