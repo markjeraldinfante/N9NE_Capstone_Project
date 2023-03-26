@@ -84,8 +84,8 @@ public class BossScript : MonoBehaviour
                 else
                 {
                     // Boss is too close to player, stop its movement
-                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    animator.SetTrigger("idle");
+                    GetComponent<Rigidbody>().velocity = Vector2.zero;
+                    animator.ResetTrigger("chase");
                 }
                 break;
             case BossState.Attacking:

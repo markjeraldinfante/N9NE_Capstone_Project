@@ -1932,13 +1932,14 @@ GameObject:
   - component: {fileID: 1831480694792729693}
   - component: {fileID: 8773754512560361181}
   - component: {fileID: 9063752821205580088}
+  - component: {fileID: 4749590569549664301}
   m_Layer: 0
   m_Name: Ninjaicepick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5731557481380245025
 Transform:
   m_ObjectHideFlags: 0
@@ -2480,6 +2481,36 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  forPlayer: 0
+  isInvulnerable: 0
+--- !u!114 &4749590569549664301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4954317503117833371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  weaponCollider: {fileID: 0}
+  minDistanceToPlayer: 1
+  movementSpeed: 2
+  attackRange: 0.2
+  attackCooldown: 0.5
+  chaseRange: 4
+  maxChaseTime: 100
+  attackDamage: 5
+  delayBeforeChase: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isAttacked: 0
+  isBoss: 0
 --- !u!1 &5027805819554557898
 GameObject:
   m_ObjectHideFlags: 0
