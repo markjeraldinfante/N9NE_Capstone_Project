@@ -17,9 +17,10 @@ public class EnemyEntity : MonoBehaviour
     }
     void Update()
     {
-        if (health.currentHealth < 0)
+        if (health.currentHealth <= 0)
         {
-            Dead();
+            // Dead();
+            health.Die(animator);
         }
     }
     void Dead()

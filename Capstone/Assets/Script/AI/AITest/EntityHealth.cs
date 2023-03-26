@@ -59,14 +59,18 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
-    private void Die(Animator animator)
+    public void Die(Animator anim)
     {
+        anim.SetBool("isDead", true);
 
-        animator.SetTrigger("isDead");
-        GetComponent<CapsuleCollider>().enabled = false;
-        Destroy(gameObject, 3);
+        // anim.SetTrigger("isDead");
+        GetComponent<CapsuleCollider>().enabled = true;
+        Destroy(gameObject, 1);
         this.enabled = false;
-        GetComponent<enemy_adventure>().enabled = false;
+
+
+
+
 
     }
 
