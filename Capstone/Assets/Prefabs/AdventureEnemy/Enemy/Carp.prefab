@@ -2235,9 +2235,9 @@ GameObject:
   - component: {fileID: 3871508310157072383}
   - component: {fileID: 2408302203366100660}
   - component: {fileID: 763752116540873133}
-  - component: {fileID: 5729862539301339947}
   - component: {fileID: 3443722133479128649}
   - component: {fileID: 1342879407576952379}
+  - component: {fileID: 3248985051806588635}
   m_Layer: 0
   m_Name: Carp
   m_TagString: enemy
@@ -2653,33 +2653,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &5729862539301339947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7322553183057569247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 3101027162776097108}
-  weaponCollider: {fileID: 1297175317207652158}
-  minDistanceToPlayer: 0.6
-  movementSpeed: 1.5
-  attackRange: 0.8
-  attackCooldown: 1
-  chaseRange: 3
-  maxChaseTime: 2
-  attackDamage: 10
-  delayBeforeChase: 2
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  isAttacked: 0
-  isBoss: 0
 --- !u!136 &3443722133479128649
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2709,6 +2682,23 @@ MonoBehaviour:
   animator: {fileID: 0}
   hitPoint:
   - {fileID: 7105516734499271785}
+--- !u!114 &3248985051806588635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7322553183057569247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponEnemy: {fileID: 0}
+  moveSpeed: 2
+  detectionRange: 3
+  attackRange: 1
+  currentState: 0
 --- !u!1 &7514947113001500858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,11 +3319,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
---- !u!65 &1297175317207652158 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 3803871222690749211, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
-  m_PrefabInstance: {fileID: 2795168208821226533}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6806040270892935466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8699132847812945167, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
@@ -3449,17 +3434,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 273580589470912053, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
   m_PrefabInstance: {fileID: 3160939651003882904}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3101027162776097108}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c9ab39880705f6478c0b0e0ee34af2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3101027162776097108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 59925699549711564, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
-  m_PrefabInstance: {fileID: 3160939651003882904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6374705768344023204 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8334589244367433020, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
