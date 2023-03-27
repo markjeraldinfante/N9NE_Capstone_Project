@@ -12,6 +12,7 @@ public class AIWeapon : MonoBehaviour
             if (entityHealth != null)
             {
                 entityHealth.TakeDamage(20);
+                Debug.Log("Damage");
             }
         }
 
