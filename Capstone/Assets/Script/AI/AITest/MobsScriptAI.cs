@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class MobsScriptAI : MonoBehaviour
 {
+    public GameObject weaponEnemy;
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
     public float moveSpeed = 2f;
     public float detectionRange = 4f;
-    public float minDistance = 1f;
+    public float attackRange = 1f;
     public enum State { Idle, Attack, Chase };
     public State currentState = State.Idle;
 
     void Awake()
     {
+        weaponEnemy.SetActive(false);
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
     }
@@ -33,7 +35,7 @@ public class MobsScriptAI : MonoBehaviour
                 }
                 break;
             case State.Chase:
-                if (distanceToPlayer <= minDistance)
+                if (distanceToPlayer <= attackRange)
                 {
                     currentState = State.Attack;
                 }
@@ -59,10 +61,14 @@ public class MobsScriptAI : MonoBehaviour
                 }
                 break;
             case State.Attack:
-                if (distanceToPlayer > minDistance)
+                if (distanceToPlayer > attackRange)
                 {
                     currentState = State.Chase;
-
+                    Idling(); // stop attacking animation when enemy is chasing
+                }
+                else
+                {
+                    Attacking(); // continue attacking animation when enemy is attacking
                 }
                 break;
         }
@@ -71,12 +77,28 @@ public class MobsScriptAI : MonoBehaviour
         //  animator.SetInteger("state", (int)currentState);
     }
 
+
     private void Chasing()
     {
+        weaponEnemy.SetActive(false);
         animator.SetBool("chasing", true);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+        }
     }
+
     private void Idling()
     {
+        weaponEnemy.SetActive(false);
         animator.SetBool("chasing", false);
+        animator.SetBool("Attack", false);
+    }
+    private void Attacking()
+    {
+        animator.SetBool("Attack", true);
+        weaponEnemy.SetActive(true);
     }
 }
