@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class DamageOverlay : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI tansoHolder;
     public Image damageImage;
     public float flashSpeed = 5f;
     public Color flashColor = new Color(1f, 0f, 0f, 0.1f);
@@ -13,9 +15,22 @@ public class DamageOverlay : MonoBehaviour
 
     private void Awake()
     {
+        tansoHolder.text = "Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+
         damageImage.enabled = false;
     }
-
+    private void OnEnable()
+    {
+        CoinCollet.onUpdateTansoText += UpdateTansoText;
+    }
+    private void OnDisable()
+    {
+        CoinCollet.onUpdateTansoText -= UpdateTansoText;
+    }
+    private void UpdateTansoText()
+    {
+        tansoHolder.text = "Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+    }
     public void ShowDamage(float damageAmount)
     {
         if (!damaged)

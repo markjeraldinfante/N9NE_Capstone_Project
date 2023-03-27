@@ -5,10 +5,12 @@ using UnityEngine;
 public class Melee_Adventure : MonoBehaviour
 {
     [SerializeField] private KeyCode attackKey = KeyCode.J;
+    [SerializeField] private GameObject weaponCollider;
 
     [SerializeField] private Animator characterAnimation;
     private void Start()
     {
+        weaponCollider.SetActive(false);
         characterAnimation = GetComponent<Animator>();
     }
 
@@ -17,7 +19,7 @@ public class Melee_Adventure : MonoBehaviour
 
         if (Input.GetKeyDown(attackKey))
         {
-
+            weaponCollider.SetActive(true);
             characterAnimation.SetTrigger("melee");
         }
 
