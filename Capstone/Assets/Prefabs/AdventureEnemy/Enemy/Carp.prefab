@@ -2277,7 +2277,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8daf924f61dc85546964de1514ed340a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2631,7 +2631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   healthBar: {fileID: 2888528946210771885}
   damageOverlay: {fileID: 0}
@@ -2645,9 +2645,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7322553183057569247}
   serializedVersion: 2
-  m_Mass: 15
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2667,14 +2667,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3101027162776097108}
   weaponCollider: {fileID: 1297175317207652158}
-  minDistanceToPlayer: 1
-  movementSpeed: 2
-  attackRange: 0.5
+  minDistanceToPlayer: 0.02
+  movementSpeed: 1.5
+  attackRange: 2
   attackCooldown: 1
   chaseRange: 3
-  maxChaseTime: 100
-  attackDamage: 5
-  delayBeforeChase: 1
+  maxChaseTime: 2
+  attackDamage: 10
+  delayBeforeChase: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

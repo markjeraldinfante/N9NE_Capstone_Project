@@ -3508,11 +3508,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142740492}
   m_Mesh: {fileID: 6055277006425145491, guid: f47caab90b7673e47b4b99129051c095, type: 3}
---- !u!1 &1197434005 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3101027162776097108, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
-  m_PrefabInstance: {fileID: 1879845724}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204552247
 GameObject:
   m_ObjectHideFlags: 0
@@ -6375,21 +6370,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2408302203366100660, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
-      propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729862539301339947, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1197434005}
     - target: {fileID: 7322553183057569247, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_Name
       value: Carp 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322553183057569247, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8085694700554916079, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_RootOrder
@@ -6437,11 +6420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
@@ -15104,7 +15087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &5483542475328018514
 CapsuleCollider:
   m_ObjectHideFlags: 0
