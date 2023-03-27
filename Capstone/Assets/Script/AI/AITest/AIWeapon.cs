@@ -6,7 +6,7 @@ public class AIWeapon : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("char_head") || other.gameObject.CompareTag("char_body") || other.gameObject.CompareTag("char_leftfoot") || other.gameObject.CompareTag("char_rightfoot"))
         {
             EntityHealth entityHealth = other.GetComponent<EntityHealth>();
             if (entityHealth != null)
@@ -14,5 +14,6 @@ public class AIWeapon : MonoBehaviour
                 entityHealth.TakeDamage(20);
             }
         }
+
     }
 }
