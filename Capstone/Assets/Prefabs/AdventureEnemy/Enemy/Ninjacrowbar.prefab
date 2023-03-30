@@ -1595,9 +1595,10 @@ GameObject:
   - component: {fileID: 456279720806243593}
   - component: {fileID: 5280874143284613792}
   - component: {fileID: 8197016234427466202}
+  - component: {fileID: 1427161471818167346}
   m_Layer: 0
   m_Name: Ninjacrowbar
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1992,7 +1993,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4839410712249824867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
@@ -2043,6 +2044,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1427161471818167346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839410712249824867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 268656378173635907}
+  moveSpeed: 2
+  detectionRange: 3
+  attackRange: 0.8
+  currentState: 0
 --- !u!1 &4850827133207512173
 GameObject:
   m_ObjectHideFlags: 0

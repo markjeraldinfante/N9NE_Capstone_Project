@@ -2694,10 +2694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponEnemy: {fileID: 0}
+  weaponCollider: {fileID: 1297175317207652158}
   moveSpeed: 2
   detectionRange: 3
-  attackRange: 1
+  attackRange: 0.8
   currentState: 0
 --- !u!1 &7514947113001500858
 GameObject:
@@ -3319,6 +3319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
+--- !u!65 &1297175317207652158 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3803871222690749211, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
+  m_PrefabInstance: {fileID: 2795168208821226533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6806040270892935466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8699132847812945167, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
