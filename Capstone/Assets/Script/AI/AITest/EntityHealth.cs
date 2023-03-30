@@ -59,14 +59,12 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
-    public void Die(Animator anim)
+    public void Die(Animator anim, GameObject obj)
     {
         BossScript bossScript = GetComponent<BossScript>();
         anim.SetBool("isDead", true);
-        bossScript.enabled = false;
-        // anim.SetTrigger("isDead");
         GetComponent<CapsuleCollider>().enabled = true;
-        Destroy(gameObject, 1);
+        Destroy(obj, 1);
         this.enabled = false;
 
     }

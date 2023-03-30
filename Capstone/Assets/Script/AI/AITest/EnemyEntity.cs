@@ -8,19 +8,21 @@ public class EnemyEntity : MonoBehaviour
     EntityHealth health;
     public GameObject[] hitPoint;
     BossScript bossScript;
+    GameObject enemyGameObject;
 
     void Awake()
     {
-        bossScript = GetComponent<BossScript>();
+        // bossScript = GetComponent<BossScript>();
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
+        enemyGameObject = this.gameObject;
     }
     void Update()
     {
         if (health.currentHealth <= 0)
         {
             // Dead();
-            health.Die(animator);
+            health.Die(animator, enemyGameObject);
         }
     }
 
