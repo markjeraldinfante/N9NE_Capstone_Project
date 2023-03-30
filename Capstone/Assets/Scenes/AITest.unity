@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7322553183057569247, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8085694700554916079, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_RootOrder
@@ -195,13 +195,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4486058428218402230, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
 --- !u!1 &92180346
 GameObject:
@@ -1927,37 +1928,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 146321874794801247, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 146321874794801247, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831480694792729692, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831480694792729692, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831480694792729692, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_Constraints
-      value: 122
-      objectReference: {fileID: 0}
-    - target: {fileID: 1831480694792729692, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4954317503117833371, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_Name
       value: Ninjaicepick
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954317503117833371, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5731557481380245025, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_RootOrder
@@ -2002,10 +1975,6 @@ PrefabInstance:
     - target: {fileID: 5731557481380245025, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9063752821205580088, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
-      propertyPath: maxHealth
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
@@ -2660,10 +2629,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mason
       objectReference: {fileID: 0}
-    - target: {fileID: 488212127085568410, guid: 7607a76c3233d0a4b83e04cd2f96a68f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 976624690620103456, guid: 7607a76c3233d0a4b83e04cd2f96a68f, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -2707,10 +2672,6 @@ PrefabInstance:
     - target: {fileID: 976624690620103456, guid: 7607a76c3233d0a4b83e04cd2f96a68f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2110916627774321328, guid: 7607a76c3233d0a4b83e04cd2f96a68f, type: 3}
-      propertyPath: chaseRange
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7607a76c3233d0a4b83e04cd2f96a68f, type: 3}
@@ -3204,10 +3165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6838130601390299980, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7307211689589499911, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -3255,10 +3212,6 @@ PrefabInstance:
     - target: {fileID: 7936396964778750653, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
       propertyPath: m_Name
       value: Chainsawman
-      objectReference: {fileID: 0}
-    - target: {fileID: 7936396964778750653, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
@@ -6358,25 +6311,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 456279720806243593, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
-      propertyPath: isBoss
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456279720806243593, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
-      propertyPath: attackRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456279720806243593, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
-      propertyPath: minDistanceToPlayer
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 4839410712249824867, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
       propertyPath: m_Name
       value: Ninjacrowbar
       objectReference: {fileID: 0}
     - target: {fileID: 4839410712249824867, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5215971886335175897, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
       propertyPath: m_RootOrder
@@ -14362,10 +14303,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.17722051
+  m_Radius: 0.18316269
   m_Height: 1.0009799
   m_Direction: 1
-  m_Center: {x: 0.69293314, y: 0.09239922, z: -0.18462965}
+  m_Center: {x: 0.37749335, y: 0.09239922, z: -0.18462957}
 --- !u!4 &3841126111396611748
 Transform:
   m_ObjectHideFlags: 0
