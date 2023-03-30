@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MobsScriptAI : MonoBehaviour
 {
-    public GameObject weaponEnemy;
+    public Collider weaponCollider;
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
@@ -16,7 +16,7 @@ public class MobsScriptAI : MonoBehaviour
 
     void Awake()
     {
-        weaponEnemy.SetActive(false);
+        weaponCollider.enabled = false;
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
     }
@@ -74,13 +74,13 @@ public class MobsScriptAI : MonoBehaviour
         }
 
         // Set the animator state based on the current state
-        //  animator.SetInteger("state", (int)currentState);
+        // animator.SetInteger("state", (int)currentState);
     }
 
 
     private void Chasing()
     {
-        weaponEnemy.SetActive(false);
+        weaponCollider.enabled = false;
         animator.SetBool("chasing", true);
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
@@ -92,13 +92,13 @@ public class MobsScriptAI : MonoBehaviour
 
     private void Idling()
     {
-        weaponEnemy.SetActive(false);
+        weaponCollider.enabled = false;
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", false);
     }
     private void Attacking()
     {
         animator.SetBool("Attack", true);
-        weaponEnemy.SetActive(true);
+        weaponCollider.enabled = true;
     }
 }
