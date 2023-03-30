@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    public delegate void CharacterIsDead();
+    public static event CharacterIsDead isDead;
     [SerializeField] Animator animator;
     EntityHealth health;
     GameObject hitPoint;
@@ -16,9 +18,10 @@ public class PlayerEntity : MonoBehaviour
     }
     void Update()
     {
-        if (health.currentHealth < 0)
+        if (health.currentHealth <= 0)
         {
             animator.SetTrigger("isDead");
+            isDead?.Invoke();
         }
     }
 
