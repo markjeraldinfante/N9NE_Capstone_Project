@@ -14,7 +14,7 @@ public class MobsScriptAI : MonoBehaviour
     public enum State { Idle, Attack, Chase };
     public State currentState = State.Idle;
 
-    void Awake()
+    void Start()
     {
         weaponCollider.enabled = false;
         player = GameObject.FindGameObjectWithTag(playerTag);
