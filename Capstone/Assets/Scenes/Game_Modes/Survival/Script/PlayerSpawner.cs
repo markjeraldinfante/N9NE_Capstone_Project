@@ -11,12 +11,9 @@ public class PlayerSpawner : MonoBehaviour
     public Transform[] playerSpawnPoints;
 
 
-    private void Start()
-    {
 
-    }
 
-    private void Awake()
+    private void OnEnable()
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
@@ -28,12 +25,27 @@ public class PlayerSpawner : MonoBehaviour
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
         SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
+        Clear();
     }
-
+    void Clear()
+    {
+        offlineplayer1Data.CharacterID = "";
+        offlineplayer1Data.PlayerName = "";
+        offlineplayer2Data.CharacterID = "";
+        offlineplayer2Data.PlayerName = "";
+    }
     public void Spawn1Player()
     {
-        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
+        if (offlineplayer1Data != null)
+        {
+            AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
+        }
+        else
+        {
+            Debug.LogError("offlineplayer1Data is null!");
+        }
     }
+
 
     public void Spawn1PlayerOnline()
     {
@@ -42,9 +54,17 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Spawn2Players()
     {
-        AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
-        AssignAndInstantiateCharacter(offlineplayer2Data, playerSpawnPoints[1], basePlayer.Player2);
+        if (offlineplayer1Data != null && offlineplayer2Data != null)
+        {
+            AssignAndInstantiateCharacter(offlineplayer1Data, playerSpawnPoints[0], basePlayer.Player1);
+            AssignAndInstantiateCharacter(offlineplayer2Data, playerSpawnPoints[1], basePlayer.Player2);
+        }
+        else
+        {
+            Debug.LogError("offlineplayer1Data or offlineplayer2Data is null!");
+        }
     }
+
 
     private void AssignAndInstantiateCharacter(PlayerCharacter playerData, Transform playerTransform, basePlayer basePlayer)
     {

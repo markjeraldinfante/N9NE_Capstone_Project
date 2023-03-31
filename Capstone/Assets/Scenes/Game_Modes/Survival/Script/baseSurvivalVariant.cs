@@ -5,7 +5,13 @@ using UnityEngine;
 [CreateAssetMenu]
 public class baseSurvivalVariant : ScriptableObject
 {
-    public bool isOnline;
-    public bool is2player;
+    public enum VariantType
+    {
+        Online,
+        TwoPlayer,
+        SinglePlayer
+    }
 
+    public VariantType variantType;
 }
+

@@ -24,7 +24,7 @@ public class PlayerMultiplayer : MonoBehaviour
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
 
-        if (variant.isOnline)
+        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             view = GetComponent<PhotonView>();
         }
@@ -43,7 +43,7 @@ public class PlayerMultiplayer : MonoBehaviour
 
     private void GatherInput()
     {
-        if (!variant.isOnline)
+        if (variant.variantType != baseSurvivalVariant.VariantType.Online)
         {
 
             switch (basePlayer)

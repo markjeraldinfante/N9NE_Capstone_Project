@@ -23,7 +23,7 @@ public class meleeAttack_adventure : MonoBehaviour
     void Update()
     {
 
-        if (!variant.isOnline)
+        if (variant.variantType != baseSurvivalVariant.VariantType.Online)
         {
             switch (basePlayer)
             {

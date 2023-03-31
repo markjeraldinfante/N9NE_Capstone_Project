@@ -7,22 +7,18 @@ public class VariantHolder : MonoBehaviour
 
     public void PlaySinglePlayerOffline()
     {
-        SetVariantData(false, false);
+        variantData.variantType = baseSurvivalVariant.VariantType.SinglePlayer;
     }
 
     public void PlayMultiplayerOffline()
     {
-        SetVariantData(false, true);
+        variantData.variantType = baseSurvivalVariant.VariantType.TwoPlayer;
     }
 
     public void PlayMultiplayerOnline()
     {
-        SetVariantData(true, false);
+        variantData.variantType = baseSurvivalVariant.VariantType.Online;
     }
 
-    private void SetVariantData(bool isOnline, bool is2player)
-    {
-        variantData.isOnline = isOnline;
-        variantData.is2player = is2player;
-    }
+
 }
