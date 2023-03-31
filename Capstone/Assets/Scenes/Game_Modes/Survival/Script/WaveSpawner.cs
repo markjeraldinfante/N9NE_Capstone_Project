@@ -17,8 +17,8 @@ public class WaveSpawner : MonoBehaviour
     public Transform targetEnemy;
     public TextMeshProUGUI waveNumbertext;
     public TextMeshProUGUI waveCountdownText;
-    public int currentEnemy;
-    private int waveNumber = 0;
+    [PunRPC] public int currentEnemy;
+    [PunRPC] private int waveNumber = 0;
 
 
     // Update is called once per frame
@@ -81,7 +81,14 @@ public class WaveSpawner : MonoBehaviour
     }
     public void KilledEnemy()
     {
-        currentEnemy--;
+        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                currentEnemy--;
+            }
+        }
+        else if (variant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
     }
 
 }
