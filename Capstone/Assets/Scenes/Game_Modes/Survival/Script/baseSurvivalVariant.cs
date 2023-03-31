@@ -7,9 +7,9 @@ public class baseSurvivalVariant : ScriptableObject
 {
     public enum VariantType
     {
-        Online,
+        SinglePlayer,
         TwoPlayer,
-        SinglePlayer
+        Online
     }
 
     public VariantType variantType;

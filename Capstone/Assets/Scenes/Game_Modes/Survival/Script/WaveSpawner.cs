@@ -6,13 +6,14 @@ using Photon.Pun;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public GameObject panel, waveNumberobj;
     [SerializeField] private baseSurvivalVariant variant;
     public GameObject enemyPrefab;
     public Transform spawnPoints1;
     Vector3 spawnPointsRandom;
     public Transform spawnPoints2;
-    public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    public float timeBetweenWaves = 10f;
+    private float countdown = 5f;
     public GameObject enemyTrans;
     public Transform targetEnemy;
     public TextMeshProUGUI waveNumbertext;
@@ -21,22 +22,37 @@ public class WaveSpawner : MonoBehaviour
     [PunRPC] private int waveNumber = 0;
     PhotonView photonView;
 
+    private bool isCountdownFinished = false;
 
     // Update is called once per frame
     void Update()
     {
         if (currentEnemy == 0)
         {
-            if (countdown <= 0f)
+            if (isCountdownFinished)
             {
+                panel.SetActive(false);
+                waveNumberobj.SetActive(false);
+                waveCountdownText.gameObject.SetActive(false);
                 StartCoroutine(Spawnwave());
                 waveNumbertext.text = "Wave: " + waveNumber.ToString();
                 countdown = timeBetweenWaves;
+                isCountdownFinished = false;
             }
-            countdown -= Time.deltaTime;
-            waveCountdownText.text = string.Format("{0:00.00}", countdown);
+            else
+            {
+                panel.SetActive(true);
+                waveNumberobj.SetActive(true);
+                countdown -= Time.deltaTime;
+                waveCountdownText.text = Mathf.Round(countdown).ToString();
+                if (countdown <= 0f)
+                {
+                    isCountdownFinished = true;
+                }
+            }
         }
     }
+
     [PunRPC]
     void UpdateCurrentEnemy(int enemyCount)
     {
@@ -45,17 +61,12 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator Spawnwave()
     {
-
         waveNumber++;
         for (int i = 0; i < waveNumber; i++)
         {
-
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
-
-
         }
-
     }
 
     public void SpawnEnemy()
@@ -68,6 +79,7 @@ public class WaveSpawner : MonoBehaviour
         Random.Range(spawnPoints1.position.y, spawnPoints2.position.y),
         Random.Range(spawnPoints1.position.z, spawnPoints2.position.z)
         );
+
         if (variant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             if (PhotonNetwork.IsMasterClient)
@@ -75,16 +87,14 @@ public class WaveSpawner : MonoBehaviour
                 enemyTrans = PhotonNetwork.Instantiate(enemyPrefab.name, spawnPointsRandom, spawnPoints1.rotation);
                 currentEnemy++;
             }
-            return;
-
         }
         else if (variant.variantType != baseSurvivalVariant.VariantType.Online)
         {
             enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
             currentEnemy++;
-            return;
         }
     }
+
     public void KilledEnemy()
     {
         if (variant.variantType == baseSurvivalVariant.VariantType.Online)
@@ -98,6 +108,4 @@ public class WaveSpawner : MonoBehaviour
         }
         else if (variant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
     }
-
-
 }
