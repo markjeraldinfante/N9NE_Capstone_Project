@@ -23,6 +23,17 @@ public class MobsScriptAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
         health.OnDeath += EnemyisDead;
+        PlayerEntity.isDead += PlayerisDead;
+    }
+    private void OnDestroy()
+    {
+        health.OnDeath -= EnemyisDead;
+        PlayerEntity.isDead -= PlayerisDead;
+    }
+    private void PlayerisDead()
+    {
+        currentState = State.Idle;
+        player = null;
     }
     private void EnemyisDead()
     {
