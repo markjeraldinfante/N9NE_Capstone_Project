@@ -69,12 +69,14 @@ public class WaveSpawner : MonoBehaviour
                 enemyTrans = PhotonNetwork.Instantiate(enemyPrefab.name, spawnPointsRandom, spawnPoints1.rotation);
                 currentEnemy++;
             }
+            return;
 
         }
-        else
+        else if (variant.variantType != baseSurvivalVariant.VariantType.Online)
         {
             enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
             currentEnemy++;
+            return;
         }
     }
 
