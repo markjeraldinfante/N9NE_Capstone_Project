@@ -1586,6 +1586,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5844450047887403129, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844450047887403129, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7298842158870327161, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
       propertyPath: m_Name
       value: Ninjabolo
@@ -1593,10 +1601,6 @@ PrefabInstance:
     - target: {fileID: 7298842158870327161, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7491578734457064652, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
-      propertyPath: maxHealth
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7926725573587252675, guid: 466ed9a493a307c4da4df87be7e46362, type: 3}
       propertyPath: m_RootOrder
@@ -3197,6 +3201,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5844450045977890207, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844450045977890207, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7307211689589499911, guid: 1f488d58ee913324e84e9276b1a12c65, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -20466,7 +20478,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -24772,7 +24784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &9174959808695339407
 MonoBehaviour:
   m_ObjectHideFlags: 0
