@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
 public class WaveSpawner : MonoBehaviour
 {
-
+    [SerializeField] private baseSurvivalVariant variant;
     public GameObject enemyPrefab;
     public Transform spawnPoints1;
     Vector3 spawnPointsRandom;
@@ -23,18 +24,39 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Start();
-        if (currentEnemy == 0)
+        if (variant.variantType != baseSurvivalVariant.VariantType.Online)
         {
-            if (countdown <= 0f)
+            if (currentEnemy == 0)
             {
-                StartCoroutine(Spawnwave());
-                waveNumbertext.text = "Wave: " + waveNumber.ToString();
-                countdown = timeBetweenWaves;
+                if (countdown <= 0f)
+                {
+                    StartCoroutine(Spawnwave());
+                    waveNumbertext.text = "Wave: " + waveNumber.ToString();
+                    countdown = timeBetweenWaves;
+                }
+                countdown -= Time.deltaTime;
+                waveCountdownText.text = string.Format("{0:00.00}", countdown);
             }
-            countdown -= Time.deltaTime;
-            waveCountdownText.text = string.Format("{0:00.00}", countdown);
         }
+        else
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (currentEnemy == 0)
+                {
+                    if (countdown <= 0f)
+                    {
+                        StartCoroutine(OnlineSpawnwave());
+                        waveNumbertext.text = "Wave: " + waveNumber.ToString();
+                        countdown = timeBetweenWaves;
+                    }
+                    countdown -= Time.deltaTime;
+                    waveCountdownText.text = string.Format("{0:00.00}", countdown);
+                }
+            }
+
+        }
+
 
     }
 
@@ -51,8 +73,19 @@ public class WaveSpawner : MonoBehaviour
 
         }
 
+    }
+    IEnumerator OnlineSpawnwave()
+    {
+
+        waveNumber++;
+        for (int i = 0; i < waveNumber; i++)
+        {
+
+            OnlineSpawnEnemy();
+            yield return new WaitForSeconds(0.5f);
 
 
+        }
 
     }
 
@@ -67,6 +100,20 @@ public class WaveSpawner : MonoBehaviour
         Random.Range(spawnPoints1.position.z, spawnPoints2.position.z)
         );
         enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
+        currentEnemy++;
+
+    }
+    public void OnlineSpawnEnemy()
+    {
+        enemyTrans = enemyPrefab;
+        enemyPrefab.GetComponent<ENEMY1>().target = targetEnemy;
+        spawnPointsRandom = new Vector3
+        (
+        Random.Range(spawnPoints1.position.x, spawnPoints2.position.x),
+        Random.Range(spawnPoints1.position.y, spawnPoints2.position.y),
+        Random.Range(spawnPoints1.position.z, spawnPoints2.position.z)
+        );
+        enemyTrans = PhotonNetwork.Instantiate(enemyPrefab.name, spawnPointsRandom, spawnPoints1.rotation);
         currentEnemy++;
 
     }

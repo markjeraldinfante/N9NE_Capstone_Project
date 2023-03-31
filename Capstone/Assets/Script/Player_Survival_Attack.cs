@@ -7,7 +7,7 @@ public class Player_Survival_Attack : MonoBehaviour
 {
     [SerializeField] private KeyCode attackKey = KeyCode.J;
 
-    [SerializeField] private Animator characterAnimation;
+    private Animator characterAnimation;
     [SerializeField] public basePlayer basePlayer;
     [SerializeField] private baseSurvivalVariant variant;
     PhotonView view;

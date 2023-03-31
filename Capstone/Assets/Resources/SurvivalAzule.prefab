@@ -932,9 +932,9 @@ GameObject:
   - component: {fileID: 1797974062577438461}
   - component: {fileID: 2865964933511870667}
   - component: {fileID: -4720496062662043590}
-  - component: {fileID: 1987957716108175011}
   - component: {fileID: -8626024215362382503}
   - component: {fileID: 5295695062342858387}
+  - component: {fileID: 8471415429315084971}
   m_Layer: 0
   m_Name: SurvivalAzule
   m_TagString: Player
@@ -1049,22 +1049,6 @@ MonoBehaviour:
   variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   turnSpeed: 360
   basePlayer: 0
---- !u!114 &1987957716108175011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2865964933511870666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedd31e9f89282a4aa1ba610c121e9c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackKey: 106
-  characterAnimation: {fileID: 8822005849326024714}
-  basePlayer: 0
-  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
 --- !u!114 &-8626024215362382503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1124,22 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &8471415429315084971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865964933511870666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93775af8e2b81c44872aebe5db3db4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackKey: 106
+  basePlayer: 0
+  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
+  isMelee: 1
 --- !u!1 &2922234583363792625
 GameObject:
   m_ObjectHideFlags: 0

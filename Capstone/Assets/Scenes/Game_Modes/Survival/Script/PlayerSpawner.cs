@@ -74,11 +74,11 @@ public class PlayerSpawner : MonoBehaviour
             {
                 var player = Instantiate(characterModel.CharacterModel, playerTransform.position, playerTransform.rotation);
                 var playerMovement = player.GetComponent<PlayerMultiplayer>();
-                var meleeAttack_adventure = player.GetComponent<meleeAttack_adventure>();
+                var survivalAttack = player.GetComponent<Player_Survival_Attack>();
                 if (playerMovement != null)
                 {
                     playerMovement.basePlayer = basePlayer;
-                    meleeAttack_adventure.basePlayer = basePlayer;
+                    survivalAttack.basePlayer = basePlayer;
                 }
                 break;
             }
