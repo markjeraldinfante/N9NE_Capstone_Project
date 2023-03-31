@@ -48,17 +48,22 @@ public class Player_Survival_Attack : MonoBehaviour
                     break;
             }
         }
-        else
+        else if (variant.variantType == baseSurvivalVariant.VariantType.Online)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            view = GetComponent<PhotonView>();
+            if (view.IsMine)
             {
-                if (isMelee)
+                if (Input.GetKeyDown(KeyCode.J))
                 {
-                    characterAnimation.SetTrigger("melee");
+                    if (isMelee)
+                    {
+                        characterAnimation.SetTrigger("melee");
+                    }
+                    characterAnimation.SetTrigger("RangeAttack");
                 }
-                characterAnimation.SetTrigger("RangeAttack");
             }
         }
+
 
     }
 
