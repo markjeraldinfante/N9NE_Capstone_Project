@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] public bool isProne;
     public bool isFacingRight = true;
-
+    [SerializeField] private bool isOnWires;
 
 
     private void Awake()
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isProne = false;
         isGrounded = true;
+        isOnWires = false;
     }
 
     private void FixedUpdate()
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
             ProneCheck(isProne);
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && !isOnWires)
         {
             isProne = false;
             ProneCheck(isProne);
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -110,12 +112,35 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
         {
             isGrounded = false;
+        }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = true;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = false;
         }
     }
 

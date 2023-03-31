@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class AdventureGameOver : MonoBehaviour
 {
+
     public float delayTime;
     public Image overlay;
     public float fadeTime = 0.5f;
@@ -14,15 +15,22 @@ public class AdventureGameOver : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEntity.isDead += GameOverScene;
+
+        EntityHealth.characterIsDead += GameOverScene;
+
     }
-    private void OnDisable()
+
+    private void OnDestroy()
     {
-        PlayerEntity.isDead -= GameOverScene;
+
+        EntityHealth.characterIsDead -= GameOverScene;
+
     }
+
 
     private void GameOverScene()
     {
+        LeanTween.reset();
         // Show the overlay
         overlay.gameObject.SetActive(true);
 

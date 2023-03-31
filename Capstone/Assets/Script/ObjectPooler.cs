@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField] private GameObject pooledObject;
+    [SerializeField] private GameObject batoObject;
+
     [SerializeField] private int poolSize;
     [SerializeField] private Transform parentTransform;
     TrailRenderer trail;
@@ -13,10 +14,10 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
-        trail = pooledObject.GetComponent<TrailRenderer>();
+        trail = batoObject.GetComponent<TrailRenderer>();
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(pooledObject);
+            GameObject obj = Instantiate(batoObject);
             obj.SetActive(false);
             obj.transform.parent = parentTransform;
             pool.Add(obj);
@@ -42,7 +43,7 @@ public class ObjectPooler : MonoBehaviour
             }
         }
 
-        GameObject obj = Instantiate(pooledObject);
+        GameObject obj = Instantiate(batoObject);
         obj.SetActive(false);
         obj.transform.parent = parentTransform;
         pool.Add(obj);

@@ -1177,7 +1177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 65
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3799232200727689517
 Transform:
   m_ObjectHideFlags: 0
@@ -4007,7 +4007,7 @@ MonoBehaviour:
   weaponCollider: {fileID: 4136471623565224651}
   minDistanceToPlayer: 0.02
   movementSpeed: 3
-  attackRange: 0.5
+  attackRange: 1
   attackCooldown: 1
   chaseRange: 4
   maxChaseTime: 100
@@ -4030,6 +4030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0534e301147ebf441bcf623674fc569a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
   hitPoint:
   - {fileID: 8259229470325308924}
@@ -4045,7 +4046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
+  maxHealth: 10
   currentHealth: 0
   healthBar: {fileID: 6236536617510944752}
   damageOverlay: {fileID: 0}

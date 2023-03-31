@@ -36,7 +36,7 @@ public class AdventurePlayer : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        characterAnimation.SetTrigger("slingAttack");
+        characterAnimation.SetTrigger("RangeAttack");
         yield return new WaitForSeconds(0.1f);
 
         GameObject bato = batoPooler.GetPooledObject(1f);

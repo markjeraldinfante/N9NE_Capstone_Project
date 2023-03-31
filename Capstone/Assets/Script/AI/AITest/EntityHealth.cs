@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+    public delegate void CharacterIsDead();
+    public static event CharacterIsDead characterIsDead;
     public event System.Action OnDeath;
     GameObject gameHUD;
     Transform cacheGameHUD;
@@ -52,6 +54,11 @@ public class EntityHealth : MonoBehaviour
             currentHealth -= damageAmount;
             healthBar.SetHealth(currentHealth);
             damageOverlay.ShowDamage(damageAmount);
+            if (currentHealth <= 0)
+            {
+                characterIsDead?.Invoke();
+
+            }
         }
         else
         {

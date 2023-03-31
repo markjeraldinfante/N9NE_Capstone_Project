@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
-    public delegate void CharacterIsDead();
-    public static event CharacterIsDead isDead;
+
     [SerializeField] Animator animator;
     EntityHealth health;
     GameObject hitPoint;
+    public bool isForMelee;
+    Melee_Adventure melee = null;
+    AdventurePlayer longRange = null;
 
     void Awake()
     {
@@ -16,12 +18,39 @@ public class PlayerEntity : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
     }
-    void Update()
+    private void Start()
     {
-        if (health.currentHealth <= -0)
+        if (isForMelee)
         {
+            melee = GetComponent<Melee_Adventure>();
+        }
+        else
+            longRange = GetComponent<AdventurePlayer>();
+    }
+    private void OnEnable()
+    {
+        EntityHealth.characterIsDead += ResetAnimator;
+    }
+    private void OnDestroy()
+    {
+        EntityHealth.characterIsDead -= ResetAnimator;
+    }
+
+    void ResetAnimator()
+    {
+        if (isForMelee)
+        {
+            melee.enabled = false;
+            animator.ResetTrigger("melee");
             animator.SetTrigger("isDead");
-            isDead?.Invoke();
+            return;
+        }
+        else
+        {
+            animator.ResetTrigger("RangeAttack");
+            animator.SetTrigger("isDead");
+            longRange.enabled = false;
+            return;
         }
     }
 

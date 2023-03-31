@@ -23,12 +23,12 @@ public class MobsScriptAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
         health.OnDeath += EnemyisDead;
-        PlayerEntity.isDead += PlayerisDead;
+        EntityHealth.characterIsDead += PlayerisDead;
     }
     private void OnDestroy()
     {
         health.OnDeath -= EnemyisDead;
-        PlayerEntity.isDead -= PlayerisDead;
+        EntityHealth.characterIsDead -= PlayerisDead;
     }
     private void PlayerisDead()
     {
@@ -119,7 +119,16 @@ public class MobsScriptAI : MonoBehaviour
         if (rb != null)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
-            rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+
+            // Check if the enemy is on the ground
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.2f))
+            {
+                if (hit.collider.tag == "ground")
+                {
+                    rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+                }
+            }
         }
     }
 
