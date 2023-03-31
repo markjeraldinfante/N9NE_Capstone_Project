@@ -19,8 +19,12 @@ public class MobsScriptAI : MonoBehaviour
         weaponCollider.enabled = false;
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
+        PlayerEntity.isDead += CharacterIsDead;
     }
-
+    private void CharacterIsDead()
+    {
+        currentState = State.Idle;
+    }
     void Update()
     {
         // Check if the player is within the detection range
