@@ -21,7 +21,7 @@ public class Enemyhealth : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0) { Destroy(enemyGameboject); wave.currentEnemy--; }
+        if (currentHealth <= 0) { Destroy(enemyGameboject); wave.KilledEnemy(); }
 
     }
     void TakeDamage(int damage)

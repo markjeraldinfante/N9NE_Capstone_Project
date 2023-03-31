@@ -79,6 +79,9 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
     }
-
+    public void KilledEnemy()
+    {
+        currentEnemy--;
+    }
 
 }
