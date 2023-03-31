@@ -5,59 +5,73 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     [SerializeField] private GameObject batoObject;
-
-    [SerializeField] private int poolSize;
+    [SerializeField] private GameObject newObject;
+    [SerializeField] private int batoPoolSize;
+    [SerializeField] private int newPoolSize;
     [SerializeField] private Transform parentTransform;
-    TrailRenderer trail;
 
-    private List<GameObject> pool = new List<GameObject>();
+    private List<GameObject> batoPool = new List<GameObject>();
+    private List<GameObject> newPool = new List<GameObject>();
 
     private void Awake()
     {
-        trail = batoObject.GetComponent<TrailRenderer>();
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < batoPoolSize; i++)
         {
             GameObject obj = Instantiate(batoObject);
             obj.SetActive(false);
             obj.transform.parent = parentTransform;
-            pool.Add(obj);
+            batoPool.Add(obj);
+        }
+
+        for (int i = 0; i < newPoolSize; i++)
+        {
+            GameObject obj = Instantiate(newObject);
+            obj.SetActive(false);
+            obj.transform.parent = parentTransform;
+            newPool.Add(obj);
         }
     }
 
-    public GameObject GetPooledObject(float destroyTime)
+    public GameObject GetPooledObject(bool useNewObject, float destroyTime)
     {
+        List<GameObject> pool = useNewObject ? newPool : batoPool;
+        int poolSize = useNewObject ? newPoolSize : batoPoolSize;
+
         for (int i = 0; i < poolSize; i++)
         {
             if (!pool[i].activeInHierarchy)
             {
+                GameObject obj = pool[i];
 
-                pool[i].SetActive(false);
-                pool[i].transform.position = Vector3.zero;
-                pool[i].transform.rotation = Quaternion.identity;
-                pool[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+                obj.SetActive(false);
+                obj.transform.position = Vector3.zero;
+                obj.transform.rotation = Quaternion.identity;
+                obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-                pool[i].SetActive(true);
-                StartCoroutine(DestroyAfterTime(pool[i], destroyTime));
+                obj.SetActive(true);
+                StartCoroutine(DestroyAfterTime(obj, destroyTime));
 
-                return pool[i];
+                return obj;
             }
         }
 
-        GameObject obj = Instantiate(batoObject);
-        obj.SetActive(false);
-        obj.transform.parent = parentTransform;
-        pool.Add(obj);
+        GameObject newObj = Instantiate(useNewObject ? newObject : batoObject);
+        newObj.SetActive(false);
+        newObj.transform.parent = parentTransform;
 
-        obj.SetActive(true);
-        StartCoroutine(DestroyAfterTime(obj, destroyTime));
+        pool.Add(newObj);
 
-        return obj;
+        newObj.SetActive(true);
+        StartCoroutine(DestroyAfterTime(newObj, destroyTime));
+
+        return newObj;
     }
+
     private IEnumerator DestroyAfterTime(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
-        trail.Clear();
-        obj.transform.parent = parentTransform;
+
         obj.SetActive(false);
+        obj.transform.parent = parentTransform;
     }
 }
