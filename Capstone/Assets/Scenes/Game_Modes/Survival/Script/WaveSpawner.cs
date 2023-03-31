@@ -19,6 +19,7 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdownText;
     [PunRPC] public int currentEnemy;
     [PunRPC] private int waveNumber = 0;
+    PhotonView photonView;
 
 
     // Update is called once per frame
@@ -35,6 +36,11 @@ public class WaveSpawner : MonoBehaviour
             countdown -= Time.deltaTime;
             waveCountdownText.text = string.Format("{0:00.00}", countdown);
         }
+    }
+    [PunRPC]
+    void UpdateCurrentEnemy(int enemyCount)
+    {
+        currentEnemy = enemyCount;
     }
 
     IEnumerator Spawnwave()
@@ -85,10 +91,13 @@ public class WaveSpawner : MonoBehaviour
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                photonView = GetComponent<PhotonView>();
                 currentEnemy--;
+                photonView.RPC("UpdateCurrentEnemy", RpcTarget.All, currentEnemy);
             }
         }
         else if (variant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
     }
+
 
 }
