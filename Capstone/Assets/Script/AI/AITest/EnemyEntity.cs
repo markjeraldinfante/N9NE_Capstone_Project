@@ -22,12 +22,12 @@ public class EnemyEntity : MonoBehaviour
 
     private void OnDeath()
     {
-        health.Die(animator, enemyGameObject);
+        health.Die(animator, enemyGameObject, 4f);
         ParticleSystem particleSystem = Instantiate(particles, transform.position, Quaternion.identity);
         particleSystem.Play();
         Debug.Log("Enemy died");
         ParticleSystem.MainModule mainModule = particleSystem.main;
-        mainModule.startLifetime = 3.0f;
+        mainModule.startLifetime = 1.0f;
     }
 
 }
