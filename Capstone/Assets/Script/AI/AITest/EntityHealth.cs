@@ -72,7 +72,6 @@ public class EntityHealth : MonoBehaviour
     {
         BossScript bossScript = GetComponent<BossScript>();
         anim.SetBool("isDead", true);
-        GetComponent<CapsuleCollider>().enabled = true;
         Destroy(obj, destroyTime);
         this.enabled = false;
 
