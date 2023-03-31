@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
+    public ParticleSystem particles;
     [SerializeField] Animator animator;
     EntityHealth health;
     public GameObject[] hitPoint;
@@ -16,15 +17,17 @@ public class EnemyEntity : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
         enemyGameObject = this.gameObject;
-    }
-    void Update()
-    {
-        if (health.currentHealth <= 0)
-        {
-            // Dead();
-            health.Die(animator, enemyGameObject);
-        }
+        health.OnDeath += OnDeath;
     }
 
+    private void OnDeath()
+    {
+        health.Die(animator, enemyGameObject);
+        ParticleSystem particleSystem = Instantiate(particles, transform.position, Quaternion.identity);
+        particleSystem.Play();
+        Debug.Log("Enemy died");
+        ParticleSystem.MainModule mainModule = particleSystem.main;
+        mainModule.startLifetime = 3.0f;
+    }
 
 }
