@@ -66,6 +66,7 @@ public class WaveSpawner : MonoBehaviour
         {
             enemyTrans = PhotonNetwork.Instantiate(enemyPrefab.name, spawnPointsRandom, spawnPoints1.rotation);
             currentEnemy++;
+            return;
         }
         else
         {
