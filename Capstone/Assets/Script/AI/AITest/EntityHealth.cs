@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
+    public event System.Action OnDeath;
     GameObject gameHUD;
     Transform cacheGameHUD;
     public float maxHealth = 100;
@@ -56,6 +57,14 @@ public class EntityHealth : MonoBehaviour
         {
             currentHealth -= damageAmount;
             healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                if (OnDeath != null)
+                {
+                    OnDeath();
+                }
+            }
         }
     }
 
