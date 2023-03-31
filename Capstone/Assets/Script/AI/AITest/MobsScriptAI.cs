@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobsScriptAI : MonoBehaviour
 {
+    EntityHealth health;
     public Collider weaponCollider;
     private const string playerTag = "Player";
     private GameObject player;
@@ -13,22 +14,33 @@ public class MobsScriptAI : MonoBehaviour
     public float attackRange = 1f;
     public enum State { Idle, Attack, Chase };
     public State currentState = State.Idle;
-
+    Rigidbody rb;
     void Start()
     {
+        health = GetComponent<EntityHealth>();
+        rb = GetComponent<Rigidbody>();
         weaponCollider.enabled = false;
         player = GameObject.FindGameObjectWithTag(playerTag);
         animator = GetComponent<Animator>();
-        PlayerEntity.isDead += CharacterIsDead;
+        health.OnDeath += EnemyisDead;
     }
-    private void CharacterIsDead()
+    private void EnemyisDead()
     {
+        Debug.Log("Player is dead, setting enemy to idle state");
         currentState = State.Idle;
+        player = null;
+        Debug.Log("Player reference set to null");
     }
+
     void Update()
     {
         // Check if the player is within the detection range
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        float distanceToPlayer = 0f;
+        if (player != null)
+        {
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        }
+
         switch (currentState)
         {
             case State.Idle:
@@ -39,6 +51,12 @@ public class MobsScriptAI : MonoBehaviour
                 }
                 break;
             case State.Chase:
+                if (player == null)
+                {
+                    currentState = State.Idle;
+                    break;
+                }
+
                 if (distanceToPlayer <= attackRange)
                 {
                     currentState = State.Attack;
@@ -46,7 +64,6 @@ public class MobsScriptAI : MonoBehaviour
                 else if (distanceToPlayer > detectionRange)
                 {
                     currentState = State.Idle;
-
                 }
                 else
                 {
@@ -64,6 +81,7 @@ public class MobsScriptAI : MonoBehaviour
                     }
                 }
                 break;
+
             case State.Attack:
                 if (distanceToPlayer > attackRange)
                 {
@@ -86,7 +104,7 @@ public class MobsScriptAI : MonoBehaviour
     {
         weaponCollider.enabled = false;
         animator.SetBool("chasing", true);
-        Rigidbody rb = GetComponent<Rigidbody>();
+
         if (rb != null)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
