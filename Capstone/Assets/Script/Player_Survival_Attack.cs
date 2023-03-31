@@ -48,6 +48,17 @@ public class Player_Survival_Attack : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                if (isMelee)
+                {
+                    characterAnimation.SetTrigger("melee");
+                }
+                characterAnimation.SetTrigger("RangeAttack");
+            }
+        }
 
     }
 
