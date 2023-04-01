@@ -14,6 +14,7 @@ public class MobsScriptAI : MonoBehaviour
     public float attackRange = 1f;
     public enum State { Idle, Attack, Chase };
     public State currentState = State.Idle;
+    public bool isAttacked;
     Rigidbody rb;
     void Start()
     {
@@ -52,6 +53,11 @@ public class MobsScriptAI : MonoBehaviour
             distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         }
 
+        if (isAttacked)
+        {
+            currentState = State.Chase;
+        }
+
         switch (currentState)
         {
             case State.Idle:
@@ -65,16 +71,20 @@ public class MobsScriptAI : MonoBehaviour
                 if (player == null)
                 {
                     currentState = State.Idle;
+                    isAttacked = false;
                     break;
                 }
 
                 if (distanceToPlayer <= attackRange)
                 {
                     currentState = State.Attack;
+                    isAttacked = false;
                 }
-                else if (distanceToPlayer > detectionRange)
+                else if (distanceToPlayer > detectionRange && !isAttacked)
                 {
                     currentState = State.Idle;
+                    isAttacked = false;
+                    break;
                 }
                 else
                 {
@@ -94,6 +104,11 @@ public class MobsScriptAI : MonoBehaviour
                 break;
 
             case State.Attack:
+                if (player == null)
+                {
+                    currentState = State.Idle;
+                    break;
+                }
                 if (distanceToPlayer > attackRange)
                 {
                     currentState = State.Chase;
@@ -102,13 +117,17 @@ public class MobsScriptAI : MonoBehaviour
                 else
                 {
                     Attacking(); // continue attacking animation when enemy is attacking
+                                 // Attack the player
+
+
+
                 }
                 break;
         }
 
-        // Set the animator state based on the current state
-        // animator.SetInteger("state", (int)currentState);
+
     }
+
 
 
     private void Chasing()
@@ -140,6 +159,7 @@ public class MobsScriptAI : MonoBehaviour
     }
     private void Attacking()
     {
+        animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
         weaponCollider.enabled = true;
     }

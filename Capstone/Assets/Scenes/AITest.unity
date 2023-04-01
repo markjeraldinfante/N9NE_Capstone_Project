@@ -145,6 +145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carp
       objectReference: {fileID: 0}
+    - target: {fileID: 7322553183057569247, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8085694700554916079, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -187,6 +191,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8085694700554916079, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1909,15 +1921,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 146321874794801247, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 146321874794801247, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4954317503117833371, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_Name
       value: Ninjaicepick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954317503117833371, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5731557481380245025, guid: 24be0ceecbe703143af89ec05d383514, type: 3}
       propertyPath: m_RootOrder
@@ -6292,6 +6308,10 @@ PrefabInstance:
     - target: {fileID: 4839410712249824867, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
       propertyPath: m_Name
       value: Ninjacrowbar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839410712249824867, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5215971886335175897, guid: f3c377398889eb64583a6d0cebfd7a6d, type: 3}
       propertyPath: m_RootOrder
@@ -24745,6 +24765,7 @@ MonoBehaviour:
   detectionRange: 3
   attackRange: 0.8
   currentState: 0
+  isAttacked: 0
 --- !u!33 &9187616623874111442
 MeshFilter:
   m_ObjectHideFlags: 0
