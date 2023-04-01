@@ -17,7 +17,8 @@ public class EntityHealth : MonoBehaviour
     [SerializeField] private bool forPlayer;
     public bool isInvulnerable;
     GameObject gameHUDObject;
-
+    Slider lifeSlider;
+    Image lifeColor;
     private void Awake()
     {
         if (forPlayer)
@@ -30,7 +31,9 @@ public class EntityHealth : MonoBehaviour
                 cacheGameHUD = gameHUDObject.transform;
                 gameHUD = cacheGameHUD.gameObject;
                 healthBar = gameHUD.GetComponentInChildren<HealthBar>();
+                lifeSlider = healthBar.getSlider();
                 damageOverlay = gameHUD.GetComponent<DamageOverlay>();
+                lifeColor = lifeSlider.fillRect.GetComponent<Image>();
                 Debug.Log("damageOverlay assigned: " + damageOverlay);
                 Debug.Log("healthBar assigned: " + healthBar);
             }
@@ -50,7 +53,7 @@ public class EntityHealth : MonoBehaviour
     }
     void Update()
     {
-        if (lifeColor != null) // Add null check
+        if (forPlayer)
         {
             if (currentHealth >= 80f)
             {
@@ -61,17 +64,17 @@ public class EntityHealth : MonoBehaviour
                 // Yellowish orange
                 lifeColor.color = new Color(1f, 0.93f, 0f, 1f);
             }
-            else if (currentHealth >= 40f)
+            else if (currentHealth >= 30f)
             {
                 // Red orange
-                lifeColor.color = new Color(1f, 0.33f, 0f, 1f);
+                lifeColor.color = new Color(1f, 0.50f, 0f, 1f);
             }
             else
             {
                 lifeColor.color = Color.red;
             }
         }
-        else Debug.Log("LifeColor is empty");
+
     }
 
 
