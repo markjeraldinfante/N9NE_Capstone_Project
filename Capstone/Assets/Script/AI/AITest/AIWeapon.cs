@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIWeapon : MonoBehaviour
 {
+    public float enemyDamage = 5f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("char_head") || other.gameObject.CompareTag("char_body") || other.gameObject.CompareTag("char_leftfoot") || other.gameObject.CompareTag("char_rightfoot"))
@@ -11,7 +12,7 @@ public class AIWeapon : MonoBehaviour
             EntityHealth entityHealth = other.GetComponentInParent<EntityHealth>();
             if (entityHealth != null)
             {
-                entityHealth.TakeDamage(20);
+                entityHealth.TakeDamage(enemyDamage);
                 Debug.Log("Damage");
             }
         }

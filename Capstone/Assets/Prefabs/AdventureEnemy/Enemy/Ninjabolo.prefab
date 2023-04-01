@@ -1900,7 +1900,7 @@ Transform:
   m_GameObject: {fileID: 7298842158870327161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 35.1, y: 28.2, z: 44.6}
+  m_LocalScale: {x: 35.1, y: 28.2, z: 44.599995}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5892199663619701534}
@@ -2711,8 +2711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint:
-  - {fileID: 5679364893321702583}
+  hitPoint: {fileID: 5679364893321702583}
 --- !u!114 &8516830854653512738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2771,6 +2770,7 @@ MonoBehaviour:
   detectionRange: 4
   attackRange: 0.8
   currentState: 0
+  isAttacked: 0
 --- !u!1 &7391267536756900746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,11 +3671,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934710814869890617, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_Name

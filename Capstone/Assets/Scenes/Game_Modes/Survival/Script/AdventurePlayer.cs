@@ -14,6 +14,7 @@ public class AdventurePlayer : MonoBehaviour
     [SerializeField] private bool canAttack = true;
     [SerializeField] private bool isAttacking = false;
     [SerializeField] Transform hitpoint;
+    public bool isForRico;
     private void Start()
     {
         characterAnimation = GetComponent<Animator>();
@@ -39,7 +40,7 @@ public class AdventurePlayer : MonoBehaviour
         characterAnimation.SetTrigger("RangeAttack");
         yield return new WaitForSeconds(0.1f);
 
-        GameObject bato = batoPooler.GetPooledObject(true, 1f);
+        GameObject bato = batoPooler.GetPooledObject(isForRico, 1f);
         if (bato != null)
         {
             bato.transform.position = weaponSpawnPoint.position;

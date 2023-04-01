@@ -7,7 +7,7 @@ public class EnemyEntity : MonoBehaviour
     public ParticleSystem particles;
     [SerializeField] Animator animator;
     EntityHealth health;
-    public GameObject[] hitPoint;
+    public GameObject hitPoint;
     BossScript bossScript;
     GameObject enemyGameObject;
 
@@ -22,6 +22,7 @@ public class EnemyEntity : MonoBehaviour
 
     private void OnDeath()
     {
+        hitPoint.SetActive(false);
         health.Die(animator, enemyGameObject, 4f);
         ParticleSystem particleSystem = Instantiate(particles, transform.position, Quaternion.identity);
         particleSystem.Play();

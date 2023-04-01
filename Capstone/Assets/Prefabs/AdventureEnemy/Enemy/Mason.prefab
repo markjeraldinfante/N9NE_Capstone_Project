@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 488212127085568410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 54.9, y: 47, z: 55.4}
+  m_LocalScale: {x: 54.900005, y: 47, z: 55.400005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1005792926340561961}
@@ -949,8 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint:
-  - {fileID: 8779451708429469356}
+  hitPoint: {fileID: 8779451708429469356}
 --- !u!54 &1445164191086121053
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -984,6 +983,7 @@ MonoBehaviour:
   detectionRange: 4
   attackRange: 0.8
   currentState: 0
+  isAttacked: 0
 --- !u!1 &558838965178694347
 GameObject:
   m_ObjectHideFlags: 0

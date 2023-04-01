@@ -2244,7 +2244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8085694700554916079
 Transform:
   m_ObjectHideFlags: 0
@@ -2663,10 +2663,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.16891038
-  m_Height: 1.0711794
+  m_Radius: 0.13158289
+  m_Height: 1.0193729
   m_Direction: 1
-  m_Center: {x: 0.33514854, y: 0.057299484, z: -0.18462949}
+  m_Center: {x: 0.677372, y: 0.08320291, z: -0.18462946}
 --- !u!114 &1342879407576952379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,8 +2681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint:
-  - {fileID: 7105516734499271785}
+  hitPoint: {fileID: 7105516734499271785}
 --- !u!114 &3248985051806588635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,6 +2699,7 @@ MonoBehaviour:
   detectionRange: 3
   attackRange: 0.8
   currentState: 0
+  isAttacked: 0
 --- !u!1 &7514947113001500858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,11 +3339,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934710814869890617, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_Name
