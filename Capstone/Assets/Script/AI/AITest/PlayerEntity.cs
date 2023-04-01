@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
-
+    [SerializeField] private basePlayerSelect playerSelect;
     [SerializeField] Animator animator;
     EntityHealth health;
     GameObject hitPoint;
@@ -42,16 +42,47 @@ public class PlayerEntity : MonoBehaviour
         {
             melee.enabled = false;
             animator.ResetTrigger("melee");
+            SoundChecker();
             animator.SetTrigger("isDead");
             return;
         }
         else
         {
             animator.ResetTrigger("RangeAttack");
+            SoundChecker();
             animator.SetTrigger("isDead");
             longRange.enabled = false;
             return;
         }
+    }
+    void SoundChecker()
+    {
+        if (playerSelect.CharacterID == "1")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("OmarDeath");
+            return;
+        }
+
+        if (playerSelect.CharacterID == "2")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("JunnieDeath");
+            return;
+        }
+        if (playerSelect.CharacterID == "3")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("RicoDeath");
+            return;
+        }
+        if (playerSelect.CharacterID == "4")
+        {
+
+            // somnium.SoundManager.instance.PlaySFX("AzuleDeath");
+            return;
+        }
+
     }
 
 }

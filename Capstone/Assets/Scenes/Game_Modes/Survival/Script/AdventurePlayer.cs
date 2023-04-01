@@ -15,11 +15,28 @@ public class AdventurePlayer : MonoBehaviour
     [SerializeField] private bool isAttacking = false;
     [SerializeField] Transform hitpoint;
     public bool isForRico;
+    public bool isForOmar;
+
     private void Start()
     {
         characterAnimation = GetComponent<Animator>();
         batoPooler = GameObject.FindGameObjectWithTag("ObjPool").GetComponent<ObjectPooler>();
         playerController = GetComponent<PlayerController>();
+    }
+    void SoundChecker()
+    {
+        if (isForOmar)
+        {
+            somnium.SoundManager.instance.PlaySFX("OmarAttack");
+            return;
+        }
+
+        if (isForRico)
+        {
+            somnium.SoundManager.instance.PlaySFX("RicoAttack");
+            return;
+        }
+
     }
     private void Update()
     {
@@ -37,6 +54,7 @@ public class AdventurePlayer : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        SoundChecker();
         characterAnimation.SetTrigger("RangeAttack");
         yield return new WaitForSeconds(0.1f);
 

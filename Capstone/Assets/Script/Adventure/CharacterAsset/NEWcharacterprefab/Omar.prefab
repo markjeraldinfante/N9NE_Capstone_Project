@@ -1358,7 +1358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbec015d374ad5e44aec5859afad95d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 11400000, guid: c19b90bcf43fc6a468f6dbd8c042e8a0, type: 2}
   animator: {fileID: 0}
+  isForMelee: 0
 --- !u!114 &6700716416518516243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 11400000, guid: c19b90bcf43fc6a468f6dbd8c042e8a0, type: 2}
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
@@ -2863,6 +2866,8 @@ MonoBehaviour:
   canAttack: 1
   isAttacking: 0
   hitpoint: {fileID: 0}
+  isForRico: 0
+  isForOmar: 1
 --- !u!136 &3104345368651364708
 CapsuleCollider:
   m_ObjectHideFlags: 0

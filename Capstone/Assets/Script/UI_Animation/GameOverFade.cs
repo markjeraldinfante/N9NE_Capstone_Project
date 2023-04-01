@@ -37,7 +37,7 @@ public class GameOverFade : MonoBehaviour
         LeanTween.value(gameTextImage.gameObject, new Color(0f, 0f, 0f, 0f), new Color(1f, 1f, 1f, 1f), fadeDuration)
             .setEase(LeanTweenType.easeInOutSine)
             .setOnUpdate((Color value) => gameTextImage.color = value);
-
+        somnium.SoundManager.instance.PlaySFX("GameOverVoiceOver");
         LeanTween.value(button1Text.gameObject, new Color(0f, 0f, 0f, 0f), new Color(1f, 1f, 1f, 1f), fadeDuration)
             .setEase(LeanTweenType.easeInOutSine)
             .setOnUpdate((Color value) => button1Text.color = value);

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EntityHealth : MonoBehaviour
 {
+    [SerializeField] private basePlayerSelect playerSelect;
     public delegate void CharacterIsDead();
     public static event CharacterIsDead characterIsDead;
     public event System.Action OnDeath;
@@ -15,12 +16,14 @@ public class EntityHealth : MonoBehaviour
     public DamageOverlay damageOverlay;
     [SerializeField] private bool forPlayer;
     public bool isInvulnerable;
+    GameObject gameHUDObject;
+
     private void Awake()
     {
         if (forPlayer)
         {
             Debug.Log("Searching for GameHUD object...");
-            GameObject gameHUDObject = GameObject.FindGameObjectWithTag("GameHUD");
+            gameHUDObject = GameObject.FindGameObjectWithTag("GameHUD");
             if (gameHUDObject != null && gameHUDObject.activeSelf)
             {
 
@@ -45,6 +48,32 @@ public class EntityHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
+    void Update()
+    {
+        if (lifeColor != null) // Add null check
+        {
+            if (currentHealth >= 80f)
+            {
+                lifeColor.color = Color.green;
+            }
+            else if (currentHealth >= 60f)
+            {
+                // Yellowish orange
+                lifeColor.color = new Color(1f, 0.93f, 0f, 1f);
+            }
+            else if (currentHealth >= 40f)
+            {
+                // Red orange
+                lifeColor.color = new Color(1f, 0.33f, 0f, 1f);
+            }
+            else
+            {
+                lifeColor.color = Color.red;
+            }
+        }
+        else Debug.Log("LifeColor is empty");
+    }
+
 
     public void TakeDamage(float damageAmount)
     {
@@ -83,6 +112,56 @@ public class EntityHealth : MonoBehaviour
         this.enabled = false;
 
     }
+    void SoundChecker()
+    {
+        if (playerSelect.CharacterID == "1")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("OmarDamageReceive");
+            return;
+        }
+
+        if (playerSelect.CharacterID == "2")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("JunnieDamageReceive");
+            return;
+        }
+        if (playerSelect.CharacterID == "3")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("RicoDamageReceive");
+            return;
+        }
+        if (playerSelect.CharacterID == "4")
+        {
+
+            // somnium.SoundManager.instance.PlaySFX("AzuleDeath");
+            return;
+        }
+
+    }
+    private IEnumerator PlaySoundPeriodically(float interval)
+    {
+        while (true)
+        {
+            SoundChecker();
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
+    // Call this function to start playing the sound every second
+    private void StartPlayingSound()
+    {
+        StartCoroutine(PlaySoundPeriodically(1f));
+    }
+
+    // Call this function to stop playing the sound
+    private void StopPlayingSound()
+    {
+        StopCoroutine(PlaySoundPeriodically(1f));
+    }
+
 
 }
 
