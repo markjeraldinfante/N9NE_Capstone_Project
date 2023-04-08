@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterFoam_mats
-  m_Shader: {fileID: -6465566751694194690, guid: 43b48bcff58e2334ebdb7b40ddbdc9f2, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 02772deb84b28744b8e6ebf6453bba92, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -47,7 +47,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DepthFade: 1.56
+    - _FoamDepth: 0.56
+    - _FoamNoiseScale: 5
+    - _FoamRippleSpeed: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _RippleAmount: 2
+    - _VoronoidScale: 10
+    - _VoronoidSpeed: 2
+    m_Colors:
+    - _DeepColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RippleColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RippleSpeed: {r: 0, g: 0.2, b: 0, a: 0}
+    - _Shallowcolor: {r: 0.6037736, g: 0.5553578, b: 0.5553578, a: 0}
   m_BuildTextureStacks: []
