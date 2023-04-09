@@ -6,11 +6,11 @@ public class SavingState : MonoBehaviour
 {
     public static SavingState instance;
     [Header("Map Data")]
-    [SerializeField] private MapData Upper;
-    [SerializeField] private MapData Lower;
-    [SerializeField] private MapData SaltLake;
-    [SerializeField] private MapData Improve;
-    [SerializeField] private MapData Central;
+    [SerializeField] private MapSO Upper;
+    [SerializeField] private MapSO Lower;
+    [SerializeField] private MapSO SaltLake;
+    [SerializeField] private MapSO Improve;
+    [SerializeField] private MapSO Central;
 
     [Header("Character Data")]
     [SerializeField] private CharacterData Omar;
