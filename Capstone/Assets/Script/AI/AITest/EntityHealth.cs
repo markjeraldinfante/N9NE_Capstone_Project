@@ -19,6 +19,7 @@ public class EntityHealth : MonoBehaviour
     GameObject gameHUDObject;
     Slider lifeSlider;
     Image lifeColor;
+    private float lifePercentage;
     private void Awake()
     {
         if (forPlayer)
@@ -95,6 +96,7 @@ public class EntityHealth : MonoBehaviour
         else
         {
             currentHealth -= damageAmount;
+            lifePercentage = (currentHealth / maxHealth) * 100;
             healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)
             {
@@ -164,7 +166,11 @@ public class EntityHealth : MonoBehaviour
     {
         StopCoroutine(PlaySoundPeriodically(1f));
     }
+    public float GetLifePercentage()
+    {
 
+        return lifePercentage;
+    }
 
 }
 
