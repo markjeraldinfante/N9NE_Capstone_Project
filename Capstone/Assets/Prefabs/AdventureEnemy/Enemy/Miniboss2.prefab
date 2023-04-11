@@ -1295,6 +1295,7 @@ GameObject:
   - component: {fileID: 9010880016523180479}
   - component: {fileID: 859203499122866968}
   - component: {fileID: 3867430265188009071}
+  - component: {fileID: 2519705187055411792}
   m_Layer: 0
   m_Name: Miniboss2
   m_TagString: Untagged
@@ -2790,6 +2791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
   maxHealth: 150
   currentHealth: 0
   healthBar: {fileID: 7163351016308892996}
@@ -2835,9 +2837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0534e301147ebf441bcf623674fc569a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
   animator: {fileID: 0}
-  hitPoint:
-  - {fileID: 3635363869974141233}
+  hitPoint: {fileID: 0}
 --- !u!54 &859203499122866968
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2868,6 +2870,24 @@ CapsuleCollider:
   m_Height: 0.034700606
   m_Direction: 1
   m_Center: {x: 0.012867658, y: 0.017026054, z: 0.00035271083}
+--- !u!114 &2519705187055411792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517675560055922306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 1197395186961297603}
+  moveSpeed: 3
+  detectionRange: 5
+  attackRange: 0.8
+  currentState: 0
+  isAttacked: 0
 --- !u!1 &4524589342260145292
 GameObject:
   m_ObjectHideFlags: 0

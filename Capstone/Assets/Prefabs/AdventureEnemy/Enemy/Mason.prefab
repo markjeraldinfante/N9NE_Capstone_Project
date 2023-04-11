@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 488212127085568410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 54.900005, y: 47, z: 55.400005}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1005792926340561961}
@@ -886,10 +886,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0050419695
+  m_Radius: 0.0061856583
   m_Height: 0.032696437
   m_Direction: 1
-  m_Center: {x: 0.010987242, y: 0.014362435, z: 0}
+  m_Center: {x: 0.02560116, y: 0.014362435, z: 2.8424295e-16}
 --- !u!114 &2110916627774321328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
   maxHealth: 80
   currentHealth: 0
   healthBar: {fileID: 1820553752696487438}

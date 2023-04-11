@@ -1171,13 +1171,14 @@ GameObject:
   - component: {fileID: 8467116310289757810}
   - component: {fileID: 2888801508095181165}
   - component: {fileID: 2336332388519881589}
+  - component: {fileID: 6890858052550750674}
   m_Layer: 0
   m_Name: Quibs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 65
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3799232200727689517
 Transform:
   m_ObjectHideFlags: 0
@@ -3998,7 +3999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607821381976531863}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
   m_Name: 
@@ -4045,12 +4046,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
   maxHealth: 10
   currentHealth: 0
   healthBar: {fileID: 6236536617510944752}
   damageOverlay: {fileID: 0}
   forPlayer: 0
   isInvulnerable: 0
+--- !u!114 &6890858052550750674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607821381976531863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 4136471623565224651}
+  moveSpeed: 3
+  detectionRange: 4
+  attackRange: 0.8
+  currentState: 0
+  isAttacked: 0
 --- !u!1 &4620054218702895898
 GameObject:
   m_ObjectHideFlags: 0
