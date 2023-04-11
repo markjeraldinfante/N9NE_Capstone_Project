@@ -193,7 +193,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1592,7 +1592,6 @@ GameObject:
   - component: {fileID: 4839410712249824864}
   - component: {fileID: 8125460620685104728}
   - component: {fileID: 9091690480780505055}
-  - component: {fileID: 456279720806243593}
   - component: {fileID: 5280874143284613792}
   - component: {fileID: 8197016234427466202}
   - component: {fileID: 1427161471818167346}
@@ -1966,6 +1965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
   maxHealth: 50
   currentHealth: 0
   healthBar: {fileID: 3303924054015105942}
@@ -1986,33 +1986,6 @@ CapsuleCollider:
   m_Height: 0.05631205
   m_Direction: 1
   m_Center: {x: 0.016812233, y: 0.02498414, z: 0}
---- !u!114 &456279720806243593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4839410712249824867}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 6875292264879777136}
-  weaponCollider: {fileID: 268656378173635907}
-  minDistanceToPlayer: 0.02
-  movementSpeed: 2
-  attackRange: 1
-  attackCooldown: 1
-  chaseRange: 4
-  maxChaseTime: 100
-  attackDamage: 5
-  delayBeforeChase: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  isAttacked: 0
-  isBoss: 0
 --- !u!114 &5280874143284613792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,8 +2000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint:
-  - {fileID: 8860263751801060938}
+  hitPoint: {fileID: 8860263751801060938}
 --- !u!54 &8197016234427466202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2062,6 +2034,7 @@ MonoBehaviour:
   detectionRange: 3
   attackRange: 0.8
   currentState: 0
+  isAttacked: 0
 --- !u!1 &4850827133207512173
 GameObject:
   m_ObjectHideFlags: 0
