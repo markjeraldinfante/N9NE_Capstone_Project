@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobsScriptAI : MonoBehaviour
 {
+    public GameObject healthBar;
     EntityHealth health;
     public Collider weaponCollider;
     private const string playerTag = "Player";
@@ -15,9 +16,11 @@ public class MobsScriptAI : MonoBehaviour
     public enum State { Idle, Attack, Chase };
     public State currentState = State.Idle;
     public bool isAttacked;
+    public bool isBoss = false;
     Rigidbody rb;
     void Start()
     {
+        if (!isBoss) { healthBar = null; }
         health = GetComponent<EntityHealth>();
         rb = GetComponent<Rigidbody>();
         weaponCollider.enabled = false;
@@ -134,7 +137,7 @@ public class MobsScriptAI : MonoBehaviour
     {
         weaponCollider.enabled = false;
         animator.SetBool("chasing", true);
-
+        ShowHealthBar(true);
         if (rb != null)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
@@ -156,11 +159,30 @@ public class MobsScriptAI : MonoBehaviour
         weaponCollider.enabled = false;
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", false);
+        ShowHealthBar(false);
     }
     private void Attacking()
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
         weaponCollider.enabled = true;
+        ShowHealthBar(true);
+    }
+    private void ShowHealthBar(bool toShow)
+    {
+        if (toShow)
+        {
+            if (isBoss)
+            {
+                healthBar?.SetActive(true);
+            }
+        }
+        else
+        {
+            if (isBoss)
+            {
+                healthBar?.SetActive(false);
+            }
+        }
     }
 }
