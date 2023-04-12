@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6283811650302093292}
   - component: {fileID: 6283811650302093293}
   - component: {fileID: 6283811650302093266}
-  - component: {fileID: 2166829693604424534}
+  - component: {fileID: 7351389693882021327}
   m_Layer: 5
-  m_Name: ItemSlot
+  m_Name: MiniGameSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2166829693604424534
+--- !u!114 &7351389693882021327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,22 +133,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6283811650302093264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7194af1d37962ad46a7dbda5a5fa815d, type: 3}
+  m_Script: {fileID: 11500000, guid: 27c33e66d26330f4796840d45ae7e22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
-  btn: {fileID: 0}
-  itemName: Meter Stick
-  itemSprite: {fileID: 21300000, guid: 1db3518e1946381419197870868731ec, type: 3}
-  itemDetails: It is the instrument that Azule use when instructing her students.
-    This simple measurement gadget may appear to be innocuous, yet it carries a powerful
-    impact. Its small size enables rapid and simple mobility in small locations.
-  itemLevel: 1
-  itemUpgradeCost: 100
-  itemDamage: 9
-  itemAttackSpeed: 1.3
-  isMaxLevel: 0
-  itemPreview: {fileID: 0}
 --- !u!1 &6283811650619518348
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +148,7 @@ GameObject:
   - component: {fileID: 6283811650619518345}
   - component: {fileID: 6283811650619518350}
   m_Layer: 5
-  m_Name: ItemName
+  m_Name: MiniGameName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +283,7 @@ GameObject:
   - component: {fileID: 6283811651201171378}
   - component: {fileID: 6283811651201171379}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: MiniGameImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
