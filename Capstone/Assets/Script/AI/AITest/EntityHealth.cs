@@ -50,7 +50,11 @@ public class EntityHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (forPlayer)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+        }
+
     }
     void Update()
     {
