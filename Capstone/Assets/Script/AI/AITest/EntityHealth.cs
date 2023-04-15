@@ -59,21 +59,26 @@ public class EntityHealth : MonoBehaviour
             if (currentHealth >= 80f)
             {
                 lifeColor.color = Color.green;
+                healthBar.getPercentageText().color = Color.black;
             }
             else if (currentHealth >= 60f)
             {
                 // Yellowish orange
                 lifeColor.color = new Color(1f, 0.93f, 0f, 1f);
+                healthBar.getPercentageText().color = Color.black;
             }
             else if (currentHealth >= 30f)
             {
                 // Red orange
                 lifeColor.color = new Color(1f, 0.50f, 0f, 1f);
+                healthBar.getPercentageText().color = Color.white;
             }
             else
             {
                 lifeColor.color = Color.red;
+                healthBar.getPercentageText().color = Color.white;
             }
+            healthBar.getPercentageText().text = GetPlayerLifePercentage().ToString() + "%";
         }
 
     }
@@ -96,7 +101,7 @@ public class EntityHealth : MonoBehaviour
         else
         {
             currentHealth -= damageAmount;
-            lifePercentage = (currentHealth / maxHealth) * 100;
+
             healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)
             {
@@ -166,9 +171,9 @@ public class EntityHealth : MonoBehaviour
     {
         StopCoroutine(PlaySoundPeriodically(1f));
     }
-    public float GetLifePercentage()
+    public float GetPlayerLifePercentage()
     {
-
+        lifePercentage = Mathf.RoundToInt((currentHealth / maxHealth) * 100);
         return lifePercentage;
     }
 

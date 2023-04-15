@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7322553183057569247, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8085694700554916079, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_RootOrder
@@ -195,11 +195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846830567979703869, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 260bcfa2c3e290d4b8d9f82fb0a837ca, type: 3}
@@ -14147,6 +14147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 582295703823873298}
+  percentageText: {fileID: 0}
 --- !u!4 &3677063093370591903
 Transform:
   m_ObjectHideFlags: 0
@@ -24828,12 +24829,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   weaponCollider: {fileID: 633477108967537519}
   moveSpeed: 2
   detectionRange: 3
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
+  isBoss: 0
 --- !u!33 &9187616623874111442
 MeshFilter:
   m_ObjectHideFlags: 0
