@@ -8,12 +8,20 @@ public class MiniGameData : ScriptableObject
     public string miniGameName;
     public Sprite miniGameImage;
     public string miniGameDescription;
-    public float miniGameCost;
-    public bool isBought;
+    public int miniGameCost;
+    private bool isBoughtt;
+
+    public bool IsBought { get => isBoughtt; set => isBoughtt = value; }
 
     public float GetMinigameCost()
     {
         return miniGameCost;
+    }
+    public void Purchase(System.Action onPurchase = null)
+    {
+        IsBought = true;
+        // Call the callback, if it exists
+        onPurchase?.Invoke();
     }
 
 }

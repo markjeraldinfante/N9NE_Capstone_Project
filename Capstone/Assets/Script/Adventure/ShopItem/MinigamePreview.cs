@@ -17,7 +17,7 @@ public class MinigamePreview : MonoBehaviour
 
     private void Awake()
     {
-        buyButton.onClick.AddListener(() => DisplayMinigame(selectedMinigameData));
+        buyButton.onClick.AddListener(() => PurchaseMiniGame(selectedMinigameData));
 
     }
     public void DisplayMinigame(MiniGameData miniGameData)
@@ -28,7 +28,7 @@ public class MinigamePreview : MonoBehaviour
         minigameImage.sprite = miniGameData.miniGameImage;
         minigameDescription.text = miniGameData.miniGameDescription;
         buyButtonText.text = "Purchase Cost: " + miniGameData.GetMinigameCost();
-        if (miniGameData.isBought)
+        if (miniGameData.IsBought)
         {
             buyButton.enabled = false;
             buyButtonText.text = "Purchased";
@@ -38,7 +38,22 @@ public class MinigamePreview : MonoBehaviour
             buyButton.enabled = true;
         }
     }
+    public void PurchaseMiniGame(MiniGameData miniGameData)
+    {
+        var gameSystem = new GameSystem();
+        if (DBHandler.instance.MainPlayerDB.TansoCount >= miniGameData.miniGameCost)
+        {
 
+            DBHandler.instance.MainPlayerDB.TansoCount -= miniGameData.miniGameCost;
+            gameSystem.Save(DBHandler.instance.MainPlayerDB.TansoCount, PlayerPrefKeys.TANSO);
+            miniGameData.Purchase(() => DisplayMinigame(miniGameData));
+        }
+        else
+        {
+            Debug.Log("Not enough tanso");
+            errorMessage.text = "Not enough tanso";
+        }
+    }
 
 
 }
