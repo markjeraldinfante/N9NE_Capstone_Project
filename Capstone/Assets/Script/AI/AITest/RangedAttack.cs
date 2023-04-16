@@ -60,7 +60,7 @@ public class RangedAttack : MonoBehaviour
         else if (currentState == "AttackState")
         {
             animator.SetBool("isAttacking", true);
-            if (shotcooldown <= 0 )
+            if (shotcooldown <= 0)
             {
                 Instantiate(Bullet, projectileSpawnPoint.position, transform.rotation);
                 shotcooldown = startshotcooldown;
@@ -69,7 +69,7 @@ public class RangedAttack : MonoBehaviour
             {
                 shotcooldown -= Time.deltaTime;
             }
-            
+
             if (distance > attackRange)
                 currentState = "ChaseState";
         }

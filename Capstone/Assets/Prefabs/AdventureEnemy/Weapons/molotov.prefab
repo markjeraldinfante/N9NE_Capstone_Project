@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 965793650249639010}
   - component: {fileID: 8832555498781585184}
   - component: {fileID: 65090045469259012}
+  - component: {fileID: 3358069254934167491}
   m_Layer: 0
   m_Name: molotov
   m_TagString: Untagged
@@ -110,9 +111,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614483588426401207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f80a82a287e4954f963f409f2769351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &3358069254934167491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614483588426401207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6210c3f85174ccd4196c88c6d132e25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 0}
+  explosionDelay: 3
+  projectileRange: 1800
+  spinForce: 50

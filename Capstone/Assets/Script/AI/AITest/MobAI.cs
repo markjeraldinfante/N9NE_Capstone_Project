@@ -167,7 +167,7 @@ public class MobAI : MonoBehaviour
     public void Throwing()
     {
 
-        Instantiate(longRangeWeaponPrefab, enemyHand.position, enemyHand.rotation);
+        Instantiate(longRangeWeaponPrefab, enemyHand.position, transform.rotation);
 
     }
     private void ShowHealthBar(bool toShow)
