@@ -27,7 +27,11 @@ public class MolotovProjectile : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             // rb.isKinematic = true;
-            Invoke("Explode", explosionDelay);
+            if (firePrefab!=null)
+            {
+                Invoke("Explode", explosionDelay);
+            }
+            
         }
     }
 

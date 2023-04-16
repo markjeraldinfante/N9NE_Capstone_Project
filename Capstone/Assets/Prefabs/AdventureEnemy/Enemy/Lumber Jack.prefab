@@ -1142,7 +1142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1173198744298879308
 Transform:
   m_ObjectHideFlags: 0
@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSelect: {fileID: 0}
-  maxHealth: 500
+  maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 6195156326278684360}
   damageOverlay: {fileID: 0}
@@ -1285,12 +1285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 8123969069312528406}
   weaponCollider: {fileID: 6276520835522578335}
   moveSpeed: 3
   detectionRange: 5
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
+  isBoss: 1
 --- !u!1 &1980257081891607032
 GameObject:
   m_ObjectHideFlags: 0
