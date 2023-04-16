@@ -105,8 +105,11 @@ public class EntityHealth : MonoBehaviour
         else
         {
             currentHealth -= damageAmount;
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(currentHealth);
+            }
 
-            healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
