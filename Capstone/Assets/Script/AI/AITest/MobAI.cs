@@ -11,7 +11,6 @@ public class MobAI : MonoBehaviour
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
-    public float attackSpeed = 1f;
     public float moveSpeed = 2f;
     public float detectionRange = 4f;
     public float attackRange = 1f;
@@ -19,6 +18,8 @@ public class MobAI : MonoBehaviour
     public State currentState = State.Idle;
     public bool isAttacked;
     public bool isBoss = false;
+    public float attackSpeed = 2f; // Attacks per second
+    private float attackTimer;
     Rigidbody rb;
     void Start()
     {
@@ -47,6 +48,8 @@ public class MobAI : MonoBehaviour
         player = null;
         Debug.Log("Player reference set to null");
     }
+
+
 
     void Update()
     {
@@ -117,19 +120,20 @@ public class MobAI : MonoBehaviour
                 {
                     currentState = State.Chase;
                     Idling(); // stop attacking animation when enemy is chasing
+                    attackTimer = 0f; // reset attack timer
                 }
                 else
                 {
-                    Attacking(); // continue attacking animation when enemy is attacking
-                                 // Attack the player
-
-
-
+                    attackTimer += Time.deltaTime;
+                    if (attackTimer >= 1f / attackSpeed)
+                    {
+                        attackTimer -= 1f / attackSpeed;
+                        Attacking(); // continue attacking animation when enemy is attacking
+                                     // Attack the player
+                    }
                 }
                 break;
         }
-
-
     }
 
 
