@@ -20,12 +20,14 @@ public class LevelTransition : MonoBehaviour
     {
         isTyping = true;
         textDialogue.text = "";
-        foreach (char letter in textDialogueMessage.ToString())
+        foreach (char letter in textDialogueMessage[currentLine].ToCharArray())
+
         {
             textDialogue.text += letter; // Add the current letter to the dialogue text
 
             // Check if the current letter is the last letter of the line
-            if (letter == textDialogueMessage.Length - 1)
+            if (textDialogue.text.Length == textDialogueMessage[currentLine].Length)
+
             {
                 // Add a newline character at the end of the line
                 textDialogue.text += "\n";
@@ -75,6 +77,8 @@ public class LevelTransition : MonoBehaviour
         {
             gameHUD.SetActive(true);
             textDialogue.text = "";
+            currentLine = 0;
+            isDialogueDone = false;
             dialogueBox.SetActive(false);
 
             if (typingCoroutine != null)
