@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 7928878440411713084}
   - component: {fileID: 5327195028348386038}
   - component: {fileID: 4337729479623659708}
-  - component: {fileID: 1907884969632398637}
+  - component: {fileID: 5871474431785258046}
+  - component: {fileID: 5029153035369992332}
+  - component: {fileID: 2573310469262975174}
+  - component: {fileID: 6051034797799904131}
   m_Layer: 0
   m_Name: lakediverspearbullet
   m_TagString: Untagged
@@ -29,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5975436504275688227}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.569, z: 0.0013253774}
-  m_LocalScale: {x: 10, y: 17, z: 28.7}
+  m_LocalScale: {x: 28, y: 28, z: 28}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +96,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5975436504275688227}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -101,7 +104,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1907884969632398637
+--- !u!65 &5871474431785258046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975436504275688227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0003337395, y: 0.0007133013, z: 0.01634207}
+  m_Center: {x: 0, y: 0.000036481913, z: -0.00017738389}
+--- !u!65 &5029153035369992332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975436504275688227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0003337395, y: 0.0007133013, z: 0.01634207}
+  m_Center: {x: 0, y: 0.000036481913, z: -0.00017738389}
+--- !u!114 &2573310469262975174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +139,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5975436504275688227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f80a82a287e4954f963f409f2769351, type: 3}
+  m_Script: {fileID: 11500000, guid: 6210c3f85174ccd4196c88c6d132e25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  firePrefab: {fileID: 0}
+  explosionDelay: 0.85
+  projectileRange: 1900
+  spinForce: 50
+--- !u!114 &6051034797799904131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975436504275688227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 3
