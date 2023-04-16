@@ -7,6 +7,8 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public GameObject dialogueBox, ingameHUD;
+    public Sprite imagePortrait;
+    public Image imageHolder;
     public TextMeshProUGUI dialogueText;
     public string[] lines;
     private int currentLine = 0;
@@ -14,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        imageHolder.sprite = imagePortrait;
         dialogueText.text = lines[currentLine];
     }
 
