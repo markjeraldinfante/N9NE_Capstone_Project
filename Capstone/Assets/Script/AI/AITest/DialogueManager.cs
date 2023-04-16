@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    public UnityEvent showDisplay, OnEnter, OnExit;
+    public GameObject nextButton;
     public GameObject dialogueBox, ingameHUD;
     public Sprite imagePortrait;
     public Image imageHolder;
@@ -14,37 +18,42 @@ public class DialogueManager : MonoBehaviour
     private int currentLine = 0;
     public float typingSpeed = 0.02f; // the speed at which characters are displayed
 
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("char_head"))
         {
-            imageHolder.sprite = imagePortrait;
-            dialogueText.text = lines[currentLine];
-            dialogueBox.SetActive(true);
-            ingameHUD.SetActive(false);
+            OnEnter?.Invoke();
             currentLine = 0;
-            StartCoroutine(TypeLine());
-        }
-    }
+            nextButton.SetActive(true);
+            imageHolder.sprite = imagePortrait;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("char_head"))
-        { imageHolder.sprite = imagePortrait;
-            dialogueBox.SetActive(false);
-            ingameHUD.SetActive(true);
-            imageHolder.sprite = null;
-            dialogueText.text = "";
-            for (int i= 0; i>lines.Length; i++)
+            // Make sure that currentLine is not out of range
+            if (currentLine < lines.Length)
             {
-                lines[i] = "";
+                dialogueText.text = lines[currentLine];
+                dialogueBox.SetActive(true);
+                ingameHUD.SetActive(false);
+                StartCoroutine(TypeLine());
             }
-            StopAllCoroutines(); // stop any typing coroutines that might be running
         }
     }
 
+    /*
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("char_head"))
+            {
+
+                dialogueBox.SetActive(false);
+                nextButton.SetActive(false);
+                ingameHUD.SetActive(true);
+                imageHolder.sprite = null;
+                StopAllCoroutines(); // stop any typing coroutines that might be running
+            }
+        }
+    */
     // Coroutine to gradually display the current line character by character
     IEnumerator TypeLine()
     {
@@ -78,6 +87,8 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                showDisplay?.Invoke();
+                OnExit?.Invoke();
                 dialogueBox.SetActive(false);
                 ingameHUD.SetActive(true);
             }

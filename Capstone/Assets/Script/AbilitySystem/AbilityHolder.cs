@@ -85,7 +85,7 @@ public class AbilityHolder : MonoBehaviour
                         }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
-                            playerController.runSpeed = 2.5f + ((MoveSpeed_Ability)abilities[i]).movementSpeed;
+                            playerController.runSpeed = 3f + ((MoveSpeed_Ability)abilities[i]).movementSpeed;
                         }
                         if (abilities[i] is Heal_Ability)
                         {
@@ -113,7 +113,7 @@ public class AbilityHolder : MonoBehaviour
                         }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
-                            playerController.runSpeed = 2.5f; // set back to original speed
+                            playerController.runSpeed = 3f; // set back to original speed
                         }
                         if (abilities[i] is Heal_Ability)
                         {

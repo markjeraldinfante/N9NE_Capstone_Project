@@ -45,19 +45,21 @@ public class PlayerController : MonoBehaviour
     {
         if (moveValue != 0 && !isProne)
         {
+            runSpeed = 3f;
             characterAnimation.SetBool("Walk", true);
             characterAnimation.SetBool("Prone", isProne);
             characterAnimation.ResetTrigger("isProning");
         }
         else if (moveValue != 0 && isProne)
         {
-
+            runSpeed = 1.8f;
             characterAnimation.SetBool("Prone", isProne);
             characterAnimation.SetBool("Walk", false);
             characterAnimation.SetTrigger("isProning");
         }
         else
         {
+            runSpeed = 3f;
             characterAnimation.SetBool("Walk", false);
             characterAnimation.ResetTrigger("isProning");
         }

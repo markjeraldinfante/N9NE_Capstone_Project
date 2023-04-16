@@ -40,7 +40,7 @@ public class EntityHealth : MonoBehaviour
             }
             else
             {
-                Debug.LogError("GameHUD object not found or is inactive!");
+                Debug.Log("GameHUD object not found or is inactive!");
             }
         }
 
@@ -50,7 +50,7 @@ public class EntityHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        if (forPlayer)
+        if (forPlayer & healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);
         }
@@ -58,7 +58,7 @@ public class EntityHealth : MonoBehaviour
     }
     void Update()
     {
-        if (forPlayer)
+        if (forPlayer && lifeColor != null)
         {
             if (currentHealth >= 80f)
             {
