@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 3063511510478606504}
   - component: {fileID: 965793650249639010}
   - component: {fileID: 8832555498781585184}
-  - component: {fileID: 65090045469259012}
   - component: {fileID: 3358069254934167491}
+  - component: {fileID: 6388071206160410523}
+  - component: {fileID: 6664917061028793173}
+  - component: {fileID: -6242289283118438457}
   m_Layer: 0
   m_Name: molotov
   m_TagString: Untagged
@@ -104,19 +106,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &65090045469259012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614483588426401207}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f80a82a287e4954f963f409f2769351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!114 &3358069254934167491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +118,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6210c3f85174ccd4196c88c6d132e25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefab: {fileID: 0}
-  explosionDelay: 3
+  firePrefab: {fileID: 1865997695183754761, guid: 200de138a46f9c349b9d8b706099be40, type: 3}
+  explosionDelay: 0.5
   projectileRange: 1800
   spinForce: 50
+--- !u!136 &6388071206160410523
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614483588426401207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.010000003
+  m_Height: 0.07589568
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6664917061028793173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614483588426401207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 2
+--- !u!136 &-6242289283118438457
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614483588426401207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.010000003
+  m_Height: 0.07589568
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

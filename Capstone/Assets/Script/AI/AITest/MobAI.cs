@@ -11,6 +11,7 @@ public class MobAI : MonoBehaviour
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
+    public float attackSpeed = 1f;
     public float moveSpeed = 2f;
     public float detectionRange = 4f;
     public float attackRange = 1f;
@@ -163,7 +164,9 @@ public class MobAI : MonoBehaviour
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
+
     }
+
     public void Throwing()
     {
 

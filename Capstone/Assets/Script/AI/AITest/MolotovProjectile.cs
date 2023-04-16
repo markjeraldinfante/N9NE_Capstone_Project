@@ -8,7 +8,7 @@ public class MolotovProjectile : MonoBehaviour
     public float explosionDelay = 3.0f;
     public float projectileRange;
     private Rigidbody rb;
-    private bool exploded = false;
+
     public float spinForce = 50f;
 
     private void Start()
@@ -21,13 +21,12 @@ public class MolotovProjectile : MonoBehaviour
         spin *= spinForce;
         rb.AddTorque(spin, ForceMode.Impulse);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (!exploded)
+        if (collision.gameObject.CompareTag("ground"))
         {
-            exploded = true;
-            rb.isKinematic = true;
-
+            // rb.isKinematic = true;
             Invoke("Explode", explosionDelay);
         }
     }
