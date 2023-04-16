@@ -22,11 +22,19 @@ public class Melee_Adventure : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
 
-            weaponCollider.SetActive(true);
+
             characterAnimation.SetTrigger("melee");
-            SoundChecker();
+
         }
 
+    }
+    public void SwingSound()
+    {
+        SoundChecker();
+    }
+    public void WeaponEnable()
+    {
+        weaponCollider.SetActive(true);
     }
     void SoundChecker()
     {
