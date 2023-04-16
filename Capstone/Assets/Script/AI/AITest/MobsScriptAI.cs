@@ -40,7 +40,6 @@ public class MobsScriptAI : MonoBehaviour
         currentState = State.Idle;
         player = null;
     }
-
     private void PlayerisDead()
     {
         Debug.Log("Player is dead, setting enemy to idle state");
@@ -167,8 +166,11 @@ public class MobsScriptAI : MonoBehaviour
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
-        weaponCollider.enabled = true;
         ShowHealthBar(true);
+    }
+    public void WeaponEnable()
+    {
+        weaponCollider.enabled = true;
     }
     private void ShowHealthBar(bool toShow)
     {
