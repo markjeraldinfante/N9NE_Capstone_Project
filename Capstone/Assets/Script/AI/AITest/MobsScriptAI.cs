@@ -165,8 +165,17 @@ public class MobsScriptAI : MonoBehaviour
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
+        animator.SetInteger("AttackIndex", Random.Range(0, 4));
         weaponCollider.enabled = true;
         ShowHealthBar(true);
+    }
+
+    private void AttackAnimation()
+    {
+        if (!isBoss)
+            animator.SetBool("Attack", true);
+        else
+            animator.SetInteger("AttackIndex", Random.Range(0, 4));
     }
     private void ShowHealthBar(bool toShow)
     {
