@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobsScriptAI : MonoBehaviour
 {
+
     public GameObject healthBar;
     EntityHealth health;
     public Collider weaponCollider;
@@ -34,12 +35,13 @@ public class MobsScriptAI : MonoBehaviour
         health.OnDeath -= EnemyisDead;
         EntityHealth.characterIsDead -= PlayerisDead;
     }
-    private void PlayerisDead()
+    private void EnemyisDead()
     {
         currentState = State.Idle;
         player = null;
     }
-    private void EnemyisDead()
+
+    private void PlayerisDead()
     {
         Debug.Log("Player is dead, setting enemy to idle state");
         currentState = State.Idle;
