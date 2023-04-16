@@ -117,7 +117,7 @@ public class RockPaperScissor : MonoBehaviour
         {
             Debug.Log("You win!");
             wonTanso.text = "You won: " + betAmount * 2;
-            int winTanso = betAmount * 2 + DBHandler.instance.MainPlayerDB.TansoCount;
+            int winTanso = betAmount + DBHandler.instance.MainPlayerDB.TansoCount;
             DBHandler.instance.UpdateTanso(winTanso);
             Clear();
             matchResult.text = "You win!";
