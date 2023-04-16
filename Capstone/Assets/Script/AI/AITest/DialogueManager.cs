@@ -14,16 +14,14 @@ public class DialogueManager : MonoBehaviour
     private int currentLine = 0;
     public float typingSpeed = 0.02f; // the speed at which characters are displayed
 
-    void Start()
-    {
-        imageHolder.sprite = imagePortrait;
-        dialogueText.text = lines[currentLine];
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("char_head"))
         {
+            imageHolder.sprite = imagePortrait;
+            dialogueText.text = lines[currentLine];
             dialogueBox.SetActive(true);
             ingameHUD.SetActive(false);
             currentLine = 0;
@@ -34,9 +32,15 @@ public class DialogueManager : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("char_head"))
-        {
+        { imageHolder.sprite = imagePortrait;
             dialogueBox.SetActive(false);
             ingameHUD.SetActive(true);
+            imageHolder.sprite = null;
+            dialogueText.text = "";
+            for (int i= 0; i>lines.Length; i++)
+            {
+                lines[i] = "";
+            }
             StopAllCoroutines(); // stop any typing coroutines that might be running
         }
     }
