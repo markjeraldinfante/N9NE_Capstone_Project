@@ -631,7 +631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &656020659632978879
 Transform:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ Transform:
   m_GameObject: {fileID: 2067821278154542735}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 10.44, y: 1.48, z: 0.010124506}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 21, y: 21, z: 21}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7657776240973901829}
@@ -1083,9 +1083,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   weaponCollider: {fileID: 7722812691973749870}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 3
-  attackRange: 0.8
+  attackRange: 0.7
   currentState: 0
   isAttacked: 0
   isBoss: 0
