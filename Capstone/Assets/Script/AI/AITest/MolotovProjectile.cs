@@ -27,13 +27,14 @@ public class MolotovProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ground"))
         {
+            if (isMolotov)
+            {
+                somnium.SoundManager.instance.PlaySFX("MolotovDestroy");
+            }
             // rb.isKinematic = true;
             if (firePrefab != null)
             {
-                if (isMolotov)
-                {
-                    somnium.SoundManager.instance.PlaySFX("");
-                }
+
                 Invoke("Explode", explosionDelay);
             }
 
