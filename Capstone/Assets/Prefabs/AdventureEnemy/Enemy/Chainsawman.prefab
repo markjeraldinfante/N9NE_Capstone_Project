@@ -4889,6 +4889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
   maxHealth: 60
   currentHealth: 0
   healthBar: {fileID: 273580589258096655}
@@ -4905,10 +4906,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0065765316
+  m_Radius: 0.006087783
   m_Height: 0.054785307
   m_Direction: 1
-  m_Center: {x: 0.015080666, y: 0.025567297, z: 0}
+  m_Center: {x: 0.037563585, y: 0.025567299, z: -1.1285004e-16}
 --- !u!54 &7950402179941763948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4937,12 +4938,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   weaponCollider: {fileID: 6930725977924337331}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 5
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
+  isBoss: 0
 --- !u!1 &7951999084776636595
 GameObject:
   m_ObjectHideFlags: 0

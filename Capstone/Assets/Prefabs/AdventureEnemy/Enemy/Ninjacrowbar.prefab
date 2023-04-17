@@ -193,7 +193,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   playerSelect: {fileID: 0}
   maxHealth: 50
   currentHealth: 0
-  healthBar: {fileID: 3303924054015105942}
+  healthBar: {fileID: 0}
   damageOverlay: {fileID: 0}
   forPlayer: 0
   isInvulnerable: 0
@@ -2029,12 +2029,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   weaponCollider: {fileID: 268656378173635907}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 3
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
+  isBoss: 0
 --- !u!1 &4850827133207512173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +2980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5606663856174365546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3064,6 +3067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8267896608794124011}
+  percentageText: {fileID: 0}
 --- !u!1 &6998394030180346346
 GameObject:
   m_ObjectHideFlags: 0
