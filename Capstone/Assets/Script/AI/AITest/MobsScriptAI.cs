@@ -8,6 +8,7 @@ public class MobsScriptAI : MonoBehaviour
     public GameObject healthBar;
     EntityHealth health;
     public Collider weaponCollider;
+    public Collider weaponCollider2 = null;
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
@@ -171,6 +172,11 @@ public class MobsScriptAI : MonoBehaviour
     public void WeaponEnable()
     {
         weaponCollider.enabled = true;
+
+    }
+    public void WeaponEnable2()
+    {
+        weaponCollider2.enabled = true;
     }
     private void ShowHealthBar(bool toShow)
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class locoEnemy : MonoBehaviour
 {
+    public delegate void OnDeadLoco();
+    public static event OnDeadLoco locoDeath;
     public float speed;
     private void Update()
     {
@@ -14,6 +16,7 @@ public class locoEnemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Dead");
+            locoDeath?.Invoke();
         }
         if (other.tag == gameObject.tag)
         {
@@ -23,6 +26,7 @@ public class locoEnemy : MonoBehaviour
         else
         {
             Debug.Log("Dead");
+            locoDeath?.Invoke();
         }
     }
 
