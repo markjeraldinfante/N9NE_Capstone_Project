@@ -167,6 +167,7 @@ public class MobsScriptAI : MonoBehaviour
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
+        animator.SetInteger("AttackIndex", Random.Range(0, 4));
         ShowHealthBar(true);
     }
     public void WeaponEnable()
