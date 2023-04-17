@@ -13,11 +13,11 @@ public class locoCharacter : MonoBehaviour
         {
             Instantiate(projectiles[0], transform.position, Quaternion.identity);
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             Instantiate(projectiles[1], transform.position, Quaternion.identity);
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             Instantiate(projectiles[2], transform.position, Quaternion.identity);
         }

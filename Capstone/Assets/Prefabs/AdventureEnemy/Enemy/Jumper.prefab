@@ -4115,6 +4115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4203649265793321517}
   - component: {fileID: 1842541714831329606}
+  - component: {fileID: 469945631}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: EnemyAttack
@@ -4150,6 +4151,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0026396236, y: 0.00087625027, z: 0.024634466}
   m_Center: {x: -0.0014510334, y: -1.5522043e-10, z: 0.003978661}
+--- !u!114 &469945631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379171848281165053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 6
 --- !u!1 &7430096245262344445
 GameObject:
   m_ObjectHideFlags: 0
