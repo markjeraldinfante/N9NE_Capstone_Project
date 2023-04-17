@@ -8,6 +8,7 @@ public class MolotovProjectile : MonoBehaviour
     public float explosionDelay = 3.0f;
     public float projectileRange;
     private Rigidbody rb;
+    public bool isMolotov;
 
     public float spinForce = 50f;
 
@@ -27,11 +28,15 @@ public class MolotovProjectile : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             // rb.isKinematic = true;
-            if (firePrefab!=null)
+            if (firePrefab != null)
             {
+                if (isMolotov)
+                {
+                    somnium.SoundManager.instance.PlaySFX("");
+                }
                 Invoke("Explode", explosionDelay);
             }
-            
+
         }
     }
 
