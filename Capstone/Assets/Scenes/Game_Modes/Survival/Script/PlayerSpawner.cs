@@ -16,10 +16,8 @@ public class PlayerSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
-        {
-            onlineSpawn.Connection();
-        }
+
+        SpawnStartInstantiate.spawn2PlayerOnline += onlineSpawn.Connection;
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
         // SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
@@ -27,6 +25,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void OnDisable()
     {
+        SpawnStartInstantiate.spawn2PlayerOnline -= onlineSpawn.Connection;
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
         // SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
