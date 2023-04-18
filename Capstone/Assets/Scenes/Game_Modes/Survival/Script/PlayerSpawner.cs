@@ -10,21 +10,25 @@ public class PlayerSpawner : MonoBehaviour
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
 
-
+    private void Start()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
 
 
     private void OnEnable()
     {
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
-        SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
+        // SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
     }
 
     private void OnDisable()
     {
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
-        SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
+        PhotonNetwork.RemoveCallbackTarget(this);
+        // SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
         Clear();
     }
     void Clear()
@@ -46,7 +50,10 @@ public class PlayerSpawner : MonoBehaviour
         }
     }
 
-
+    public void OnJoinedRoom()
+    {
+        OnlineAssignAndInstantiateCharacter();
+    }
     public void Spawn1PlayerOnline()
     {
         OnlineAssignAndInstantiateCharacter();

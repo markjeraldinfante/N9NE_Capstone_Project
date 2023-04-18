@@ -17,7 +17,7 @@ public class SpawnStartInstantiate : MonoBehaviour
         switch (variant.variantType)
         {
             case baseSurvivalVariant.VariantType.Online:
-                spawn2PlayerOnline?.Invoke();
+                // spawn2PlayerOnline?.Invoke();
                 Debug.Log("Online Mode");
                 break;
             case baseSurvivalVariant.VariantType.TwoPlayer:
