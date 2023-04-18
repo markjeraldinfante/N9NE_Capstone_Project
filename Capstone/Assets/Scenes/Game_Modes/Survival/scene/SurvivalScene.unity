@@ -1878,6 +1878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406941304}
   - component: {fileID: 406941305}
+  - component: {fileID: 406941306}
   m_Layer: 0
   m_Name: Wavepoints and Spawnpoints
   m_TagString: Untagged
@@ -1918,6 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offlineplayer1Data: {fileID: 11400000, guid: ad8500e0cc7691c4b8225aa2d221eede, type: 2}
   offlineplayer2Data: {fileID: 11400000, guid: 148be157e88347845b00fc453755472a, type: 2}
+  variant: {fileID: 0}
   characterModels:
   - {fileID: 11400000, guid: ffe17fa327e9e694d95c1e51ae7a27c8, type: 2}
   - {fileID: 11400000, guid: 3845fe1aff302a148b06df20e3c943b3, type: 2}
@@ -1926,6 +1928,20 @@ MonoBehaviour:
   playerSpawnPoints:
   - {fileID: 441237271}
   - {fileID: 1903700335}
+  onlineSpawn: {fileID: 406941306}
+--- !u!114 &406941306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406941303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9159b86b3380d149a9dd97e3cc76d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 406941305}
 --- !u!208 &426469396
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -2186,6 +2202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 524439718}
+  percentageText: {fileID: 0}
 --- !u!208 &528657168
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -7,18 +7,19 @@ using Photon.Realtime;
 public class PlayerSpawner : MonoBehaviour
 {
     public PlayerCharacter offlineplayer1Data, offlineplayer2Data;
-
+    [SerializeField] baseSurvivalVariant variant;
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
+    public OnlineSpawn onlineSpawn;
 
-    private void Start()
-    {
-        PhotonNetwork.AddCallbackTarget(this);
-    }
 
 
     private void OnEnable()
     {
+        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        {
+            onlineSpawn.Connection();
+        }
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
         // SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
@@ -28,7 +29,6 @@ public class PlayerSpawner : MonoBehaviour
     {
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
-        PhotonNetwork.RemoveCallbackTarget(this);
         // SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
         Clear();
     }
@@ -51,13 +51,7 @@ public class PlayerSpawner : MonoBehaviour
         }
     }
 
-    public void OnJoinedRoom()
-    {
-        Debug.Log("JoinedRoom");
-        if (PhotonNetwork.IsConnectedAndReady)
-        { OnlineAssignAndInstantiateCharacter(); }
 
-    }
     public void Spawn1PlayerOnline()
     {
         OnlineAssignAndInstantiateCharacter();
@@ -97,7 +91,7 @@ public class PlayerSpawner : MonoBehaviour
     }
 
 
-    private void OnlineAssignAndInstantiateCharacter()
+    public void OnlineAssignAndInstantiateCharacter()
     {
         int spawnPointIndex = PhotonNetwork.IsMasterClient ? 0 : 1;
         Transform spawnPoint = playerSpawnPoints[spawnPointIndex];
