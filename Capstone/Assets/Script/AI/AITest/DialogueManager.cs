@@ -17,14 +17,18 @@ public class DialogueManager : MonoBehaviour
     public string[] lines;
     private int currentLine = 0;
     public float typingSpeed = 0.02f; // the speed at which characters are displayed
-
+    public bool isDone;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("char_head"))
         {
-            OnEnter?.Invoke();
+            if (!this.isDone)
+            {
+                OnEnter?.Invoke();
+            }
+
             currentLine = 0;
             nextButton.SetActive(true);
             imageHolder.sprite = imagePortrait;
@@ -40,20 +44,27 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    /*
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("char_head"))
-            {
 
-                dialogueBox.SetActive(false);
-                nextButton.SetActive(false);
-                ingameHUD.SetActive(true);
-                imageHolder.sprite = null;
-                StopAllCoroutines(); // stop any typing coroutines that might be running
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("char_head"))
+        {
+            if (!this.isDone)
+            {
+                showDisplay?.Invoke();
+                OnExit?.Invoke();
             }
+            if (this.isDone)
+            {
+                dialogueBox.SetActive(false);
+                ingameHUD.SetActive(true);
+
+            }
+            StopAllCoroutines();
+            // stop any typing coroutines that might be running
         }
-    */
+    }
+
     // Coroutine to gradually display the current line character by character
     IEnumerator TypeLine()
     {
@@ -69,11 +80,16 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void NextLine()
-    {
+    { // stop any typing coroutines that might be running
+        if (currentLine >= lines.Length)
+        {
+            return;
+        }
+        StopAllCoroutines();
         // If the typing coroutine is still running, stop it and display the full line
         if (dialogueText.text != lines[currentLine])
         {
-            StopAllCoroutines();
+
             dialogueText.text = lines[currentLine];
         }
         else
@@ -87,11 +103,17 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                showDisplay?.Invoke();
-                OnExit?.Invoke();
+                if (!this.isDone)
+                {
+                    showDisplay?.Invoke();
+                    OnExit?.Invoke();
+                }
+                isDone = true;
                 dialogueBox.SetActive(false);
                 ingameHUD.SetActive(true);
+
             }
         }
     }
+
 }

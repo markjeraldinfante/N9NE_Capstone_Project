@@ -10,6 +10,7 @@ public class DisplayTutorial : MonoBehaviour
     public Canvas canvas;
     public AbilityHolder holder;
     public GameObject lifebar, miniMap, Skills, tanso;
+
     void Start()
     {
         playerCache = GameObject.FindGameObjectWithTag("Player");

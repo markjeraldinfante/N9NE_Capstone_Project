@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Heal_Ability : Ability
 {
-    public float healAmount;
+    public int healAmount;
     public float healDuration;
 
     public override void Activate(GameObject parent)
