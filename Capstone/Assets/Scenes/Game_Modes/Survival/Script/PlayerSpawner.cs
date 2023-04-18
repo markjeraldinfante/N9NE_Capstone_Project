@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerSpawner : MonoBehaviour
 {
@@ -52,7 +53,10 @@ public class PlayerSpawner : MonoBehaviour
 
     public void OnJoinedRoom()
     {
-        OnlineAssignAndInstantiateCharacter();
+        Debug.Log("JoinedRoom");
+        if (PhotonNetwork.IsConnectedAndReady)
+        { OnlineAssignAndInstantiateCharacter(); }
+
     }
     public void Spawn1PlayerOnline()
     {
