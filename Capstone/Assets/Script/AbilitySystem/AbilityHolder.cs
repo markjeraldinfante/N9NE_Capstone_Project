@@ -28,8 +28,8 @@ public class AbilityHolder : MonoBehaviour
     }
 
     AbilityState[] states;
-    public KeyCode[] keys;
-
+    // public KeyCode[] keys;
+    public string[] buttons = { "Skill1", "Skill2", "Skill3", "Skill4" };
     private void Start()
     {
         //Player Component
@@ -63,7 +63,7 @@ public class AbilityHolder : MonoBehaviour
             switch (states[i])
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(keys[i]) && !playerController.isProne || triggered)
+                    if (Input.GetButtonDown(buttons[i]) && !playerController.isProne || triggered)
                     {
                         cds[i].fillAmount = 1f;
                         coroutine = WaitAndPrint(i, .5f);

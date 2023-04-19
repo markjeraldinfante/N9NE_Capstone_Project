@@ -5,7 +5,7 @@ using UnityEngine;
 public class AdventurePlayer : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
-    [SerializeField] private KeyCode attackKey = KeyCode.J;
+    // [SerializeField] private KeyCode attackKey = KeyCode.J;
     [SerializeField] private float attackSpeed = 25f;
     [SerializeField] private ObjectPooler batoPooler;
     [SerializeField] private Transform weaponSpawnPoint;
@@ -40,7 +40,7 @@ public class AdventurePlayer : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(attackKey) && canAttack && !isAttacking)
+        if (Input.GetButtonDown("Attack") && canAttack && !isAttacking)
         {
             if (!playerController.isProne)
             {

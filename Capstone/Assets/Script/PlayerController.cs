@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isProne)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isProne)
         {
             characterAnimation.SetBool("Jump", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -78,13 +78,13 @@ public class PlayerController : MonoBehaviour
             characterAnimation.SetBool("Jump", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Prone"))
         {
             isProne = true;
             ProneCheck(isProne);
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && !isOnWires)
+        if (Input.GetButtonDown("Stand") && !isOnWires)
         {
             isProne = false;
             ProneCheck(isProne);
