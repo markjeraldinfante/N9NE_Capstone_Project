@@ -1878,7 +1878,6 @@ GameObject:
   m_Component:
   - component: {fileID: 406941304}
   - component: {fileID: 406941305}
-  - component: {fileID: 406941306}
   m_Layer: 0
   m_Name: Wavepoints and Spawnpoints
   m_TagString: Untagged
@@ -1928,20 +1927,6 @@ MonoBehaviour:
   playerSpawnPoints:
   - {fileID: 441237271}
   - {fileID: 1903700335}
-  onlineSpawn: {fileID: 406941306}
---- !u!114 &406941306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406941303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9159b86b3380d149a9dd97e3cc76d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 406941305}
 --- !u!208 &426469396
 NavMeshObstacle:
   m_ObjectHideFlags: 0

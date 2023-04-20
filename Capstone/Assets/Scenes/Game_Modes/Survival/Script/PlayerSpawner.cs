@@ -10,25 +10,25 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] baseSurvivalVariant variant;
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
-    public OnlineSpawn onlineSpawn;
+
 
 
 
     private void OnEnable()
     {
 
-        SpawnStartInstantiate.spawn2PlayerOnline += onlineSpawn.Connection;
+
         SpawnStartInstantiate.spawn1Player += Spawn1Player;
         SpawnStartInstantiate.spawn2Player += Spawn2Players;
-        // SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
+        SpawnStartInstantiate.spawn2PlayerOnline += Spawn1PlayerOnline;
     }
 
     private void OnDisable()
     {
-        SpawnStartInstantiate.spawn2PlayerOnline -= onlineSpawn.Connection;
+
         SpawnStartInstantiate.spawn1Player -= Spawn1Player;
         SpawnStartInstantiate.spawn2Player -= Spawn2Players;
-        // SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
+        SpawnStartInstantiate.spawn2PlayerOnline -= Spawn1PlayerOnline;
         Clear();
     }
     void Clear()
