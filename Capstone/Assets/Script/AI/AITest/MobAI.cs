@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobAI : MonoBehaviour
 {
+    public GameObject backFire;
     public GameObject longRangeWeaponPrefab;
     public Transform enemyHand;
     public GameObject healthBar;
@@ -173,9 +174,19 @@ public class MobAI : MonoBehaviour
 
     public void Throwing()
     {
+        if (backFire != null)
+        {
+            Invoke("BackFiring", 0.01f);
+        }
 
         Instantiate(longRangeWeaponPrefab, enemyHand.position, transform.rotation);
 
+    }
+
+    public void BackFiring()
+    {
+        Instantiate(backFire, enemyHand.position, Quaternion.identity);
+        Destroy(backFire);
     }
     private void ShowHealthBar(bool toShow)
     {
