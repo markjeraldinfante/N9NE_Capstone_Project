@@ -6,9 +6,11 @@ public class MolotovProjectile : MonoBehaviour
 {
     public GameObject firePrefab;
     public float explosionDelay = 3.0f;
+    public float waterSplash = 1.0f;
     public float projectileRange;
     private Rigidbody rb;
     public bool isMolotov;
+    public bool isWaterGun;
 
     public float spinForce = 50f;
 
@@ -25,6 +27,14 @@ public class MolotovProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Player") && isWaterGun)
+        {
+            if (firePrefab != null)
+            {
+
+                Invoke("Explode", explosionDelay);
+            }
+        }
         if (collision.gameObject.CompareTag("ground"))
         {
             if (isMolotov)
@@ -35,10 +45,21 @@ public class MolotovProjectile : MonoBehaviour
             if (firePrefab != null)
             {
 
-                Invoke("Explode", explosionDelay);
+                Invoke("Explode", waterSplash);
             }
+            else
+            { Destroy(gameObject, 2.0f); }
 
         }
+        if (collision.gameObject.CompareTag("Pamalo") || collision.gameObject.CompareTag("Bato") && isWaterGun)
+        {
+            if (firePrefab != null)
+            {
+                Invoke("Explode", explosionDelay);
+            }
+        }
+
+
     }
 
     private void Explode()

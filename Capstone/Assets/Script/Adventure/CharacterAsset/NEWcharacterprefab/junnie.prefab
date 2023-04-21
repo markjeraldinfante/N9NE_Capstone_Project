@@ -2514,7 +2514,6 @@ GameObject:
   - component: {fileID: 3626163682332121764}
   - component: {fileID: 431610254566561025}
   - component: {fileID: 2457158299973050827}
-  - component: {fileID: 5753850615602722675}
   m_Layer: 0
   m_Name: shovel
   m_TagString: Pamalo
@@ -2590,19 +2589,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5753850615602722675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4114434104129503262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d03e533f4f04b1c47920881ed9a454aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeDamageReference: {fileID: 11400000, guid: 53bf6a925ba22da489327eb391fab64c, type: 2}
 --- !u!1 &4637838971551840891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,8 +2697,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09818909, y: 0.19784573, z: 0.07454859}
-  m_Center: {x: -0.0014481962, y: 0.013449884, z: -0.002350691}
+  m_Size: {x: 0.09818909, y: 0.16630073, z: 0.07454859}
+  m_Center: {x: -0.0014481943, y: 0.029222297, z: -0.0023506915}
 --- !u!1 &4795841341535249582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3598,9 +3584,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001805826274484643}
+  - component: {fileID: 1423219962}
   m_Layer: 0
   m_Name: Hips
-  m_TagString: Untagged
+  m_TagString: char_body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3623,6 +3610,19 @@ Transform:
   m_Father: {fileID: 1999376572348212906}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1423219962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351821131957250448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11834888, y: 0.11824311, z: 0.08916323}
+  m_Center: {x: -0.0034711096, y: -0.12498072, z: 0.011121689}
 --- !u!1 &7386599789570168789
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,8 +4205,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23285793, y: 0.3257503, z: 0.058867153}
-  m_Center: {x: -0.00000014791145, y: 0.29554853, z: -0.00000007121685}
+  m_Size: {x: 0.23285793, y: 0.53507036, z: 0.058867153}
+  m_Center: {x: -0.00000017056227, y: 0.19088839, z: -0.00000006756839}
 --- !u!114 &5944571006452183205
 MonoBehaviour:
   m_ObjectHideFlags: 0

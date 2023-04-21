@@ -5,6 +5,7 @@ using UnityEngine;
 public class AIWeapon : MonoBehaviour
 {
     public float enemyDamage = 5f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("char_head") || other.gameObject.CompareTag("char_body") || other.gameObject.CompareTag("char_leftfoot") || other.gameObject.CompareTag("char_rightfoot"))
@@ -18,4 +19,5 @@ public class AIWeapon : MonoBehaviour
         }
 
     }
+
 }

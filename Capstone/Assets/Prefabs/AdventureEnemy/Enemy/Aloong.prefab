@@ -4097,7 +4097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2076582764604085959}
   weaponCollider: {fileID: 6182471081995204062}
-  weaponCollider2: {fileID: 0}
+  weaponCollider2: {fileID: 1939810725738318178}
   moveSpeed: 2.5
   detectionRange: 5
   attackRange: 0.9
@@ -4966,7 +4966,8 @@ Transform:
   m_LocalPosition: {x: 7.286105e-13, y: 0.0024933233, z: -5.642823e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7113291277985621847}
   m_Father: {fileID: 385530052117528009}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6548,6 +6549,65 @@ Transform:
   m_Father: {fileID: 1951749372654587570}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8427869243430351783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7113291277985621847}
+  - component: {fileID: 1939810725738318178}
+  - component: {fileID: 1021170947343511069}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: EnemyAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7113291277985621847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427869243430351783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9130087845197168055}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1939810725738318178
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427869243430351783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005099301, y: 0.011244122, z: 0.007535641}
+  m_Center: {x: 0.00015615895, y: -0.004513258, z: 0.0033177056}
+--- !u!114 &1021170947343511069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427869243430351783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 10
 --- !u!1 &8488152811258725292
 GameObject:
   m_ObjectHideFlags: 0
@@ -6821,7 +6881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461996463266355336, guid: 96bf56dbc4ee3a64ba5cedb73c070bb7, type: 3}
       propertyPath: enemyDamage
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96bf56dbc4ee3a64ba5cedb73c070bb7, type: 3}

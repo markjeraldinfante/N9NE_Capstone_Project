@@ -179,6 +179,15 @@ public class MobsScriptAI : MonoBehaviour
     {
         weaponCollider2.enabled = true;
     }
+
+    public void WeaponDisable()
+    {
+        weaponCollider.enabled = false;
+    }
+    public void WeaponDisable2()
+    {
+        weaponCollider2.enabled = false;
+    }
     private void ShowHealthBar(bool toShow)
     {
         if (toShow)

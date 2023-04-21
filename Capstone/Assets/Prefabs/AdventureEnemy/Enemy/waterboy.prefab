@@ -1851,8 +1851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2df1d29c69b7b42b6c4423357cf7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  longRangeWeaponPrefab: {fileID: 0}
-  enemyHand: {fileID: 0}
+  longRangeWeaponPrefab: {fileID: 1620534753876557953, guid: 7596d3f2fba9794458f26e08ada0b7a7, type: 3}
+  enemyHand: {fileID: 8804282209031163030}
   healthBar: {fileID: 0}
   moveSpeed: 2
   detectionRange: 4
@@ -3014,6 +3014,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0017155767, y: 0.006890527, z: 0.004211611}
     m_Extent: {x: 0.00046148035, y: 0.0055235336, z: 0.0017222792}
   m_DirtyAABB: 0
+--- !u!1 &5540734242356109901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8804282209031163030}
+  m_Layer: 0
+  m_Name: firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8804282209031163030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540734242356109901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2083600755833572516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5560020722979843715
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,11 +11,14 @@ GameObject:
   - component: {fileID: 6064484627047871890}
   - component: {fileID: 7171625298898614839}
   - component: {fileID: 4927585052941782781}
-  - component: {fileID: 2974449159308260623}
   - component: {fileID: 5188163131019440248}
+  - component: {fileID: 2398104616754233781}
+  - component: {fileID: 1787971478570555666}
+  - component: {fileID: 2970514669118038025}
+  - component: {fileID: 8241575075557741098}
   m_Layer: 0
   m_Name: stone
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2974449159308260623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6873249563007856424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f80a82a287e4954f963f409f2769351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!54 &5188163131019440248
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,4 +103,62 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!65 &2398104616754233781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873249563007856424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016557539, y: 0.007628142, z: 0.017304888}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1787971478570555666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873249563007856424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016557539, y: 0.007628142, z: 0.017304888}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2970514669118038025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873249563007856424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6210c3f85174ccd4196c88c6d132e25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 0}
+  explosionDelay: 1
+  waterSplash: 1
+  projectileRange: 1800
+  isMolotov: 0
+  isWaterGun: 0
+  spinForce: 50
+--- !u!114 &8241575075557741098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873249563007856424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ad20411bcbc894c86563c8c54f2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamage: 3

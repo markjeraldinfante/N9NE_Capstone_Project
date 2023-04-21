@@ -3955,7 +3955,7 @@ GameObject:
   - component: {fileID: 2325001599832396471}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: enemyHitpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3983,12 +3983,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2325001599832396465}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.0016947469
+  m_Radius: 0.004311634
   m_Height: 0.030224422
   m_Direction: 1
-  m_Center: {x: 0, y: -0.0023078516, z: 0.0001225488}
+  m_Center: {x: 0.00019517638, y: -0.0023078516, z: 0.00012254858}
 --- !u!1 &2437342615578745544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,7 +4260,9 @@ GameObject:
   - component: {fileID: 2868416791459707357}
   - component: {fileID: 8155602258978235303}
   - component: {fileID: 8155602258978235300}
-  - component: {fileID: 1502105522523552974}
+  - component: {fileID: 9177022951766160133}
+  - component: {fileID: 5161909783790497061}
+  - component: {fileID: 6098581564272306900}
   m_Layer: 0
   m_Name: Karding
   m_TagString: Untagged
@@ -5983,7 +5985,7 @@ MonoBehaviour:
     - {x: 0.4178633, y: -0.30359548, z: 0.85628265}
     - {x: 0.41786337, y: 0.30359542, z: 0.85628265}
     - {x: 0.5165075, y: 0, z: 0.8562827}
---- !u!114 &1502105522523552974
+--- !u!114 &9177022951766160133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5992,13 +5994,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3208103845608088423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d5d9857c957c344ba7c1e84a81cd462, type: 3}
+  m_Script: {fileID: 11500000, guid: 0534e301147ebf441bcf623674fc569a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
-  speed: 3
-  attackRange: 2.5
-  animator: {fileID: 8155602258978235303}
+  particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
+  animator: {fileID: 0}
+  hitPoint: {fileID: 2325001599832396465}
+--- !u!136 &5161909783790497061
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208103845608088423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.00203775
+  m_Height: 0.03168439
+  m_Direction: 1
+  m_Center: {x: 0.016930148, y: 0.015596949, z: 0.00012254767}
+--- !u!114 &6098581564272306900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208103845608088423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28f2fdeabf906b488c9ca2eba11e340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSelect: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  forPlayer: 0
+  isInvulnerable: 0
 --- !u!1 &3242005176285860201
 GameObject:
   m_ObjectHideFlags: 0
