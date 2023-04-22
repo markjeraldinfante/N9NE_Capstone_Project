@@ -635,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1354329436901929792
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +993,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backFire: {fileID: 4821049997839900165, guid: 3702553416cd69647875605ab63f857c, type: 3}
   longRangeWeaponPrefab: {fileID: 1620534753876557953, guid: d5b23d78dbe5f5248b84505d418a11b7, type: 3}
+  longRangeWeaponPrefab2: {fileID: 0}
   enemyHand: {fileID: 1398377673}
+  enemyHand2: {fileID: 0}
   healthBar: {fileID: 3124613162367352640}
   moveSpeed: 2
   detectionRange: 4
@@ -3125,11 +3127,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5934710814869890617, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_Name

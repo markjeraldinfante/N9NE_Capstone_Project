@@ -6,7 +6,9 @@ public class MobAI : MonoBehaviour
 {
     public GameObject backFire;
     public GameObject longRangeWeaponPrefab;
+    public GameObject longRangeWeaponPrefab2;
     public Transform enemyHand;
+    public Transform enemyHand2;
     public GameObject healthBar;
     EntityHealth health;
     private const string playerTag = "Player";
@@ -125,6 +127,8 @@ public class MobAI : MonoBehaviour
                 }
                 else
                 {
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+
                     attackTimer += Time.deltaTime;
                     if (attackTimer >= 1f / attackSpeed)
                     {
@@ -169,6 +173,8 @@ public class MobAI : MonoBehaviour
     {
         animator.SetBool("chasing", false);
         animator.SetBool("Attack", true);
+        animator.SetInteger("AttackIndex", Random.Range(0, 4));
+        ShowHealthBar(true);
 
     }
 
@@ -180,6 +186,16 @@ public class MobAI : MonoBehaviour
         }
 
         Instantiate(longRangeWeaponPrefab, enemyHand.position, transform.rotation);
+
+    }
+    public void Throwing2()
+    {
+        if (backFire != null)
+        {
+            Invoke("BackFiring", 0.01f);
+        }
+
+        Instantiate(longRangeWeaponPrefab2, enemyHand2.position, transform.rotation);
 
     }
 

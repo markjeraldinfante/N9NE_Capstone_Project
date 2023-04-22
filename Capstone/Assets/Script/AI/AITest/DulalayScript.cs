@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobsScriptAI : MonoBehaviour
+public class DulalayScript : MonoBehaviour
 {
-
+    public GameObject backFire;
+    public GameObject longRangeWeaponPrefab;
+    public Transform enemyHand;
     public GameObject healthBar;
     EntityHealth health;
     public Collider weaponCollider;
-    public Collider weaponCollider2 = null;
+
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
     public float moveSpeed = 2f;
     public float detectionRange = 4f;
-    public float attackRange = 1f;
-    public enum State { Idle, Attack, Chase };
+    public float meleeRange = 1f;
+    public float longRange = 1f;
+    public float attackSpeed = 2f; // Attacks per second
+    private float attackTimer;
+    public enum State { Idle, MeleeAttackRange, Chase, LongRangeAttack };
     public State currentState = State.Idle;
     public bool isAttacked;
     public bool isBoss = false;
@@ -71,6 +76,7 @@ public class MobsScriptAI : MonoBehaviour
                 {
                     currentState = State.Chase;
                 }
+
                 break;
             case State.Chase:
                 if (player == null)
@@ -79,10 +85,14 @@ public class MobsScriptAI : MonoBehaviour
                     isAttacked = false;
                     break;
                 }
-
-                if (distanceToPlayer <= attackRange)
+                if (longRange <= meleeRange)
                 {
-                    currentState = State.Attack;
+                    currentState = State.MeleeAttackRange; // change state to MeleeAttackRange
+                    isAttacked = false;
+                }
+                else if (distanceToPlayer <= longRange)
+                {
+                    currentState = State.LongRangeAttack;
                     isAttacked = false;
                 }
                 else if (distanceToPlayer > detectionRange && !isAttacked)
@@ -108,27 +118,57 @@ public class MobsScriptAI : MonoBehaviour
                 }
                 break;
 
-            case State.Attack:
+
+
+            case State.MeleeAttackRange:
                 if (player == null)
                 {
                     currentState = State.Idle;
                     break;
                 }
-                if (distanceToPlayer > attackRange)
+                if (distanceToPlayer > meleeRange)
                 {
-                    currentState = State.Chase;
+                    currentState = State.LongRangeAttack;
                     Idling(); // stop attacking animation when enemy is chasing
                 }
+
                 else
                 {
 
-                    Attacking(); // continue attacking animation when enemy is attacking
-                                 // Attack the player
+                    MeleeAttacking(); // continue attacking animation when enemy is attacking
+                                      // Attack the player
 
 
 
                 }
                 break;
+            case State.LongRangeAttack:
+                if (player == null)
+                {
+                    currentState = State.Idle;
+                    break;
+                }
+                if (distanceToPlayer > longRange)
+                {
+                    currentState = State.Chase;
+                    Idling(); // stop attacking animation when enemy is chasing
+                    attackTimer = 0f; // reset attack timer
+                }
+                else
+                {
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+
+                    attackTimer += Time.deltaTime;
+                    if (attackTimer >= 1f / attackSpeed)
+                    {
+                        attackTimer -= 1f / attackSpeed;
+                        LongAttacking(); // continue attacking animation when enemy is attacking
+                                         // Attack the player
+                    }
+                }
+                break;
+
+
         }
 
 
@@ -161,14 +201,22 @@ public class MobsScriptAI : MonoBehaviour
     {
         weaponCollider.enabled = false;
         animator.SetBool("chasing", false);
-        animator.SetBool("Attack", false);
+        animator.SetBool("Melee", false);
+        animator.SetBool("Range", false);
         ShowHealthBar(false);
     }
-    private void Attacking()
+    private void MeleeAttacking()
     {
         animator.SetBool("chasing", false);
-        animator.SetBool("Attack", true);
-        animator.SetInteger("AttackIndex", Random.Range(0, 4));
+        animator.SetBool("Melee", true);
+        animator.SetInteger("MeleeIndex", Random.Range(0, 4));
+        ShowHealthBar(true);
+    }
+    private void LongAttacking()
+    {
+        animator.SetBool("chasing", false);
+        animator.SetBool("Range", true);
+        animator.SetInteger("RangeIndex", Random.Range(0, 4));
         ShowHealthBar(true);
     }
     public void WeaponEnable()
@@ -176,19 +224,26 @@ public class MobsScriptAI : MonoBehaviour
         weaponCollider.enabled = true;
 
     }
-    public void WeaponEnable2()
+    public void Throwing()
     {
-        weaponCollider2.enabled = true;
-    }
+        if (backFire != null)
+        {
+            Invoke("BackFiring", 0.01f);
+        }
 
+        Instantiate(longRangeWeaponPrefab, enemyHand.position, transform.rotation);
+
+    }
+    public void BackFiring()
+    {
+        Instantiate(backFire, enemyHand.position, Quaternion.identity);
+
+    }
     public void WeaponDisable()
     {
         weaponCollider.enabled = false;
     }
-    public void WeaponDisable2()
-    {
-        weaponCollider2.enabled = false;
-    }
+
     private void ShowHealthBar(bool toShow)
     {
         if (toShow)
