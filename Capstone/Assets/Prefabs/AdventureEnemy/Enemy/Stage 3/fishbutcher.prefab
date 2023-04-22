@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 1802154624651758985}
   - component: {fileID: 4453341847432698323}
   - component: {fileID: 604546533}
+  - component: {fileID: 9140079229619338228}
   m_Layer: 0
   m_Name: fishbutcher
   m_TagString: enemy
@@ -1030,12 +1031,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3205902158158225261}
   weaponCollider: {fileID: 4028142647142014781}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 4
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
   isBoss: 0
+--- !u!114 &9140079229619338228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939810537238738253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2012132820860464668
 GameObject:
   m_ObjectHideFlags: 0
