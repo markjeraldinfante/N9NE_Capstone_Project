@@ -56,15 +56,17 @@ public class AdventurePlayer : MonoBehaviour
     public void CharacterAttack()
     {
         SoundChecker();
-        bato = batoPooler.GetPooledObject(isForRico, 1f);
+        bato = batoPooler.GetPooledObject(isForRico, 0.5f);
         if (bato != null)
         {
             bato.transform.position = weaponSpawnPoint.position;
-            bato.transform.rotation = transform.rotation;
+            bato.transform.rotation = weaponSpawnPoint.rotation;
             bato.SetActive(true);
             Rigidbody batoRigidbody = bato.GetComponent<Rigidbody>();
             batoRigidbody.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
+
         }
+
 
     }
 

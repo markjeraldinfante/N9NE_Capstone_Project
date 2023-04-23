@@ -73,5 +73,12 @@ public class ObjectPooler : MonoBehaviour
 
         obj.SetActive(false);
         obj.transform.parent = parentTransform;
+        ResetObject(obj);
+    }
+    public void ResetObject(GameObject obj)
+    {
+        obj.SetActive(false);
+        obj.transform.position = Vector3.zero;
+        obj.transform.rotation = Quaternion.identity;
     }
 }

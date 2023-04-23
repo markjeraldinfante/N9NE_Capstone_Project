@@ -9,7 +9,6 @@ public class CharacterPreview : MonoBehaviour
     public TextMeshProUGUI charName;
     public TextMeshProUGUI charDetails;
     public List<CharData> CharacterModel;
-    public basePlayerSelect selectedCharacter;
     private void Start()
     {
         LoadCharacter.showChar += ShowCharacter;
@@ -44,11 +43,11 @@ public class CharacterPreview : MonoBehaviour
     }
     public void SaveSTATE(string id, string name, string details)
     {
-        selectedCharacter.CharacterID = id;
+        SavingState.instance.playerSelect.CharacterID = id;
         charName.text = name;
         charDetails.text = details;
 
-        PlayerPrefs.SetString(PlayerPrefKeys.SELECTED_CHARACTER, selectedCharacter.CharacterID);
+        PlayerPrefs.SetString(PlayerPrefKeys.SELECTED_CHARACTER, SavingState.instance.playerSelect.CharacterID);
         PlayerPrefs.SetString(PlayerPrefKeys.SELECTED_CHARACTER_NAME, charName.text);
         PlayerPrefs.SetString(PlayerPrefKeys.SELECTED_CHARACTER_DETAILS, charDetails.text);
     }

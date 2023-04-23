@@ -572,7 +572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7223080151314242167}
-  - component: {fileID: 2048791722267165441}
+  - component: {fileID: 147709645}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -587,16 +587,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997156215519715129}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05818266, y: 0.17820314, z: -0.20249012}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 656020659632978879}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2048791722267165441
-CapsuleCollider:
+--- !u!65 &147709645
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -605,10 +605,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.00039725055
-  m_Height: 0.002578678
-  m_Direction: 1
-  m_Center: {x: 0.0029006132, y: -0.008787894, z: 0.010140129}
+  serializedVersion: 2
+  m_Size: {x: 0.1364317, y: 0.04380711, z: 0.016528996}
+  m_Center: {x: -0.015623046, y: 0.0006749941, z: 0.00006397134}
 --- !u!1 &2067821278154542735
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +638,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067821278154542735}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 10.44, y: 1.48, z: 0.010124506}
   m_LocalScale: {x: 23, y: 23, z: 23}
   m_ConstrainProportionsScale: 0
@@ -1086,7 +1085,7 @@ MonoBehaviour:
   weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 3
-  attackRange: 0.7
+  attackRange: 0.9
   currentState: 0
   isAttacked: 0
   isBoss: 0
@@ -3243,6 +3242,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1640188155668414294, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743690883909861645, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
+      propertyPath: enemyDamage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3803871222690749211, guid: a8313c38f2b941840b4644ce07410f11, type: 3}
