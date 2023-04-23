@@ -10,7 +10,6 @@ public class DulalayScript : MonoBehaviour
     public GameObject healthBar;
     EntityHealth health;
     public Collider weaponCollider;
-    bool isLookingRange;
     private const string playerTag = "Player";
     private GameObject player;
     private Animator animator;
@@ -20,7 +19,7 @@ public class DulalayScript : MonoBehaviour
     public float longRange = 1f;
     public float attackSpeed = 2f; // Attacks per second
     private float attackTimer;
-    public enum State { Idle, Chase, LongRangeAttack };
+    public enum State { Idle, Chase, LongRangeAttack, MeleeRangeAttack };
     public State currentState = State.Idle;
     public bool isAttacked;
     public bool isBoss = false;
@@ -86,7 +85,13 @@ public class DulalayScript : MonoBehaviour
                     break;
                 }
 
-                if (distanceToPlayer <= longRange)
+                if (distanceToPlayer <= meleeRange)
+                {
+                    currentState = State.MeleeRangeAttack;
+                    isAttacked = false;
+                }
+
+                else if (distanceToPlayer <= longRange)
                 {
                     currentState = State.LongRangeAttack;
                     isAttacked = false;
@@ -106,6 +111,25 @@ public class DulalayScript : MonoBehaviour
                     CheckRotation();
                 }
                 break;
+            case State.MeleeRangeAttack:
+                if (player == null)
+                {
+                    currentState = State.Idle;
+                    break;
+                }
+                if (distanceToPlayer > meleeRange)
+                {
+                    currentState = State.LongRangeAttack;
+
+                }
+                else
+                {
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+
+                    MeleeAttack(distanceToPlayer);// continue attacking animation when enemy is attacking
+                                                  // Attack the player
+                }
+                break;
 
             case State.LongRangeAttack:
                 if (player == null)
@@ -119,10 +143,15 @@ public class DulalayScript : MonoBehaviour
                     Idling(); // stop attacking animation when enemy is chasing
                     attackTimer = 0f; // reset attack timer
                 }
+                else if (distanceToPlayer < meleeRange)
+                {
+                    currentState = State.MeleeRangeAttack;
+                }
                 else
                 {
 
-                    CheckRotation();
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+
                     attackTimer += Time.deltaTime;
                     if (attackTimer >= 1f / attackSpeed)
                     {
@@ -130,8 +159,6 @@ public class DulalayScript : MonoBehaviour
 
                         LongAttacking(); // continue attacking animation when enemy is attacking
                                          // Attack the player
-                        MeleeAttack(distanceToPlayer);
-
                     }
                 }
                 break;
@@ -187,7 +214,7 @@ public class DulalayScript : MonoBehaviour
     }
     private void MeleeAttacking()
     {
-        isLookingRange = true;
+
         Debug.Log("MeleeAttacking() called");
         animator.SetBool("chasing", false);
         animator.SetBool("Range", false);
@@ -197,11 +224,6 @@ public class DulalayScript : MonoBehaviour
     }
     private void MeleeAttack(float distance)
     {
-        // Check if the player is within melee range
-        // if (Vector3.Distance(transform.position, player.transform.position) <= meleeRange)
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-
         if (distance <= meleeRange)
         {
             // Deal damage to the player
@@ -210,7 +232,7 @@ public class DulalayScript : MonoBehaviour
     }
     private void LongAttacking()
     {
-        isLookingRange = true;
+
         animator.SetBool("chasing", false);
         animator.SetBool("Range", true);
         animator.SetInteger("RangeIndex", Random.Range(0, 4));
