@@ -6,17 +6,21 @@ public class Melee_Adventure : MonoBehaviour
 {
     [SerializeField] private KeyCode attackKey = KeyCode.J;
     [SerializeField] private GameObject weaponCollider;
-
+    PlayerController playerController;
     [SerializeField] private Animator characterAnimation;
+    [SerializeField] private WeaponData data;
     public bool isForJunnie;
     public bool isForAzule;
+    bool isAttacking;
+    bool canAttack;
     private void Start()
     {
         weaponCollider.SetActive(false);
         characterAnimation = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
 
         if (Input.GetKeyDown(attackKey))
@@ -28,11 +32,31 @@ public class Melee_Adventure : MonoBehaviour
         }
 
     }
+    private void Update()
+    {
+        if (Input.GetButtonDown("Attack") && canAttack && !isAttacking)
+        {
+            if (!playerController.isProne)
+            {
+                isAttacking = true;
+                canAttack = false;
+                StartCoroutine(AttackDelay());
+            }
+
+        }
+    }
+    IEnumerator AttackDelay()
+    {
+        characterAnimation.SetTrigger("melee");
+        yield return new WaitForSeconds(data.GetItemAttackSpeed(data.itemLevel));
+        isAttacking = false;
+        canAttack = true;
+    }
     public void SwingSound()
     {
         SoundChecker();
     }
-    public void WeaponEnable()
+    public void CharacterAttack()
     {
         weaponCollider.SetActive(true);
     }

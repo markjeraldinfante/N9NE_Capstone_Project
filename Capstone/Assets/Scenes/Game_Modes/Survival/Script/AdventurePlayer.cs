@@ -10,15 +10,17 @@ public class AdventurePlayer : MonoBehaviour
     [SerializeField] private ObjectPooler batoPooler;
     [SerializeField] private Transform weaponSpawnPoint;
     [SerializeField] private Animator characterAnimation;
-
+    [SerializeField] private WeaponData data;
     [SerializeField] private bool canAttack = true;
     [SerializeField] private bool isAttacking = false;
     [SerializeField] Transform hitpoint;
     public bool isForRico;
     public bool isForOmar;
-
+    GameObject bato;
     private void Start()
     {
+
+
         characterAnimation = GetComponent<Animator>();
         batoPooler = GameObject.FindGameObjectWithTag("ObjPool").GetComponent<ObjectPooler>();
         playerController = GetComponent<PlayerController>();
@@ -51,14 +53,10 @@ public class AdventurePlayer : MonoBehaviour
 
         }
     }
-
-    private IEnumerator Attack()
+    public void CharacterAttack()
     {
         SoundChecker();
-        characterAnimation.SetTrigger("RangeAttack");
-        yield return new WaitForSeconds(0.1f);
-
-        GameObject bato = batoPooler.GetPooledObject(isForRico, 1f);
+        bato = batoPooler.GetPooledObject(isForRico, 1f);
         if (bato != null)
         {
             bato.transform.position = weaponSpawnPoint.position;
@@ -68,7 +66,13 @@ public class AdventurePlayer : MonoBehaviour
             batoRigidbody.AddForce(transform.forward * attackSpeed, ForceMode.Impulse);
         }
 
-        yield return new WaitForSeconds(0.5f);
+    }
+
+    private IEnumerator Attack()
+    {
+
+        characterAnimation.SetTrigger("RangeAttack");
+        yield return new WaitForSeconds(data.GetItemAttackSpeed(data.itemLevel));
         isAttacking = false;
         canAttack = true;
     }

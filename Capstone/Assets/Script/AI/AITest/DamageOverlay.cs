@@ -15,9 +15,13 @@ public class DamageOverlay : MonoBehaviour
 
     private void Awake()
     {
-        tansoHolder.text = "Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
+
 
         damageImage.enabled = false;
+    }
+    private void Start()
+    {
+        tansoHolder.text = "Tanso: " + DBHandler.instance.MainPlayerDB.TansoCount.ToString();
     }
     private void OnEnable()
     {
