@@ -12,6 +12,7 @@ public class BatoBullet : MonoBehaviour
         {  // Get the enemy script
             MobsScriptAI enemy = other.transform.parent.GetComponent<MobsScriptAI>();
             MobAI enemyLongRange = other.transform.parent.GetComponent<MobAI>();
+            DulalayScript dulalay = other.transform.parent.GetComponent<DulalayScript>();
             // Set the enemy state to Chase if it is not already attacking the player
             if (enemy != null)
             {
@@ -20,6 +21,10 @@ public class BatoBullet : MonoBehaviour
             if (enemyLongRange != null)
             {
                 enemyLongRange.isAttacked = true;
+            }
+            if (dulalay != null)
+            {
+                dulalay.isAttacked = true;
             }
             EntityHealth entityHealth = other.transform.parent.GetComponent<EntityHealth>();
             BossScript bossScript = other.transform.parent.GetComponent<BossScript>();
