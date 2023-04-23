@@ -4391,8 +4391,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   outlineMode: 3
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 7
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 2941274158721294118, guid: a18e5df0293989c4d8995c5aa26fc34c, type: 3}
@@ -6096,7 +6096,7 @@ MonoBehaviour:
   playerSelect: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 5646993354676890443}
   damageOverlay: {fileID: 0}
   forPlayer: 0
   isInvulnerable: 0
@@ -7792,6 +7792,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55532e0ff09a5a94db38c8aea64bdc22, type: 3}
+--- !u!114 &5646993354676890443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5646993354095524746, guid: 55532e0ff09a5a94db38c8aea64bdc22, type: 3}
+  m_PrefabInstance: {fileID: 760942785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9ab39880705f6478c0b0e0ee34af2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7717368215537018257 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7717368214776345936, guid: 55532e0ff09a5a94db38c8aea64bdc22, type: 3}
