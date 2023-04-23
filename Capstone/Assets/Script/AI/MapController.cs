@@ -17,8 +17,14 @@ public class MapController : MonoBehaviour
     private void Update()
     {
         // Get input for horizontal and vertical movement
-        horizontalInput = Input.GetAxisRaw("Horizontal 1");
-        verticalInput = Input.GetAxisRaw("Vertical 1");
+        float horizontalInput = Input.GetAxisRaw("Horizontal 1");
+        if (horizontalInput == 0f) // If keyboard input is not detected, use joystick input
+            horizontalInput = Input.GetAxisRaw("JoyStickX");
+
+        float verticalInput = Input.GetAxisRaw("Vertical 1");
+        if (verticalInput == 0f) // If keyboard input is not detected, use joystick input
+            verticalInput = -Input.GetAxisRaw("JoyStickY"); // Invert Y-axis input for joystick
+
 
         // Move the character horizontally and vertically
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;

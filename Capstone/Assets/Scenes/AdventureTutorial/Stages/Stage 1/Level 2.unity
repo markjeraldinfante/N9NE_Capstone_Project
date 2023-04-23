@@ -5695,35 +5695,43 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2052588206}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2052588206}
+    - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SaveLevel
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: AdventureLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 24
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11145,7 +11153,7 @@ GameObject:
   - component: {fileID: 1694967309}
   - component: {fileID: 1694967310}
   m_Layer: 0
-  m_Name: GameObject (7)
+  m_Name: NextLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11192,7 +11200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameHUD: {fileID: 1683314693}
-  textDialogueMessage: []
+  textDialogueMessage:
+  - Would you like to continue level 3?
   dialogueBox: {fileID: 835044352}
   textDialogue: {fileID: 835044353}
   delay: 0.05
@@ -12529,18 +12538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2077736950720038388, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 1688036762}
-    - target: {fileID: 2077736950720038388, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
-      propertyPath: objectsToHide.Array.data[0]
-      value: 
-      objectReference: {fileID: 835044352}
-    - target: {fileID: 2077736950720038388, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
-      propertyPath: objectsToHide.Array.data[1]
-      value: 
-      objectReference: {fileID: 1683314693}
     - target: {fileID: 2077736950720038389, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
       propertyPath: m_Name
       value: SceneManager
@@ -12602,10 +12599,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1688036762}
     - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
-      propertyPath: objectsToHide.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
       propertyPath: objectsToHide.Array.data[0]
       value: 
       objectReference: {fileID: 835044352}
@@ -12613,8 +12606,7 @@ PrefabInstance:
       propertyPath: objectsToHide.Array.data[1]
       value: 
       objectReference: {fileID: 1683314693}
-    m_RemovedComponents:
-    - {fileID: 2077736950720038388, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
 --- !u!114 &2052588206 stripped
 MonoBehaviour:

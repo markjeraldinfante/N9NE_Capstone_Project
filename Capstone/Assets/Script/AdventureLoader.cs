@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AdventureLoader : MonoBehaviour
 {
+    [SerializeField] private LevelBase level;
     public TextMeshProUGUI errMessage;
     [SerializeField] private GameObject loadingScreen = null;
     [SerializeField] private GameObject[] objectsToHide = null;
@@ -14,21 +15,24 @@ public class AdventureLoader : MonoBehaviour
     {
         if (enemyCounter.GetEnemyState())
         {
+            SaveLevel();
             HideObjects();
             StartCoroutine(LoadAsynchronously(sceneIndex));
         }
         else
         {
             errMessage.color = Color.red;
-            errMessage.text = "Kill all enemies to proceed !! ";
-            StartCoroutine(clearText());
+            errMessage.text = "Kill all enemies to proceed!";
+            StartCoroutine(ClearText(3f));
         }
     }
-    IEnumerator clearText()
+
+    IEnumerator ClearText(float delay)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(delay);
         errMessage.text = "";
     }
+
     private void HideObjects()
     {
         if (objectsToHide == null) return;
@@ -44,5 +48,10 @@ public class AdventureLoader : MonoBehaviour
         loadingScreen.SetActive(true);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneIndex);
+    }
+    public void SaveLevel()
+    {
+        SavingState.instance.SaveStageLevel(level, true);
+        SavingState.instance.SaveState();
     }
 }
