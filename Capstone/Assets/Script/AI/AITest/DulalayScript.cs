@@ -126,8 +126,8 @@ public class DulalayScript : MonoBehaviour
                 {
                     transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
-                    MeleeAttack(distanceToPlayer);// continue attacking animation when enemy is attacking
-                                                  // Attack the player
+                    MeleeAttacking();// continue attacking animation when enemy is attacking
+                                     // Attack the player
                 }
                 break;
 
@@ -222,14 +222,7 @@ public class DulalayScript : MonoBehaviour
         animator.SetInteger("MeleeIndex", Random.Range(0, 4));
         weaponCollider.enabled = true;
     }
-    private void MeleeAttack(float distance)
-    {
-        if (distance <= meleeRange)
-        {
-            // Deal damage to the player
-            MeleeAttacking();
-        }
-    }
+
     private void LongAttacking()
     {
 
