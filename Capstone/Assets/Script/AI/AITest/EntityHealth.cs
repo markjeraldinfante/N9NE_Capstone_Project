@@ -96,10 +96,9 @@ public class EntityHealth : MonoBehaviour
             currentHealth -= damageAmount;
             healthBar.SetHealth(currentHealth);
             damageOverlay.ShowDamage(damageAmount);
-            if (currentHealth <= 0)
+            if (Mathf.RoundToInt(currentHealth) <= 0f)
             {
                 characterIsDead?.Invoke();
-
             }
         }
         else
