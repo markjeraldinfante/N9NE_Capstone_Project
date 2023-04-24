@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 5866666019898129811}
   m_Layer: 0
   m_Name: waterboy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,8 +1851,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2df1d29c69b7b42b6c4423357cf7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backFire: {fileID: 0}
   longRangeWeaponPrefab: {fileID: 1620534753876557953, guid: 7596d3f2fba9794458f26e08ada0b7a7, type: 3}
+  longRangeWeaponPrefab2: {fileID: 0}
   enemyHand: {fileID: 8804282209031163030}
+  enemyHand2: {fileID: 0}
   healthBar: {fileID: 0}
   moveSpeed: 2
   detectionRange: 4
@@ -1998,6 +2001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972812638687171888}
   - component: {fileID: 1972812638687171889}
+  - component: {fileID: 7687182116908064885}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -2029,11 +2033,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 1972812638687171895}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.00915669
   m_Height: 0.061820723
   m_Direction: 1
   m_Center: {x: 0.0004025082, y: 0.03179108, z: 0}
+--- !u!65 &7687182116908064885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972812638687171895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334175, y: 0.06581363, z: 0.016529003}
+  m_Center: {x: -0.0040780227, y: 0.032735553, z: 0.00006397168}
 --- !u!1 &2049592180038984530
 GameObject:
   m_ObjectHideFlags: 0

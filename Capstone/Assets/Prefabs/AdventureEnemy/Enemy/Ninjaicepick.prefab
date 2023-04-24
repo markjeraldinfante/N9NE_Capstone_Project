@@ -1052,6 +1052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7521363701208173182}
   - component: {fileID: 808053206792073885}
+  - component: {fileID: 5736369203482303657}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -1083,11 +1084,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3499811314502861883}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.0027895567
   m_Height: 0.037350062
   m_Direction: 1
   m_Center: {x: 0.00006646922, y: -0.023649754, z: -0.000054947726}
+--- !u!65 &5736369203482303657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499811314502861883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334167, y: 0.040315192, z: 0.009420472}
+  m_Center: {x: -0.0040780245, y: -0.024017775, z: 0.000251038}
 --- !u!1 &3617315265604149531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1409,7 @@ GameObject:
   - component: {fileID: 569010549}
   m_Layer: 0
   m_Name: Ninjaicepick
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1973,6 +1987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   weaponCollider: {fileID: 3904435970203922312}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 3
   attackRange: 0.8

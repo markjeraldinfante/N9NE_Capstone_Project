@@ -2503,8 +2503,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2df1d29c69b7b42b6c4423357cf7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backFire: {fileID: 0}
   longRangeWeaponPrefab: {fileID: 5975436504275688227, guid: f316508fc0937b042837175c95747d3c, type: 3}
+  longRangeWeaponPrefab2: {fileID: 0}
   enemyHand: {fileID: 8895379497021234960}
+  enemyHand2: {fileID: 0}
   healthBar: {fileID: 2459410839428904596}
   moveSpeed: 2
   detectionRange: 5
@@ -3292,6 +3295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8895379496210392541}
   - component: {fileID: 8895379496210392540}
+  - component: {fileID: 759697370344330207}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -3323,11 +3327,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 8895379496210392514}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.00774678
   m_Height: 0.06586199
   m_Direction: 1
   m_Center: {x: 0.00025863084, y: 0.032401055, z: 0.00095624203}
+--- !u!65 &759697370344330207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895379496210392514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10411018, y: 0.068959646, z: 0.016528996}
+  m_Center: {x: -0.00869376, y: 0.031729642, z: 0.000063971616}
 --- !u!1 &8895379497021234961
 GameObject:
   m_ObjectHideFlags: 0

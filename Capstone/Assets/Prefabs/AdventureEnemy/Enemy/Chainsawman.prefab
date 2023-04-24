@@ -1980,6 +1980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6526878318787000416}
   - component: {fileID: 578386282793771882}
+  - component: {fileID: 2808520606318622332}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -2011,11 +2012,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 6708917659405818530}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.0073564905
   m_Height: 0.0532809
   m_Direction: 1
   m_Center: {x: 0.00013896142, y: -0.0014506256, z: 0}
+--- !u!65 &2808520606318622332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6708917659405818530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.113341674, y: 0.048458442, z: 0.016528998}
+  m_Center: {x: -0.0040780217, y: -0.0016506636, z: 0.00006397126}
 --- !u!1 &6881990903499437572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,7 +2468,7 @@ GameObject:
   - component: {fileID: 1079505049}
   m_Layer: 0
   m_Name: Chainsawman
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

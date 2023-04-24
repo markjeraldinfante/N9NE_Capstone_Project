@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 7464947794272504004}
   m_Layer: 0
   m_Name: Aloong
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6482,6 +6482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4639097334551856060}
   - component: {fileID: 5266307178250448508}
+  - component: {fileID: 7696533732632837296}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -6513,11 +6514,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 8222299109025733930}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.009946411
   m_Height: 0.07065734
   m_Direction: 1
   m_Center: {x: -0.000058853442, y: -0.013968509, z: 0.0053144703}
+--- !u!65 &7696533732632837296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222299109025733930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1028564, y: 0.068295024, z: 0.020826766}
+  m_Center: {x: 0.0011648072, y: -0.011568963, z: 0.002212857}
 --- !u!1 &8374324003265408814
 GameObject:
   m_ObjectHideFlags: 0

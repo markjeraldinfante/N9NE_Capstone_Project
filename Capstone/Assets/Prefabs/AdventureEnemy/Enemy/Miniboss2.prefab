@@ -984,6 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3635363869974141232}
   - component: {fileID: 3635363869974141231}
+  - component: {fileID: 1659291939582588567}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -1015,11 +1016,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3635363869974141233}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.005724098
   m_Height: 0.034700606
   m_Direction: 1
   m_Center: {x: 0.000000036223817, y: 0.017026054, z: 0.00035271083}
+--- !u!65 &1659291939582588567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635363869974141233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334166, y: 0.033337567, z: 0.016528996}
+  m_Center: {x: -0.0040780245, y: 0.017354598, z: 0.00006397119}
 --- !u!1 &3739208967938516781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,7 +1312,7 @@ GameObject:
   - component: {fileID: 2519705187055411792}
   m_Layer: 0
   m_Name: Miniboss2
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1359,8 +1373,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   outlineMode: 3
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 7
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 2512864038190429359, guid: d0a2a23bf3f0bdc4ebba0b1ac56481ab, type: 3}
@@ -2837,9 +2851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0534e301147ebf441bcf623674fc569a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 0}
+  particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint: {fileID: 0}
+  hitPoint: {fileID: 3635363869974141233}
 --- !u!54 &859203499122866968
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2866,10 +2880,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.004299515
+  m_Radius: 0.004299512
   m_Height: 0.034700606
   m_Direction: 1
-  m_Center: {x: 0.012867658, y: 0.017026054, z: 0.00035271083}
+  m_Center: {x: 0.025991524, y: 0.017026054, z: 0.00035271083}
 --- !u!114 &2519705187055411792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,12 +2896,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c99c7777b2e1514a87d2ba0d4db88bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 5057237551836752794}
   weaponCollider: {fileID: 1197395186961297603}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 3
   detectionRange: 5
   attackRange: 0.8
   currentState: 0
   isAttacked: 0
+  isBoss: 1
 --- !u!1 &4524589342260145292
 GameObject:
   m_ObjectHideFlags: 0

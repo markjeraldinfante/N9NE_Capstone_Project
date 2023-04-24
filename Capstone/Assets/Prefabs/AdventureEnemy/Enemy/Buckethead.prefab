@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 5059220958662008735}
   weaponCollider: {fileID: 7347206754274040646}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2.5
   detectionRange: 5
   attackRange: 0.6
@@ -2145,6 +2146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 487889683049101980}
   - component: {fileID: 790900588417107632}
+  - component: {fileID: 6337255778202927836}
   m_Layer: 0
   m_Name: hitpoint
   m_TagString: enemyHitpoint
@@ -2176,11 +2178,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 6126589128289543511}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.009447643
   m_Height: 0.06507592
   m_Direction: 1
   m_Center: {x: -0.00007996615, y: 0.03151273, z: 0}
+--- !u!65 &6337255778202927836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126589128289543511}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334167, y: 0.06321332, z: 0.016528996}
+  m_Center: {x: -0.004078023, y: 0.032445267, z: 0.000063971616}
 --- !u!1 &6162907263332534320
 GameObject:
   m_ObjectHideFlags: 0

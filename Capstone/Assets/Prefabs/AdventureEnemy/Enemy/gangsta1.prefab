@@ -1864,11 +1864,11 @@ GameObject:
   - component: {fileID: 6677272510239563683}
   m_Layer: 0
   m_Name: gangsta1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6637052781737892408
 Transform:
   m_ObjectHideFlags: 0
@@ -5118,6 +5118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741067922585105587}
   - component: {fileID: 7086552217603049934}
+  - component: {fileID: 4215894587431756526}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -5149,11 +5150,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 7097528661804980741}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.011275772
   m_Height: 0.06790377
   m_Direction: 1
   m_Center: {x: -0.000000029802322, y: 0.035662517, z: 0}
+--- !u!65 &4215894587431756526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097528661804980741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334167, y: 0.069930024, z: 0.016528996}
+  m_Center: {x: -0.0040780236, y: 0.034961294, z: 0.000063971565}
 --- !u!1 &7128799667453302563
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,11 +5915,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5844450046194992037, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934710814869890617, guid: 8c672daed060bde4b89b6ce101eabee3, type: 3}
       propertyPath: m_Name

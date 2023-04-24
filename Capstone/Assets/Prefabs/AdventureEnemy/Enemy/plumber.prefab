@@ -2934,6 +2934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3150520030422736312}
   - component: {fileID: 2174590342158557472}
+  - component: {fileID: 2558493345512299655}
   m_Layer: 0
   m_Name: Hipoint
   m_TagString: enemyHitpoint
@@ -2965,11 +2966,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 6789443259493471348}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.0064732214
   m_Height: 0.03491703
   m_Direction: 1
   m_Center: {x: -0.00024257602, y: 0.017913267, z: 0}
+--- !u!65 &2558493345512299655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6789443259493471348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09267971, y: 0.03675082, z: 0.010113488}
+  m_Center: {x: 0.006253096, y: 0.019181805, z: -0.00081108144}
 --- !u!1 &6799675421611345250
 GameObject:
   m_ObjectHideFlags: 0

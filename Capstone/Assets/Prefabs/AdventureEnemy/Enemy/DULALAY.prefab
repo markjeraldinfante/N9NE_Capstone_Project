@@ -2872,6 +2872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8542069743756345835}
   - component: {fileID: 8542069743756345834}
+  - component: {fileID: 2098164166045379128}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -2903,11 +2904,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 8542069743756345832}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.01212075
   m_Height: 0.10265031
   m_Direction: 1
   m_Center: {x: -0.000000011175871, y: 0.052110206, z: 0}
+--- !u!65 &2098164166045379128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542069743756345832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15898533, y: 0.108017206, z: 0.016528998}
+  m_Center: {x: -0.007875746, y: 0.053235255, z: 0.00006397131}
 --- !u!1 &8542069744424382432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3125,7 @@ GameObject:
   - component: {fileID: 1833258881}
   m_Layer: 0
   m_Name: DULALAY
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

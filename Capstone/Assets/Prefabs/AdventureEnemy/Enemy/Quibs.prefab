@@ -1174,11 +1174,11 @@ GameObject:
   - component: {fileID: 6890858052550750674}
   m_Layer: 0
   m_Name: Quibs
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 65
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3799232200727689517
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -1250,8 +1250,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   outlineMode: 3
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 7
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 6138716254858980503, guid: cd0577c73f4beca4797cd744c76557eb, type: 3}
@@ -5056,6 +5056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2315537536524078908}
   - component: {fileID: 1111015250153128183}
+  - component: {fileID: 8660406701926107723}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: enemyHitpoint
@@ -5087,11 +5088,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 8259229470325308924}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.002048995
   m_Height: 0.019904062
   m_Direction: 1
   m_Center: {x: -0.00009923269, y: -0.003378034, z: 0.00017518995}
+--- !u!65 &8660406701926107723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259229470325308924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03303409, y: 0.024779119, z: 0.004881471}
+  m_Center: {x: -0.0007062465, y: -0.0030715605, z: -0.00016887166}
 --- !u!1 &8648764573307869228
 GameObject:
   m_ObjectHideFlags: 0

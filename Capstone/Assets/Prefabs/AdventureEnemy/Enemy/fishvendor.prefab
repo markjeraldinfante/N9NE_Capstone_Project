@@ -1251,6 +1251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8000667867473038066}
   - component: {fileID: 2861579685544221573}
+  - component: {fileID: 1519361979528762096}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -1282,11 +1283,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 4628329398798090793}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.007549918
   m_Height: 0.07008454
   m_Direction: 1
   m_Center: {x: -0.00062126806, y: 0.035497025, z: 0.0026786379}
+--- !u!65 &1519361979528762096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628329398798090793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334167, y: 0.07688842, z: 0.016528996}
+  m_Center: {x: -0.0040780236, y: 0.03695488, z: 0.000063971565}
 --- !u!1 &4664007123895296819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,7 +2844,7 @@ GameObject:
   - component: {fileID: 8229286993837611597}
   m_Layer: 0
   m_Name: fishvendor
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

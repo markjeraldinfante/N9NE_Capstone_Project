@@ -395,6 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5771874856137431728}
   - component: {fileID: 1406114380162972436}
+  - component: {fileID: 7337698574678412681}
   m_Layer: 0
   m_Name: Hitpoint
   m_TagString: enemyHitpoint
@@ -426,11 +427,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 1340710386646603213}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.009858217
   m_Height: 0.072164245
   m_Direction: 1
   m_Center: {x: -0.00028305897, y: 0.036062848, z: 0}
+--- !u!65 &7337698574678412681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340710386646603213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11334167, y: 0.06972359, z: 0.016528996}
+  m_Center: {x: -0.0040780236, y: 0.03488852, z: 0.000063971565}
 --- !u!1 &1407933481223968391
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +908,7 @@ GameObject:
   - component: {fileID: 4992086174513145263}
   m_Layer: 0
   m_Name: gangsta2
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,7 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  weaponCollider: {fileID: 0}
+  weaponCollider: {fileID: 6097717479995303935}
   weaponCollider2: {fileID: 0}
   moveSpeed: 2.5
   detectionRange: 4

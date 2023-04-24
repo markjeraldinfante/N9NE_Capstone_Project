@@ -947,7 +947,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939810537238738253}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3205902158158225261}
   weaponCollider: {fileID: 4028142647142014781}
+  weaponCollider2: {fileID: 0}
   moveSpeed: 2
   detectionRange: 4
   attackRange: 0.8
@@ -1527,6 +1528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5530378523111949490}
   - component: {fileID: 6920103056010347089}
+  - component: {fileID: 9193903300845171959}
   m_Layer: 0
   m_Name: Hipoint
   m_TagString: enemyHitpoint
@@ -1558,11 +1560,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3622299377637417875}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.007746779
   m_Height: 0.04388485
   m_Direction: 1
   m_Center: {x: 0.0002586311, y: 0.02141248, z: 0.0001116659}
+--- !u!65 &9193903300845171959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622299377637417875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.088325605, y: 0.042900674, z: 0.016528996}
+  m_Center: {x: 0.00095401873, y: 0.022617899, z: 0.00006397124}
 --- !u!1 &3636927924292614325
 GameObject:
   m_ObjectHideFlags: 0
