@@ -47,6 +47,7 @@ public class MinigamePreview : MonoBehaviour
             DBHandler.instance.MainPlayerDB.TansoCount -= miniGameData.miniGameCost;
             gameSystem.Save(DBHandler.instance.MainPlayerDB.TansoCount, PlayerPrefKeys.TANSO);
             miniGameData.Purchase(() => DisplayMinigame(miniGameData));
+            SavingState.instance.SaveState();
         }
         else
         {

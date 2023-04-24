@@ -12,7 +12,11 @@ public class SavingState : MonoBehaviour
     public baseSurvivalVariant survivalVariant;
 
     [Header("Minigame")]
-    public baseMinigame miniGame;
+    [SerializeField] private MiniGameData Amarra;
+    [SerializeField] private MiniGameData JunkYard;
+    [SerializeField] private MiniGameData Litex;
+    [SerializeField] private MiniGameData Loco;
+    [SerializeField] private MiniGameData BatoPick;
 
     [Header("Map Data")]
     [SerializeField] private MapSO Upper;
@@ -100,6 +104,13 @@ public class SavingState : MonoBehaviour
         Rico.isUnlocked = PlayerPrefs.GetInt("Rico") != 0;
         Azule.isUnlocked = PlayerPrefs.GetInt("Azule") != 0;
 
+        //MiniGame
+        Amarra.IsBought = PlayerPrefs.GetInt("AmarraMG") != 0;
+        JunkYard.IsBought = PlayerPrefs.GetInt("JunkYardMG") != 0;
+        Litex.IsBought = PlayerPrefs.GetInt("LitexMG") != 0;
+        Loco.IsBought = PlayerPrefs.GetInt("LocoMG") != 0;
+        BatoPick.IsBought = PlayerPrefs.GetInt("BatoPickMG") != 0;
+
         //Map 
         Upper.isUnlocked = PlayerPrefs.GetInt("Upper") != 0;
         Lower.isUnlocked = PlayerPrefs.GetInt("Lower") != 0;
@@ -160,7 +171,9 @@ public class SavingState : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Save All Settings
+    /// </summary>
 
     public void SaveState()
     {
@@ -169,6 +182,13 @@ public class SavingState : MonoBehaviour
         PlayerPrefs.SetInt("Junnie", (Junnie.isUnlocked ? 1 : 0));
         PlayerPrefs.SetInt("Rico", (Rico.isUnlocked ? 1 : 0));
         PlayerPrefs.SetInt("Azule", (Azule.isUnlocked ? 1 : 0));
+
+        //MiniGame
+        PlayerPrefs.SetInt("AmarraMG", (Amarra.IsBought ? 1 : 0));
+        PlayerPrefs.SetInt("JunkYardMG", (JunkYard.IsBought ? 1 : 0));
+        PlayerPrefs.SetInt("LitexMG", (Litex.IsBought ? 1 : 0));
+        PlayerPrefs.SetInt("LocoMG", (Loco.IsBought ? 1 : 0));
+        PlayerPrefs.SetInt("BatoPickMG", (BatoPick.IsBought ? 1 : 0));
 
         //Map
         PlayerPrefs.SetInt("Upper", (Upper.isUnlocked ? 1 : 0));
@@ -222,21 +242,53 @@ public class SavingState : MonoBehaviour
 
         Debug.Log("Saving state..");
     }
-
+    /// <summary>
+    /// Save Land Title Piece 
+    /// </summary>
+    /// <param name="landTitleSO"></param>
+    /// <param name="isUnlocked"></param>
     public void SaveLandPiece(LandTitleBase landTitleSO, bool isUnlocked)
     {
         landTitleSO.isUnlocked = isUnlocked;
     }
+
+    /// <summary>
+    /// Save Character 
+    /// </summary>
+    /// <param name="characterDataSO"></param>
+    /// <param name="isUnlocked"></param>
     public void SaveCharacter(CharacterData characterDataSO, bool isUnlocked)
     {
         characterDataSO.isUnlocked = isUnlocked;
     }
+
+    /// <summary>
+    /// Save Map
+    /// </summary>
+    /// <param name="mapSO"></param>
+    /// <param name="isUnlocked"></param>
     public void SaveMap(MapSO mapSO, bool isUnlocked)
     {
         mapSO.isUnlocked = isUnlocked;
     }
+
+    /// <summary>
+    /// Save Stage Level
+    /// </summary>
+    /// <param name="levelBaseSO"></param>
+    /// <param name="isCleared"></param>
     public void SaveStageLevel(LevelBase levelBaseSO, bool isCleared)
     {
         levelBaseSO.isCleared = isCleared;
+    }
+
+    /// <summary>
+    /// Save Minigame 
+    /// </summary>
+    /// <param name="miniGame"></param>
+    /// <param name="isBought"></param>
+    public void SaveMiniGame(MiniGameData miniGame, bool isBought)
+    {
+        miniGame.IsBought = isBought;
     }
 }
