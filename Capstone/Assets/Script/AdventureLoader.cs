@@ -49,7 +49,7 @@ public class AdventureLoader : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneIndex);
     }
-    public void SaveLevel()
+    private void SaveLevel()
     {
         SavingState.instance.SaveStageLevel(level, true);
         SavingState.instance.SaveState();

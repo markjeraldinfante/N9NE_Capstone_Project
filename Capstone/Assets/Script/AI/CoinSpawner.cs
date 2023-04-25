@@ -7,13 +7,12 @@ public class CoinSpawner : MonoBehaviour
     public GameObject coinPrefab;
     public Transform[] spawnPoints;
     public int coinsPerSpawn;
-    public bool isCleared;
-
+    [SerializeField] private LevelBase level;
     private HashSet<Vector3> usedPositions = new HashSet<Vector3>();
 
     private void Awake()
     {
-        if (!isCleared) { SpawnCoins(); }
+        if (!level.isCleared) { SpawnCoins(); }
         else
             return;
     }
