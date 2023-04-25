@@ -10,10 +10,14 @@ public class DisplayTutorial : MonoBehaviour
     public Canvas canvas;
     public AbilityHolder holder;
     public GameObject lifebar, miniMap, Skills, tanso;
+    [SerializeField] AdventurePlayer adventurePlayer;
+    [SerializeField] Melee_Adventure melee_Adventure;
 
     void Start()
     {
         playerCache = GameObject.FindGameObjectWithTag("Player");
+        adventurePlayer = playerCache.GetComponent<AdventurePlayer>();
+        melee_Adventure = playerCache.GetComponent<Melee_Adventure>();
         controller = playerCache.GetComponent<PlayerController>();
         anim = playerCache.GetComponent<Animator>();
     }
@@ -21,11 +25,29 @@ public class DisplayTutorial : MonoBehaviour
     public void OnEnter()
     {
         controller.enabled = false;
+
+        if (adventurePlayer != null)
+        {
+            adventurePlayer.enabled = false;
+        }
+        if (melee_Adventure != null)
+        {
+            melee_Adventure.enabled = false;
+        }
+
         anim.SetBool("Walk", false);
     }
     public void OnExit()
     {
         controller.enabled = true;
+        if (adventurePlayer != null)
+        {
+            adventurePlayer.enabled = true;
+        }
+        if (melee_Adventure != null)
+        {
+            melee_Adventure.enabled = true;
+        }
     }
     public void ShowTanso()
     {

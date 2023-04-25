@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Melee_Adventure : MonoBehaviour
 {
-    [SerializeField] private KeyCode attackKey = KeyCode.J;
     [SerializeField] private GameObject weaponCollider;
     PlayerController playerController;
     [SerializeField] private Animator characterAnimation;
@@ -20,18 +19,7 @@ public class Melee_Adventure : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    void FixedUpdate()
-    {
 
-        if (Input.GetKeyDown(attackKey))
-        {
-
-
-            characterAnimation.SetTrigger("melee");
-
-        }
-
-    }
     private void Update()
     {
         if (Input.GetButtonDown("Attack") && canAttack && !isAttacking)

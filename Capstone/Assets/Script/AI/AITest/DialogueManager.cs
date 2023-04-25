@@ -26,11 +26,11 @@ public class DialogueManager : MonoBehaviour
         {
             if (!this.isDone)
             {
-                OnEnter?.Invoke();
+                this.OnEnter?.Invoke();
             }
 
             currentLine = 0;
-            nextButton.SetActive(true);
+            nextButton.SetActive(false);
             imageHolder.sprite = imagePortrait;
 
             // Make sure that currentLine is not out of range
@@ -43,7 +43,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("char_head"))
+        {
+            if (!this.isDone)
+            {
+                this.OnEnter?.Invoke();
+            }
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -51,8 +60,8 @@ public class DialogueManager : MonoBehaviour
         {
             if (!this.isDone)
             {
-                showDisplay?.Invoke();
-                OnExit?.Invoke();
+                this.showDisplay?.Invoke();
+                this.OnExit?.Invoke();
             }
             if (this.isDone)
             {
@@ -68,33 +77,37 @@ public class DialogueManager : MonoBehaviour
     // Coroutine to gradually display the current line character by character
     IEnumerator TypeLine()
     {
-        // Clear the dialogue text before typing
-        dialogueText.text = "";
+        this.dialogueText.text = "";
 
-        // Loop through each character in the current line and add it to the dialogue text
         foreach (char c in lines[currentLine])
         {
-            dialogueText.text += c;
+            this.dialogueText.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        // Line has finished typing, enable next button
+        yield return new WaitForSeconds(0.5f);
+        nextButton.SetActive(true);
     }
 
     public void NextLine()
-    { // stop any typing coroutines that might be running
+    {
+        nextButton.SetActive(false);
+
         if (currentLine >= lines.Length)
         {
             return;
         }
+
         StopAllCoroutines();
-        // If the typing coroutine is still running, stop it and display the full line
+
         if (dialogueText.text != lines[currentLine])
         {
-
-            dialogueText.text = lines[currentLine];
+            this.dialogueText.text = lines[currentLine];
+            nextButton.SetActive(true); // Line was not finished typing, enable button again
         }
         else
         {
-            // Otherwise, move to the next line and start typing it
             currentLine++;
 
             if (currentLine < lines.Length)
@@ -111,9 +124,9 @@ public class DialogueManager : MonoBehaviour
                 isDone = true;
                 dialogueBox.SetActive(false);
                 ingameHUD.SetActive(true);
-
             }
         }
     }
+
 
 }
