@@ -11,21 +11,22 @@ public class EndelessMovement : MonoBehaviour
     {
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        float hAxis = Input.GetAxisRaw("Horizontal");
+
+        if (hAxis < 0)
         {
             if (this.gameObject.transform.position.x > LevelBoundary.leftSide)
             {
                 transform.Translate(Vector3.left * Time.deltaTime * horizontalMovement);
             }
-
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if (hAxis > 0)
         {
-            if (this.gameObject.transform.position.x <= LevelBoundary.rightSide)
+            if (this.gameObject.transform.position.x < LevelBoundary.rightSide)
             {
-                transform.Translate(Vector3.left * Time.deltaTime * horizontalMovement * -1);
+                transform.Translate(Vector3.right * Time.deltaTime * horizontalMovement);
             }
-
         }
+
     }
 }

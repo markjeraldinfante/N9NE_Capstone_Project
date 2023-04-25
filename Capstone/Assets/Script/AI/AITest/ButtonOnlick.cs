@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ButtonOnlick : MonoBehaviour
 {
-    public Button myButton;
+    [HideInInspector] public Button myButton;
     private void Start()
     {
         myButton = GetComponent<Button>();
