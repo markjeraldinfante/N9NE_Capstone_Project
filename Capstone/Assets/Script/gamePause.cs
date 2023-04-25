@@ -5,41 +5,74 @@ using UnityEngine.SceneManagement;
 
 public class gamePause : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public static gamePause instance;
-
+    [SerializeField] private GameObject loadingScreen = null;
+    public static bool GameIsPaused = false;
+    [SerializeField] private GameObject[] objectsToHide = null;
+    public GameObject pauseMenuUI;
     private void Awake()
     {
         Time.timeScale = 1f;
-        if (instance == null)
+        GameIsPaused = false;
+    }
+    void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
+    }
+    private void HideObjects()
+    {
+        if (objectsToHide == null) return;
 
-        else
+        foreach (GameObject obj in objectsToHide)
         {
-            Destroy(gameObject);
+            obj.SetActive(false);
         }
+    }
+    private void ShowObjects()
+    {
+        if (objectsToHide == null) return;
+
+        foreach (GameObject obj in objectsToHide)
+        {
+            obj.SetActive(true);
+        }
+    }
+    public void Resume()
+    {
+        ShowObjects();
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+    void Pause()
+    {
+        HideObjects();
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 
-    private void Update()
+    public void LoadMenu()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Time.timeScale = 0f;
-            pauseMenu.SetActive(true);
-        }
-    }
-    public void toMainMenu()
-    {
-        pauseMenu.SetActive(false);
-        SceneManager.LoadScene(1);
+        HideObjects();
         Time.timeScale = 1f;
+        StartCoroutine(LoadAsynchronously(2));
+
     }
-    public void resume()
+    private IEnumerator LoadAsynchronously(int sceneIndex)
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+        loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneIndex);
     }
+
 }
