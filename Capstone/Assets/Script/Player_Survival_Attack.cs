@@ -13,6 +13,8 @@ public class Player_Survival_Attack : MonoBehaviour
     public bool isMelee;
     public Collider WeaponCollider;
     public GameObject weaponInstantiate;
+    public Transform weaponStartpoint;
+    public float attackSpeed;
 
     // Start is called before the first frame update
     private void Start()
@@ -83,7 +85,9 @@ public class Player_Survival_Attack : MonoBehaviour
             {
                 if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
                 {
-                    Instantiate(WeaponCollider);
+
+                    Instantiate(weaponInstantiate, weaponStartpoint.position, weaponStartpoint.rotation);
+
                 }
                 else
                 {//  PhotonNetwork.Instantiate(WeaponCollider.name);

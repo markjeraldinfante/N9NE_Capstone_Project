@@ -31,7 +31,7 @@ public class WaveSpawner : MonoBehaviour
             if (isCountdownFinished)
             {
                 panel.SetActive(false);
-                waveNumberobj.SetActive(false);
+                waveNumberobj.SetActive(true);
                 waveCountdownText.gameObject.SetActive(false);
                 StartCoroutine(Spawnwave());
                 waveNumbertext.text = "Wave: " + waveNumber.ToString();
@@ -42,11 +42,13 @@ public class WaveSpawner : MonoBehaviour
             {
                 panel.SetActive(true);
                 waveNumberobj.SetActive(true);
+                waveCountdownText.gameObject.SetActive(true);
                 countdown -= Time.deltaTime;
                 waveCountdownText.text = Mathf.Round(countdown).ToString();
                 if (countdown <= 0f)
                 {
                     isCountdownFinished = true;
+
                 }
             }
         }
@@ -87,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
                 currentEnemy++;
             }
         }
-        else if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
+        else
         {
             enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
             currentEnemy++;
@@ -105,6 +107,6 @@ public class WaveSpawner : MonoBehaviour
                 photonView.RPC("UpdateCurrentEnemy", RpcTarget.All, currentEnemy);
             }
         }
-        else if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
+        else { currentEnemy--; }
     }
 }

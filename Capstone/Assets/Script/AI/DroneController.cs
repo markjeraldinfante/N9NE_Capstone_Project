@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DroneController : MonoBehaviour
 {
-    [SerializeField] private const string playerTag = "Player";
-    [SerializeField] private const string droneTag = "Drone";
-    // [SerializeField] private const string enemyTag = "enemy";
+    [SerializeField] private string playerTag = "Player";
+    [SerializeField] private string droneTag = "Drone";
+    [SerializeField] private string enemyTag = "enemy";
     [SerializeField] private float enemyDetectionDistance = 5f;
     [SerializeField] private float followSpeed = 3f;
     [SerializeField] private float amplitude = 0.5f;
@@ -105,7 +105,7 @@ public class DroneController : MonoBehaviour
     private GameObject FindNearestEnemy()
     {
         //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemyHitpoint");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         // GameObject[] EnemyHead = GameObject.FindGameObjectsWithTag("enemyHitpoint");
         if (enemies.Length == 0)
         {

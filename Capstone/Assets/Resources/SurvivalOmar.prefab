@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4198951786350131605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5835594622641150358}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5835594622641150358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4198951786350131605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0084, y: 0.0035, z: -0.0002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6252979282076178388}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6252979282076178391
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   - {fileID: 6252979283136725970}
   - {fileID: 6252979283226033948}
   - {fileID: 6252979283104835687}
+  - {fileID: 5835594622641150358}
   - {fileID: 7049780462002815156}
   m_Father: {fileID: 6252979282767224426}
   m_RootOrder: 0
@@ -1893,7 +1925,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   turnSpeed: 360
   basePlayer: 0
 --- !u!114 &1576882172
@@ -1910,8 +1941,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackKey: 106
   basePlayer: 0
-  variant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
   isMelee: 0
+  WeaponCollider: {fileID: 0}
+  weaponInstantiate: {fileID: 5359424070069057568, guid: 6822ffa6e6492954b9af4c8320ed5874, type: 3}
+  weaponStartpoint: {fileID: 5835594622641150358}
+  attackSpeed: 20
 --- !u!114 &4398957592048268257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3026,7 +3060,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bffe66978ae4620418358cc19525c935, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bffe66978ae4620418358cc19525c935, type: 3}
       propertyPath: m_LocalScale.x
