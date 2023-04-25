@@ -2926,6 +2926,10 @@ PrefabInstance:
       value: tanod (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
@@ -3827,6 +3831,10 @@ PrefabInstance:
       value: tanod (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
@@ -4160,6 +4168,10 @@ PrefabInstance:
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_Name
       value: tanod (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
@@ -4877,8 +4889,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 813944018}
+    - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211565602991203234, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+--- !u!114 &507832711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4268867521011005927, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+  m_PrefabInstance: {fileID: 507832710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &511241788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,7 +6883,7 @@ MonoBehaviour:
   - {fileID: 72064197}
   - {fileID: 320351497}
   coinsPerSpawn: 90
-  isCleared: 0
+  level: {fileID: 0}
 --- !u!1 &635560515
 GameObject:
   m_ObjectHideFlags: 0
@@ -7165,6 +7200,10 @@ PrefabInstance:
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_Name
       value: tanod (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
@@ -8857,6 +8896,10 @@ PrefabInstance:
       value: tanod
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
@@ -8937,8 +8980,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: f94ed4ee069c003449258097738eb7dc, type: 2}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: errMessage
+      value: 
+      objectReference: {fileID: 507832711}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: enemyCounter
+      value: 
+      objectReference: {fileID: 1558957606}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 1239422038}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: objectsToHide.Array.data[0]
+      value: 
+      objectReference: {fileID: 753539112}
+    - target: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+      propertyPath: objectsToHide.Array.data[1]
+      value: 
+      objectReference: {fileID: 1125431780}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+--- !u!114 &813944018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3335505992279801640, guid: 9f65c67cd0f71f54c806e35d8ae4e183, type: 3}
+  m_PrefabInstance: {fileID: 813944017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcdc7241e40c7604799834dda7774dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &815262258
 GameObject:
   m_ObjectHideFlags: 0
@@ -9108,6 +9186,10 @@ PrefabInstance:
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_Name
       value: tanod (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
@@ -14673,6 +14755,10 @@ PrefabInstance:
       value: tanod (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
@@ -16087,6 +16173,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
+--- !u!114 &1558957606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 258344424824094622, guid: c31894c2b27a5b741b461a0949b1f7e5, type: 3}
+  m_PrefabInstance: {fileID: 1558957605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753539112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42999a846ce33543a288966210e031c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561104858
 GameObject:
   m_ObjectHideFlags: 0
@@ -16318,6 +16415,10 @@ PrefabInstance:
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_Name
       value: tanod (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
@@ -19321,6 +19422,10 @@ PrefabInstance:
       value: tanod (9)
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
@@ -20445,6 +20550,10 @@ PrefabInstance:
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_Name
       value: tanod (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4130677095608047953, guid: 8784b64d41c8bd042966c96ba98a8f29, type: 3}
       propertyPath: m_TagString

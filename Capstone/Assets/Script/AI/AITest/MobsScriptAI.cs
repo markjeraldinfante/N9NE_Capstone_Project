@@ -173,21 +173,33 @@ public class MobsScriptAI : MonoBehaviour
     }
     public void WeaponEnable()
     {
-        weaponCollider.enabled = true;
-
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = true;
+        }
     }
     public void WeaponEnable2()
     {
-        weaponCollider2.enabled = true;
+        if (weaponCollider2 != null)
+        {
+            weaponCollider2.enabled = true;
+        }
     }
 
     public void WeaponDisable()
     {
-        weaponCollider.enabled = false;
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = false;
+        }
     }
     public void WeaponDisable2()
     {
-        weaponCollider2.enabled = false;
+        if (weaponCollider2!=null)
+        {
+            weaponCollider2.enabled = false;
+        }
+       
     }
     private void ShowHealthBar(bool toShow)
     {
