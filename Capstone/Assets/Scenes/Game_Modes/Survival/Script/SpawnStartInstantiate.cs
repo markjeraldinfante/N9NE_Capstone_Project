@@ -10,11 +10,9 @@ public class SpawnStartInstantiate : MonoBehaviour
     public static event Instantiate1Player spawn1Player;
     public static event Instantiate2Player spawn2Player;
     public static event OnlineInstantiate2Player spawn2PlayerOnline;
-    public baseSurvivalVariant variant;
-
     public void Awake()
     {
-        switch (variant.variantType)
+        switch (SavingState.instance.survivalVariant.variantType)
         {
             case baseSurvivalVariant.VariantType.Online:
                 spawn2PlayerOnline?.Invoke();

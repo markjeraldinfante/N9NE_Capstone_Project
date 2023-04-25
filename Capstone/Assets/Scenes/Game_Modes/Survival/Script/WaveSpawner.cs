@@ -7,7 +7,6 @@ using Photon.Pun;
 public class WaveSpawner : MonoBehaviour
 {
     public GameObject panel, waveNumberobj;
-    [SerializeField] private baseSurvivalVariant variant;
     public GameObject enemyPrefab;
     public Transform spawnPoints1;
     Vector3 spawnPointsRandom;
@@ -80,7 +79,7 @@ public class WaveSpawner : MonoBehaviour
         Random.Range(spawnPoints1.position.z, spawnPoints2.position.z)
         );
 
-        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -88,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
                 currentEnemy++;
             }
         }
-        else if (variant.variantType != baseSurvivalVariant.VariantType.Online)
+        else if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
         {
             enemyTrans = Instantiate(enemyPrefab, spawnPointsRandom, spawnPoints1.rotation);
             currentEnemy++;
@@ -97,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void KilledEnemy()
     {
-        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -106,6 +105,6 @@ public class WaveSpawner : MonoBehaviour
                 photonView.RPC("UpdateCurrentEnemy", RpcTarget.All, currentEnemy);
             }
         }
-        else if (variant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
+        else if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online) { currentEnemy--; }
     }
 }

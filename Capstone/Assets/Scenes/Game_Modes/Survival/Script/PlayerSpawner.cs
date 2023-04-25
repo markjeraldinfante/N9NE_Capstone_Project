@@ -7,7 +7,6 @@ using Photon.Realtime;
 public class PlayerSpawner : MonoBehaviour
 {
     public PlayerCharacter offlineplayer1Data, offlineplayer2Data;
-    [SerializeField] baseSurvivalVariant variant;
     public CharacterAsset[] characterModels;
     public Transform[] playerSpawnPoints;
 

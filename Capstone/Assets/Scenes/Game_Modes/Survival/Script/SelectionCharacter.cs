@@ -10,7 +10,6 @@ public class SelectionCharacter : MonoBehaviour
     [SerializeField] private Image player2CharacterSplashHolder;
     [SerializeField] private PlayerCharacter player1;
     [SerializeField] private PlayerCharacter player2;
-    [SerializeField] private baseSurvivalVariant variant;
 
     private List<CharacterData> unlockedCharacters = new List<CharacterData>();
     private int player1Index = 0;
@@ -53,7 +52,7 @@ public class SelectionCharacter : MonoBehaviour
     private void UpdateCharacterSplash()
     {
 
-        switch (variant.variantType)
+        switch (SavingState.instance.survivalVariant.variantType)
         {
             case baseSurvivalVariant.VariantType.SinglePlayer:
                 player1CharacterSplashHolder.gameObject.SetActive(true);

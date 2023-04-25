@@ -7,8 +7,6 @@ public class PlayerMultiplayer : MonoBehaviour
 {
     Animator animator;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private baseSurvivalVariant variant;
-
     Rigidbody _rb;
     [SerializeField] private float turnSpeed = 360;
     private Vector3 _input;
@@ -24,7 +22,7 @@ public class PlayerMultiplayer : MonoBehaviour
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
 
-        if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             view = GetComponent<PhotonView>();
         }
@@ -43,7 +41,7 @@ public class PlayerMultiplayer : MonoBehaviour
 
     private void GatherInput()
     {
-        if (variant.variantType != baseSurvivalVariant.VariantType.Online)
+        if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
         {
 
             switch (basePlayer)

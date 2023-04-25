@@ -9,7 +9,6 @@ public class Player_Survival_Attack : MonoBehaviour
 
     private Animator characterAnimation;
     [SerializeField] public basePlayer basePlayer;
-    [SerializeField] private baseSurvivalVariant variant;
     PhotonView view;
     public bool isMelee;
 
@@ -22,7 +21,7 @@ public class Player_Survival_Attack : MonoBehaviour
     void Update()
     {
 
-        if (variant.variantType != baseSurvivalVariant.VariantType.Online)
+        if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
         {
             switch (basePlayer)
             {
@@ -48,7 +47,7 @@ public class Player_Survival_Attack : MonoBehaviour
                     break;
             }
         }
-        else if (variant.variantType == baseSurvivalVariant.VariantType.Online)
+        else if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.Online)
         {
             view = GetComponent<PhotonView>();
             if (view.IsMine)
