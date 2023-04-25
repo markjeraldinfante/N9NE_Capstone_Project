@@ -11,6 +11,8 @@ public class Player_Survival_Attack : MonoBehaviour
     [SerializeField] public basePlayer basePlayer;
     PhotonView view;
     public bool isMelee;
+    public Collider WeaponCollider;
+    public GameObject weaponInstantiate;
 
     // Start is called before the first frame update
     private void Start()
@@ -64,6 +66,32 @@ public class Player_Survival_Attack : MonoBehaviour
         }
 
 
+    }
+
+    public void CharacterAttack()
+    {
+        if (isMelee)
+        {
+            if (WeaponCollider != null)
+            {
+                WeaponCollider.enabled = true;
+            }
+        }
+        else
+        {
+            if (weaponInstantiate != null)
+            {
+                if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
+                {
+                    Instantiate(WeaponCollider);
+                }
+                else
+                {//  PhotonNetwork.Instantiate(WeaponCollider.name);
+
+                }
+
+            }
+        }
     }
 
 }
