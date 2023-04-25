@@ -17,6 +17,7 @@ public class AttackObject : MonoBehaviour
             weaponCol = gameObject.AddComponent<CapsuleCollider>();
         }
         rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
+        Destroy(gameObject, 1f);
     }
 
 

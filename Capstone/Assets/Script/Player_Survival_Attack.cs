@@ -15,6 +15,9 @@ public class Player_Survival_Attack : MonoBehaviour
     public GameObject weaponInstantiate;
     public Transform weaponStartpoint;
     public float attackSpeed;
+    public string enemyTag = "Enemy"; //The tag of the enemy objects this script could interact with
+    private Transform targetEnemy; //The nearest enemy object with the appropriate tag
+    private Vector3 directionToTarget; //The direction from the weaponStartpoint to the targetEnemy
 
     // Start is called before the first frame update
     private void Start()
@@ -24,6 +27,7 @@ public class Player_Survival_Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        targetEnemy = GetNearestEnemy();
 
         if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
         {
@@ -85,17 +89,59 @@ public class Player_Survival_Attack : MonoBehaviour
             {
                 if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
                 {
-
-                    Instantiate(weaponInstantiate, weaponStartpoint.position, weaponStartpoint.rotation);
-
+                    if (targetEnemy != null)
+                    {
+                        // Set direction towards enemy
+                        directionToTarget = (targetEnemy.position - weaponStartpoint.position).normalized;
+                        // Set rotation to face opposite direction if player is facing away
+                        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget.normalized, Vector3.up);
+                        if (Mathf.Abs(Vector3.Dot(directionToTarget.normalized, transform.forward)) < 0.5f)
+                        {
+                            // Player is facing away from enemy, set bullet direction to player's forward direction
+                            directionToTarget = transform.forward;
+                            rotationToTarget = Quaternion.LookRotation(directionToTarget.normalized, Vector3.up);
+                        }
+                        Instantiate(weaponInstantiate, weaponStartpoint.position, rotationToTarget);
+                    }
+                    else
+                    {
+                        // No target enemy, set bullet direction to player's forward direction
+                        directionToTarget = transform.forward;
+                        Quaternion rotationToTarget = Quaternion.LookRotation(directionToTarget.normalized, Vector3.up);
+                        Instantiate(weaponInstantiate, weaponStartpoint.position, rotationToTarget);
+                    }
                 }
                 else
-                {//  PhotonNetwork.Instantiate(WeaponCollider.name);
-
+                {
+                    //PhotonNetwork.Instantiate(WeaponCollider.name);
                 }
-
             }
         }
     }
+
+
+
+
+    //Returns the nearest enemy object with the appropriate tag
+    private Transform GetNearestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+        Transform nearestEnemy = null;
+        float shortestDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy.transform;
+            }
+        }
+
+        return nearestEnemy;
+    }
+
 
 }
