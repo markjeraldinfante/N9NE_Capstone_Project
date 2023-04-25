@@ -9,7 +9,7 @@ public class MiniGameData : ScriptableObject
     public Sprite miniGameImage;
     public string miniGameDescription;
     public int miniGameCost;
-    private bool isBoughtt;
+    [SerializeField] private bool isBoughtt;
 
     public bool IsBought { get => isBoughtt; set => isBoughtt = value; }
 
@@ -19,7 +19,7 @@ public class MiniGameData : ScriptableObject
     }
     public void Purchase(System.Action onPurchase = null)
     {
-        IsBought = true;
+        SavingState.instance.SaveMiniGame(this, true);
         // Call the callback, if it exists
         onPurchase?.Invoke();
     }
