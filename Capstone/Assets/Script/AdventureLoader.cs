@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class AdventureLoader : MonoBehaviour
 {
+    [SerializeField] private CharacterData nextCharacter;
+    [SerializeField] private MapSO nextMapUnlock;
+    [SerializeField] private LandTitleBase landPiece;
+
     [SerializeField] private LevelBase level;
     public TextMeshProUGUI errMessage;
     [SerializeField] private GameObject loadingScreen = null;
     [SerializeField] private GameObject[] objectsToHide = null;
     [SerializeField]
     EnemyCounter enemyCounter;
+    public bool isForLevel5;
     public void LoadLevel(int sceneIndex)
     {
         if (enemyCounter.GetEnemyState())
         {
+            if (isForLevel5)
+            {
+                Unlocks();
+            }
             SaveLevel();
             HideObjects();
             StartCoroutine(LoadAsynchronously(sceneIndex));
@@ -52,6 +61,20 @@ public class AdventureLoader : MonoBehaviour
     private void SaveLevel()
     {
         SavingState.instance.SaveStageLevel(level, true);
+        SavingState.instance.SaveState();
+    }
+    private void Unlocks()
+    {
+        if (nextCharacter != null)
+        {
+            SavingState.instance.SaveCharacter(nextCharacter, true);
+        }
+        if (nextMapUnlock != null)
+        {
+            SavingState.instance.SaveMap(nextMapUnlock, true);
+        }
+        SavingState.instance.SaveLandPiece(landPiece, true);
+
         SavingState.instance.SaveState();
     }
 }
