@@ -5111,6 +5111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576190096}
   - component: {fileID: 576190097}
+  - component: {fileID: 576190098}
   m_Layer: 0
   m_Name: Event Collider
   m_TagString: Untagged
@@ -5146,6 +5147,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.827377, y: 5.862023, z: 12.016168}
   m_Center: {x: -12.221245, y: 1.4659293, z: -0.5091634}
+--- !u!114 &576190098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576190095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354830f6cf75f8041bfbdf3bee4d4f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameHUD: {fileID: 1902050034}
+  textDialogueMessage: []
+  dialogueBox: {fileID: 369107608}
+  textDialogue: {fileID: 907090910}
+  delay: 0.05
 --- !u!1 &580227057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9206,6 +9224,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+--- !u!114 &907090910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3211565602990855542, guid: f5e707463a7ef034fa2f1c63c92e957f, type: 3}
+  m_PrefabInstance: {fileID: 907090909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &916484168
 GameObject:
   m_ObjectHideFlags: 0
