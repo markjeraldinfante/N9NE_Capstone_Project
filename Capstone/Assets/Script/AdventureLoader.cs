@@ -60,7 +60,7 @@ public class AdventureLoader : MonoBehaviour
     }
     private void SaveLevel()
     {
-        SavingState.instance.SaveStageLevel(level, true);
+        SavingState.instance.SaveStageLevel(this.level, true);
         SavingState.instance.SaveState();
     }
     private void Unlocks()

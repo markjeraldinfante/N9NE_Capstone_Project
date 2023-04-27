@@ -76,6 +76,7 @@ public class SavingState : MonoBehaviour
 
     private void Awake()
     {
+        Default();
         if (instance == null)
         {
             instance = this;
@@ -92,10 +93,7 @@ public class SavingState : MonoBehaviour
         LoadState();
 
     }
-    private void Start()
-    {
-        Default();
-    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -103,6 +101,11 @@ public class SavingState : MonoBehaviour
             SaveState();
             Debug.Log("Saving");
         }
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
     }
     private void LoadState()
     {
