@@ -96,6 +96,14 @@ public class SavingState : MonoBehaviour
     {
         Default();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SaveState();
+            Debug.Log("Saving");
+        }
+    }
     private void LoadState()
     {
         //Character Data
