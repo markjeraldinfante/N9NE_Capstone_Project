@@ -20,8 +20,13 @@ public class EntityHealth : MonoBehaviour
     Slider lifeSlider;
     Image lifeColor;
     private float lifePercentage;
+    private bool isDead;
+
+    public bool IsDead { get => isDead; set => isDead = value; }
+
     private void Awake()
     {
+        IsDead = false;
         if (forPlayer)
         {
             Debug.Log("Searching for GameHUD object...");
@@ -98,6 +103,7 @@ public class EntityHealth : MonoBehaviour
             damageOverlay.ShowDamage(damageAmount);
             if (Mathf.RoundToInt(currentHealth) <= 0f)
             {
+                IsDead = true;
                 characterIsDead?.Invoke();
             }
         }
@@ -119,6 +125,7 @@ public class EntityHealth : MonoBehaviour
             }
         }
     }
+
 
     public void Die(Animator anim, GameObject obj, float destroyTime)
     {

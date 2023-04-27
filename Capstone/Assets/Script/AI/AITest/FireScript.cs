@@ -6,16 +6,22 @@ public class FireScript : MonoBehaviour
 {
     public float enemyDamage = 5f;
     public float destroyTime = 3f;
+    EntityHealth entityHealth;
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("char_head") || other.gameObject.CompareTag("char_body") || other.gameObject.CompareTag("char_leftfoot") || other.gameObject.CompareTag("char_rightfoot"))
         {
-            EntityHealth entityHealth = other.GetComponentInParent<EntityHealth>();
+            entityHealth = other.GetComponentInParent<EntityHealth>();
             if (entityHealth != null)
             {
-                entityHealth.TakeDamage(enemyDamage);
-                Debug.Log("Damage");
+                if (!entityHealth.IsDead)
+                {
+                    entityHealth.TakeDamage(enemyDamage);
+                    Debug.Log("Damage");
+                }
+                else
+                    Destroy(gameObject);
             }
         }
         Destroy(gameObject, destroyTime);
@@ -25,7 +31,15 @@ public class FireScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("char_head") || other.gameObject.CompareTag("char_body") || other.gameObject.CompareTag("char_leftfoot") || other.gameObject.CompareTag("char_rightfoot"))
         {
-            somnium.SoundManager.instance.PlaySFX("OmarDamageReceive");
+            entityHealth = other.GetComponentInParent<EntityHealth>();
+            if (!entityHealth.IsDead)
+            {
+                entityHealth.TakeDamage(enemyDamage);
+                Debug.Log("Damage");
+                somnium.SoundManager.instance.PlaySFX("OmarDamageReceive");
+            }
+            else
+                Destroy(gameObject);
         }
 
     }
