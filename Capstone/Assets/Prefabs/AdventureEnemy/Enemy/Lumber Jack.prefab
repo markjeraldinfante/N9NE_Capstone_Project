@@ -1132,7 +1132,6 @@ GameObject:
   - component: {fileID: 5091362114768184118}
   - component: {fileID: 1946639872037889013}
   - component: {fileID: 1946639872037889012}
-  - component: {fileID: 1946639872037889011}
   - component: {fileID: 1946639872037889010}
   - component: {fileID: 1946639872037889009}
   - component: {fileID: 7545726576326605335}
@@ -1153,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 1946639872037889014}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8.425, y: 2.456, z: -0.094797365}
-  m_LocalScale: {x: 24, y: 24, z: 24}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1166691410204048965}
@@ -1213,33 +1212,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &1946639872037889011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946639872037889014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f669f0633a9d94887535c5ea409ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 8123969069312528406}
-  weaponCollider: {fileID: 6276520835522578335}
-  minDistanceToPlayer: 0.02
-  movementSpeed: 1.5
-  attackRange: 0.85
-  attackCooldown: 1
-  chaseRange: 3
-  maxChaseTime: 2
-  attackDamage: 10
-  delayBeforeChase: 2
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  isAttacked: 0
-  isBoss: 1
 --- !u!114 &1946639872037889010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,7 +1245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 6073627454054701479, guid: 23065d1e80bdfb840ad41b3e60855060, type: 3}
   animator: {fileID: 0}
-  hitPoint: {fileID: 0}
+  hitPoint: {fileID: 6276520836513212322}
 --- !u!114 &7545726576326605335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3334,8 +3306,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.007817137, y: 0.027483402, z: 0.050510187}
-  m_Center: {x: -0.0007613174, y: 0.0035108847, z: 0.0075171706}
+  m_Size: {x: 0.017917033, y: 0.05164272, z: 0.04240971}
+  m_Center: {x: 0.0002519168, y: -0.008568721, z: -0.00004460785}
 --- !u!114 &6276520835522578334
 MonoBehaviour:
   m_ObjectHideFlags: 0

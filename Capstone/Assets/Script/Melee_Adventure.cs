@@ -10,8 +10,8 @@ public class Melee_Adventure : MonoBehaviour
     [SerializeField] private WeaponData data;
     public bool isForJunnie;
     public bool isForAzule;
-    bool isAttacking;
-    bool canAttack;
+    bool isAttacking = false;
+    bool canAttack = true;
     private void Start()
     {
         weaponCollider.SetActive(false);
@@ -20,10 +20,12 @@ public class Melee_Adventure : MonoBehaviour
     }
 
 
+
     private void Update()
     {
         if (Input.GetButtonDown("Attack") && canAttack && !isAttacking)
         {
+            Debug.Log("Working");
             if (!playerController.isProne)
             {
                 isAttacking = true;
