@@ -19,6 +19,8 @@ public class AbilityHolder : MonoBehaviour
     public Button skillButton;
     bool triggered = false;
     DamageOverlay damageOverlay;
+    Rigidbody rb;
+
 
     enum AbilityState
     {
@@ -32,6 +34,7 @@ public class AbilityHolder : MonoBehaviour
     public string[] buttons = { "Skill1", "Skill2", "Skill3", "Skill4" };
     private void Start()
     {
+
         //Player Component
         characterCache = GameObject.FindGameObjectWithTag("Player").transform;
         character = characterCache.gameObject;
@@ -39,6 +42,7 @@ public class AbilityHolder : MonoBehaviour
         healParticle = characterCache.Find("HealSpawn").gameObject;
         animator = character.GetComponent<Animator>();
         playerController = character.GetComponent<PlayerController>();
+        rb = character.GetComponent<Rigidbody>();
         entityHealth = character.GetComponent<EntityHealth>();
 
         damageOverlay = gameObject.GetComponent<DamageOverlay>();
@@ -82,6 +86,7 @@ public class AbilityHolder : MonoBehaviour
                         if (abilities[i] is Charge_Ability)
                         {
                             animator.SetBool("Dash", true);
+                            rb.constraints |= RigidbodyConstraints.FreezePositionY;
                         }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
@@ -110,6 +115,8 @@ public class AbilityHolder : MonoBehaviour
                         if (abilities[i] is Charge_Ability)
                         {
                             animator.SetBool("Dash", false);
+                            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
+
                         }
                         if (abilities[i] is MoveSpeed_Ability)
                         {
