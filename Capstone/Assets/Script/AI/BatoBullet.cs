@@ -4,18 +4,38 @@ using UnityEngine;
 
 public class BatoBullet : MonoBehaviour
 {
+    [SerializeField] private WeaponData slingShot;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("enemyHitpoint"))
-        {
+        {  // Get the enemy script
+            MobsScriptAI enemy = other.transform.parent.GetComponent<MobsScriptAI>();
+            MobAI enemyLongRange = other.transform.parent.GetComponent<MobAI>();
+            DulalayScript dulalay = other.transform.parent.GetComponent<DulalayScript>();
+            // Set the enemy state to Chase if it is not already attacking the player
+            if (enemy != null)
+            {
+                enemy.isAttacked = true;
+            }
+            if (enemyLongRange != null)
+            {
+                enemyLongRange.isAttacked = true;
+            }
+            if (dulalay != null)
+            {
+                dulalay.isAttacked = true;
+            }
             EntityHealth entityHealth = other.transform.parent.GetComponent<EntityHealth>();
             BossScript bossScript = other.transform.parent.GetComponent<BossScript>();
             if (bossScript != null) { bossScript.isAttacked = true; }
 
             if (entityHealth != null)
             {
-                entityHealth.TakeDamage(10);
+                entityHealth.TakeDamage(slingShot.GetItemDamage(slingShot.ItemLevel));
             }
+
+            gameObject.SetActive(false); // Deactivate the game object
         }
     }
 }

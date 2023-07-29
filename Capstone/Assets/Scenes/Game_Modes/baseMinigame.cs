@@ -11,6 +11,6 @@ public class baseMinigame : ScriptableObject
     public bool Loco;
     public bool Litex;
     public bool JunkYard;
-    public bool MiniGame5;
+    public bool BatoPick;
 }
 

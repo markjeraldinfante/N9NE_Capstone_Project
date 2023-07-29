@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3527613720298912557}
   - component: {fileID: 3527613720298912556}
+  - component: {fileID: 3399190460011680051}
+  - component: {fileID: 806583713983789864}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3527613720298912554}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,3 +48,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainPlayerDB: {fileID: 11400000, guid: c59f72587dd35ba49a9d1c021386f279, type: 2}
   Amarra: {fileID: 11400000, guid: 5a6ea382b6946ca41940e162de66b758, type: 2}
+  Litex: {fileID: 11400000, guid: e9962094398bca446abf32f09d3585e9, type: 2}
+  JunkYard: {fileID: 11400000, guid: 112ba3c25649e944292801cdf6dabf1e, type: 2}
+--- !u!114 &3399190460011680051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527613720298912554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4baf67acb8b1be64fac7a7070ef5c5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slingshot: {fileID: 11400000, guid: dc332605f7dd66e438d113c68637616c, type: 2}
+  shovel: {fileID: 11400000, guid: 53bf6a925ba22da489327eb391fab64c, type: 2}
+  meter_stick: {fileID: 11400000, guid: 95258ba8101251c48916c148b31a1072, type: 2}
+  slippers: {fileID: 11400000, guid: e9607b9c25ca02341b01f684d91f6044, type: 2}
+--- !u!114 &806583713983789864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527613720298912554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69a8607949e72141b969576d3726d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSelect: {fileID: 11400000, guid: c19b90bcf43fc6a468f6dbd8c042e8a0, type: 2}
+  survivalVariant: {fileID: 11400000, guid: 491b8d8ebd2b36146ba2a53607ba34e0, type: 2}
+  Amarra: {fileID: 11400000, guid: 3626b437ceaf5c1439410ea2eeaafc74, type: 2}
+  JunkYard: {fileID: 11400000, guid: f7e0800463598b54d8d9a03491300d4e, type: 2}
+  Litex: {fileID: 11400000, guid: 02e14919e5dca6b408a69c51f6a07afb, type: 2}
+  Loco: {fileID: 11400000, guid: 4ee72c99b8dfeed4c92c4a60d762002a, type: 2}
+  BatoPick: {fileID: 11400000, guid: 49e77d25556888e4f8172c81455ce41c, type: 2}
+  Upper: {fileID: 11400000, guid: b7c948458dfa31e4a992c740d72529d1, type: 2}
+  Lower: {fileID: 11400000, guid: 126c9c12bf06b4c408cec57ab33d8f52, type: 2}
+  SaltLake: {fileID: 11400000, guid: 4a3a66e5f7dac314e9f7aa93e645ca33, type: 2}
+  Improve: {fileID: 11400000, guid: 8757328432942124b9df91814e876e84, type: 2}
+  Central: {fileID: 11400000, guid: 0d83cbde3a6f52c438f27bf365e71750, type: 2}
+  Omar: {fileID: 11400000, guid: 3dbc3576efd94a844beb3100d149a635, type: 2}
+  Junnie: {fileID: 11400000, guid: 953d1d87e1d16ab438df2eaff14961f8, type: 2}
+  Rico: {fileID: 11400000, guid: 81b3df06ebc192a4e88341db52daf869, type: 2}
+  Azule: {fileID: 11400000, guid: dcd9439b1a5962e4b8f55aab70afcbee, type: 2}
+  Piece1: {fileID: 11400000, guid: 68baabf7bcfae9b40834c3570e298648, type: 2}
+  Piece2: {fileID: 11400000, guid: ad1765e37b7540146bc59d156639a0b8, type: 2}
+  Piece3: {fileID: 11400000, guid: e7f485f33e8066f49b6b694315a82889, type: 2}
+  Piece4: {fileID: 11400000, guid: 3414241078ed4544d856d3fc0e67e1b1, type: 2}
+  Piece5: {fileID: 11400000, guid: a397da3507105b3459904e99568a25df, type: 2}
+  stage1Level1: {fileID: 11400000, guid: 22440cc632e21a9408ad84782415e0cc, type: 2}
+  stage1Level2: {fileID: 11400000, guid: 6e23fdc87f946304c8e6734e5d4671fb, type: 2}
+  stage1Level3: {fileID: 11400000, guid: c0d63536e403798449d7523ba5b9fa00, type: 2}
+  stage1Level4: {fileID: 11400000, guid: 6f44429ef61ede84f85e700aed908d03, type: 2}
+  stage1Level5: {fileID: 11400000, guid: a2e61b16dd97ac747ada7cfef9e7597f, type: 2}
+  stage2Level1: {fileID: 11400000, guid: d09ec3187ff22f44ea9fd2d8c626dd50, type: 2}
+  stage2Level2: {fileID: 11400000, guid: d7cbcfb876d816846bd40d29317b3fab, type: 2}
+  stage2Level3: {fileID: 11400000, guid: a448f5f2116ceae4b92eecfd13ff0edf, type: 2}
+  stage2Level4: {fileID: 11400000, guid: a9f4b816947f32f4b96f2a70b2ea06c2, type: 2}
+  stage2Level5: {fileID: 11400000, guid: 3f2cd5250992bee4090ca7c80ba51b25, type: 2}
+  stage3Level1: {fileID: 11400000, guid: b82181d38e9ecbd4d95d25bd642f47e3, type: 2}
+  stage3Level2: {fileID: 11400000, guid: b4247e0e5d34ffc4380e799cb2c526d3, type: 2}
+  stage3Level3: {fileID: 11400000, guid: 24ac1000c5c07d14d978066004b2b651, type: 2}
+  stage3Level4: {fileID: 11400000, guid: af83bdf4754d9c140929d6a4e23ecf38, type: 2}
+  stage3Level5: {fileID: 11400000, guid: 3115c49fb0c815846ba08b5a797dcc24, type: 2}
+  stage4Level1: {fileID: 11400000, guid: c282f71eb52ee92418387f0cf5bc1c04, type: 2}
+  stage4Level2: {fileID: 11400000, guid: e3df171f1ec8b5847b0c6fc2752828be, type: 2}
+  stage4Level3: {fileID: 11400000, guid: b265e087a224b7e4495fde0b81d30264, type: 2}
+  stage4Level4: {fileID: 11400000, guid: 80b2357679915354b96511f67102294e, type: 2}
+  stage4Level5: {fileID: 11400000, guid: 7f7de739317912241a85b0efddd8741a, type: 2}
+  stage5Level1: {fileID: 11400000, guid: 057195e5406d5a24aad06ca7c537ac10, type: 2}
+  stage5Level2: {fileID: 11400000, guid: 6fd2eac6c2e8c5642bcf5b80cd45a5fc, type: 2}
+  stage5Level3: {fileID: 11400000, guid: f94ed4ee069c003449258097738eb7dc, type: 2}
+  stage5Level4: {fileID: 11400000, guid: ae076f6f27206f440966966c464b21d9, type: 2}
+  stage5Level5: {fileID: 11400000, guid: 91242a880d08cb349ba37cb26553faa7, type: 2}

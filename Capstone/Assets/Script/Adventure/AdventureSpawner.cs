@@ -6,12 +6,31 @@ public class AdventureSpawner : MonoBehaviour
 {
     public basePlayerSelect adventureData;
     public CharacterAsset[] characterModels;
+    public MapContextHandler context;
     public Transform playerSpawnPoints;
     public bool isForMap;
+    public Transform mapParent;
 
     private void Awake()
     {
+        if (playerSpawnPoints == null)
+        {
+            playerSpawnPoints = context.map.mapSpawn.transform;
+        }
+
+        if (mapParent != null)
+        {
+            Instantiate(context.map.mapEnv, mapParent);
+        }
+
+        // Call the Initialized method outside of the if statement
         Initialized();
+    }
+
+
+    public void MapInstantiate()
+    {
+
     }
 
     public void Initialized()

@@ -7,13 +7,12 @@ public class CoinSpawner : MonoBehaviour
     public GameObject coinPrefab;
     public Transform[] spawnPoints;
     public int coinsPerSpawn;
-    public bool isCleared;
-
+    [SerializeField] private LevelBase level;
     private HashSet<Vector3> usedPositions = new HashSet<Vector3>();
 
     private void Awake()
     {
-        if (!isCleared) { SpawnCoins(); }
+        if (!level.isCleared) { SpawnCoins(); }
         else
             return;
     }
@@ -25,14 +24,14 @@ public class CoinSpawner : MonoBehaviour
             int randomIndex = Random.Range(0, spawnPoints.Length);
             Vector3 spawnPosition = spawnPoints[randomIndex].position;
 
-            while (usedPositions.Contains(spawnPosition)) // Keep generating new spawn position until it's not already used
+            while (usedPositions.Contains(spawnPosition))
             {
                 randomIndex = Random.Range(0, spawnPoints.Length);
                 spawnPosition = spawnPoints[randomIndex].position;
             }
 
-            Instantiate(coinPrefab, spawnPosition, Quaternion.identity);
-            usedPositions.Add(spawnPosition); // Add the new spawn position to the set of used positions
+            Instantiate(coinPrefab, spawnPosition, Quaternion.identity, this.gameObject.transform);
+            usedPositions.Add(spawnPosition);
         }
     }
 }

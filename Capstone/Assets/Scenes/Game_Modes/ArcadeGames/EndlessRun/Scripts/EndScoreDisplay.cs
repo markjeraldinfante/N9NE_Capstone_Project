@@ -6,23 +6,23 @@ public class EndScoreDisplay : MonoBehaviour
 {
     public GameObject disDisplay;
     public GameObject endScreen;
-    public GameObject fadeOut;
-    public GameObject player;
-    public GameObject levelControls;
-    // Start is called before the first frame update
+    public GameObject endPanel;
+    public GameObject soundHolder;
+
     void Start()
     {
-        StartCoroutine(EndScreens());
+        ObstacleCollision.endGame += EndScreens;
     }
-    IEnumerator EndScreens()
+    private void OnDestroy()
     {
-        yield return new WaitForSeconds(0);
+        ObstacleCollision.endGame -= EndScreens;
+    }
+    public void EndScreens()
+    {
+        soundHolder.SetActive(false);
         disDisplay.SetActive(false);
-        player.GetComponent<Animator>().enabled = false;
-        levelControls.GetComponent<GeneratingLevel>().enabled = false;
         endScreen.SetActive(true);
-        //yield return new WaitForSeconds(3);
-        //fadeOut.SetActive(true);
+        endPanel.SetActive(true);
     }
 
 

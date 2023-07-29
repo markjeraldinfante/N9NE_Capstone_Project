@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMultiplayer : MonoBehaviour
 {
     Animator animator;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private baseSurvivalVariant variant;
-
     Rigidbody _rb;
     [SerializeField] private float turnSpeed = 360;
     private Vector3 _input;
 
     private Rigidbody rb;
     private new Renderer renderer;
+    PhotonView view;
 
     [SerializeField] public basePlayer basePlayer;
 
     private void Awake()
     {
-        animator = gameObject.GetComponent<Animator>();
-        _rb = gameObject.GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();
+
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.Online)
+        {
+            view = GetComponent<PhotonView>();
+        }
     }
+
 
     private void Update()
     {
@@ -35,7 +41,7 @@ public class PlayerMultiplayer : MonoBehaviour
 
     private void GatherInput()
     {
-        if (!variant.isOnline)
+        if (SavingState.instance.survivalVariant.variantType != baseSurvivalVariant.VariantType.Online)
         {
 
             switch (basePlayer)
@@ -65,13 +71,17 @@ public class PlayerMultiplayer : MonoBehaviour
         }
         else
         {
-            _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
-            if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
+            if (view.IsMine)
             {
-                animator.SetBool("Walk", false);
+                _input = new Vector3(Input.GetAxisRaw("Horizontal 1"), 0, Input.GetAxisRaw("Vertical 1"));
+                if (Input.GetAxisRaw("Horizontal 1") == 0 && Input.GetAxisRaw("Vertical 1") == 0)
+                {
+                    animator.SetBool("Walk", false);
+                }
+                else
+                    animator.SetBool("Walk", true);
             }
-            else
-                animator.SetBool("Walk", true);
+
         }
     }
 

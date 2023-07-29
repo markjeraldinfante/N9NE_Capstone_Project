@@ -10,4 +10,5 @@ public class defaultSetting : ScriptableObject
     public int verticalScreen;
     public int horizontalScreen;
     public bool isFullScreen;
+    public int selectedIndex;
 }

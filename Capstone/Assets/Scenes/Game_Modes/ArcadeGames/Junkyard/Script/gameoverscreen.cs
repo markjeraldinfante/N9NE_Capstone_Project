@@ -10,11 +10,16 @@ public class gameoverscreen : MonoBehaviour
     public void Setup(int scores)
     {
         gameObject.SetActive(true);
-        pointsText.text = scores.ToString() + " Tanso";
+        pointsText.text = "Broken Tanso \n" + scores.ToString();
 
     }
     public void RestartButton()
     {
-      //  SceneManager.LoadScene("Junkshop");
+        SceneManager.LoadScene("junkshop");
+
+    }
+    public void QuitButton()
+    {
+        SceneManager.LoadScene("mainmenu");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -12,6 +13,7 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         defaultScale = gameObject.transform.localScale;
 
     }
+   
     public void Start()
     {
         LeanTween.reset();
@@ -40,4 +42,9 @@ public class ButtonClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         PopInAnimate();
         // LeanTween.cancel(gameObject);
     }
+    public void Enter()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
 }

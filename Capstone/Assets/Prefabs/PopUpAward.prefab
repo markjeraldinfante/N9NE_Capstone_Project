@@ -992,13 +992,14 @@ GameObject:
   - component: {fileID: 6273708584610637064}
   - component: {fileID: 6273708584610637065}
   - component: {fileID: 6273708584610637062}
+  - component: {fileID: 5138560912727162415}
   m_Layer: 5
   m_Name: PopUpAward
   m_TagString: popUpAward
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6273708584610637066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1103,6 +1104,19 @@ MonoBehaviour:
   loopTime: 5
   playagainButton: {fileID: 5710095300208967942}
   backButton: {fileID: 6273708583768985902}
+--- !u!114 &5138560912727162415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273708584610637067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1f0ffe64ce9eb448435aff62647d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstButton: {fileID: 461445202688840887}
 --- !u!1 &6273708584994825886
 GameObject:
   m_ObjectHideFlags: 0

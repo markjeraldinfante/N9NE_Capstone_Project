@@ -11,17 +11,12 @@ public class Charge_Ability : Ability
         Rigidbody rigidbody = parent.GetComponent<Rigidbody>();
         PlayerController playerController = parent.GetComponent<PlayerController>();
 
-        if (!playerController.isFacingRight)
+        if (rigidbody != null && playerController != null)
         {
-            rigidbody.AddForce(Vector3.left * dashVelocity, ForceMode.Impulse);
-            Debug.Log("negative");
-            return;
-        }
-        else if (playerController.isFacingRight)
-        {
-            rigidbody.AddForce(Vector3.right * dashVelocity, ForceMode.Impulse);
-            Debug.Log("positive");
-            return;
+
+            Vector3 dashDirection = playerController.isFacingRight ? Vector3.right : Vector3.left;
+            Vector3 dashForceVector = dashDirection * dashVelocity;
+            rigidbody.AddForce(dashForceVector, ForceMode.Impulse);
         }
 
     }

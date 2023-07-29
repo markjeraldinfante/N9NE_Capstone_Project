@@ -1,51 +1,32 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class StageText : MonoBehaviour
 {
-    [SerializeField] private LevelBase[] levels = new LevelBase[5];
-    [SerializeField] private GameObject[] levelTexts = new GameObject[5];
-    [SerializeField] private GameObject[] levelObjects = new GameObject[5];
-
+    [SerializeField] private List<LevelBase> levels;
+    [SerializeField] private List<GameObject> levelObjects;
+    [SerializeField] private List<GameObject> lightCleared;
 
     private void Awake()
     {
-        for (int i = 0; i < levels.Length; i++)
+        levelObjects[0].SetActive(true);
+
+        int levelIndex = 1;
+        int clearedCount = levels.Count(l => l.isCleared);
+        foreach (var level in levels)
         {
-            LevelBase level = levels[i];
-            GameObject levelText = levelTexts[i];
-            GameObject levelObject = levelObjects[i];
-
-            if (i == 0) // check if it's the first level
+            if (levelIndex < levelObjects.Count && level.isCleared)
             {
-                if (level.isCleared) // check if level 1 is cleared
-                {
-                    levelObject.SetActive(false); // hide level 1 object
-                    levelText.SetActive(false); // hide level 1 text
-                    level.lightCleared.SetActive(false); // hide level 1 light
-                    level = levels[i + 1]; // set the current level to level 2
-                    levelObject = levelObjects[i + 1]; // set the current object to level 2 object
-                }
-
-                level.isCleared = true; // set isCleared to true for level 1 or 2
-                levelText.SetActive(true);
-                levelObject.SetActive(true);
-                level.lightCleared.SetActive(true);
+                levelObjects[levelIndex].SetActive(true);
+                Debug.Log("Activated game object for level " + levelIndex + ": " + levelObjects[levelIndex].name);
             }
-            else if (level.isCleared)
+            if (levelIndex <= clearedCount)
             {
-                levelText.SetActive(true);
-                levelObject.SetActive(true);
-                level.lightCleared.SetActive(true);
+                lightCleared[levelIndex - 1].SetActive(true);
+                Debug.Log("Activated light for level " + levelIndex + ": " + lightCleared[levelIndex - 1].name);
             }
-            else
-            {
-                levelText.SetActive(false);
-                levelObject.SetActive(false);
-            }
+            levelIndex++;
         }
     }
-
-
 }

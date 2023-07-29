@@ -6,9 +6,7 @@ using UnityEngine;
 public class LevelBase : ScriptableObject
 {
     public bool isCleared;
-    public int LevelIndex;
     public string[] dialogueLines;
-    public GameObject lightCleared;
 
 }
 

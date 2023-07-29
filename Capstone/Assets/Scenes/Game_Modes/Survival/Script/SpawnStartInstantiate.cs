@@ -10,24 +10,27 @@ public class SpawnStartInstantiate : MonoBehaviour
     public static event Instantiate1Player spawn1Player;
     public static event Instantiate2Player spawn2Player;
     public static event OnlineInstantiate2Player spawn2PlayerOnline;
-    public baseSurvivalVariant variant;
-
     public void Awake()
     {
-        if (variant.isOnline)
+        switch (SavingState.instance.survivalVariant.variantType)
         {
-            spawn2PlayerOnline?.Invoke();
-            Debug.Log("Online Mode");
-            return;
+            case baseSurvivalVariant.VariantType.Online:
+                spawn2PlayerOnline?.Invoke();
+                Debug.Log("Online Mode");
+                break;
+            case baseSurvivalVariant.VariantType.TwoPlayer:
+                spawn2Player?.Invoke();
+                break;
+            case baseSurvivalVariant.VariantType.SinglePlayer:
+                spawn1Player?.Invoke();
+                break;
+            default:
+                Debug.LogError("Invalid variant type");
+                break;
         }
-
-        if (variant.is2player)
-        {
-            spawn2Player?.Invoke();
-            return;
-        }
-
-        spawn1Player?.Invoke();
     }
+
+
+
 
 }

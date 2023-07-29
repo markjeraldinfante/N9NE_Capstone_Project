@@ -7,20 +7,20 @@ public class LevelEnter : MonoBehaviour
 {
     public LevelBase levelBase;
     public GameObject dialogueBox;
-    public GameObject lightCleared = null;
     public TextMeshProUGUI textDialogue;
 
     public float delay = 0.05f; // Delay between each character of the dialogue
     private int currentLine = 0; // Current line of the dialogue being displayed
     private bool isTyping = false; // Boolean flag to check if the text is currently being typed
     private bool isDialogueDone = false; // Boolean flag to check if the entire dialogue is done
-
+    private Coroutine typingCoroutine; // Reference to the currently running typing coroutine
 
     IEnumerator TypeText()
     {
+        isTyping = true;
+        textDialogue.text = "";
         foreach (char letter in levelBase.dialogueLines[currentLine].ToCharArray())
         {
-            isTyping = true;
             textDialogue.text += letter; // Add the current letter to the dialogue text
 
             // Check if the current letter is the last letter of the line
@@ -39,20 +39,30 @@ public class LevelEnter : MonoBehaviour
         if (currentLine < levelBase.dialogueLines.Length - 1)
         {
             currentLine++;
-            StartCoroutine(TypeText()); // Start typing the next line
+            typingCoroutine = StartCoroutine(TypeText()); // Start typing the next line
         }
         else
         {
             isDialogueDone = true; // Set the dialogue as done
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             textDialogue.text = ""; // Clear the dialogue text at the start
             dialogueBox.SetActive(true);
-            StartCoroutine(TypeText());
+
+            currentLine = 0; // Reset the current line
+            isDialogueDone = false; // Reset the dialogue done flag
+
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine); // Stop any ongoing typing coroutine
+            }
+            typingCoroutine = StartCoroutine(TypeText()); // Start typing the first line
+
             Debug.Log("Enter");
         }
     }
@@ -63,7 +73,15 @@ public class LevelEnter : MonoBehaviour
         {
             textDialogue.text = "";
             dialogueBox.SetActive(false);
+
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine); // Stop any ongoing typing coroutine
+                isTyping = false; // Set isTyping flag to false
+            }
+
             Debug.Log("Exit");
         }
     }
 }
+

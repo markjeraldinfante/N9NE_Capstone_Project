@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float runSpeed = 10f;
+    [SerializeField] public float runSpeed = 2.5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Animator characterAnimation;
     [SerializeField] private Rigidbody rb;
@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     [SerializeField] public bool isProne;
     public bool isFacingRight = true;
+    [SerializeField] private bool isOnWires;
+
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isProne = false;
         isGrounded = true;
+        isOnWires = false;
     }
 
     private void FixedUpdate()
@@ -29,10 +32,12 @@ public class PlayerController : MonoBehaviour
         if (move > 0 && !isFacingRight)
         {
             FlipCharacter();
+            //isGrounded = true;
         }
         else if (move < 0 && isFacingRight)
         {
             FlipCharacter();
+            //isGrounded = true;
         }
         ProneWalkingCheck(isProne, move);
     }
@@ -40,19 +45,21 @@ public class PlayerController : MonoBehaviour
     {
         if (moveValue != 0 && !isProne)
         {
+            runSpeed = 3f;
             characterAnimation.SetBool("Walk", true);
             characterAnimation.SetBool("Prone", isProne);
             characterAnimation.ResetTrigger("isProning");
         }
         else if (moveValue != 0 && isProne)
         {
-
+            runSpeed = 1.8f;
             characterAnimation.SetBool("Prone", isProne);
             characterAnimation.SetBool("Walk", false);
             characterAnimation.SetTrigger("isProning");
         }
         else
         {
+            runSpeed = 3f;
             characterAnimation.SetBool("Walk", false);
             characterAnimation.ResetTrigger("isProning");
         }
@@ -60,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isProne)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isProne)
         {
             characterAnimation.SetBool("Jump", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -71,13 +78,13 @@ public class PlayerController : MonoBehaviour
             characterAnimation.SetBool("Jump", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Prone"))
         {
             isProne = true;
             ProneCheck(isProne);
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetButtonDown("Stand") && !isOnWires)
         {
             isProne = false;
             ProneCheck(isProne);
@@ -99,13 +106,43 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-    }
 
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
+        }
+
+    }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
         {
             isGrounded = false;
+        }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = true;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("WireInside"))
+        {
+            isOnWires = false;
         }
     }
 

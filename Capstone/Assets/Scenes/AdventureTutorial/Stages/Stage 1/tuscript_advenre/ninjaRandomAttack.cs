@@ -45,17 +45,14 @@ public class ninjaRandomAttack : MonoBehaviour
 
 
 
-            if (target.position.x > transform.position.x)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            if (target.position.x < transform.position.x)
             {
-                //move right
-                transform.Translate(transform.right * speed * Time.deltaTime);
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0f, -90f, 0f);
             }
             else
             {
-                //move left
-                transform.Translate(-transform.right * speed * Time.deltaTime);
-                transform.rotation = Quaternion.identity;
+                transform.rotation = Quaternion.Euler(0f, 90f, 0f);
             }
 
 

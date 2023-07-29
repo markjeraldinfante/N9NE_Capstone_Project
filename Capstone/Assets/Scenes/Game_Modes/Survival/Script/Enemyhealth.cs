@@ -21,7 +21,7 @@ public class Enemyhealth : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0) { Destroy(enemyGameboject); wave.currentEnemy--; }
+        if (currentHealth <= 0) { Destroy(enemyGameboject); wave.KilledEnemy(); }
 
     }
     void TakeDamage(int damage)
@@ -33,6 +33,7 @@ public class Enemyhealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bato") { TakeDamage(10); DestroyWithTag("Bato"); }
+        if (other.gameObject.tag == "Pamalo") { TakeDamage(15); Debug.Log("Nahampas"); }
         // else StartCoroutine(NormalSpeed());
     }
 

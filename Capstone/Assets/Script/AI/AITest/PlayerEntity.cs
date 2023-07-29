@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    [SerializeField] private basePlayerSelect playerSelect;
     [SerializeField] Animator animator;
     EntityHealth health;
     GameObject hitPoint;
+    public bool isForMelee;
+    Melee_Adventure melee = null;
+    AdventurePlayer longRange = null;
 
     void Awake()
     {
@@ -14,12 +18,71 @@ public class PlayerEntity : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
     }
-    void Update()
+    private void Start()
     {
-        if (health.currentHealth < 0)
+        if (isForMelee)
         {
-            animator.SetTrigger("isDead");
+            melee = GetComponent<Melee_Adventure>();
         }
+        else
+            longRange = GetComponent<AdventurePlayer>();
+    }
+    private void OnEnable()
+    {
+        EntityHealth.characterIsDead += ResetAnimator;
+    }
+    private void OnDestroy()
+    {
+        EntityHealth.characterIsDead -= ResetAnimator;
+    }
+
+    void ResetAnimator()
+    {
+        if (isForMelee)
+        {
+            melee.enabled = false;
+            animator.ResetTrigger("melee");
+            SoundChecker();
+            animator.SetTrigger("isDead");
+            return;
+        }
+        else
+        {
+            animator.ResetTrigger("RangeAttack");
+            SoundChecker();
+            animator.SetTrigger("isDead");
+            longRange.enabled = false;
+            return;
+        }
+    }
+    void SoundChecker()
+    {
+        if (playerSelect.CharacterID == "1")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("OmarDeath");
+            return;
+        }
+
+        if (playerSelect.CharacterID == "2")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("JunnieDeath");
+            return;
+        }
+        if (playerSelect.CharacterID == "3")
+        {
+
+            somnium.SoundManager.instance.PlaySFX("RicoDeath");
+            return;
+        }
+        if (playerSelect.CharacterID == "4")
+        {
+
+            // somnium.SoundManager.instance.PlaySFX("AzuleDeath");
+            return;
+        }
+
     }
 
 }

@@ -6,7 +6,7 @@ public class AddingSpeed : MonoBehaviour
 {
     public float addingSpeed = 1f;
     public DistanceDisplay distance;
-    public EndelessMovement move;
+    EndelessMovement move;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,7 +16,7 @@ public class AddingSpeed : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(distance.disRun > 1)
+        if (distance.disRun > 1)
         {
             move.moveSpeed += .001f;
         }

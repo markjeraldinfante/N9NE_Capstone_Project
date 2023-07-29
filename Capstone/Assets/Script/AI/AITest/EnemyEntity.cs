@@ -4,33 +4,31 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
+    public ParticleSystem particles;
     [SerializeField] Animator animator;
     EntityHealth health;
-    public GameObject[] hitPoint;
+    public GameObject hitPoint;
     BossScript bossScript;
+    GameObject enemyGameObject;
 
     void Awake()
     {
-        bossScript = GetComponent<BossScript>();
+        // bossScript = GetComponent<BossScript>();
         animator = GetComponentInChildren<Animator>();
         health = GetComponent<EntityHealth>();
+        enemyGameObject = this.gameObject;
+        health.OnDeath += OnDeath;
     }
-    void Update()
-    {
-        if (health.currentHealth < 0)
-        {
-            Dead();
-        }
-    }
-    void Dead()
-    {
-        bossScript.enabled = false;
-        animator.SetBool("isDead", true);
-        Destroy(hitPoint[0]);
 
-    }
-    public void idDeath()
+    private void OnDeath()
     {
-        Destroy(this.gameObject);
+        hitPoint.SetActive(false);
+        health.Die(animator, enemyGameObject, 4f);
+        ParticleSystem particleSystem = Instantiate(particles, transform.position, Quaternion.identity);
+        particleSystem.Play();
+        Debug.Log("Enemy died");
+        ParticleSystem.MainModule mainModule = particleSystem.main;
+        mainModule.startLifetime = 1.0f;
     }
+
 }

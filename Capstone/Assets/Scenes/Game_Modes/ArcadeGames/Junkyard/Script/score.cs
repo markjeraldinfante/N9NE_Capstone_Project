@@ -10,39 +10,55 @@ public class score : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
 
     public gameoverscreen gameoverscreen;
-    public AudioSource audioBcoin;
+    public MiniGameManager junkYard;
+    private int Score;
+    public GameObject groundObj;
+    public GameObject scoreTextObj;
 
-    private int Score = 0;
-
-    // Start is called before the first frame update
+    public void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void GameOver()
     {
+        Time.timeScale = 0;
         gameoverscreen.Setup(Score);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreText.text = Score.ToString();
+        scoreText.text = "Score: " + Score;
     }
 
-     void OnTriggerEnter2D(Collider2D target) 
-    { 
+    void OnTriggerEnter2D(Collider2D target)
+    {
         if (target.tag == "scrap")
         {
             Destroy(target.gameObject);
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
+            groundObj.SetActive(false);
+            scoreTextObj.SetActive(false);
             GameOver();
         }
-        
+
     }
-     void OnTriggerExit2D(Collider2D target)
+    void OnTriggerExit2D(Collider2D target)
     {
         if (target.tag == "bcoin")
         {
-            audioBcoin.Play();
+            // audioBcoin.Play();
             Destroy(target.gameObject);
             Score++;
+
+            SaveTanso(Score);
         }
     }
+    public void SaveTanso(int scores)
+    {
+        var gameSystem = new GameSystem();
+        junkYard.tansoAward += scores;
+        gameSystem.Save(junkYard.tansoAward, PlayerPrefKeys.BROKEN_TANSO);
+    }
+
 }

@@ -3,26 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 public class VariantHolder : MonoBehaviour
 {
-    [SerializeField] private baseSurvivalVariant variantData;
 
     public void PlaySinglePlayerOffline()
     {
-        SetVariantData(false, false);
+        SavingState.instance.survivalVariant.variantType = baseSurvivalVariant.VariantType.SinglePlayer;
     }
 
     public void PlayMultiplayerOffline()
     {
-        SetVariantData(false, true);
+        SavingState.instance.survivalVariant.variantType = baseSurvivalVariant.VariantType.TwoPlayer;
     }
 
     public void PlayMultiplayerOnline()
     {
-        SetVariantData(true, false);
+        SavingState.instance.survivalVariant.variantType = baseSurvivalVariant.VariantType.Online;
     }
 
-    private void SetVariantData(bool isOnline, bool is2player)
-    {
-        variantData.isOnline = isOnline;
-        variantData.is2player = is2player;
-    }
+
 }

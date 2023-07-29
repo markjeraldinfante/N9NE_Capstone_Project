@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraPivot : MonoBehaviour
 {
-    public Transform cam;
+    Transform cam;
     [SerializeField] public float camRotateValue = 5f;
     [SerializeField] private float rotateDuration = 0.125f;
     private float currentRotation = 0f;
     private void Awake()
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        cam = GetComponent<Transform>();
     }
     private void Start()
     {

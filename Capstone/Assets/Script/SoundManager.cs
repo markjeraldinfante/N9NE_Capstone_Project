@@ -37,7 +37,14 @@ namespace somnium
             Debug.Log("SFX volume: " + sfxVolume);
             Debug.Log("BGM volume: " + bgmVolume);
         }
-
+        public void onPlayMusic()
+        {
+            BGMSource.Play();
+        }
+        public void StopMusic()
+        {
+            BGMSource.Stop();
+        }
 
         public void PlayMusic(string name)
         {

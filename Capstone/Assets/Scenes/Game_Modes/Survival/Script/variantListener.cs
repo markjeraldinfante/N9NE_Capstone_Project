@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class variantListener : MonoBehaviour
 {
-    public baseSurvivalVariant variant;
-    public GameObject _1playerselection, _2playerselection, offlineStart, onlineStart;
+    public GameObject _1playerselection, _2playerselection;
 
-    private void Awake()
+    private void Start()
     {
-        _1playerselection.SetActive(true);
-        offlineStart.SetActive(true);
-        onlineStart.SetActive(false);
-
-        if (!variant.isOnline)
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.SinglePlayer)
         {
-            if (!variant.is2player)
-            {
-                _2playerselection.SetActive(false);
-            }
-            else
-                _2playerselection.SetActive(true);
+            _1playerselection.SetActive(true);
+        }
+        if (SavingState.instance.survivalVariant.variantType == baseSurvivalVariant.VariantType.TwoPlayer)
+        {
+            _1playerselection.SetActive(true);
+            _2playerselection.SetActive(true);
         }
     }
 }

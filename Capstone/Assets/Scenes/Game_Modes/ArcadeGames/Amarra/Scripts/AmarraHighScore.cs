@@ -6,7 +6,7 @@ using TMPro;
 public class AmarraHighScore : MonoBehaviour
 {
     public TextMeshProUGUI highscoreText;
-    public AmarraManager1 SOAmarra;
+    public MiniGameManager SOAmarra;
     void Awake()
     {
         var gameSystem = new GameSystem();

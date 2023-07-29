@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103018821726440620}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -57,6 +57,38 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: afc242af7c6aec64d9198bde9aa23008, type: 3}
     volume: 0
     pitch: 0
+  - name: LitexBG
+    audioClip: {fileID: 8300000, guid: bf1c394b4cdc4e743ab9b65eed7788d2, type: 3}
+    volume: 0
+    pitch: 0
+  - name: LitexMainMenuBG
+    audioClip: {fileID: 8300000, guid: bdc05bd327323984c9c12711a375a615, type: 3}
+    volume: 0
+    pitch: 0
+  - name: CedMinigameBackground
+    audioClip: {fileID: 8300000, guid: de445ba3e977c6d4cbd5184811c07d96, type: 3}
+    volume: 0
+    pitch: 0
+  - name: CedMinigameIngameBackground
+    audioClip: {fileID: 8300000, guid: f35dc405087e47a4fa4f0c9495f3d37f, type: 3}
+    volume: 0
+    pitch: 0
+  - name: StevenMinigameBg
+    audioClip: {fileID: 8300000, guid: bdc05bd327323984c9c12711a375a615, type: 3}
+    volume: 0
+    pitch: 0
+  - name: StevenMinigameIngameBg
+    audioClip: {fileID: 8300000, guid: bf1c394b4cdc4e743ab9b65eed7788d2, type: 3}
+    volume: 0
+    pitch: 0
+  - name: AmaraBg
+    audioClip: {fileID: 8300000, guid: 50d4ba8204359af4483f3b6184831136, type: 3}
+    volume: 0
+    pitch: 0
+  - name: AmaraIngameBg
+    audioClip: {fileID: 8300000, guid: e8c44c7a7f8464f48822763ed7cc246e, type: 3}
+    volume: 0
+    pitch: 0
   sounds_FX:
   - name: ButtonClick
     audioClip: {fileID: 8300000, guid: d8fbf96b1d3b7cb4e9cd3ef58bb6ffd7, type: 3}
@@ -79,47 +111,47 @@ MonoBehaviour:
     volume: 0
     pitch: 0
   - name: OmarPicking
-    audioClip: {fileID: 8300000, guid: a3024847bca18234d816d1dbfc24a5a3, type: 3}
+    audioClip: {fileID: 8300000, guid: ec9eca7d6265ca44a82f9ce6f04fe830, type: 3}
     volume: 0
     pitch: 0
   - name: RicoPicking
-    audioClip: {fileID: 8300000, guid: 1d382f3a417df58478c9530a4ad430b2, type: 3}
+    audioClip: {fileID: 8300000, guid: 0f4e37a6e15c52c478380485978d8114, type: 3}
     volume: 0
     pitch: 0
   - name: JunnieDeath
-    audioClip: {fileID: 8300000, guid: d10dac95c743ffc4fa886a0cd0b9187a, type: 3}
+    audioClip: {fileID: 8300000, guid: 7665792c260168c41852699e1d103e10, type: 3}
     volume: 0
     pitch: 0
   - name: JunnieLaugh
-    audioClip: {fileID: 8300000, guid: d82b8393745391c419b8936a6836dd0c, type: 3}
+    audioClip: {fileID: 8300000, guid: 992a3dc143d31cb419bcbdae5842df31, type: 3}
     volume: 0
     pitch: 0
   - name: OmarAttack
-    audioClip: {fileID: 8300000, guid: 426df34a5b58336458a559d7597c0472, type: 3}
+    audioClip: {fileID: 8300000, guid: 0253205959b0b1f4dbd9f40af5ea5d45, type: 3}
     volume: 0
     pitch: 0
   - name: OmarDeath
-    audioClip: {fileID: 8300000, guid: daef43ecee2a1bf4e9d9a32fb8dc4671, type: 3}
+    audioClip: {fileID: 8300000, guid: 46a797194b848724c89d3f2a4c64bad6, type: 3}
     volume: 0
     pitch: 0
   - name: OmarLaugh
-    audioClip: {fileID: 8300000, guid: 97ae11fa4f8cfb44fa86ecbfe19728b8, type: 3}
+    audioClip: {fileID: 8300000, guid: b4dbee1323dec094d8f3e1f20064fda4, type: 3}
     volume: 0
     pitch: 0
   - name: OmarCharacterSelect
-    audioClip: {fileID: 8300000, guid: e2ecef09bec8881469a3705c5949775e, type: 3}
+    audioClip: {fileID: 8300000, guid: 8456d2c544a694b4092623f1820a3cc4, type: 3}
     volume: 0
     pitch: 0
   - name: RicoCharacterSelect
-    audioClip: {fileID: 8300000, guid: 17e5280ca3a4b9946a5223a8c15f98df, type: 3}
+    audioClip: {fileID: 8300000, guid: 0f4e37a6e15c52c478380485978d8114, type: 3}
     volume: 0
     pitch: 0
-  - name: RicoDamage
-    audioClip: {fileID: 8300000, guid: 40e5fef6f5aa9fb4c873095b7c5ef5ec, type: 3}
+  - name: RicoDamageReceive
+    audioClip: {fileID: 8300000, guid: 04c6635ebd6f95e458decbc92d8442ba, type: 3}
     volume: 0
     pitch: 0
   - name: RicoLaugh
-    audioClip: {fileID: 8300000, guid: c61a4cd01bc8e134fab4a3e185651b79, type: 3}
+    audioClip: {fileID: 8300000, guid: 60cd66a890a13f9429857a20daa475fa, type: 3}
     volume: 0
     pitch: 0
   - name: DuruginMobs
@@ -134,36 +166,12 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 2e591a018c431b9478b16a86d7031ebb, type: 3}
     volume: 0
     pitch: 0
-  - name: CedMinigameBackground
-    audioClip: {fileID: 8300000, guid: 9d1bc2f89b1e99b40b9a6738cd323d15, type: 3}
-    volume: 0
-    pitch: 0
-  - name: CedMinigameIngameBackground
-    audioClip: {fileID: 8300000, guid: f35dc405087e47a4fa4f0c9495f3d37f, type: 3}
-    volume: 0
-    pitch: 0
   - name: CedMinigameCatch
     audioClip: {fileID: 8300000, guid: da9d910ddfa78cb47a41376bb9634639, type: 3}
     volume: 0
     pitch: 0
   - name: CedMinigameDeath
     audioClip: {fileID: 8300000, guid: 0fb5d180d1176254195bcdf4fea793ab, type: 3}
-    volume: 0
-    pitch: 0
-  - name: StevenMinigameBg
-    audioClip: {fileID: 8300000, guid: bdc05bd327323984c9c12711a375a615, type: 3}
-    volume: 0
-    pitch: 0
-  - name: StevenMinigameIngameBg
-    audioClip: {fileID: 8300000, guid: bf1c394b4cdc4e743ab9b65eed7788d2, type: 3}
-    volume: 0
-    pitch: 0
-  - name: AmaraBg
-    audioClip: {fileID: 8300000, guid: 50d4ba8204359af4483f3b6184831136, type: 3}
-    volume: 0
-    pitch: 0
-  - name: AmaraIngameBg
-    audioClip: {fileID: 8300000, guid: e8c44c7a7f8464f48822763ed7cc246e, type: 3}
     volume: 0
     pitch: 0
   - name: Dash
@@ -175,19 +183,47 @@ MonoBehaviour:
     volume: 0
     pitch: 0
   - name: RicoDeath
-    audioClip: {fileID: 8300000, guid: ea6688573f0f4f84cb2811f100f98d78, type: 3}
+    audioClip: {fileID: 8300000, guid: 656c4ca8d20029d4dafa9b1ebb1ec277, type: 3}
     volume: 0
     pitch: 0
   - name: RicoAttack
-    audioClip: {fileID: 8300000, guid: 231f69968643a324b88373bbcc13287e, type: 3}
+    audioClip: {fileID: 8300000, guid: b1b70f8e109b62143b1350907ad250af, type: 3}
     volume: 0
     pitch: 0
-  - name: OmarTakingDamage
-    audioClip: {fileID: 8300000, guid: fbc7644bf33b59744bdfeae6ae6e2935, type: 3}
+  - name: OmarDamageReceive
+    audioClip: {fileID: 8300000, guid: 98093b8acd0b2fe4a85b9cd55eb8cf69, type: 3}
     volume: 0
     pitch: 0
-  - name: JunnieTakingDamage
+  - name: JunnieDamageReceive
+    audioClip: {fileID: 8300000, guid: 25a5f99d26d47434baea9e48a4a98877, type: 3}
+    volume: 0
+    pitch: 0
+  - name: JunnieAttack
     audioClip: {fileID: 8300000, guid: ca92a082c02d8404e94b72a471f1ae6a, type: 3}
+    volume: 0
+    pitch: 0
+  - name: ShovelSlash
+    audioClip: {fileID: 8300000, guid: 6aa1352df2185594d9f2341c1e7cfa44, type: 3}
+    volume: 0
+    pitch: 0
+  - name: MeterstickSlash
+    audioClip: {fileID: 8300000, guid: 10a05218b2612eb49864d06922812028, type: 3}
+    volume: 0
+    pitch: 0
+  - name: SlingshotThrow
+    audioClip: {fileID: 8300000, guid: 0e5e152e7200c074b8b327ddf2ba1b15, type: 3}
+    volume: 0
+    pitch: 0
+  - name: SlipperThrow
+    audioClip: {fileID: 8300000, guid: 72b7f1b06f3236a429e832c72a8ea5ee, type: 3}
+    volume: 0
+    pitch: 0
+  - name: GameOverVoiceOver
+    audioClip: {fileID: 8300000, guid: 2735505efd662864bbd893fb7bb983c5, type: 3}
+    volume: 0
+    pitch: 0
+  - name: MolotovDestroy
+    audioClip: {fileID: 8300000, guid: 3eeae842bc4b46b4c8f48c5a63ebae0e, type: 3}
     volume: 0
     pitch: 0
 --- !u!1 &103018822029682579

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ObstacleCollision : MonoBehaviour
 {
-    public GameObject thePlayer;
-    public GameObject levelControls;
-    public Animation animator;
+    public delegate void OnEndGame();
+    public static event OnEndGame endGame;
+
 
 
     void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<Collider>().enabled=false;
-        thePlayer.GetComponent<EndelessMovement>().enabled=false;
-        levelControls.GetComponent<DistanceDisplay>().enabled=false;
-        levelControls.GetComponent<EndScoreDisplay>().enabled=true;
+        if (other.gameObject.tag == "Player")
+        {
+            Time.timeScale = 0f;
+            endGame?.Invoke();
+        }
+
 
     }
 }
